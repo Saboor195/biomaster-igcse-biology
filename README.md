@@ -40,15 +40,20 @@ Master your Cambridge IGCSE Biology (0610) exams with **BioMaster**, a modern, i
 
 ---
 
-## 🚀 How to Run
+## 🚀 Live Demo & How to Run
 
+### 🌐 Play Online
+You can practice and simulate exams instantly:
+👉 **[Live App on GitHub Pages](https://saboor195.github.io/biomaster-igcse-biology/)**
+
+### 💻 Run Locally
 No installation, build steps, or server configuration is required!
 
 1. Download or clone this repository:
    ```bash
    git clone https://github.com/Saboor195/biomaster-igcse-biology.git
    ```
-2. Open [index.html](file:///c:/Users/MSI/OneDrive/Desktop/MATHS/index.html) directly in any modern web browser (Chrome, Firefox, Safari, Edge).
+2. Open `index.html` directly in any modern web browser (Chrome, Firefox, Safari, Edge).
 
 ---
 
