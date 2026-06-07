@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioMaster — IGCSE Biology MCQ Practice</title>
+<meta name="description" content="Master Cambridge IGCSE Biology (0610) with 130+ past-paper-style MCQs. Beautiful, interactive, and free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#050a14;
+  --bg2:#0b1120;
+  --card:#0f1729;
+  --card-hover:#141e33;
+  --surface:#1a2540;
+  --glass:rgba(15,23,41,0.65);
+  --glass-border:rgba(255,255,255,0.06);
+  --g1:#00ffa3;--g2:#00d4ff;--g3:#a855f7;--g4:#ec4899;
+  --accent:#00e89d;--accent2:#00c4ff;--accent3:#a855f7;
+  --correct:#00e89d;--wrong:#ff4d6a;--warn:#ffb800;
+  --text:#edf2f7;--text2:#8899b4;--text3:#506380;
+  --border:#1a2744;--border2:#253354;
+  --r:16px;--r2:12px;--r3:8px;
+}
+
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Outfit',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ====== ANIMATED BACKGROUND ====== */
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-glow .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.12;animation:orbFloat 20s ease-in-out infinite}
+.bg-glow .orb:nth-child(1){width:600px;height:600px;background:var(--g1);top:-15%;left:-10%;animation-delay:0s}
+.bg-glow .orb:nth-child(2){width:500px;height:500px;background:var(--g2);top:50%;right:-10%;animation-delay:-7s}
+.bg-glow .orb:nth-child(3){width:400px;height:400px;background:var(--g3);bottom:-10%;left:30%;animation-delay:-13s}
+.bg-glow .orb:nth-child(4){width:350px;height:350px;background:var(--g4);top:20%;left:60%;animation-delay:-4s;opacity:0.06}
+@keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,30px) scale(0.95)}75%{transform:translate(40px,20px) scale(1.02)}}
+
+/* Grid pattern overlay */
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
+  background-size:60px 60px}
+
+/* Floating DNA particles */
+canvas#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+
+/* ====== HEADER ====== */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(5,10,20,0.7);
+  backdrop-filter:blur(30px) saturate(1.5);
+  border-bottom:1px solid var(--glass-border);
+  padding:0 24px;
+}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-icon{
+  width:42px;height:42px;
+  background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;
+  box-shadow:0 0 25px rgba(0,255,163,0.2);
+  animation:logoPulse 3s ease-in-out infinite;
+}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 20px rgba(0,255,163,0.15)}50%{box-shadow:0 0 35px rgba(0,255,163,0.3)}}
+.logo-text{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px;
+  background:linear-gradient(135deg,var(--g1),var(--g2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header-stats{display:flex;gap:14px;align-items:center}
+.h-stat{
+  display:flex;align-items:center;gap:7px;
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--glass-border);
+  border-radius:24px;
+  padding:7px 16px;
+  font-size:0.82rem;font-weight:600;
+}
+.h-stat .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-g{background:var(--correct);box-shadow:0 0 8px var(--correct)}
+.dot-r{background:var(--wrong);box-shadow:0 0 8px var(--wrong)}
+.dot-y{background:var(--warn);box-shadow:0 0 8px var(--warn)}
+
+/* ====== TABS ====== */
+.tabs-wrap{padding:0 20px;position:relative;z-index:1}
+.tabs{
+  display:flex;gap:4px;
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:16px;
+  padding:5px;
+  margin:20px auto;
+  max-width:720px;
+}
+.tab{
+  flex:1;padding:11px 6px;text-align:center;
+  border-radius:12px;
+  font-size:0.8rem;font-weight:600;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  color:var(--text2);
+  border:none;background:none;
+  font-family:inherit;
+  position:relative;overflow:hidden;
+}
+.tab:hover{color:var(--text);background:rgba(255,255,255,0.03)}
+.tab.active{
+  background:linear-gradient(135deg,var(--g1),var(--g2));
+  color:#050a14;
+  font-weight:700;
+  box-shadow:0 4px 20px rgba(0,232,157,0.25),0 0 60px rgba(0,232,157,0.08);
+}
+.tab .ti{display:block;font-size:1.15rem;margin-bottom:2px}
+
+/* ====== CONTAINER ====== */
+.container{max-width:920px;margin:0 auto;padding:20px 20px 80px;position:relative;z-index:1}
+
+/* ====== PANELS ====== */
+.panel{display:none;animation:panelIn .4s cubic-bezier(.4,0,.2,1)}
+.panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ====== SECTION TITLE ====== */
+.stitle{font-size:1.6rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px;
+  background:linear-gradient(135deg,var(--text),var(--text2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ssub{color:var(--text3);font-size:0.88rem;margin-bottom:28px;font-weight:400}
+
+/* ====== TOPIC CARDS ====== */
+.topics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.topic-card{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);
+  padding:22px;
+  cursor:pointer;
+  transition:all .35s cubic-bezier(.4,0,.2,1);
+  position:relative;overflow:hidden;
+}
+.topic-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,163,0.04),rgba(0,196,255,0.04));opacity:0;transition:opacity .35s}
+.topic-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));transform:scaleX(0);transition:transform .35s;transform-origin:left}
+.topic-card:hover{transform:translateY(-4px);border-color:rgba(0,232,157,0.2);box-shadow:0 12px 40px rgba(0,232,157,0.08)}
+.topic-card:hover::before{opacity:1}
+.topic-card:hover::after{transform:scaleX(1)}
+.tc-num{font-size:0.68rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.tc-name{font-size:0.98rem;font-weight:700;margin-bottom:12px;line-height:1.3}
+.tc-emoji{position:absolute;right:16px;top:16px;font-size:1.5rem;opacity:0.15;transition:opacity .3s}
+.topic-card:hover .tc-emoji{opacity:0.4}
+.tc-bar{display:flex;justify-content:space-between;align-items:center}
+.tc-count{font-size:0.76rem;color:var(--text3);font-weight:500}
+.tc-prog{width:70px;height:4px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
+.tc-prog-fill{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+
+/* ====== QUESTION CARD ====== */
+.qc{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);
+  padding:28px;
+  margin-bottom:16px;
+  transition:all .3s;
+}
+.qc:hover{border-color:rgba(255,255,255,0.08)}
+.qc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:10px}
+.qc-num{
+  font-size:0.7rem;font-weight:700;
+  background:linear-gradient(135deg,var(--g1),var(--g2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  text-transform:uppercase;letter-spacing:2px;
+}
+.qc-badge{
+  font-size:0.65rem;font-weight:600;
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--glass-border);
+  border-radius:20px;padding:4px 12px;
+  color:var(--text2);white-space:nowrap;
+}
+.qc-text{font-size:1.02rem;font-weight:500;line-height:1.7;margin-bottom:22px}
+.opts{display:grid;gap:10px}
+.opt{
+  display:flex;align-items:center;gap:16px;
+  padding:15px 20px;
+  border-radius:var(--r2);
+  border:1.5px solid rgba(255,255,255,0.06);
+  cursor:pointer;
+  transition:all .25s cubic-bezier(.4,0,.2,1);
+  background:rgba(255,255,255,0.02);
+}
+.opt:hover:not(.dis){
+  border-color:rgba(0,232,157,0.3);
+  background:rgba(0,232,157,0.04);
+  transform:translateX(6px);
+  box-shadow:0 4px 20px rgba(0,232,157,0.06);
+}
+.opt.dis{cursor:default;pointer-events:none}
+.opt-l{
+  width:34px;height:34px;
+  border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:0.85rem;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  flex-shrink:0;
+  transition:all .25s;
+}
+.opt-t{font-size:0.92rem;line-height:1.5;font-weight:400}
+.opt.correct{border-color:var(--correct);background:rgba(0,232,157,0.06)}
+.opt.correct .opt-l{background:var(--correct);color:#050a14;border-color:var(--correct);box-shadow:0 0 15px rgba(0,232,157,0.3)}
+.opt.wrong{border-color:var(--wrong);background:rgba(255,77,106,0.06)}
+.opt.wrong .opt-l{background:var(--wrong);color:#fff;border-color:var(--wrong);box-shadow:0 0 15px rgba(255,77,106,0.3)}
+
+.expl{
+  margin-top:16px;padding:16px 20px;
+  background:rgba(0,232,157,0.04);
+  border-left:3px solid var(--accent);
+  border-radius:0 var(--r3) var(--r3) 0;
+  font-size:0.88rem;color:var(--text2);line-height:1.65;
+  animation:panelIn .3s ease;
+}
+
+/* ====== BUTTONS ====== */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 26px;
+  border-radius:var(--r2);
+  font-weight:600;font-size:0.88rem;
+  cursor:pointer;
+  transition:all .3s cubic-bezier(.4,0,.2,1);
+  border:none;font-family:inherit;
+  position:relative;overflow:hidden;
+}
+.btn-p{
+  background:linear-gradient(135deg,var(--g1),var(--g2));
+  color:#050a14;
+  box-shadow:0 4px 20px rgba(0,232,157,0.2);
+}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,232,157,0.3)}
+.btn-s{background:rgba(255,255,255,0.04);color:var(--text);border:1px solid var(--glass-border)}
+.btn-s:hover{border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04)}
+.btn-d{background:var(--wrong);color:#fff}
+.btns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+
+/* ====== PROGRESS BAR ====== */
+.pbar{background:rgba(255,255,255,0.04);border-radius:6px;height:6px;overflow:hidden;margin:8px 0}
+.pbar-f{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:6px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+
+/* ====== MOCK TEST ====== */
+.mock-h{text-align:center;margin-bottom:32px}
+.mock-h h2{font-size:1.8rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px;
+  background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.mock-h p{color:var(--text3);font-size:0.9rem}
+.mock-timer{
+  font-family:'JetBrains Mono',monospace;
+  font-size:2.4rem;font-weight:600;
+  text-align:center;margin:16px 0;
+  background:linear-gradient(135deg,var(--g1),var(--g2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.mock-prog{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.85rem;color:var(--text3)}
+.mock-prog span{font-weight:700;color:var(--text)}
+
+/* ====== RESULTS ====== */
+.res-card{
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);
+  padding:40px 32px;
+  text-align:center;
+}
+.res-score{
+  font-size:5rem;font-weight:900;
+  background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin:10px 0;
+  line-height:1;
+}
+.res-grade{font-size:1.3rem;font-weight:700;margin-bottom:8px}
+.res-detail{color:var(--text3);font-size:0.9rem;margin-bottom:24px}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left;margin-top:28px}
+.res-item{
+  background:rgba(255,255,255,0.03);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r2);
+  padding:16px;
+}
+.res-item .ri-t{font-size:0.76rem;font-weight:600;color:var(--text3);margin-bottom:4px}
+.res-item .ri-s{font-size:1.1rem;font-weight:700}
+
+/* ====== WEAK AREAS ====== */
+.w-empty{text-align:center;padding:60px 20px;color:var(--text3)}
+.w-empty .icon{font-size:3.5rem;margin-bottom:16px}
+.w-item{
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r);
+  padding:20px;
+  margin-bottom:12px;
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;
+  transition:all .3s;
+}
+.w-item:hover{border-color:rgba(255,255,255,0.1);transform:translateX(4px)}
+.w-item h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}
+.w-item p{font-size:0.78rem;color:var(--text3)}
+.w-pct{font-size:1.6rem;font-weight:800}
+.w-pct.bad{color:var(--wrong)}
+.w-pct.ok{color:var(--warn)}
+.w-pct.good{color:var(--correct)}
+
+/* ====== TRAPS ====== */
+.trap-card{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--glass-border);
+  border-left:3px solid var(--warn);
+  border-radius:var(--r);
+  padding:24px;
+  margin-bottom:14px;
+  transition:all .3s;
+}
+.trap-card:hover{transform:translateX(4px);border-left-color:var(--g1)}
+.trap-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.trap-icon{font-size:1.8rem}
+.trap-title{font-size:1rem;font-weight:700;color:var(--warn)}
+.trap-body{font-size:0.9rem;line-height:1.7;color:var(--text2)}
+
+/* ====== FILTER BAR ====== */
+.fbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
+.fbar select{
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  color:var(--text);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r3);
+  padding:9px 14px;
+  font-family:inherit;font-size:0.82rem;
+  cursor:pointer;
+  transition:border-color .3s;
+}
+.fbar select:focus{outline:none;border-color:var(--accent)}
+
+/* ====== BACK BTN ====== */
+.back-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.back-btn{
+  background:none;border:none;color:var(--text3);cursor:pointer;
+  font-size:0.9rem;display:flex;align-items:center;gap:6px;
+  font-family:inherit;font-weight:600;transition:all .3s;
+}
+.back-btn:hover{color:var(--accent);transform:translateX(-4px)}
+
+/* ====== FORM CONTROLS ====== */
+.form-group{margin-bottom:18px}
+.form-label{font-size:0.85rem;font-weight:600;display:block;margin-bottom:8px;color:var(--text2)}
+.form-select{
+  width:100%;padding:12px 16px;
+  background:var(--glass);
+  backdrop-filter:blur(10px);
+  color:var(--text);
+  border:1px solid var(--glass-border);
+  border-radius:var(--r2);
+  font-family:inherit;font-size:0.9rem;
+  cursor:pointer;transition:border-color .3s;
+}
+.form-select:focus{outline:none;border-color:var(--accent)}
+
+/* ====== STREAK BADGE ====== */
+.streak{
+  position:fixed;top:82px;right:20px;z-index:50;
+  background:var(--glass);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,184,0,0.3);
+  border-radius:var(--r2);
+  padding:10px 18px;
+  font-size:0.85rem;font-weight:700;
+  color:var(--warn);
+  display:none;
+  animation:panelIn .3s ease;
+  box-shadow:0 4px 25px rgba(255,184,0,0.15);
+}
+
+/* ====== SELECTION HIGHLIGHT ====== */
+.opt.selected{border-color:var(--accent2);background:rgba(0,196,255,0.06)}
+.opt.selected .opt-l{background:var(--accent2);color:#050a14;border-color:var(--accent2)}
+
+/* ====== RESPONSIVE ====== */
+@media(max-width:640px){
+  .header-stats{display:none}
+  .tabs{max-width:100%}
+  .tab{font-size:0.7rem;padding:9px 4px}
+  .tab .ti{font-size:1rem}
+  .qc{padding:20px 16px}
+  .topics-grid{grid-template-columns:1fr}
+  .res-score{font-size:3.5rem}
+  .stitle{font-size:1.3rem}
+  .mock-timer{font-size:1.8rem}
+}
+</style>
+</head>
+<body>
+
+<!-- Animated background -->
+<div class="bg-glow">
+  <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
+</div>
+<div class="bg-grid"></div>
+<canvas id="particles"></canvas>
+<canvas id="confetti"></canvas>
+<div class="streak" id="streakBadge">🔥 <span id="streakCount">0</span> Streak!</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">🧬</div>
+      <div class="logo-text">BioMaster</div>
+    </div>
+    <div class="header-stats">
+      <div class="h-stat"><div class="dot dot-g"></div><span id="hC">0</span> Correct</div>
+      <div class="h-stat"><div class="dot dot-r"></div><span id="hW">0</span> Wrong</div>
+      <div class="h-stat"><div class="dot dot-y"></div><span id="hP">0%</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- Tabs -->
+<div class="tabs-wrap">
+  <div class="tabs" id="tabsBar">
+    <button class="tab active" data-tab="topics"><span class="ti">📚</span>Topics</button>
+    <button class="tab" data-tab="all"><span class="ti">📝</span>All MCQs</button>
+    <button class="tab" data-tab="weak"><span class="ti">⚡</span>Weak Areas</button>
+    <button class="tab" data-tab="mock"><span class="ti">🧪</span>Mock Test</button>
+    <button class="tab" data-tab="traps"><span class="ti">🪤</span>Traps</button>
+  </div>
+</div>
+
+<!-- Main Content -->
+<main class="container">
+
+  <!-- TOPICS -->
+  <div class="panel active" id="panel-topics">
+    <h2 class="stitle">Study by Topic</h2>
+    <p class="ssub">Master each topic. Your progress auto-saves.</p>
+    <div class="topics-grid" id="topicsGrid"></div>
+  </div>
+
+  <!-- TOPIC DETAIL -->
+  <div class="panel" id="panel-topic-detail">
+    <div class="back-row"><button class="back-btn" onclick="showPanel('topics')">← Back to Topics</button></div>
+    <h2 class="stitle" id="tdTitle"></h2>
+    <p class="ssub" id="tdSub"></p>
+    <div id="tdQs"></div>
+  </div>
+
+  <!-- ALL MCQs -->
+  <div class="panel" id="panel-all">
+    <h2 class="stitle">All MCQs</h2>
+    <p class="ssub">130 exam-style questions · Filter by topic or status</p>
+    <div class="fbar">
+      <select id="fTopic" onchange="renderAll()"><option value="all">All Topics</option></select>
+      <select id="fStatus" onchange="renderAll()">
+        <option value="all">All</option><option value="unanswered">Unanswered</option>
+        <option value="correct">Correct</option><option value="wrong">Wrong</option>
+      </select>
+    </div>
+    <div id="allQs"></div>
+  </div>
+
+  <!-- WEAK AREAS -->
+  <div class="panel" id="panel-weak">
+    <h2 class="stitle">Weak Areas</h2>
+    <p class="ssub">Topics below 70% — focus here for maximum gains</p>
+    <div id="weakList"></div>
+  </div>
+
+  <!-- MOCK TEST -->
+  <div class="panel" id="panel-mock">
+    <div id="mockSetup">
+      <div class="mock-h">
+        <h2>🧪 Mock Test</h2>
+        <p>Simulate a real Cambridge IGCSE Biology Paper</p>
+      </div>
+      <div style="max-width:420px;margin:0 auto">
+        <div class="form-group">
+          <label class="form-label">Number of Questions</label>
+          <select class="form-select" id="mCount">
+            <option value="10">10 Questions — Quick Quiz</option>
+            <option value="20">20 Questions — Half Paper</option>
+            <option value="40" selected>40 Questions — Full Paper</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Timer</label>
+          <select class="form-select" id="mTimer">
+            <option value="0">No Timer</option>
+            <option value="15">15 min</option>
+            <option value="30">30 min</option>
+            <option value="45" selected>45 min (Real Exam)</option>
+            <option value="60">60 min</option>
+          </select>
+        </div>
+        <button class="btn btn-p" style="width:100%;justify-content:center;padding:14px;font-size:0.95rem" onclick="startMock()">Start Mock Test →</button>
+      </div>
+    </div>
+    <div id="mockActive" style="display:none">
+      <div class="mock-timer" id="mTimerDisp">45:00</div>
+      <div class="mock-prog">
+        Question <span id="mCur">1</span> of <span id="mTot">40</span>
+        <div style="flex:1"><div class="pbar"><div class="pbar-f" id="mProgBar" style="width:0%"></div></div></div>
+      </div>
+      <div id="mQArea"></div>
+      <div class="btns" style="justify-content:space-between">
+        <button class="btn btn-s" id="mPrev" onclick="mockNav(-1)" disabled>← Previous</button>
+        <button class="btn btn-p" id="mNext" onclick="mockNav(1)">Next →</button>
+      </div>
+    </div>
+    <div id="mockResults" style="display:none"></div>
+  </div>
+
+  <!-- TRAPS -->
+  <div class="panel" id="panel-traps">
+    <h2 class="stitle">🪤 Common Examiner Traps</h2>
+    <p class="ssub">Know these to avoid losing easy marks</p>
+    <div id="trapsList"></div>
+  </div>
+
+</main>
+
+<script>
+// =================== DATA ===================
+const Q=[
+  {id:1,t:"Cell Biology",q:"Which structure is found in plant cells but NOT in animal cells?",o:["Cell membrane","Cell wall","Mitochondria","Nucleus"],a:1,e:"Cell walls (made of cellulose) are unique to plant cells."},
+  {id:2,t:"Cell Biology",q:"Which organelle is the site of aerobic respiration?",o:["Chloroplast","Ribosome","Mitochondria","Vacuole"],a:2,e:"Mitochondria are the 'powerhouse' of the cell."},
+  {id:3,t:"Cell Biology",q:"In a plant cell, where does photosynthesis occur?",o:["Chloroplast","Mitochondria","Nucleus","Vacuole"],a:0,e:"Chloroplasts contain chlorophyll for photosynthesis."},
+  {id:4,t:"Cell Biology",q:"Heart muscle cells have a high metabolic rate. Which organelle would be present in high numbers?",o:["Chloroplasts","Mitochondria","Cell walls","Vacuoles"],a:1,e:"High metabolic rate requires more energy from mitochondria."},
+  {id:5,t:"Cell Biology",q:"What is the function of the cell membrane?",o:["To provide rigid support","To control entry and exit of substances","To produce proteins","To store genetic information"],a:1,e:"The cell membrane is partially permeable, controlling substance movement."},
+  {id:6,t:"Cell Biology",q:"A cell has a nucleus, cell membrane, cytoplasm but no cell wall or chloroplasts. What type is it?",o:["A bacterial cell","A plant leaf cell","An animal cell","A root hair cell"],a:2,e:"Animal cells lack cell walls and chloroplasts."},
+  {id:7,t:"Cell Biology",q:"What is the correct order of organisation from smallest to largest?",o:["Organ → tissue → cell → system","Cell → tissue → organ → organ system","Tissue → cell → organ → system","Cell → organ → tissue → system"],a:1,e:"Cell → Tissue → Organ → Organ system."},
+  {id:8,t:"Cell Biology",q:"Magnification is ×400. Image of a cell is 2 mm. What is the actual size?",o:["0.005 mm","0.05 mm","5 mm","800 mm"],a:0,e:"Actual = Image ÷ Magnification = 2 ÷ 400 = 0.005 mm"},
+  {id:9,t:"Cell Biology",q:"Which organelle is responsible for protein synthesis?",o:["Mitochondria","Nucleus","Ribosome","Vacuole"],a:2,e:"Ribosomes are the site of protein synthesis."},
+  {id:10,t:"Classification",q:"Which characteristic is shared by ALL living organisms?",o:["Movement by locomotion","Photosynthesis","Excretion","Growth of new limbs"],a:2,e:"All living things excrete (MRS GREN)."},
+  {id:11,t:"Classification",q:"Which group of organisms are all vertebrates?",o:["Insects, fish, birds","Fish, amphibians, reptiles","Spiders, reptiles, mammals","Worms, fish, mammals"],a:1,e:"Fish, amphibians, reptiles are all vertebrate groups."},
+  {id:12,t:"Classification",q:"A dichotomous key is used to:",o:["Show how organisms evolved","Identify and classify organisms","Show feeding relationships","Measure population size"],a:1,e:"Dichotomous keys classify organisms using paired statements."},
+  {id:13,t:"Classification",q:"Which feature classifies an organism as a mammal?",o:["Lays eggs","Has a backbone","Has hair/fur and produces milk","Has feathers"],a:2,e:"Hair/fur and milk production define mammals."},
+  {id:14,t:"Classification",q:"'Removal of toxic waste products of metabolism' defines which process?",o:["Excretion","Egestion","Secretion","Nutrition"],a:0,e:"Excretion = removing metabolic waste (urea, CO₂)."},
+  {id:15,t:"Movement In & Out of Cells",q:"Which process requires energy to move substances against a concentration gradient?",o:["Diffusion","Osmosis","Active transport","Passive transport"],a:2,e:"Active transport uses ATP to move against the gradient."},
+  {id:16,t:"Movement In & Out of Cells",q:"Osmosis is best defined as:",o:["Movement of molecules from high to low concentration","Net movement of water from higher to lower water potential through a partially permeable membrane","Movement of ions using energy","Movement of particles without a gradient"],a:1,e:"Osmosis = WATER through a partially permeable membrane."},
+  {id:17,t:"Movement In & Out of Cells",q:"Which is NOT a factor affecting the rate of diffusion?",o:["Temperature","Surface area","Distance","Colour of the membrane"],a:3,e:"Colour has no effect on diffusion rate."},
+  {id:18,t:"Movement In & Out of Cells",q:"Why do root hair cells use active transport to absorb mineral ions?",o:["Ion concentration is higher in soil","Ion concentration is lower in soil than in root","Ions are too large to diffuse","Water is absent in soil"],a:1,e:"Ions move against the gradient (low soil → high root)."},
+  {id:19,t:"Movement In & Out of Cells",q:"Potato in concentrated sugar solution becomes soft and flaccid. What happened?",o:["Water moved into the potato by osmosis","Water moved out of the potato by osmosis","Sugar moved into the potato","Sugar moved out by active transport"],a:1,e:"Water moves from high potential (potato) to low potential (sugar solution)."},
+  {id:20,t:"Movement In & Out of Cells",q:"A plant cell in pure water becomes turgid because:",o:["Water leaves by osmosis","Water enters by osmosis; cell wall prevents bursting","Salts enter by diffusion","The cell wall dissolves"],a:1,e:"Cell wall prevents lysis; cell becomes turgid."},
+  {id:21,t:"Movement In & Out of Cells",q:"How do villi absorb glucose when concentration is already higher inside the cell?",o:["Diffusion","Osmosis","Active transport","Evaporation"],a:2,e:"Active transport moves glucose against its concentration gradient."},
+  {id:22,t:"Biological Molecules",q:"Which test turns blue to brick-red/orange with reducing sugars?",o:["Iodine test","Benedict's test","Biuret test","Ethanol emulsion test"],a:1,e:"Benedict's reagent changes colour when heated with reducing sugars."},
+  {id:23,t:"Biological Molecules",q:"Iodine turns brown to blue-black in the presence of:",o:["Glucose","Protein","Starch","Fat"],a:2,e:"Iodine test is specifically for starch."},
+  {id:24,t:"Biological Molecules",q:"Which element is in proteins but NOT in carbohydrates?",o:["Carbon","Hydrogen","Oxygen","Nitrogen"],a:3,e:"Proteins contain C, H, O, N. Carbohydrates only have C, H, O."},
+  {id:25,t:"Biological Molecules",q:"The Biuret test detects:",o:["Starch","Reducing sugars","Protein","Lipids"],a:2,e:"Biuret turns blue to purple/violet with protein."},
+  {id:26,t:"Biological Molecules",q:"Which food molecule gives the most energy per gram?",o:["Carbohydrate","Protein","Fat/Lipid","Vitamin"],a:2,e:"Fats ≈ 37 kJ/g vs carbs ≈ 17 kJ/g."},
+  {id:27,t:"Enzymes",q:"Enzymes are biological catalysts. This means they:",o:["Slow down reactions","Speed up reactions without being used up","Are used up in the reaction","Change the products"],a:1,e:"Catalysts speed up reactions and are reusable."},
+  {id:28,t:"Enzymes",q:"The 'lock and key' model means:",o:["All enzymes work on any substrate","Substrate has the same shape as active site","Substrate has a complementary shape to the active site","Enzymes permanently change shape after reaction"],a:2,e:"'Complementary' — not 'same shape' — is the Cambridge keyword."},
+  {id:29,t:"Enzymes",q:"What happens above the optimum temperature?",o:["Enzyme works faster","Enzyme is denatured — active site changes shape","Enzyme dissolves","Enzyme becomes stronger"],a:1,e:"Denaturation = permanent change in active site shape."},
+  {id:30,t:"Enzymes",q:"Which enzyme digests starch into maltose?",o:["Protease","Lipase","Amylase","Maltase"],a:2,e:"Amylase: starch → maltose. Maltase: maltose → glucose."},
+  {id:31,t:"Enzymes",q:"Optimum pH for pepsin (stomach enzyme) is approximately:",o:["pH 2","pH 7","pH 9","pH 14"],a:0,e:"Pepsin works best in acidic conditions (pH ~2)."},
+  {id:32,t:"Enzymes",q:"Enzyme activity rises to 37°C then rapidly drops. What explains the decrease?",o:["Substrate ran out","Enzyme was denatured","pH changed","Enzyme multiplied"],a:1,e:"Above optimum, enzymes denature."},
+  {id:33,t:"Enzymes",q:"Why does boiling permanently destroy enzyme activity?",o:["Changes the colour","Permanently alters the active site shape","Increases enzyme concentration","Removes water from enzyme"],a:1,e:"Boiling causes irreversible denaturation."},
+  {id:34,t:"Plant Nutrition",q:"Word equation for photosynthesis:",o:["Glucose + O₂ → CO₂ + H₂O","CO₂ + H₂O → glucose + O₂","Glucose → CO₂ + H₂O + energy","O₂ + glucose → CO₂ + H₂O"],a:1,e:"Photosynthesis: CO₂ + H₂O → (light) → Glucose + O₂"},
+  {id:35,t:"Plant Nutrition",q:"Which gas is produced during photosynthesis?",o:["Carbon dioxide","Nitrogen","Oxygen","Hydrogen"],a:2,e:"Oxygen is a by-product of photosynthesis."},
+  {id:36,t:"Plant Nutrition",q:"Where in a leaf cell does photosynthesis mainly occur?",o:["Mitochondria","Nucleus","Cell wall","Chloroplast"],a:3,e:"Chloroplasts contain chlorophyll."},
+  {id:37,t:"Plant Nutrition",q:"Which is NOT a limiting factor of photosynthesis?",o:["Light intensity","CO₂ concentration","Oxygen concentration","Temperature"],a:2,e:"Oxygen is a product, not a limiting factor."},
+  {id:38,t:"Plant Nutrition",q:"Plant kept in dark 48h, leaf tested with iodine. Result?",o:["Blue-black (starch present)","Brown/yellow (no starch)","Purple","Red"],a:1,e:"No light → no photosynthesis → no starch."},
+  {id:39,t:"Plant Nutrition",q:"Which leaf layer is adapted for maximum light absorption?",o:["Lower epidermis","Spongy mesophyll","Palisade mesophyll","Guard cells"],a:2,e:"Palisade layer: top of leaf, packed with chloroplasts."},
+  {id:40,t:"Plant Nutrition",q:"Stomata are important for photosynthesis because they:",o:["Absorb water from rain","Allow CO₂ to enter the leaf","Produce chlorophyll","Store starch"],a:1,e:"Stomata allow CO₂ gas exchange."},
+  {id:41,t:"Plant Nutrition",q:"Plants need magnesium ions for:",o:["Making cell walls","Making chlorophyll","Making proteins","Making DNA"],a:1,e:"Mg²⁺ is a component of chlorophyll."},
+  {id:42,t:"Plant Nutrition",q:"A plant deficient in nitrate ions would show:",o:["Yellow leaves","Stunted growth and yellow older leaves","Purple leaves","No roots"],a:1,e:"Nitrates needed for amino acids/proteins; deficiency = stunted growth."},
+  {id:43,t:"Human Nutrition",q:"Which vitamin deficiency causes scurvy?",o:["Vitamin A","Vitamin C","Vitamin D","Iron"],a:1,e:"Vitamin C deficiency → scurvy (bleeding gums)."},
+  {id:44,t:"Human Nutrition",q:"What is the role of bile in digestion?",o:["Digests protein","Emulsifies fats into smaller droplets","Digests starch","Absorbs water"],a:1,e:"Bile is NOT an enzyme — it emulsifies fats for lipase."},
+  {id:45,t:"Human Nutrition",q:"Where is bile produced and stored?",o:["Produced in gallbladder, stored in liver","Produced in liver, stored in gallbladder","Produced in pancreas, stored in stomach","Produced in stomach, stored in liver"],a:1,e:"Bile: made in LIVER, stored in GALLBLADDER."},
+  {id:46,t:"Human Nutrition",q:"Main site of absorption of digested food?",o:["Stomach","Large intestine","Small intestine (ileum)","Oesophagus"],a:2,e:"Ileum has villi for maximum surface area."},
+  {id:47,t:"Human Nutrition",q:"Villi increase absorption rate because they:",o:["Produce enzymes","Increase the surface area","Contain bile","Produce HCl"],a:1,e:"Villi = increased surface area."},
+  {id:48,t:"Human Nutrition",q:"Peristalsis is:",o:["Chemical breakdown of food","Wave-like contractions pushing food through the gut","Absorption of nutrients","Production of enzymes"],a:1,e:"Peristalsis = rhythmic muscular contractions."},
+  {id:49,t:"Human Nutrition",q:"Which nutrient is digested by lipase?",o:["Starch","Protein","Fat","Cellulose"],a:2,e:"Lipase → fats → fatty acids + glycerol."},
+  {id:50,t:"Human Nutrition",q:"Dietary fibre is important because it:",o:["Provides energy","Prevents constipation by adding bulk","Builds muscles","Prevents scurvy"],a:1,e:"Fibre adds bulk, stimulates peristalsis."},
+  {id:51,t:"Transport in Plants",q:"Water moves upwards through a plant in the:",o:["Phloem","Xylem","Epidermis","Palisade cells"],a:1,e:"Xylem transports water and minerals upwards."},
+  {id:52,t:"Transport in Plants",q:"Water loss from leaves through stomata is called:",o:["Transpiration","Translation","Respiration","Photosynthesis"],a:0,e:"Transpiration = water loss via stomata."},
+  {id:53,t:"Transport in Plants",q:"Which factor increases transpiration rate?",o:["High humidity","Low temperature","High wind speed","Darkness"],a:2,e:"Wind removes water vapour, increasing the gradient."},
+  {id:54,t:"Transport in Plants",q:"Translocation is the transport of:",o:["Water in xylem","Minerals in xylem","Sucrose and amino acids in phloem","Oxygen in air spaces"],a:2,e:"Translocation = sugars & amino acids in phloem."},
+  {id:55,t:"Transport in Plants",q:"Root hair cells are adapted for water absorption because they:",o:["Have a thick cell wall","Have a large surface area","Contain chloroplasts","Have no vacuole"],a:1,e:"Long extension = large surface area for osmosis."},
+  {id:56,t:"Transport in Plants",q:"Xylem vessels are described as:",o:["Living cells with end walls","Dead cells with no end walls, strengthened by lignin","Living cells transporting sugars","Cells with thin walls and large vacuoles"],a:1,e:"Xylem: dead, hollow, reinforced with lignin."},
+  {id:57,t:"Transport in Animals",q:"Which vessel carries oxygenated blood from heart to body?",o:["Pulmonary artery","Vena cava","Aorta","Pulmonary vein"],a:2,e:"Aorta carries oxygenated blood from left ventricle."},
+  {id:58,t:"Transport in Animals",q:"Why is the left ventricle thicker than the right?",o:["Pumps to lungs only","Pumps at higher pressure to the whole body","Receives blood from lungs","Contains deoxygenated blood"],a:1,e:"Left ventricle pumps to the whole body — more force needed."},
+  {id:59,t:"Transport in Animals",q:"Which blood vessel has valves to prevent backflow?",o:["Arteries","Capillaries","Veins","Aorta"],a:2,e:"Veins have valves (low pressure blood)."},
+  {id:60,t:"Transport in Animals",q:"Correct pathway of blood through the heart:",o:["Vena cava → left atrium → left ventricle → aorta","Vena cava → right atrium → right ventricle → pulmonary artery","Pulmonary vein → right atrium → right ventricle → aorta","Aorta → left atrium → left ventricle → vena cava"],a:1,e:"Vena cava → RA → RV → Pulmonary artery → Lungs."},
+  {id:61,t:"Transport in Animals",q:"Capillaries allow exchange of substances because:",o:["Thick muscular walls","They have valves","Walls are one cell thick","Blood is at high pressure"],a:2,e:"One-cell-thick walls = rapid diffusion."},
+  {id:62,t:"Transport in Animals",q:"Which blood component carries oxygen?",o:["White blood cells","Platelets","Plasma","Red blood cells (haemoglobin)"],a:3,e:"Red blood cells contain haemoglobin."},
+  {id:63,t:"Transport in Animals",q:"The function of platelets is to:",o:["Carry oxygen","Fight infection","Help with blood clotting","Transport dissolved substances"],a:2,e:"Platelets help form clots."},
+  {id:64,t:"Transport in Animals",q:"Which vessel carries deoxygenated blood from heart to lungs?",o:["Pulmonary vein","Pulmonary artery","Aorta","Vena cava"],a:1,e:"Pulmonary artery — the only artery with deoxygenated blood."},
+  {id:65,t:"Diseases & Immunity",q:"A pathogen is:",o:["A white blood cell","An organism that causes disease","An antibiotic","A vaccine"],a:1,e:"Pathogens = disease-causing organisms."},
+  {id:66,t:"Diseases & Immunity",q:"How do antibiotics work?",o:["Kill viruses","Kill or inhibit bacteria","Boost the immune system","Prevent all diseases"],a:1,e:"Antibiotics ONLY work against bacteria."},
+  {id:67,t:"Diseases & Immunity",q:"Vaccination gives which type of immunity?",o:["Natural active","Artificial active","Natural passive","Artificial passive"],a:1,e:"Vaccination = artificial + active (body makes its own antibodies)."},
+  {id:68,t:"Diseases & Immunity",q:"White blood cells defend the body by:",o:["Carrying oxygen","Producing antibodies and phagocytosis","Clotting blood","Producing hormones"],a:1,e:"WBCs: phagocytosis + antibody production."},
+  {id:69,t:"Gas Exchange",q:"What makes alveoli efficient at gas exchange?",o:["Thick protective walls","Small surface area","Large surface area + dense capillary network","Muscles that contract"],a:2,e:"Large SA, thin walls, rich blood supply."},
+  {id:70,t:"Gas Exchange",q:"Why does O₂ move from alveoli into blood?",o:["O₂ is higher in blood","O₂ is higher in alveoli","CO₂ pushes O₂ out","Alveoli contract"],a:1,e:"O₂ diffuses down its concentration gradient."},
+  {id:71,t:"Gas Exchange",q:"Which cigarette chemical reduces O₂-carrying capacity?",o:["Tar","Nicotine","Carbon monoxide","Particulates"],a:2,e:"CO binds to haemoglobin → carboxyhaemoglobin."},
+  {id:72,t:"Gas Exchange",q:"How does tar affect the lungs?",o:["Increases alveoli","Excess mucus + damages cilia","Helps cilia clear mucus","Prevents narrowing"],a:1,e:"Tar destroys cilia → excess mucus → infections."},
+  {id:73,t:"Gas Exchange",q:"Emphysema is characterised by:",o:["Excess mucus","Breakdown of alveolar walls, reducing surface area","Lung cancer","Heart disease"],a:1,e:"Alveoli break down → less SA for gas exchange."},
+  {id:74,t:"Gas Exchange",q:"During inhalation:",o:["Diaphragm relaxes and moves up","Diaphragm contracts and flattens; intercostals contract","Lung pressure increases","Ribs move downward"],a:1,e:"Diaphragm flattens, ribs rise → volume up → pressure down → air in."},
+  {id:75,t:"Respiration",q:"Word equation for aerobic respiration:",o:["CO₂ + H₂O → glucose + O₂","Glucose + O₂ → CO₂ + H₂O + energy","Glucose → lactic acid + energy","Glucose → ethanol + CO₂ + energy"],a:1,e:"Aerobic: Glucose + O₂ → CO₂ + H₂O + Energy"},
+  {id:76,t:"Respiration",q:"Anaerobic respiration in yeast produces:",o:["Lactic acid + energy","Ethanol + CO₂ + energy","CO₂ + H₂O + energy","Glucose + O₂"],a:1,e:"Yeast fermentation → ethanol + CO₂."},
+  {id:77,t:"Respiration",q:"Anaerobic respiration in humans produces:",o:["Ethanol + CO₂","Lactic acid","CO₂ + H₂O","O₂ + glucose"],a:1,e:"Human muscles: glucose → lactic acid (causes cramp)."},
+  {id:78,t:"Respiration",q:"Where does aerobic respiration occur?",o:["Nucleus","Ribosome","Mitochondria","Cell membrane"],a:2,e:"Mitochondria = site of aerobic respiration."},
+  {id:79,t:"Respiration",q:"Which is true about anaerobic respiration?",o:["Produces more energy than aerobic","Requires oxygen","Releases less energy than aerobic","Only occurs in plants"],a:2,e:"Anaerobic = incomplete breakdown = less energy."},
+  {id:80,t:"Excretion",q:"Excretion is the removal of:",o:["Undigested food","Toxic waste products of metabolism","Excess water only","All food from the body"],a:1,e:"Excretion ≠ egestion. Excretion = metabolic waste."},
+  {id:81,t:"Excretion",q:"Which organ removes urea from blood?",o:["Lungs","Liver","Kidney","Skin"],a:2,e:"Kidneys filter blood and excrete urea."},
+  {id:82,t:"Excretion",q:"Where is urea produced?",o:["Kidney","Bladder","Liver","Blood"],a:2,e:"Liver: excess amino acids → urea (deamination)."},
+  {id:83,t:"Excretion",q:"Kidneys produce urine by:",o:["Filtration and selective reabsorption","Diffusion only","Osmosis only","Active transport only"],a:0,e:"Ultrafiltration + selective reabsorption."},
+  {id:84,t:"Coordination & Response",q:"Correct order of a reflex arc:",o:["Stimulus → effector → receptor → response","Stimulus → receptor → sensory → relay → motor → effector → response","Stimulus → motor → relay → sensory → response","Response → receptor → effector → stimulus"],a:1,e:"S → R → Sensory → Relay → Motor → Effector → Response."},
+  {id:85,t:"Coordination & Response",q:"Which part of the eye changes shape to focus?",o:["Cornea","Iris","Lens","Retina"],a:2,e:"Lens changes shape (accommodation) via ciliary muscles."},
+  {id:86,t:"Coordination & Response",q:"In bright light, the pupil:",o:["Gets larger (dilates)","Gets smaller (constricts)","Stays the same","Changes colour"],a:1,e:"Circular muscles contract → pupil constricts."},
+  {id:87,t:"Coordination & Response",q:"Which hormone lowers blood glucose?",o:["Glucagon","Adrenaline","Insulin","Testosterone"],a:2,e:"Insulin (from pancreas) lowers blood glucose."},
+  {id:88,t:"Coordination & Response",q:"Correct comparison of nervous vs hormonal responses:",o:["Nervous = slow, hormonal = fast","Nervous = fast electrical; hormonal = slower chemical, longer-lasting","Both use only hormones","Nervous lasts longer than hormonal"],a:1,e:"Nervous: fast, short. Hormonal: slower, longer-lasting."},
+  {id:89,t:"Coordination & Response",q:"Homeostasis is:",o:["Breakdown of glucose","Maintaining a constant internal environment","Growth of an organism","Transport of blood"],a:1,e:"Homeostasis = constant internal conditions."},
+  {id:90,t:"Coordination & Response",q:"Adrenaline is produced by the:",o:["Pituitary gland","Thyroid gland","Adrenal glands","Pancreas"],a:2,e:"Adrenal glands (above kidneys)."},
+  {id:91,t:"Drugs",q:"Antibiotics are effective against:",o:["Viruses","Bacteria","All pathogens","Fungi only"],a:1,e:"Antibiotics ONLY work against bacteria."},
+  {id:92,t:"Reproduction",q:"Which process produces genetically identical cells?",o:["Meiosis","Mitosis","Fertilisation","Mutation"],a:1,e:"Mitosis → two identical diploid cells."},
+  {id:93,t:"Reproduction",q:"Meiosis produces:",o:["Two identical diploid cells","Four genetically different haploid cells","Two different diploid cells","Four identical haploid cells"],a:1,e:"Meiosis → 4 haploid, genetically varied gametes."},
+  {id:94,t:"Reproduction",q:"Where are sperm cells produced?",o:["Ovaries","Uterus","Testes","Prostate gland"],a:2,e:"Testes produce sperm (male gametes)."},
+  {id:95,t:"Reproduction",q:"The placenta allows:",o:["Direct mixing of maternal and fetal blood","Exchange of nutrients, O₂, and waste between mother and fetus","Sperm production","Protection against all diseases"],a:1,e:"Maternal and fetal blood do NOT mix."},
+  {id:96,t:"Reproduction",q:"Pollination is:",o:["Fusion of gametes","Transfer of pollen from anther to stigma","Growth of seeds","Opening of a flower"],a:1,e:"Pollination ≠ fertilisation."},
+  {id:97,t:"Inheritance",q:"Bb × Bb cross: expected phenotypic ratio?",o:["All dominant","3 dominant : 1 recessive","1 dominant : 1 recessive","All recessive"],a:1,e:"Classic 3:1 monohybrid ratio."},
+  {id:98,t:"Inheritance",q:"The genotype 'Bb' is:",o:["Homozygous dominant","Homozygous recessive","Heterozygous","Codominant"],a:2,e:"Bb = heterozygous (two different alleles)."},
+  {id:99,t:"Inheritance",q:"A gene is best defined as:",o:["A length of DNA coding for a protein","An entire chromosome","A type of cell","A whole organism"],a:0,e:"Gene = section of DNA coding for a protein."},
+  {id:100,t:"Inheritance",q:"'Phenotype' means:",o:["Genetic makeup","Observable physical characteristics","A section of DNA","A type of cell division"],a:1,e:"Phenotype = what you see. Genotype = genetics."},
+  {id:101,t:"Inheritance",q:"In humans, sex is determined by:",o:["X chromosome only","XX = male, XY = female","XX = female, XY = male","Number of autosomes"],a:2,e:"XX = female, XY = male."},
+  {id:102,t:"Inheritance",q:"A mutation is:",o:["Normal cell division","A change in the DNA base sequence","Crossing over of chromosomes","Production of gametes"],a:1,e:"Mutations = random changes in DNA."},
+  {id:103,t:"Inheritance",q:"BB × bb cross — all offspring will be:",o:["Homozygous dominant","Homozygous recessive","Heterozygous","Mixed genotypes"],a:2,e:"BB × bb → all Bb (heterozygous)."},
+  {id:104,t:"Variation & Selection",q:"Continuous variation is shown by:",o:["Blood groups","Height","Gender","Tongue rolling"],a:1,e:"Height = range of values (continuous)."},
+  {id:105,t:"Variation & Selection",q:"Natural selection leads to:",o:["All organisms surviving equally","Organisms with favourable variations surviving and reproducing more","Random survival","Weaker organisms surviving"],a:1,e:"Survival of the fittest."},
+  {id:106,t:"Ecology",q:"Grass → Rabbit → Fox → Eagle. Which is the secondary consumer?",o:["Grass","Rabbit","Fox","Eagle"],a:2,e:"Fox eats the primary consumer (rabbit)."},
+  {id:107,t:"Ecology",q:"Why are food chains limited to 4-5 trophic levels?",o:["Not enough predators","Energy lost at each level as heat","Sun runs out of energy","Producers stop growing"],a:1,e:"~10% energy transfer between levels."},
+  {id:108,t:"Ecology",q:"A quadrat is used to:",o:["Measure temperature","Estimate population size in a habitat","Measure light intensity","Collect water"],a:1,e:"Quadrats sample organisms to estimate population."},
+  {id:109,t:"Ecology",q:"Arrows in a food chain show:",o:["Direction of movement","Flow of energy","Size of organisms","Number of organisms"],a:1,e:"Arrows = energy flow direction."},
+  {id:110,t:"Ecology",q:"Which is a decomposer?",o:["Rabbit","Grass","Fungus","Eagle"],a:2,e:"Fungi and bacteria decompose dead matter."},
+  {id:111,t:"Ecology",q:"A pyramid of numbers can be inverted when:",o:["More consumers than producers","One large producer supports many organisms","No energy","All same size"],a:1,e:"One tree → thousands of insects = inverted."},
+  {id:112,t:"Human Influences",q:"The greenhouse effect is enhanced by:",o:["Oxygen","Nitrogen","CO₂ and methane","Hydrogen"],a:2,e:"CO₂ and methane = main greenhouse gases."},
+  {id:113,t:"Human Influences",q:"Deforestation contributes to climate change because:",o:["Trees produce CO₂","Fewer trees = less CO₂ absorbed","Trees produce methane","Increases O₂"],a:1,e:"Fewer trees = less CO₂ removal."},
+  {id:114,t:"Human Influences",q:"Eutrophication occurs when:",o:["Too much O₂ enters a lake","Excess fertilisers cause algal blooms, depleting O₂","Fish populations increase","Water becomes cleaner"],a:1,e:"Fertiliser → algae → light blocked → decomposition → O₂ depleted."},
+  {id:115,t:"Human Influences",q:"Biological control uses:",o:["Pesticides","Natural predators to control pests","Fertilisers","Genetic modification"],a:1,e:"e.g., ladybirds eating aphids."},
+  {id:116,t:"Human Influences",q:"Which gas causes acid rain?",o:["Oxygen","Carbon dioxide","Sulfur dioxide","Nitrogen"],a:2,e:"SO₂ + nitrogen oxides → sulfuric/nitric acid."},
+  {id:117,t:"Enzymes",q:"Starch + amylase at 20°C, 37°C, 80°C. Fastest digestion at:",o:["20°C","37°C","80°C","All same rate"],a:1,e:"37°C = optimum. At 80°C, amylase is denatured."},
+  {id:118,t:"Excretion",q:"Blood leaving kidney via renal vein has:",o:["Higher urea concentration","Lower urea concentration","Same urea concentration","No blood cells"],a:1,e:"Kidney filters out urea."},
+  {id:119,t:"Excretion",q:"Which kidney structure filters blood?",o:["Loop of Henle","Bowman's capsule","Collecting duct","Bladder"],a:1,e:"Bowman's capsule = ultrafiltration."},
+  {id:120,t:"Inheritance",q:"Both parents carriers of sickle cell (HbᴬHbˢ). Chance of child having disease?",o:["0%","25%","50%","75%"],a:1,e:"1 in 4 (HbˢHbˢ) from Punnett square."},
+  {id:121,t:"Coordination & Response",q:"The function of the iris is to:",o:["Focus light on retina","Control light entering the eye","Detect light","Transmit impulses"],a:1,e:"Iris adjusts pupil size."},
+  {id:122,t:"Reproduction",q:"Which structure connects fetus to placenta?",o:["Oviduct","Umbilical cord","Cervix","Uterus wall"],a:1,e:"Umbilical cord carries blood between fetus and placenta."},
+  {id:123,t:"Human Influences",q:"In genetic engineering, the enzyme that cuts DNA at specific sites:",o:["Ligase","Restriction enzyme","Amylase","Protease"],a:1,e:"Restriction enzymes cut at specific sequences."},
+  {id:124,t:"Transport in Plants",q:"Which returns water to the atmosphere from plants?",o:["Precipitation","Condensation","Transpiration","Filtration"],a:2,e:"Transpiration releases water vapour from leaves."},
+  {id:125,t:"Transport in Animals",q:"Which statement about arteries and veins is correct?",o:["Arteries have thin walls","Arteries carry blood away from heart; veins toward heart","Arteries have valves","Arteries carry deoxygenated blood"],a:1,e:"A = Away from heart."},
+  {id:126,t:"Reproduction",q:"Amniotic fluid's function:",o:["Provides food","Protects embryo from physical damage","Removes waste","Supplies oxygen"],a:1,e:"Amniotic fluid cushions the embryo."},
+  {id:127,t:"Coordination & Response",q:"ADH (antidiuretic hormone) role:",o:["Decreases water reabsorption","Increases water reabsorption in kidneys","Breaks down glucose","Stimulates growth"],a:1,e:"ADH increases water reabsorption when dehydrated."},
+  {id:128,t:"Plant Nutrition",q:"Variegated leaf tested for starch after light. Starch found where?",o:["Only white parts","Only green parts","Both parts equally","Neither part"],a:1,e:"Only green parts have chlorophyll → only they make starch."},
+  {id:129,t:"Ecology",q:"Role of decomposers in an ecosystem:",o:["Produce food by photosynthesis","Break down dead matter and recycle nutrients","Eat other animals","Absorb sunlight"],a:1,e:"Decomposers recycle nutrients."},
+  {id:130,t:"Biological Molecules",q:"Which reagent tests for lipids/fats?",o:["Iodine solution","Benedict's solution","Biuret reagent","Ethanol emulsion test"],a:3,e:"Ethanol emulsion: dissolve in ethanol + water → white emulsion if fat present."}
+];
+
+const traps=[
+  {t:"Excretion ≠ Egestion",d:"Excretion = metabolic waste (urea, CO₂). Egestion = undigested food (faeces). Faeces were never part of the body's metabolism!",i:"💩"},
+  {t:"Arteries ≠ Always Oxygenated",d:"Arteries carry blood AWAY from heart. The pulmonary ARTERY carries DEoxygenated blood. A = Away.",i:"🫀"},
+  {t:"Active Transport ≠ Diffusion",d:"Active transport = AGAINST gradient, needs ENERGY. Diffusion = DOWN gradient, NO energy. Cambridge loves testing this!",i:"⚡"},
+  {t:"Enzymes: 'Denatured' not 'Killed'",d:"Enzymes are proteins, not living things. Say 'denatured' (active site permanently changes shape). Never say 'killed' or 'die'.",i:"🔥"},
+  {t:"Bile is NOT an Enzyme",d:"Bile EMULSIFIES fats (breaks into droplets) but doesn't chemically digest them. Lipase does the digestion.",i:"💚"},
+  {t:"Photosynthesis vs Respiration",d:"Photosynthesis: CO₂ + H₂O → Glucose + O₂ (needs light). Respiration: Glucose + O₂ → CO₂ + H₂O + Energy. They're reverses!",i:"🔄"},
+  {t:"Pollination ≠ Fertilisation",d:"Pollination = pollen transfer (anther → stigma). Fertilisation = gamete fusion. Different steps!",i:"🌸"},
+  {t:"Osmosis = WATER Only",d:"Osmosis = net movement of WATER through a partially permeable membrane from high to low water potential.",i:"💧"},
+  {t:"Heart: Left = Oxygenated",d:"Diagrams show the heart as if looking at the patient. Left side = oxygenated blood. Right side = deoxygenated.",i:"❤️"},
+  {t:"Gametes are Haploid",d:"Gametes (sperm/egg) = HALF chromosomes (haploid, n). Body cells = diploid (2n). Meiosis → gametes. Mitosis → body cells.",i:"🧬"}
+];
+
+const topicEmojis={"Cell Biology":"🔬","Classification":"🦎","Movement In & Out of Cells":"🔄","Biological Molecules":"⚗️","Enzymes":"🧪","Plant Nutrition":"🌿","Human Nutrition":"🍎","Transport in Plants":"🌱","Transport in Animals":"🫀","Diseases & Immunity":"🦠","Gas Exchange":"🫁","Respiration":"💨","Excretion":"🧹","Coordination & Response":"🧠","Drugs":"💊","Reproduction":"🧬","Inheritance":"🧩","Variation & Selection":"🌍","Ecology":"🌳","Human Influences":"🏭"};
+
+// ============= STATE =============
+let S=JSON.parse(localStorage.getItem('bio2')||'null')||{ans:{},streak:0,best:0,mocks:[]};
+const save=()=>localStorage.setItem('bio2',JSON.stringify(S));
+const topics=[...new Set(Q.map(q=>q.t))];
+
+// ============= PARTICLES =============
+(function initParticles(){
+  const c=document.getElementById('particles'),ctx=c.getContext('2d');
+  let w,h,pts=[];
+  function resize(){w=c.width=innerWidth;h=c.height=innerHeight;pts=[];
+    for(let i=0;i<50;i++)pts.push({x:Math.random()*w,y:Math.random()*h,r:Math.random()*2+0.5,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,a:Math.random()*.3+.05})}
+  resize();addEventListener('resize',resize);
+  function draw(){ctx.clearRect(0,0,w,h);pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0)p.x=w;if(p.x>w)p.x=0;if(p.y<0)p.y=h;if(p.y>h)p.y=0;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(0,232,157,${p.a})`;ctx.fill();
+  });
+  // Draw connections
+  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+    const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
+    if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+      ctx.strokeStyle=`rgba(0,232,157,${0.03*(1-d/120)})`;ctx.stroke();}
+  }
+  requestAnimationFrame(draw);}draw();
+})();
+
+// ============= HEADER =============
+function updateH(){
+  const a=Object.values(S.ans),c=a.filter(x=>x.c).length,w=a.filter(x=>!x.c).length,p=a.length?Math.round(c/a.length*100):0;
+  document.getElementById('hC').textContent=c;
+  document.getElementById('hW').textContent=w;
+  document.getElementById('hP').textContent=p+'%';
+}
+
+// ============= TABS =============
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>showPanel(t.dataset.tab)));
+function showPanel(n){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.tab===n));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  const p=document.getElementById('panel-'+n);if(p)p.classList.add('active');
+  if(n==='topics')renderTopics();if(n==='all')renderAll();
+  if(n==='weak')renderWeak();if(n==='mock')resetMock();if(n==='traps')renderTraps();
+}
+
+// ============= TOPICS =============
+function renderTopics(){
+  const g=document.getElementById('topicsGrid');g.innerHTML='';
+  topics.forEach((tn,i)=>{
+    const qs=Q.filter(q=>q.t===tn),done=qs.filter(q=>S.ans[q.id]).length,
+          cor=qs.filter(q=>S.ans[q.id]?.c).length,pct=qs.length?Math.round(done/qs.length*100):0;
+    const d=document.createElement('div');d.className='topic-card';d.onclick=()=>openTopic(tn);
+    d.innerHTML=`<div class="tc-emoji">${topicEmojis[tn]||'📘'}</div>
+      <div class="tc-num">Topic ${i+1}</div><div class="tc-name">${tn}</div>
+      <div class="tc-bar"><span class="tc-count">${done}/${qs.length}${cor?' · '+cor+' ✓':''}</span>
+      <div class="tc-prog"><div class="tc-prog-fill" style="width:${pct}%"></div></div></div>`;
+    g.appendChild(d);
+  });
+}
+
+function openTopic(tn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-topic-detail').classList.add('active');
+  document.getElementById('tdTitle').textContent=tn;
+  const qs=Q.filter(q=>q.t===tn);
+  document.getElementById('tdSub').textContent=qs.length+' questions';
+  const c=document.getElementById('tdQs');c.innerHTML='';
+  qs.forEach(q=>c.appendChild(mkQ(q)));
+}
+
+// ============= QUESTION CARD =============
+function mkQ(q,mock=false){
+  const d=document.createElement('div');d.className='qc';d.id='qc-'+q.id+(mock?'-m':'');
+  const ex=S.ans[q.id];
+  let opts='';
+  q.o.forEach((o,i)=>{
+    let cls='opt';
+    if(ex&&!mock){cls+=' dis';if(i===q.a)cls+=' correct';else if(i===ex.s)cls+=' wrong';}
+    opts+=`<div class="${cls}" data-q="${q.id}" data-i="${i}" ${!mock?`onclick="pick(${q.id},${i},this)"`:`onclick="pickM(${q.id},${i})"`}>
+      <div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;
+  });
+  let expl='';if(ex&&!mock)expl=`<div class="expl">${ex.c?'✅ Correct!':'❌ Wrong.'} ${q.e}</div>`;
+  d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${q.id}</div><div class="qc-badge">${q.t}</div></div>
+    <div class="qc-text">${q.q}</div><div class="opts">${opts}</div>${expl}`;
+  return d;
+}
+
+function pick(id,idx,el){
+  if(S.ans[id])return;
+  const q=Q.find(x=>x.id===id),c=idx===q.a;
+  S.ans[id]={s:idx,c,ts:Date.now()};
+  if(c){S.streak++;if(S.streak>S.best)S.best=S.streak}else S.streak=0;
+  save();updateH();
+  const card=document.getElementById('qc-'+id);
+  card.querySelectorAll('.opt').forEach((o,i)=>{o.classList.add('dis');if(i===q.a)o.classList.add('correct');else if(i===idx&&!c)o.classList.add('wrong');});
+  const ex=document.createElement('div');ex.className='expl';
+  ex.innerHTML=`${c?'✅ Correct!':'❌ Wrong.'} ${q.e}`;
+  card.querySelector('.opts').after(ex);
+  if(S.streak>=3){const b=document.getElementById('streakBadge');document.getElementById('streakCount').textContent=S.streak;b.style.display='block';setTimeout(()=>b.style.display='none',2500)}
+  if(c)miniConfetti();
+}
+
+// ============= ALL MCQs =============
+function renderAll(){
+  const sel=document.getElementById('fTopic');
+  if(sel.options.length<=1)topics.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;sel.appendChild(o);});
+  const tf=sel.value,sf=document.getElementById('fStatus').value;
+  let f=Q;
+  if(tf!=='all')f=f.filter(q=>q.t===tf);
+  if(sf==='unanswered')f=f.filter(q=>!S.ans[q.id]);
+  if(sf==='correct')f=f.filter(q=>S.ans[q.id]?.c);
+  if(sf==='wrong')f=f.filter(q=>S.ans[q.id]&&!S.ans[q.id].c);
+  const c=document.getElementById('allQs');c.innerHTML='';
+  if(!f.length){c.innerHTML='<div class="w-empty"><div class="icon">🔍</div><p>No questions match your filters.</p></div>';return;}
+  f.forEach(q=>c.appendChild(mkQ(q)));
+}
+
+// ============= WEAK AREAS =============
+function renderWeak(){
+  const c=document.getElementById('weakList');c.innerHTML='';
+  const stats=topics.map(t=>{
+    const qs=Q.filter(q=>q.t===t),a=qs.filter(q=>S.ans[q.id]),
+          cor=a.filter(q=>S.ans[q.id].c).length,p=a.length?Math.round(cor/a.length*100):null;
+    return{t,total:qs.length,done:a.length,cor,p};
+  }).filter(s=>s.done>0).sort((a,b)=>(a.p??100)-(b.p??100));
+  if(!stats.length){c.innerHTML='<div class="w-empty"><div class="icon">📊</div><p style="font-size:1.05rem">Answer some questions first!</p></div>';return;}
+  stats.forEach(s=>{
+    const d=document.createElement('div');d.className='w-item';d.onclick=()=>openTopic(s.t);
+    const cls=s.p>=70?'good':s.p>=50?'ok':'bad';
+    d.innerHTML=`<div><h4>${s.t}</h4><p>${s.cor}/${s.done} correct (${s.total} total)</p></div><div class="w-pct ${cls}">${s.p}%</div>`;
+    c.appendChild(d);
+  });
+}
+
+// ============= MOCK TEST =============
+let M={qs:[],cur:0,ans:{},timer:null,sec:0};
+function resetMock(){
+  document.getElementById('mockSetup').style.display='block';
+  document.getElementById('mockActive').style.display='none';
+  document.getElementById('mockResults').style.display='none';
+  if(M.timer)clearInterval(M.timer);
+}
+function startMock(){
+  const n=+document.getElementById('mCount').value,mins=+document.getElementById('mTimer').value;
+  const sh=[...Q].sort(()=>Math.random()-.5);
+  M={qs:sh.slice(0,n),cur:0,ans:{},timer:null,sec:mins*60};
+  document.getElementById('mockSetup').style.display='none';
+  document.getElementById('mockActive').style.display='block';
+  document.getElementById('mockResults').style.display='none';
+  document.getElementById('mTot').textContent=n;
+  renderMQ();
+  if(mins>0){updTimer();M.timer=setInterval(()=>{M.sec--;updTimer();if(M.sec<=0){clearInterval(M.timer);finishMock();}},1000);}
+  else document.getElementById('mTimerDisp').textContent='No Timer';
+}
+function updTimer(){
+  const m=Math.floor(M.sec/60),s=M.sec%60,d=document.getElementById('mTimerDisp');
+  d.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  d.style.background=M.sec<=60?'linear-gradient(135deg,#ff4d6a,#ff8a65)':M.sec<=300?'linear-gradient(135deg,#ffb800,#ff8a65)':'linear-gradient(135deg,var(--g1),var(--g2))';
+  d.style.webkitBackgroundClip='text';d.style.webkitTextFillColor='transparent';
+}
+function renderMQ(){
+  const q=M.qs[M.cur];
+  document.getElementById('mCur').textContent=M.cur+1;
+  document.getElementById('mProgBar').style.width=((M.cur+1)/M.qs.length*100)+'%';
+  const a=document.getElementById('mQArea');a.innerHTML='';
+  const d=document.createElement('div');d.className='qc';
+  const sel=M.ans[q.id];
+  let opts='';
+  q.o.forEach((o,i)=>{
+    const isSel=sel===i;
+    opts+=`<div class="opt${isSel?' selected':''}" onclick="pickM(${q.id},${i})">
+      <div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;
+  });
+  d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${M.cur+1}</div><div class="qc-badge">${q.t}</div></div>
+    <div class="qc-text">${q.q}</div><div class="opts">${opts}</div>`;
+  a.appendChild(d);
+  document.getElementById('mPrev').disabled=M.cur===0;
+  const nb=document.getElementById('mNext');
+  if(M.cur===M.qs.length-1){nb.textContent='Finish';nb.onclick=finishMock;}
+  else{nb.textContent='Next →';nb.onclick=()=>mockNav(1);}
+}
+function pickM(id,idx){M.ans[id]=idx;renderMQ();}
+function mockNav(d){M.cur+=d;if(M.cur<0)M.cur=0;if(M.cur>=M.qs.length){finishMock();return;}renderMQ();}
+
+function finishMock(){
+  if(M.timer)clearInterval(M.timer);
+  document.getElementById('mockActive').style.display='none';
+  document.getElementById('mockResults').style.display='block';
+  let cor=0;const ts={};
+  M.qs.forEach(q=>{
+    const s=M.ans[q.id],ok=s===q.a;if(ok)cor++;
+    if(!S.ans[q.id])S.ans[q.id]={s:s??-1,c:ok,ts:Date.now()};
+    if(!ts[q.t])ts[q.t]={c:0,n:0};ts[q.t].n++;if(ok)ts[q.t].c++;
+  });
+  save();updateH();
+  const tot=M.qs.length,pct=Math.round(cor/tot*100);
+  let g='U';if(pct>=90)g='A*';else if(pct>=80)g='A';else if(pct>=70)g='B';
+  else if(pct>=60)g='C';else if(pct>=50)g='D';else if(pct>=40)g='E';else if(pct>=30)g='F';else if(pct>=20)g='G';
+  let bd='';
+  Object.entries(ts).sort((a,b)=>(a[1].c/a[1].n)-(b[1].c/b[1].n)).forEach(([t,s])=>{
+    const p=Math.round(s.c/s.n*100);
+    bd+=`<div class="res-item"><div class="ri-t">${t}</div><div class="ri-s" style="color:${p>=70?'var(--correct)':p>=50?'var(--warn)':'var(--wrong)'}">${s.c}/${s.n} (${p}%)</div></div>`;
+  });
+  document.getElementById('mockResults').innerHTML=`<div class="res-card">
+    <h2 style="font-size:1.1rem;color:var(--text3);font-weight:500">Mock Test Complete</h2>
+    <div class="res-score">${pct}%</div>
+    <div class="res-grade" style="color:${pct>=60?'var(--correct)':'var(--wrong)'}">Grade: ${g}</div>
+    <div class="res-detail">${cor} / ${tot} correct</div>
+    <div class="btns" style="justify-content:center;margin-bottom:24px">
+      <button class="btn btn-p" onclick="reviewMock()">📝 Review</button>
+      <button class="btn btn-s" onclick="resetMock()">🔄 New Test</button>
+    </div>
+    <h3 style="text-align:left;font-size:.9rem;margin-bottom:14px;color:var(--text3)">Topic Breakdown</h3>
+    <div class="res-grid">${bd}</div></div>`;
+  if(pct>=70)launchConfetti();
+  S.mocks.push({d:Date.now(),s:pct,g,tot,cor});save();
+}
+
+function reviewMock(){
+  document.getElementById('mockResults').style.display='none';
+  document.getElementById('mockActive').style.display='block';
+  document.getElementById('mTimerDisp').textContent='📖 Review Mode';
+  document.getElementById('mTimerDisp').style.background='linear-gradient(135deg,var(--g2),var(--g3))';
+  document.getElementById('mTimerDisp').style.webkitBackgroundClip='text';
+  document.getElementById('mTimerDisp').style.webkitTextFillColor='transparent';
+  if(M.timer)clearInterval(M.timer);M.cur=0;renderReview();
+}
+function renderReview(){
+  const q=M.qs[M.cur];
+  document.getElementById('mCur').textContent=M.cur+1;
+  document.getElementById('mProgBar').style.width=((M.cur+1)/M.qs.length*100)+'%';
+  const a=document.getElementById('mQArea');a.innerHTML='';
+  const d=document.createElement('div');d.className='qc';
+  const sel=M.ans[q.id]??-1;let opts='';
+  q.o.forEach((o,i)=>{
+    let cls='opt dis';if(i===q.a)cls+=' correct';else if(i===sel)cls+=' wrong';
+    opts+=`<div class="${cls}"><div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;
+  });
+  d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${M.cur+1}</div><div class="qc-badge">${q.t}</div></div>
+    <div class="qc-text">${q.q}</div><div class="opts">${opts}</div>
+    <div class="expl">${sel===q.a?'✅ Correct!':'❌ Wrong.'} ${q.e}</div>`;
+  a.appendChild(d);
+  document.getElementById('mPrev').disabled=M.cur===0;document.getElementById('mPrev').onclick=()=>{if(M.cur>0){M.cur--;renderReview();}};
+  const nb=document.getElementById('mNext');
+  if(M.cur===M.qs.length-1){nb.textContent='Done';nb.onclick=resetMock;}
+  else{nb.textContent='Next →';nb.onclick=()=>{M.cur++;renderReview();};}
+}
+
+// ============= TRAPS =============
+function renderTraps(){
+  const c=document.getElementById('trapsList');c.innerHTML='';
+  traps.forEach(t=>{
+    const d=document.createElement('div');d.className='trap-card';
+    d.innerHTML=`<div class="trap-head"><span class="trap-icon">${t.i}</span><span class="trap-title">${t.t}</span></div><p class="trap-body">${t.d}</p>`;
+    c.appendChild(d);
+  });
+}
+
+// ============= CONFETTI =============
+function miniConfetti(){
+  const c=document.getElementById('confetti'),x=c.getContext('2d');
+  c.width=innerWidth;c.height=innerHeight;
+  const p=[],cols=['#00ffa3','#00d4ff','#a855f7','#ffb800','#ff4d6a','#ec4899'];
+  for(let i=0;i<35;i++)p.push({x:Math.random()*c.width,y:c.height+10,vx:(Math.random()-.5)*7,vy:-(Math.random()*14+6),sz:Math.random()*6+3,col:cols[~~(Math.random()*cols.length)],life:1,rot:Math.random()*360,rs:(Math.random()-.5)*12});
+  (function go(){x.clearRect(0,0,c.width,c.height);let alive=false;
+    p.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vy+=.35;q.life-=.014;q.rot+=q.rs;
+      if(q.life>0){alive=true;x.save();x.translate(q.x,q.y);x.rotate(q.rot*Math.PI/180);
+        x.globalAlpha=q.life;x.fillStyle=q.col;x.fillRect(-q.sz/2,-q.sz/2,q.sz,q.sz);x.restore();}});
+    x.globalAlpha=1;if(alive)requestAnimationFrame(go);else x.clearRect(0,0,c.width,c.height);})();
+}
+function launchConfetti(){
+  const c=document.getElementById('confetti'),x=c.getContext('2d');
+  c.width=innerWidth;c.height=innerHeight;
+  const p=[],cols=['#00ffa3','#00d4ff','#a855f7','#ffb800','#ff4d6a','#ec4899'];
+  for(let i=0;i<150;i++)p.push({x:c.width/2,y:c.height/2,vx:(Math.random()-.5)*22,vy:(Math.random()-.5)*22-5,sz:Math.random()*8+3,col:cols[~~(Math.random()*cols.length)],life:1,rot:Math.random()*360,rs:(Math.random()-.5)*15});
+  (function go(){x.clearRect(0,0,c.width,c.height);let alive=false;
+    p.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vy+=.28;q.vx*=.99;q.life-=.007;q.rot+=q.rs;
+      if(q.life>0){alive=true;x.save();x.translate(q.x,q.y);x.rotate(q.rot*Math.PI/180);
+        x.globalAlpha=q.life;x.fillStyle=q.col;x.fillRect(-q.sz/2,-q.sz/2,q.sz,q.sz);x.restore();}});
+    x.globalAlpha=1;if(alive)requestAnimationFrame(go);else x.clearRect(0,0,c.width,c.height);})();
+}
+
+// ============= INIT =============
+updateH();renderTopics();
+</script>
+</body>
+</html>
