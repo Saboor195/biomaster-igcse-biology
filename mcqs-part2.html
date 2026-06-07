@@ -560,7 +560,7 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 </main>
 
 <script>
-// const Q=[
+const Q=[
   {id:131,t:"Cell Biology",q:"What is the main function of the nucleolus?",o:["Assembly of ribosomes","Aerobic respiration","Lipid synthesis","Packaging proteins"],a:0,e:"The nucleolus is responsible for ribosome subunit assembly."},
   {id:132,t:"Cell Biology",q:"Which cell structure contains hydrolytic enzymes for digesting worn-out organelles?",o:["Lysosome","Golgi body","Ribosome","Chloroplast"],a:0,e:"Lysosomes contain digestive enzymes."},
   {id:133,t:"Cell Biology",q:"In which solution will a red blood cell undergo haemolysis (burst)?",o:["Concentrated saline","Hypotonic solution","Isotonic solution","Hypertonic solution"],a:1,e:"Hypotonic solutions have a higher water potential, causing water to enter and burst the cell."},
@@ -661,8 +661,6 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
   {id:228,t:"Inheritance",q:"A cross between a red flower (RR) and white flower (rr) yields all pink flowers. What does this demonstrate?",o:["Complete dominance","Incomplete dominance / codominance","Sex linkage","Gene mutation"],a:1,e:"Pink heterozygous flowers show codominance or incomplete dominance where both alleles influence phenotype."},
   {id:229,t:"Variation & Selection",q:"What drives natural selection?",o:["Human breeding choices","Environmental pressures, competition, and variation leading to differential survival","Random genetic drift only","Excess use of fertilisers"],a:1,e:"Environmental factors select which individuals survive and reproduce."},
   {id:230,t:"Human Influences",q:"What is a major source of greenhouse gases?",o:["Nuclear power plants","Burning of fossil fuels and deforestation","Hydroelectric dams","Planting more trees"],a:1,e:"Fossil fuel combustion releases CO2, and deforestation reduces carbon sinks."}
-];otosynthesis","Break down dead matter and recycle nutrients","Eat other animals","Absorb sunlight"],a:1,e:"Decomposers recycle nutrients."},
-  {id:130,t:"Biological Molecules",q:"Which reagent tests for lipids/fats?",o:["Iodine solution","Benedict's solution","Biuret reagent","Ethanol emulsion test"],a:3,e:"Ethanol emulsion: dissolve in ethanol + water → white emulsion if fat present."}
 ];
 
 const traps=[
@@ -678,7 +676,7 @@ const traps=[
   {t:"Gametes are Haploid",d:"Gametes (sperm/egg) = HALF chromosomes (haploid, n). Body cells = diploid (2n). Meiosis → gametes. Mitosis → body cells.",i:"🧬"}
 ];
 
-const topicEmojis={"Cell Biology":"🔬","Classification":"🦎","Movement In & Out of Cells":"🔄","Biological Molecules":"⚗️","Enzymes":"🧪","Plant Nutrition":"🌿","Human Nutrition":"🍎","Transport in Plants":"🌱","Transport in Animals":"🫀","Diseases & Immunity":"🦠","Gas Exchange":"🫁","Respiration":"💨","Excretion":"🧹","Coordination & Response":"🧠","Drugs":"💊","Reproduction":"🧬","Inheritance":"🧩","Variation & Selection":"🌍","Ecology":"🌳","Human Influences":"🏭"};
+const topicEmojis={"Cell Biology":"🔬","Classification":"🦎","Movement In & Out of Cells":"🔄","Biological Molecules":"⚗️","Enzymes":"🧪","Plant Nutrition":"🌿","Human Nutrition":"🍎","Transport in Plants":"🌱","Transport in Animals":"🫀","Diseases & Immunity":"🦠","Gas Exchange":"🫁","Respiration":"💨","Excretion":"🧹","Coordination & Response":"🧠","Drugs":"💊","Reproduction":"🧬","Inheritance":"🧩","Variation & Selection":"🌍","Ecology":"🌳","Human Influences":"🏭","Biotechnology":"🧫"};
 
 // ============= STATE =============
 let S=JSON.parse(localStorage.getItem('bio2_p2')||'null')||{ans:{},streak:0,best:0,mocks:[]};
