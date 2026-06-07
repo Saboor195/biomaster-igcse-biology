@@ -1,6 +1,9 @@
 # 🧬 BioMaster — IGCSE Biology MCQ Practice App
 
-Master your Cambridge IGCSE Biology (0610) exams with **BioMaster**, a modern, interactive, and fully-featured single-page practice application. Packed with **130 exam-style multiple-choice questions** spanning the entire syllabus, it provides all the tools you need to achieve an A*.
+Master your Cambridge IGCSE Biology (0610) exams with **BioMaster**, a modern, interactive, and fully-featured practice suite. Packed with **230 exam-style multiple-choice questions** split into two comprehensive parts, it provides all the tools you need to achieve an A*.
+
+- **Part 1 (Core Syllabus)**: 130 foundational questions spanning all major topics.
+- **Part 2 (Extended & High-Yield)**: 100 new, challenging questions targeting advanced concepts and recent exam trends.
 
 ---
 
@@ -43,8 +46,9 @@ Master your Cambridge IGCSE Biology (0610) exams with **BioMaster**, a modern, i
 ## 🚀 Live Demo & How to Run
 
 ### 🌐 Play Online
-You can practice and simulate exams instantly:
-👉 **[Live App on GitHub Pages](https://saboor195.github.io/biomaster-igcse-biology/)**
+You can practice and simulate exams instantly in your browser:
+- 👉 **[Part 1 (Core Syllabus)](https://saboor195.github.io/biomaster-igcse-biology/index.html)**
+- 👉 **[Part 2 (Extended & High-Yield)](https://saboor195.github.io/biomaster-igcse-biology/mcqs-part2.html)**
 
 ### 💻 Run Locally
 No installation, build steps, or server configuration is required!
@@ -53,7 +57,7 @@ No installation, build steps, or server configuration is required!
    ```bash
    git clone https://github.com/Saboor195/biomaster-igcse-biology.git
    ```
-2. Open `index.html` directly in any modern web browser (Chrome, Firefox, Safari, Edge).
+2. Open `index.html` (for Part 1) or `mcqs-part2.html` (for Part 2) in any modern web browser (Chrome, Firefox, Safari, Edge).
 
 ---
 
