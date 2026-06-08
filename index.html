@@ -3,39 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BioMaster — IGCSE Biology MCQ Practice</title>
-<meta name="description" content="Master Cambridge IGCSE Biology (0610) with 130+ past-paper-style MCQs. Beautiful, interactive, and free.">
+<title>ChemMaster — IGCSE Chemistry MCQ Practice</title>
+<meta name="description" content="Master Cambridge IGCSE Chemistry (0620) with 130+ past-paper-style MCQs. Beautiful, interactive, and free.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  --bg:#050a14;
-  --bg2:#0b1120;
-  --card:#0f1729;
-  --card-hover:#141e33;
-  --surface:#1a2540;
-  --glass:rgba(15,23,41,0.65);
-  --glass-border:rgba(255,255,255,0.06);
+  --bg:#050a14;--bg2:#0b1120;--card:#0f1729;--card-hover:#141e33;--surface:#1a2540;
+  --glass:rgba(15,23,41,0.65);--glass-border:rgba(255,255,255,0.06);
   --g1:#00ffa3;--g2:#00d4ff;--g3:#a855f7;--g4:#ec4899;
   --accent:#00e89d;--accent2:#00c4ff;--accent3:#a855f7;
   --correct:#00e89d;--wrong:#ff4d6a;--warn:#ffb800;
   --text:#edf2f7;--text2:#8899b4;--text3:#506380;
-  --border:#1a2744;--border2:#253354;
-  --r:16px;--r2:12px;--r3:8px;
+  --border:#1a2744;--border2:#253354;--r:16px;--r2:12px;--r3:8px;
 }
-
 html{font-size:16px;scroll-behavior:smooth}
-body{
-  font-family:'Outfit',sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
-}
-
-/* ====== ANIMATED BACKGROUND ====== */
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 .bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .bg-glow .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.12;animation:orbFloat 20s ease-in-out infinite}
 .bg-glow .orb:nth-child(1){width:600px;height:600px;background:var(--g1);top:-15%;left:-10%;animation-delay:0s}
@@ -43,127 +27,43 @@ body{
 .bg-glow .orb:nth-child(3){width:400px;height:400px;background:var(--g3);bottom:-10%;left:30%;animation-delay:-13s}
 .bg-glow .orb:nth-child(4){width:350px;height:350px;background:var(--g4);top:20%;left:60%;animation-delay:-4s;opacity:0.06}
 @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,30px) scale(0.95)}75%{transform:translate(40px,20px) scale(1.02)}}
-
-/* Grid pattern overlay */
-.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);
-  background-size:60px 60px}
-
-/* Floating DNA particles */
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:60px 60px}
 canvas#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
 canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
-
-/* Scrollbar */
 ::-webkit-scrollbar{width:5px}
 ::-webkit-scrollbar-track{background:transparent}
 ::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}
 ::-webkit-scrollbar-thumb:hover{background:var(--accent)}
-
-/* ====== HEADER ====== */
-.header{
-  position:sticky;top:0;z-index:100;
-  background:rgba(5,10,20,0.7);
-  backdrop-filter:blur(30px) saturate(1.5);
-  border-bottom:1px solid var(--glass-border);
-  padding:0 24px;
-}
+.header{position:sticky;top:0;z-index:100;background:rgba(5,10,20,0.7);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--glass-border);padding:0 24px}
 .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
 .nav-parts{display:flex;gap:4px;background:rgba(255,255,255,0.02);padding:4px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
-.nav-part{
-  text-decoration:none;font-size:0.8rem;font-weight:600;color:var(--text2);
-  padding:6px 14px;border-radius:8px;transition:all .3s ease;
-}
+.nav-part{text-decoration:none;font-size:0.8rem;font-weight:600;color:var(--text2);padding:6px 14px;border-radius:8px;transition:all .3s ease}
 .nav-part:hover{color:var(--text);background:rgba(255,255,255,0.03)}
-.nav-part.active{
-  background:linear-gradient(135deg,var(--g1),var(--g2));
-  color:#050a14;font-weight:700;box-shadow:0 2px 10px rgba(0,255,163,0.15);
-}
+.nav-part.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 2px 10px rgba(0,255,163,0.15)}
 .logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.logo-icon{
-  width:42px;height:42px;
-  background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));
-  border-radius:12px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.4rem;
-  box-shadow:0 0 25px rgba(0,255,163,0.2);
-  animation:logoPulse 3s ease-in-out infinite;
-}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 25px rgba(0,255,163,0.2);animation:logoPulse 3s ease-in-out infinite}
 @keyframes logoPulse{0%,100%{box-shadow:0 0 20px rgba(0,255,163,0.15)}50%{box-shadow:0 0 35px rgba(0,255,163,0.3)}}
-.logo-text{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px;
-  background:linear-gradient(135deg,var(--g1),var(--g2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.logo-text{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .header-stats{display:flex;gap:14px;align-items:center}
-.h-stat{
-  display:flex;align-items:center;gap:7px;
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  border:1px solid var(--glass-border);
-  border-radius:24px;
-  padding:7px 16px;
-  font-size:0.82rem;font-weight:600;
-}
+.h-stat{display:flex;align-items:center;gap:7px;background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:24px;padding:7px 16px;font-size:0.82rem;font-weight:600}
 .h-stat .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .dot-g{background:var(--correct);box-shadow:0 0 8px var(--correct)}
 .dot-r{background:var(--wrong);box-shadow:0 0 8px var(--wrong)}
 .dot-y{background:var(--warn);box-shadow:0 0 8px var(--warn)}
-
-/* ====== TABS ====== */
 .tabs-wrap{padding:0 20px;position:relative;z-index:1}
-.tabs{
-  display:flex;gap:4px;
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border:1px solid var(--glass-border);
-  border-radius:16px;
-  padding:5px;
-  margin:20px auto;
-  max-width:720px;
-}
-.tab{
-  flex:1;padding:11px 6px;text-align:center;
-  border-radius:12px;
-  font-size:0.8rem;font-weight:600;
-  cursor:pointer;
-  transition:all .3s cubic-bezier(.4,0,.2,1);
-  color:var(--text2);
-  border:none;background:none;
-  font-family:inherit;
-  position:relative;overflow:hidden;
-}
+.tabs{display:flex;gap:4px;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:16px;padding:5px;margin:20px auto;max-width:720px}
+.tab{flex:1;padding:11px 6px;text-align:center;border-radius:12px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);color:var(--text2);border:none;background:none;font-family:inherit;position:relative;overflow:hidden}
 .tab:hover{color:var(--text);background:rgba(255,255,255,0.03)}
-.tab.active{
-  background:linear-gradient(135deg,var(--g1),var(--g2));
-  color:#050a14;
-  font-weight:700;
-  box-shadow:0 4px 20px rgba(0,232,157,0.25),0 0 60px rgba(0,232,157,0.08);
-}
+.tab.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 4px 20px rgba(0,232,157,0.25),0 0 60px rgba(0,232,157,0.08)}
 .tab .ti{display:block;font-size:1.15rem;margin-bottom:2px}
-
-/* ====== CONTAINER ====== */
 .container{max-width:920px;margin:0 auto;padding:20px 20px 80px;position:relative;z-index:1}
-
-/* ====== PANELS ====== */
 .panel{display:none;animation:panelIn .4s cubic-bezier(.4,0,.2,1)}
 .panel.active{display:block}
 @keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-
-/* ====== SECTION TITLE ====== */
-.stitle{font-size:1.6rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px;
-  background:linear-gradient(135deg,var(--text),var(--text2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stitle{font-size:1.6rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px;background:linear-gradient(135deg,var(--text),var(--text2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .ssub{color:var(--text3);font-size:0.88rem;margin-bottom:28px;font-weight:400}
-
-/* ====== TOPIC CARDS ====== */
 .topics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
-.topic-card{
-  background:var(--glass);
-  backdrop-filter:blur(12px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r);
-  padding:22px;
-  cursor:pointer;
-  transition:all .35s cubic-bezier(.4,0,.2,1);
-  position:relative;overflow:hidden;
-}
+.topic-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:var(--r);padding:22px;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
 .topic-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,163,0.04),rgba(0,196,255,0.04));opacity:0;transition:opacity .35s}
 .topic-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));transform:scaleX(0);transition:transform .35s;transform-origin:left}
 .topic-card:hover{transform:translateY(-4px);border-color:rgba(0,232,157,0.2);box-shadow:0 12px 40px rgba(0,232,157,0.08)}
@@ -177,158 +77,49 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 .tc-count{font-size:0.76rem;color:var(--text3);font-weight:500}
 .tc-prog{width:70px;height:4px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
 .tc-prog-fill{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1)}
-
-/* ====== QUESTION CARD ====== */
-.qc{
-  background:var(--glass);
-  backdrop-filter:blur(12px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r);
-  padding:28px;
-  margin-bottom:16px;
-  transition:all .3s;
-}
+.qc{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:var(--r);padding:28px;margin-bottom:16px;transition:all .3s}
 .qc:hover{border-color:rgba(255,255,255,0.08)}
 .qc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:10px}
-.qc-num{
-  font-size:0.7rem;font-weight:700;
-  background:linear-gradient(135deg,var(--g1),var(--g2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  text-transform:uppercase;letter-spacing:2px;
-}
-.qc-badge{
-  font-size:0.65rem;font-weight:600;
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--glass-border);
-  border-radius:20px;padding:4px 12px;
-  color:var(--text2);white-space:nowrap;
-}
+.qc-num{font-size:0.7rem;font-weight:700;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;letter-spacing:2px}
+.qc-badge{font-size:0.65rem;font-weight:600;background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);border-radius:20px;padding:4px 12px;color:var(--text2);white-space:nowrap}
 .qc-text{font-size:1.02rem;font-weight:500;line-height:1.7;margin-bottom:22px}
 .opts{display:grid;gap:10px}
-.opt{
-  display:flex;align-items:center;gap:16px;
-  padding:15px 20px;
-  border-radius:var(--r2);
-  border:1.5px solid rgba(255,255,255,0.06);
-  cursor:pointer;
-  transition:all .25s cubic-bezier(.4,0,.2,1);
-  background:rgba(255,255,255,0.02);
-}
-.opt:hover:not(.dis){
-  border-color:rgba(0,232,157,0.3);
-  background:rgba(0,232,157,0.04);
-  transform:translateX(6px);
-  box-shadow:0 4px 20px rgba(0,232,157,0.06);
-}
+.opt{display:flex;align-items:center;gap:16px;padding:15px 20px;border-radius:var(--r2);border:1.5px solid rgba(255,255,255,0.06);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);background:rgba(255,255,255,0.02)}
+.opt:hover:not(.dis){border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04);transform:translateX(6px);box-shadow:0 4px 20px rgba(0,232,157,0.06)}
 .opt.dis{cursor:default;pointer-events:none}
-.opt-l{
-  width:34px;height:34px;
-  border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:0.85rem;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  flex-shrink:0;
-  transition:all .25s;
-}
+.opt-l{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);flex-shrink:0;transition:all .25s}
 .opt-t{font-size:0.92rem;line-height:1.5;font-weight:400}
 .opt.correct{border-color:var(--correct);background:rgba(0,232,157,0.06)}
 .opt.correct .opt-l{background:var(--correct);color:#050a14;border-color:var(--correct);box-shadow:0 0 15px rgba(0,232,157,0.3)}
 .opt.wrong{border-color:var(--wrong);background:rgba(255,77,106,0.06)}
 .opt.wrong .opt-l{background:var(--wrong);color:#fff;border-color:var(--wrong);box-shadow:0 0 15px rgba(255,77,106,0.3)}
-
-.expl{
-  margin-top:16px;padding:16px 20px;
-  background:rgba(0,232,157,0.04);
-  border-left:3px solid var(--accent);
-  border-radius:0 var(--r3) var(--r3) 0;
-  font-size:0.88rem;color:var(--text2);line-height:1.65;
-  animation:panelIn .3s ease;
-}
-
-/* ====== BUTTONS ====== */
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:12px 26px;
-  border-radius:var(--r2);
-  font-weight:600;font-size:0.88rem;
-  cursor:pointer;
-  transition:all .3s cubic-bezier(.4,0,.2,1);
-  border:none;font-family:inherit;
-  position:relative;overflow:hidden;
-}
-.btn-p{
-  background:linear-gradient(135deg,var(--g1),var(--g2));
-  color:#050a14;
-  box-shadow:0 4px 20px rgba(0,232,157,0.2);
-}
+.expl{margin-top:16px;padding:16px 20px;background:rgba(0,232,157,0.04);border-left:3px solid var(--accent);border-radius:0 var(--r3) var(--r3) 0;font-size:0.88rem;color:var(--text2);line-height:1.65;animation:panelIn .3s ease}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--r2);font-weight:600;font-size:0.88rem;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);border:none;font-family:inherit;position:relative;overflow:hidden}
+.btn-p{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;box-shadow:0 4px 20px rgba(0,232,157,0.2)}
 .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,232,157,0.3)}
 .btn-s{background:rgba(255,255,255,0.04);color:var(--text);border:1px solid var(--glass-border)}
 .btn-s:hover{border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04)}
 .btn-d{background:var(--wrong);color:#fff}
 .btns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
-
-/* ====== PROGRESS BAR ====== */
 .pbar{background:rgba(255,255,255,0.04);border-radius:6px;height:6px;overflow:hidden;margin:8px 0}
 .pbar-f{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:6px;transition:width .6s cubic-bezier(.4,0,.2,1)}
-
-/* ====== MOCK TEST ====== */
 .mock-h{text-align:center;margin-bottom:32px}
-.mock-h h2{font-size:1.8rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px;
-  background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.mock-h h2{font-size:1.8rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .mock-h p{color:var(--text3);font-size:0.9rem}
-.mock-timer{
-  font-family:'JetBrains Mono',monospace;
-  font-size:2.4rem;font-weight:600;
-  text-align:center;margin:16px 0;
-  background:linear-gradient(135deg,var(--g1),var(--g2));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-}
+.mock-timer{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:600;text-align:center;margin:16px 0;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .mock-prog{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.85rem;color:var(--text3)}
 .mock-prog span{font-weight:700;color:var(--text)}
-
-/* ====== RESULTS ====== */
-.res-card{
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r);
-  padding:40px 32px;
-  text-align:center;
-}
-.res-score{
-  font-size:5rem;font-weight:900;
-  background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-  margin:10px 0;
-  line-height:1;
-}
+.res-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r);padding:40px 32px;text-align:center}
+.res-score{font-size:5rem;font-weight:900;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:10px 0;line-height:1}
 .res-grade{font-size:1.3rem;font-weight:700;margin-bottom:8px}
 .res-detail{color:var(--text3);font-size:0.9rem;margin-bottom:24px}
 .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left;margin-top:28px}
-.res-item{
-  background:rgba(255,255,255,0.03);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r2);
-  padding:16px;
-}
+.res-item{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:var(--r2);padding:16px}
 .res-item .ri-t{font-size:0.76rem;font-weight:600;color:var(--text3);margin-bottom:4px}
 .res-item .ri-s{font-size:1.1rem;font-weight:700}
-
-/* ====== WEAK AREAS ====== */
 .w-empty{text-align:center;padding:60px 20px;color:var(--text3)}
 .w-empty .icon{font-size:3.5rem;margin-bottom:16px}
-.w-item{
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r);
-  padding:20px;
-  margin-bottom:12px;
-  display:flex;justify-content:space-between;align-items:center;
-  cursor:pointer;
-  transition:all .3s;
-}
+.w-item{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:var(--r);padding:20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all .3s}
 .w-item:hover{border-color:rgba(255,255,255,0.1);transform:translateX(4px)}
 .w-item h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}
 .w-item p{font-size:0.78rem;color:var(--text3)}
@@ -336,99 +127,30 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 .w-pct.bad{color:var(--wrong)}
 .w-pct.ok{color:var(--warn)}
 .w-pct.good{color:var(--correct)}
-
-/* ====== TRAPS ====== */
-.trap-card{
-  background:var(--glass);
-  backdrop-filter:blur(12px);
-  border:1px solid var(--glass-border);
-  border-left:3px solid var(--warn);
-  border-radius:var(--r);
-  padding:24px;
-  margin-bottom:14px;
-  transition:all .3s;
-}
+.trap-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-left:3px solid var(--warn);border-radius:var(--r);padding:24px;margin-bottom:14px;transition:all .3s}
 .trap-card:hover{transform:translateX(4px);border-left-color:var(--g1)}
 .trap-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
 .trap-icon{font-size:1.8rem}
 .trap-title{font-size:1rem;font-weight:700;color:var(--warn)}
 .trap-body{font-size:0.9rem;line-height:1.7;color:var(--text2)}
-
-/* ====== FILTER BAR ====== */
 .fbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
-.fbar select{
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  color:var(--text);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r3);
-  padding:9px 14px;
-  font-family:inherit;font-size:0.82rem;
-  cursor:pointer;
-  transition:border-color .3s;
-}
+.fbar select{background:var(--glass);backdrop-filter:blur(10px);color:var(--text);border:1px solid var(--glass-border);border-radius:var(--r3);padding:9px 14px;font-family:inherit;font-size:0.82rem;cursor:pointer;transition:border-color .3s}
 .fbar select:focus{outline:none;border-color:var(--accent)}
-
-/* ====== BACK BTN ====== */
 .back-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.back-btn{
-  background:none;border:none;color:var(--text3);cursor:pointer;
-  font-size:0.9rem;display:flex;align-items:center;gap:6px;
-  font-family:inherit;font-weight:600;transition:all .3s;
-}
+.back-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.9rem;display:flex;align-items:center;gap:6px;font-family:inherit;font-weight:600;transition:all .3s}
 .back-btn:hover{color:var(--accent);transform:translateX(-4px)}
-
-/* ====== FORM CONTROLS ====== */
 .form-group{margin-bottom:18px}
 .form-label{font-size:0.85rem;font-weight:600;display:block;margin-bottom:8px;color:var(--text2)}
-.form-select{
-  width:100%;padding:12px 16px;
-  background:var(--glass);
-  backdrop-filter:blur(10px);
-  color:var(--text);
-  border:1px solid var(--glass-border);
-  border-radius:var(--r2);
-  font-family:inherit;font-size:0.9rem;
-  cursor:pointer;transition:border-color .3s;
-}
+.form-select{width:100%;padding:12px 16px;background:var(--glass);backdrop-filter:blur(10px);color:var(--text);border:1px solid var(--glass-border);border-radius:var(--r2);font-family:inherit;font-size:0.9rem;cursor:pointer;transition:border-color .3s}
 .form-select:focus{outline:none;border-color:var(--accent)}
-
-/* ====== STREAK BADGE ====== */
-.streak{
-  position:fixed;top:82px;right:20px;z-index:50;
-  background:var(--glass);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,184,0,0.3);
-  border-radius:var(--r2);
-  padding:10px 18px;
-  font-size:0.85rem;font-weight:700;
-  color:var(--warn);
-  display:none;
-  animation:panelIn .3s ease;
-  box-shadow:0 4px 25px rgba(255,184,0,0.15);
-}
-
-/* ====== SELECTION HIGHLIGHT ====== */
+.streak{position:fixed;top:82px;right:20px;z-index:50;background:var(--glass);backdrop-filter:blur(20px);border:1px solid rgba(255,184,0,0.3);border-radius:var(--r2);padding:10px 18px;font-size:0.85rem;font-weight:700;color:var(--warn);display:none;animation:panelIn .3s ease;box-shadow:0 4px 25px rgba(255,184,0,0.15)}
 .opt.selected{border-color:var(--accent2);background:rgba(0,196,255,0.06)}
 .opt.selected .opt-l{background:var(--accent2);color:#050a14;border-color:var(--accent2)}
-
-/* ====== RESPONSIVE ====== */
-@media(max-width:640px){
-  .header-stats{display:none}
-  .tabs{max-width:100%}
-  .tab{font-size:0.7rem;padding:9px 4px}
-  .tab .ti{font-size:1rem}
-  .qc{padding:20px 16px}
-  .topics-grid{grid-template-columns:1fr}
-  .res-score{font-size:3.5rem}
-  .stitle{font-size:1.3rem}
-  .mock-timer{font-size:1.8rem}
-}
+@media(max-width:640px){.header-stats{display:none}.tabs{max-width:100%}.tab{font-size:0.7rem;padding:9px 4px}.tab .ti{font-size:1rem}.qc{padding:20px 16px}.topics-grid{grid-template-columns:1fr}.res-score{font-size:3.5rem}.stitle{font-size:1.3rem}.mock-timer{font-size:1.8rem}}
 </style>
 </head>
 <body>
 
-<!-- Animated background -->
 <div class="bg-glow">
   <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
 </div>
@@ -437,16 +159,15 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 <canvas id="confetti"></canvas>
 <div class="streak" id="streakBadge">🔥 <span id="streakCount">0</span> Streak!</div>
 
-<!-- Header -->
 <header class="header">
   <div class="header-inner">
     <div class="logo">
-      <div class="logo-icon">🧬</div>
-      <div class="logo-text">BioMaster</div>
+      <div class="logo-icon">⚗️</div>
+      <div class="logo-text">ChemMaster</div>
     </div>
     <div class="nav-parts">
       <a href="index.html" class="nav-part active">Part 1</a>
-      <a href="mcqs-part2.html" class="nav-part">Part 2</a>
+      <a href="mcqs-part2.html" class="nav-part ">Part 2</a>
     </div>
     <div class="header-stats">
       <div class="h-stat"><div class="dot dot-g"></div><span id="hC">0</span> Correct</div>
@@ -456,7 +177,6 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
   </div>
 </header>
 
-<!-- Tabs -->
 <div class="tabs-wrap">
   <div class="tabs" id="tabsBar">
     <button class="tab active" data-tab="topics"><span class="ti">📚</span>Topics</button>
@@ -467,17 +187,14 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
   </div>
 </div>
 
-<!-- Main Content -->
 <main class="container">
 
-  <!-- TOPICS -->
   <div class="panel active" id="panel-topics">
     <h2 class="stitle">Study by Topic</h2>
     <p class="ssub">Master each topic. Your progress auto-saves.</p>
     <div class="topics-grid" id="topicsGrid"></div>
   </div>
 
-  <!-- TOPIC DETAIL -->
   <div class="panel" id="panel-topic-detail">
     <div class="back-row"><button class="back-btn" onclick="showPanel('topics')">← Back to Topics</button></div>
     <h2 class="stitle" id="tdTitle"></h2>
@@ -485,7 +202,6 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
     <div id="tdQs"></div>
   </div>
 
-  <!-- ALL MCQs -->
   <div class="panel" id="panel-all">
     <h2 class="stitle">All MCQs</h2>
     <p class="ssub">130 exam-style questions · Filter by topic or status</p>
@@ -499,19 +215,17 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
     <div id="allQs"></div>
   </div>
 
-  <!-- WEAK AREAS -->
   <div class="panel" id="panel-weak">
     <h2 class="stitle">Weak Areas</h2>
     <p class="ssub">Topics below 70% — focus here for maximum gains</p>
     <div id="weakList"></div>
   </div>
 
-  <!-- MOCK TEST -->
   <div class="panel" id="panel-mock">
     <div id="mockSetup">
       <div class="mock-h">
         <h2>🧪 Mock Test</h2>
-        <p>Simulate a real Cambridge IGCSE Biology Paper</p>
+        <p>Simulate a real Cambridge IGCSE Chemistry Paper 2</p>
       </div>
       <div style="max-width:420px;margin:0 auto">
         <div class="form-group">
@@ -550,7 +264,6 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
     <div id="mockResults" style="display:none"></div>
   </div>
 
-  <!-- TRAPS -->
   <div class="panel" id="panel-traps">
     <h2 class="stitle">🪤 Common Examiner Traps</h2>
     <p class="ssub">Know these to avoid losing easy marks</p>
@@ -561,157 +274,1773 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 
 <script>
 // =================== DATA ===================
-const Q=[
-  {id:1,t:"Cell Biology",q:"Which structure is found in plant cells but NOT in animal cells?",o:["Cell membrane","Cell wall","Mitochondria","Nucleus"],a:1,e:"Cell walls (made of cellulose) are unique to plant cells."},
-  {id:2,t:"Cell Biology",q:"Which organelle is the site of aerobic respiration?",o:["Chloroplast","Ribosome","Mitochondria","Vacuole"],a:2,e:"Mitochondria are the 'powerhouse' of the cell."},
-  {id:3,t:"Cell Biology",q:"In a plant cell, where does photosynthesis occur?",o:["Chloroplast","Mitochondria","Nucleus","Vacuole"],a:0,e:"Chloroplasts contain chlorophyll for photosynthesis."},
-  {id:4,t:"Cell Biology",q:"Heart muscle cells have a high metabolic rate. Which organelle would be present in high numbers?",o:["Chloroplasts","Mitochondria","Cell walls","Vacuoles"],a:1,e:"High metabolic rate requires more energy from mitochondria."},
-  {id:5,t:"Cell Biology",q:"What is the function of the cell membrane?",o:["To provide rigid support","To control entry and exit of substances","To produce proteins","To store genetic information"],a:1,e:"The cell membrane is partially permeable, controlling substance movement."},
-  {id:6,t:"Cell Biology",q:"A cell has a nucleus, cell membrane, cytoplasm but no cell wall or chloroplasts. What type is it?",o:["A bacterial cell","A plant leaf cell","An animal cell","A root hair cell"],a:2,e:"Animal cells lack cell walls and chloroplasts."},
-  {id:7,t:"Cell Biology",q:"What is the correct order of organisation from smallest to largest?",o:["Organ → tissue → cell → system","Cell → tissue → organ → organ system","Tissue → cell → organ → system","Cell → organ → tissue → system"],a:1,e:"Cell → Tissue → Organ → Organ system."},
-  {id:8,t:"Cell Biology",q:"Magnification is ×400. Image of a cell is 2 mm. What is the actual size?",o:["0.005 mm","0.05 mm","5 mm","800 mm"],a:0,e:"Actual = Image ÷ Magnification = 2 ÷ 400 = 0.005 mm"},
-  {id:9,t:"Cell Biology",q:"Which organelle is responsible for protein synthesis?",o:["Mitochondria","Nucleus","Ribosome","Vacuole"],a:2,e:"Ribosomes are the site of protein synthesis."},
-  {id:10,t:"Classification",q:"Which characteristic is shared by ALL living organisms?",o:["Movement by locomotion","Photosynthesis","Excretion","Growth of new limbs"],a:2,e:"All living things excrete (MRS GREN)."},
-  {id:11,t:"Classification",q:"Which group of organisms are all vertebrates?",o:["Insects, fish, birds","Fish, amphibians, reptiles","Spiders, reptiles, mammals","Worms, fish, mammals"],a:1,e:"Fish, amphibians, reptiles are all vertebrate groups."},
-  {id:12,t:"Classification",q:"A dichotomous key is used to:",o:["Show how organisms evolved","Identify and classify organisms","Show feeding relationships","Measure population size"],a:1,e:"Dichotomous keys classify organisms using paired statements."},
-  {id:13,t:"Classification",q:"Which feature classifies an organism as a mammal?",o:["Lays eggs","Has a backbone","Has hair/fur and produces milk","Has feathers"],a:2,e:"Hair/fur and milk production define mammals."},
-  {id:14,t:"Classification",q:"'Removal of toxic waste products of metabolism' defines which process?",o:["Excretion","Egestion","Secretion","Nutrition"],a:0,e:"Excretion = removing metabolic waste (urea, CO₂)."},
-  {id:15,t:"Movement In & Out of Cells",q:"Which process requires energy to move substances against a concentration gradient?",o:["Diffusion","Osmosis","Active transport","Passive transport"],a:2,e:"Active transport uses ATP to move against the gradient."},
-  {id:16,t:"Movement In & Out of Cells",q:"Osmosis is best defined as:",o:["Movement of molecules from high to low concentration","Net movement of water from higher to lower water potential through a partially permeable membrane","Movement of ions using energy","Movement of particles without a gradient"],a:1,e:"Osmosis = WATER through a partially permeable membrane."},
-  {id:17,t:"Movement In & Out of Cells",q:"Which is NOT a factor affecting the rate of diffusion?",o:["Temperature","Surface area","Distance","Colour of the membrane"],a:3,e:"Colour has no effect on diffusion rate."},
-  {id:18,t:"Movement In & Out of Cells",q:"Why do root hair cells use active transport to absorb mineral ions?",o:["Ion concentration is higher in soil","Ion concentration is lower in soil than in root","Ions are too large to diffuse","Water is absent in soil"],a:1,e:"Ions move against the gradient (low soil → high root)."},
-  {id:19,t:"Movement In & Out of Cells",q:"Potato in concentrated sugar solution becomes soft and flaccid. What happened?",o:["Water moved into the potato by osmosis","Water moved out of the potato by osmosis","Sugar moved into the potato","Sugar moved out by active transport"],a:1,e:"Water moves from high potential (potato) to low potential (sugar solution)."},
-  {id:20,t:"Movement In & Out of Cells",q:"A plant cell in pure water becomes turgid because:",o:["Water leaves by osmosis","Water enters by osmosis; cell wall prevents bursting","Salts enter by diffusion","The cell wall dissolves"],a:1,e:"Cell wall prevents lysis; cell becomes turgid."},
-  {id:21,t:"Movement In & Out of Cells",q:"How do villi absorb glucose when concentration is already higher inside the cell?",o:["Diffusion","Osmosis","Active transport","Evaporation"],a:2,e:"Active transport moves glucose against its concentration gradient."},
-  {id:22,t:"Biological Molecules",q:"Which test turns blue to brick-red/orange with reducing sugars?",o:["Iodine test","Benedict's test","Biuret test","Ethanol emulsion test"],a:1,e:"Benedict's reagent changes colour when heated with reducing sugars."},
-  {id:23,t:"Biological Molecules",q:"Iodine turns brown to blue-black in the presence of:",o:["Glucose","Protein","Starch","Fat"],a:2,e:"Iodine test is specifically for starch."},
-  {id:24,t:"Biological Molecules",q:"Which element is in proteins but NOT in carbohydrates?",o:["Carbon","Hydrogen","Oxygen","Nitrogen"],a:3,e:"Proteins contain C, H, O, N. Carbohydrates only have C, H, O."},
-  {id:25,t:"Biological Molecules",q:"The Biuret test detects:",o:["Starch","Reducing sugars","Protein","Lipids"],a:2,e:"Biuret turns blue to purple/violet with protein."},
-  {id:26,t:"Biological Molecules",q:"Which food molecule gives the most energy per gram?",o:["Carbohydrate","Protein","Fat/Lipid","Vitamin"],a:2,e:"Fats ≈ 37 kJ/g vs carbs ≈ 17 kJ/g."},
-  {id:27,t:"Enzymes",q:"Enzymes are biological catalysts. This means they:",o:["Slow down reactions","Speed up reactions without being used up","Are used up in the reaction","Change the products"],a:1,e:"Catalysts speed up reactions and are reusable."},
-  {id:28,t:"Enzymes",q:"The 'lock and key' model means:",o:["All enzymes work on any substrate","Substrate has the same shape as active site","Substrate has a complementary shape to the active site","Enzymes permanently change shape after reaction"],a:2,e:"'Complementary' — not 'same shape' — is the Cambridge keyword."},
-  {id:29,t:"Enzymes",q:"What happens above the optimum temperature?",o:["Enzyme works faster","Enzyme is denatured — active site changes shape","Enzyme dissolves","Enzyme becomes stronger"],a:1,e:"Denaturation = permanent change in active site shape."},
-  {id:30,t:"Enzymes",q:"Which enzyme digests starch into maltose?",o:["Protease","Lipase","Amylase","Maltase"],a:2,e:"Amylase: starch → maltose. Maltase: maltose → glucose."},
-  {id:31,t:"Enzymes",q:"Optimum pH for pepsin (stomach enzyme) is approximately:",o:["pH 2","pH 7","pH 9","pH 14"],a:0,e:"Pepsin works best in acidic conditions (pH ~2)."},
-  {id:32,t:"Enzymes",q:"Enzyme activity rises to 37°C then rapidly drops. What explains the decrease?",o:["Substrate ran out","Enzyme was denatured","pH changed","Enzyme multiplied"],a:1,e:"Above optimum, enzymes denature."},
-  {id:33,t:"Enzymes",q:"Why does boiling permanently destroy enzyme activity?",o:["Changes the colour","Permanently alters the active site shape","Increases enzyme concentration","Removes water from enzyme"],a:1,e:"Boiling causes irreversible denaturation."},
-  {id:34,t:"Plant Nutrition",q:"Word equation for photosynthesis:",o:["Glucose + O₂ → CO₂ + H₂O","CO₂ + H₂O → glucose + O₂","Glucose → CO₂ + H₂O + energy","O₂ + glucose → CO₂ + H₂O"],a:1,e:"Photosynthesis: CO₂ + H₂O → (light) → Glucose + O₂"},
-  {id:35,t:"Plant Nutrition",q:"Which gas is produced during photosynthesis?",o:["Carbon dioxide","Nitrogen","Oxygen","Hydrogen"],a:2,e:"Oxygen is a by-product of photosynthesis."},
-  {id:36,t:"Plant Nutrition",q:"Where in a leaf cell does photosynthesis mainly occur?",o:["Mitochondria","Nucleus","Cell wall","Chloroplast"],a:3,e:"Chloroplasts contain chlorophyll."},
-  {id:37,t:"Plant Nutrition",q:"Which is NOT a limiting factor of photosynthesis?",o:["Light intensity","CO₂ concentration","Oxygen concentration","Temperature"],a:2,e:"Oxygen is a product, not a limiting factor."},
-  {id:38,t:"Plant Nutrition",q:"Plant kept in dark 48h, leaf tested with iodine. Result?",o:["Blue-black (starch present)","Brown/yellow (no starch)","Purple","Red"],a:1,e:"No light → no photosynthesis → no starch."},
-  {id:39,t:"Plant Nutrition",q:"Which leaf layer is adapted for maximum light absorption?",o:["Lower epidermis","Spongy mesophyll","Palisade mesophyll","Guard cells"],a:2,e:"Palisade layer: top of leaf, packed with chloroplasts."},
-  {id:40,t:"Plant Nutrition",q:"Stomata are important for photosynthesis because they:",o:["Absorb water from rain","Allow CO₂ to enter the leaf","Produce chlorophyll","Store starch"],a:1,e:"Stomata allow CO₂ gas exchange."},
-  {id:41,t:"Plant Nutrition",q:"Plants need magnesium ions for:",o:["Making cell walls","Making chlorophyll","Making proteins","Making DNA"],a:1,e:"Mg²⁺ is a component of chlorophyll."},
-  {id:42,t:"Plant Nutrition",q:"A plant deficient in nitrate ions would show:",o:["Yellow leaves","Stunted growth and yellow older leaves","Purple leaves","No roots"],a:1,e:"Nitrates needed for amino acids/proteins; deficiency = stunted growth."},
-  {id:43,t:"Human Nutrition",q:"Which vitamin deficiency causes scurvy?",o:["Vitamin A","Vitamin C","Vitamin D","Iron"],a:1,e:"Vitamin C deficiency → scurvy (bleeding gums)."},
-  {id:44,t:"Human Nutrition",q:"What is the role of bile in digestion?",o:["Digests protein","Emulsifies fats into smaller droplets","Digests starch","Absorbs water"],a:1,e:"Bile is NOT an enzyme — it emulsifies fats for lipase."},
-  {id:45,t:"Human Nutrition",q:"Where is bile produced and stored?",o:["Produced in gallbladder, stored in liver","Produced in liver, stored in gallbladder","Produced in pancreas, stored in stomach","Produced in stomach, stored in liver"],a:1,e:"Bile: made in LIVER, stored in GALLBLADDER."},
-  {id:46,t:"Human Nutrition",q:"Main site of absorption of digested food?",o:["Stomach","Large intestine","Small intestine (ileum)","Oesophagus"],a:2,e:"Ileum has villi for maximum surface area."},
-  {id:47,t:"Human Nutrition",q:"Villi increase absorption rate because they:",o:["Produce enzymes","Increase the surface area","Contain bile","Produce HCl"],a:1,e:"Villi = increased surface area."},
-  {id:48,t:"Human Nutrition",q:"Peristalsis is:",o:["Chemical breakdown of food","Wave-like contractions pushing food through the gut","Absorption of nutrients","Production of enzymes"],a:1,e:"Peristalsis = rhythmic muscular contractions."},
-  {id:49,t:"Human Nutrition",q:"Which nutrient is digested by lipase?",o:["Starch","Protein","Fat","Cellulose"],a:2,e:"Lipase → fats → fatty acids + glycerol."},
-  {id:50,t:"Human Nutrition",q:"Dietary fibre is important because it:",o:["Provides energy","Prevents constipation by adding bulk","Builds muscles","Prevents scurvy"],a:1,e:"Fibre adds bulk, stimulates peristalsis."},
-  {id:51,t:"Transport in Plants",q:"Water moves upwards through a plant in the:",o:["Phloem","Xylem","Epidermis","Palisade cells"],a:1,e:"Xylem transports water and minerals upwards."},
-  {id:52,t:"Transport in Plants",q:"Water loss from leaves through stomata is called:",o:["Transpiration","Translation","Respiration","Photosynthesis"],a:0,e:"Transpiration = water loss via stomata."},
-  {id:53,t:"Transport in Plants",q:"Which factor increases transpiration rate?",o:["High humidity","Low temperature","High wind speed","Darkness"],a:2,e:"Wind removes water vapour, increasing the gradient."},
-  {id:54,t:"Transport in Plants",q:"Translocation is the transport of:",o:["Water in xylem","Minerals in xylem","Sucrose and amino acids in phloem","Oxygen in air spaces"],a:2,e:"Translocation = sugars & amino acids in phloem."},
-  {id:55,t:"Transport in Plants",q:"Root hair cells are adapted for water absorption because they:",o:["Have a thick cell wall","Have a large surface area","Contain chloroplasts","Have no vacuole"],a:1,e:"Long extension = large surface area for osmosis."},
-  {id:56,t:"Transport in Plants",q:"Xylem vessels are described as:",o:["Living cells with end walls","Dead cells with no end walls, strengthened by lignin","Living cells transporting sugars","Cells with thin walls and large vacuoles"],a:1,e:"Xylem: dead, hollow, reinforced with lignin."},
-  {id:57,t:"Transport in Animals",q:"Which vessel carries oxygenated blood from heart to body?",o:["Pulmonary artery","Vena cava","Aorta","Pulmonary vein"],a:2,e:"Aorta carries oxygenated blood from left ventricle."},
-  {id:58,t:"Transport in Animals",q:"Why is the left ventricle thicker than the right?",o:["Pumps to lungs only","Pumps at higher pressure to the whole body","Receives blood from lungs","Contains deoxygenated blood"],a:1,e:"Left ventricle pumps to the whole body — more force needed."},
-  {id:59,t:"Transport in Animals",q:"Which blood vessel has valves to prevent backflow?",o:["Arteries","Capillaries","Veins","Aorta"],a:2,e:"Veins have valves (low pressure blood)."},
-  {id:60,t:"Transport in Animals",q:"Correct pathway of blood through the heart:",o:["Vena cava → left atrium → left ventricle → aorta","Vena cava → right atrium → right ventricle → pulmonary artery","Pulmonary vein → right atrium → right ventricle → aorta","Aorta → left atrium → left ventricle → vena cava"],a:1,e:"Vena cava → RA → RV → Pulmonary artery → Lungs."},
-  {id:61,t:"Transport in Animals",q:"Capillaries allow exchange of substances because:",o:["Thick muscular walls","They have valves","Walls are one cell thick","Blood is at high pressure"],a:2,e:"One-cell-thick walls = rapid diffusion."},
-  {id:62,t:"Transport in Animals",q:"Which blood component carries oxygen?",o:["White blood cells","Platelets","Plasma","Red blood cells (haemoglobin)"],a:3,e:"Red blood cells contain haemoglobin."},
-  {id:63,t:"Transport in Animals",q:"The function of platelets is to:",o:["Carry oxygen","Fight infection","Help with blood clotting","Transport dissolved substances"],a:2,e:"Platelets help form clots."},
-  {id:64,t:"Transport in Animals",q:"Which vessel carries deoxygenated blood from heart to lungs?",o:["Pulmonary vein","Pulmonary artery","Aorta","Vena cava"],a:1,e:"Pulmonary artery — the only artery with deoxygenated blood."},
-  {id:65,t:"Diseases & Immunity",q:"A pathogen is:",o:["A white blood cell","An organism that causes disease","An antibiotic","A vaccine"],a:1,e:"Pathogens = disease-causing organisms."},
-  {id:66,t:"Diseases & Immunity",q:"How do antibiotics work?",o:["Kill viruses","Kill or inhibit bacteria","Boost the immune system","Prevent all diseases"],a:1,e:"Antibiotics ONLY work against bacteria."},
-  {id:67,t:"Diseases & Immunity",q:"Vaccination gives which type of immunity?",o:["Natural active","Artificial active","Natural passive","Artificial passive"],a:1,e:"Vaccination = artificial + active (body makes its own antibodies)."},
-  {id:68,t:"Diseases & Immunity",q:"White blood cells defend the body by:",o:["Carrying oxygen","Producing antibodies and phagocytosis","Clotting blood","Producing hormones"],a:1,e:"WBCs: phagocytosis + antibody production."},
-  {id:69,t:"Gas Exchange",q:"What makes alveoli efficient at gas exchange?",o:["Thick protective walls","Small surface area","Large surface area + dense capillary network","Muscles that contract"],a:2,e:"Large SA, thin walls, rich blood supply."},
-  {id:70,t:"Gas Exchange",q:"Why does O₂ move from alveoli into blood?",o:["O₂ is higher in blood","O₂ is higher in alveoli","CO₂ pushes O₂ out","Alveoli contract"],a:1,e:"O₂ diffuses down its concentration gradient."},
-  {id:71,t:"Gas Exchange",q:"Which cigarette chemical reduces O₂-carrying capacity?",o:["Tar","Nicotine","Carbon monoxide","Particulates"],a:2,e:"CO binds to haemoglobin → carboxyhaemoglobin."},
-  {id:72,t:"Gas Exchange",q:"How does tar affect the lungs?",o:["Increases alveoli","Excess mucus + damages cilia","Helps cilia clear mucus","Prevents narrowing"],a:1,e:"Tar destroys cilia → excess mucus → infections."},
-  {id:73,t:"Gas Exchange",q:"Emphysema is characterised by:",o:["Excess mucus","Breakdown of alveolar walls, reducing surface area","Lung cancer","Heart disease"],a:1,e:"Alveoli break down → less SA for gas exchange."},
-  {id:74,t:"Gas Exchange",q:"During inhalation:",o:["Diaphragm relaxes and moves up","Diaphragm contracts and flattens; intercostals contract","Lung pressure increases","Ribs move downward"],a:1,e:"Diaphragm flattens, ribs rise → volume up → pressure down → air in."},
-  {id:75,t:"Respiration",q:"Word equation for aerobic respiration:",o:["CO₂ + H₂O → glucose + O₂","Glucose + O₂ → CO₂ + H₂O + energy","Glucose → lactic acid + energy","Glucose → ethanol + CO₂ + energy"],a:1,e:"Aerobic: Glucose + O₂ → CO₂ + H₂O + Energy"},
-  {id:76,t:"Respiration",q:"Anaerobic respiration in yeast produces:",o:["Lactic acid + energy","Ethanol + CO₂ + energy","CO₂ + H₂O + energy","Glucose + O₂"],a:1,e:"Yeast fermentation → ethanol + CO₂."},
-  {id:77,t:"Respiration",q:"Anaerobic respiration in humans produces:",o:["Ethanol + CO₂","Lactic acid","CO₂ + H₂O","O₂ + glucose"],a:1,e:"Human muscles: glucose → lactic acid (causes cramp)."},
-  {id:78,t:"Respiration",q:"Where does aerobic respiration occur?",o:["Nucleus","Ribosome","Mitochondria","Cell membrane"],a:2,e:"Mitochondria = site of aerobic respiration."},
-  {id:79,t:"Respiration",q:"Which is true about anaerobic respiration?",o:["Produces more energy than aerobic","Requires oxygen","Releases less energy than aerobic","Only occurs in plants"],a:2,e:"Anaerobic = incomplete breakdown = less energy."},
-  {id:80,t:"Excretion",q:"Excretion is the removal of:",o:["Undigested food","Toxic waste products of metabolism","Excess water only","All food from the body"],a:1,e:"Excretion ≠ egestion. Excretion = metabolic waste."},
-  {id:81,t:"Excretion",q:"Which organ removes urea from blood?",o:["Lungs","Liver","Kidney","Skin"],a:2,e:"Kidneys filter blood and excrete urea."},
-  {id:82,t:"Excretion",q:"Where is urea produced?",o:["Kidney","Bladder","Liver","Blood"],a:2,e:"Liver: excess amino acids → urea (deamination)."},
-  {id:83,t:"Excretion",q:"Kidneys produce urine by:",o:["Filtration and selective reabsorption","Diffusion only","Osmosis only","Active transport only"],a:0,e:"Ultrafiltration + selective reabsorption."},
-  {id:84,t:"Coordination & Response",q:"Correct order of a reflex arc:",o:["Stimulus → effector → receptor → response","Stimulus → receptor → sensory → relay → motor → effector → response","Stimulus → motor → relay → sensory → response","Response → receptor → effector → stimulus"],a:1,e:"S → R → Sensory → Relay → Motor → Effector → Response."},
-  {id:85,t:"Coordination & Response",q:"Which part of the eye changes shape to focus?",o:["Cornea","Iris","Lens","Retina"],a:2,e:"Lens changes shape (accommodation) via ciliary muscles."},
-  {id:86,t:"Coordination & Response",q:"In bright light, the pupil:",o:["Gets larger (dilates)","Gets smaller (constricts)","Stays the same","Changes colour"],a:1,e:"Circular muscles contract → pupil constricts."},
-  {id:87,t:"Coordination & Response",q:"Which hormone lowers blood glucose?",o:["Glucagon","Adrenaline","Insulin","Testosterone"],a:2,e:"Insulin (from pancreas) lowers blood glucose."},
-  {id:88,t:"Coordination & Response",q:"Correct comparison of nervous vs hormonal responses:",o:["Nervous = slow, hormonal = fast","Nervous = fast electrical; hormonal = slower chemical, longer-lasting","Both use only hormones","Nervous lasts longer than hormonal"],a:1,e:"Nervous: fast, short. Hormonal: slower, longer-lasting."},
-  {id:89,t:"Coordination & Response",q:"Homeostasis is:",o:["Breakdown of glucose","Maintaining a constant internal environment","Growth of an organism","Transport of blood"],a:1,e:"Homeostasis = constant internal conditions."},
-  {id:90,t:"Coordination & Response",q:"Adrenaline is produced by the:",o:["Pituitary gland","Thyroid gland","Adrenal glands","Pancreas"],a:2,e:"Adrenal glands (above kidneys)."},
-  {id:91,t:"Drugs",q:"Antibiotics are effective against:",o:["Viruses","Bacteria","All pathogens","Fungi only"],a:1,e:"Antibiotics ONLY work against bacteria."},
-  {id:92,t:"Reproduction",q:"Which process produces genetically identical cells?",o:["Meiosis","Mitosis","Fertilisation","Mutation"],a:1,e:"Mitosis → two identical diploid cells."},
-  {id:93,t:"Reproduction",q:"Meiosis produces:",o:["Two identical diploid cells","Four genetically different haploid cells","Two different diploid cells","Four identical haploid cells"],a:1,e:"Meiosis → 4 haploid, genetically varied gametes."},
-  {id:94,t:"Reproduction",q:"Where are sperm cells produced?",o:["Ovaries","Uterus","Testes","Prostate gland"],a:2,e:"Testes produce sperm (male gametes)."},
-  {id:95,t:"Reproduction",q:"The placenta allows:",o:["Direct mixing of maternal and fetal blood","Exchange of nutrients, O₂, and waste between mother and fetus","Sperm production","Protection against all diseases"],a:1,e:"Maternal and fetal blood do NOT mix."},
-  {id:96,t:"Reproduction",q:"Pollination is:",o:["Fusion of gametes","Transfer of pollen from anther to stigma","Growth of seeds","Opening of a flower"],a:1,e:"Pollination ≠ fertilisation."},
-  {id:97,t:"Inheritance",q:"Bb × Bb cross: expected phenotypic ratio?",o:["All dominant","3 dominant : 1 recessive","1 dominant : 1 recessive","All recessive"],a:1,e:"Classic 3:1 monohybrid ratio."},
-  {id:98,t:"Inheritance",q:"The genotype 'Bb' is:",o:["Homozygous dominant","Homozygous recessive","Heterozygous","Codominant"],a:2,e:"Bb = heterozygous (two different alleles)."},
-  {id:99,t:"Inheritance",q:"A gene is best defined as:",o:["A length of DNA coding for a protein","An entire chromosome","A type of cell","A whole organism"],a:0,e:"Gene = section of DNA coding for a protein."},
-  {id:100,t:"Inheritance",q:"'Phenotype' means:",o:["Genetic makeup","Observable physical characteristics","A section of DNA","A type of cell division"],a:1,e:"Phenotype = what you see. Genotype = genetics."},
-  {id:101,t:"Inheritance",q:"In humans, sex is determined by:",o:["X chromosome only","XX = male, XY = female","XX = female, XY = male","Number of autosomes"],a:2,e:"XX = female, XY = male."},
-  {id:102,t:"Inheritance",q:"A mutation is:",o:["Normal cell division","A change in the DNA base sequence","Crossing over of chromosomes","Production of gametes"],a:1,e:"Mutations = random changes in DNA."},
-  {id:103,t:"Inheritance",q:"BB × bb cross — all offspring will be:",o:["Homozygous dominant","Homozygous recessive","Heterozygous","Mixed genotypes"],a:2,e:"BB × bb → all Bb (heterozygous)."},
-  {id:104,t:"Variation & Selection",q:"Continuous variation is shown by:",o:["Blood groups","Height","Gender","Tongue rolling"],a:1,e:"Height = range of values (continuous)."},
-  {id:105,t:"Variation & Selection",q:"Natural selection leads to:",o:["All organisms surviving equally","Organisms with favourable variations surviving and reproducing more","Random survival","Weaker organisms surviving"],a:1,e:"Survival of the fittest."},
-  {id:106,t:"Ecology",q:"Grass → Rabbit → Fox → Eagle. Which is the secondary consumer?",o:["Grass","Rabbit","Fox","Eagle"],a:2,e:"Fox eats the primary consumer (rabbit)."},
-  {id:107,t:"Ecology",q:"Why are food chains limited to 4-5 trophic levels?",o:["Not enough predators","Energy lost at each level as heat","Sun runs out of energy","Producers stop growing"],a:1,e:"~10% energy transfer between levels."},
-  {id:108,t:"Ecology",q:"A quadrat is used to:",o:["Measure temperature","Estimate population size in a habitat","Measure light intensity","Collect water"],a:1,e:"Quadrats sample organisms to estimate population."},
-  {id:109,t:"Ecology",q:"Arrows in a food chain show:",o:["Direction of movement","Flow of energy","Size of organisms","Number of organisms"],a:1,e:"Arrows = energy flow direction."},
-  {id:110,t:"Ecology",q:"Which is a decomposer?",o:["Rabbit","Grass","Fungus","Eagle"],a:2,e:"Fungi and bacteria decompose dead matter."},
-  {id:111,t:"Ecology",q:"A pyramid of numbers can be inverted when:",o:["More consumers than producers","One large producer supports many organisms","No energy","All same size"],a:1,e:"One tree → thousands of insects = inverted."},
-  {id:112,t:"Human Influences",q:"The greenhouse effect is enhanced by:",o:["Oxygen","Nitrogen","CO₂ and methane","Hydrogen"],a:2,e:"CO₂ and methane = main greenhouse gases."},
-  {id:113,t:"Human Influences",q:"Deforestation contributes to climate change because:",o:["Trees produce CO₂","Fewer trees = less CO₂ absorbed","Trees produce methane","Increases O₂"],a:1,e:"Fewer trees = less CO₂ removal."},
-  {id:114,t:"Human Influences",q:"Eutrophication occurs when:",o:["Too much O₂ enters a lake","Excess fertilisers cause algal blooms, depleting O₂","Fish populations increase","Water becomes cleaner"],a:1,e:"Fertiliser → algae → light blocked → decomposition → O₂ depleted."},
-  {id:115,t:"Human Influences",q:"Biological control uses:",o:["Pesticides","Natural predators to control pests","Fertilisers","Genetic modification"],a:1,e:"e.g., ladybirds eating aphids."},
-  {id:116,t:"Human Influences",q:"Which gas causes acid rain?",o:["Oxygen","Carbon dioxide","Sulfur dioxide","Nitrogen"],a:2,e:"SO₂ + nitrogen oxides → sulfuric/nitric acid."},
-  {id:117,t:"Enzymes",q:"Starch + amylase at 20°C, 37°C, 80°C. Fastest digestion at:",o:["20°C","37°C","80°C","All same rate"],a:1,e:"37°C = optimum. At 80°C, amylase is denatured."},
-  {id:118,t:"Excretion",q:"Blood leaving kidney via renal vein has:",o:["Higher urea concentration","Lower urea concentration","Same urea concentration","No blood cells"],a:1,e:"Kidney filters out urea."},
-  {id:119,t:"Excretion",q:"Which kidney structure filters blood?",o:["Loop of Henle","Bowman's capsule","Collecting duct","Bladder"],a:1,e:"Bowman's capsule = ultrafiltration."},
-  {id:120,t:"Inheritance",q:"Both parents carriers of sickle cell (HbᴬHbˢ). Chance of child having disease?",o:["0%","25%","50%","75%"],a:1,e:"1 in 4 (HbˢHbˢ) from Punnett square."},
-  {id:121,t:"Coordination & Response",q:"The function of the iris is to:",o:["Focus light on retina","Control light entering the eye","Detect light","Transmit impulses"],a:1,e:"Iris adjusts pupil size."},
-  {id:122,t:"Reproduction",q:"Which structure connects fetus to placenta?",o:["Oviduct","Umbilical cord","Cervix","Uterus wall"],a:1,e:"Umbilical cord carries blood between fetus and placenta."},
-  {id:123,t:"Human Influences",q:"In genetic engineering, the enzyme that cuts DNA at specific sites:",o:["Ligase","Restriction enzyme","Amylase","Protease"],a:1,e:"Restriction enzymes cut at specific sequences."},
-  {id:124,t:"Transport in Plants",q:"Which returns water to the atmosphere from plants?",o:["Precipitation","Condensation","Transpiration","Filtration"],a:2,e:"Transpiration releases water vapour from leaves."},
-  {id:125,t:"Transport in Animals",q:"Which statement about arteries and veins is correct?",o:["Arteries have thin walls","Arteries carry blood away from heart; veins toward heart","Arteries have valves","Arteries carry deoxygenated blood"],a:1,e:"A = Away from heart."},
-  {id:126,t:"Reproduction",q:"Amniotic fluid's function:",o:["Provides food","Protects embryo from physical damage","Removes waste","Supplies oxygen"],a:1,e:"Amniotic fluid cushions the embryo."},
-  {id:127,t:"Coordination & Response",q:"ADH (antidiuretic hormone) role:",o:["Decreases water reabsorption","Increases water reabsorption in kidneys","Breaks down glucose","Stimulates growth"],a:1,e:"ADH increases water reabsorption when dehydrated."},
-  {id:128,t:"Plant Nutrition",q:"Variegated leaf tested for starch after light. Starch found where?",o:["Only white parts","Only green parts","Both parts equally","Neither part"],a:1,e:"Only green parts have chlorophyll → only they make starch."},
-  {id:129,t:"Ecology",q:"Role of decomposers in an ecosystem:",o:["Produce food by photosynthesis","Break down dead matter and recycle nutrients","Eat other animals","Absorb sunlight"],a:1,e:"Decomposers recycle nutrients."},
-  {id:130,t:"Biological Molecules",q:"Which reagent tests for lipids/fats?",o:["Iodine solution","Benedict's solution","Biuret reagent","Ethanol emulsion test"],a:3,e:"Ethanol emulsion: dissolve in ethanol + water → white emulsion if fat present."}
+const Q = [
+  {
+    "id": 1,
+    "t": "Particulate Nature of Matter",
+    "q": "A student sets up an experiment with a glass tube. Concentrated ammonia solution (producing NH₃ gas, M_r = 17) is placed at one end, and concentrated hydrochloric acid (producing HCl gas, M_r = 36.5) is placed at the other. Where does the white cloud of ammonium chloride form?",
+    "o": [
+      "Exactly in the middle of the tube",
+      "Closer to the ammonia end because NH₃ molecules are lighter and move slower",
+      "Closer to the hydrochloric acid end because HCl molecules are heavier and move slower",
+      "Closer to the hydrochloric acid end because NH₃ molecules are lighter and move faster"
+    ],
+    "a": 3,
+    "e": "NH₃ (M_r = 17) is lighter than HCl (M_r = 36.5). Lighter gas molecules diffuse faster and cover more distance in the same time, so they meet the slower HCl molecules closer to the hydrochloric acid end."
+  },
+  {
+    "id": 2,
+    "t": "Particulate Nature of Matter",
+    "q": "Which statement best describes Brownian motion as observed in smoke particles under a microscope?",
+    "o": [
+      "The random movement of smoke particles caused by convection currents in the air",
+      "The random movement of smoke particles caused by collisions with invisible, fast-moving air molecules",
+      "The constant repulsion between similarly charged smoke particles",
+      "The attraction of smoke particles towards the light source of the microscope"
+    ],
+    "a": 1,
+    "e": "Brownian motion is the random, jerky movement of larger visible particles (like smoke or pollen) suspended in a fluid, caused by constant collisions with smaller, fast-moving, invisible molecules of the medium (air or water)."
+  },
+  {
+    "id": 3,
+    "t": "Particulate Nature of Matter",
+    "q": "A pure solid substance is heated until it boils. The heating curve shows a horizontal plateau at 80 °C. What is happening during this plateau?",
+    "o": [
+      "The substance is boiling, and the temperature is rising slowly",
+      "The substance is melting, and thermal energy is used to break intermolecular bonds rather than raise the temperature",
+      "The substance is decomposing chemically into its constituent elements",
+      "The substance is boiling, and thermal energy is stored as chemical potential energy"
+    ],
+    "a": 1,
+    "e": "A horizontal plateau on a heating curve of a pure solid represents a change of state (melting or boiling). At 80 °C, the substance is melting. During a change of state, temperature remains constant because the absorbed thermal energy is used to overcome forces of attraction between particles."
+  },
+  {
+    "id": 4,
+    "t": "Particulate Nature of Matter",
+    "q": "Which statement correctly describes the differences between evaporation and boiling?",
+    "o": [
+      "Evaporation occurs only at a fixed temperature, whereas boiling occurs at any temperature",
+      "Evaporation occurs throughout the liquid, whereas boiling occurs only at the surface",
+      "Evaporation occurs at any temperature and only from the surface, whereas boiling occurs at a fixed temperature throughout the liquid",
+      "Boiling is a slow process, whereas evaporation is extremely rapid"
+    ],
+    "a": 2,
+    "e": "Evaporation happens at any temperature below the boiling point and occurs only at the surface of the liquid. Boiling happens at a specific temperature (the boiling point) and occurs throughout the entire volume of the liquid, producing bubbles."
+  },
+  {
+    "id": 5,
+    "t": "Particulate Nature of Matter",
+    "q": "What happens to the particles of a gas when it is compressed at a constant temperature?",
+    "o": [
+      "The particles get smaller and their kinetic energy decreases",
+      "The average distance between particles decreases, and the frequency of collisions with container walls increases",
+      "The particles move slower because the volume is smaller",
+      "The forces of attraction between the particles disappear completely"
+    ],
+    "a": 1,
+    "e": "Compressing a gas reduces the space between particles (decreases volume). Because the particles are closer together, they collide with the container walls more frequently, increasing pressure. Temperature is constant, so their average kinetic energy/speed remains unchanged."
+  },
+  {
+    "id": 6,
+    "t": "Particulate Nature of Matter",
+    "q": "Why does a gas exert pressure on the walls of its container?",
+    "o": [
+      "Because gas particles repel each other and push outwards",
+      "Because gas particles are lighter than air and float upwards",
+      "Because of the collisions of gas particles with the walls of the container",
+      "Because the particles expand when they touch the walls"
+    ],
+    "a": 2,
+    "e": "Gas pressure is caused by the bombardment of gas particles against the walls of the container. Each collision exerts a tiny force, and the sum of all these forces over a unit area is the pressure."
+  },
+  {
+    "id": 7,
+    "t": "Particulate Nature of Matter",
+    "q": "Which process describes a solid changing directly into a gas without passing through the liquid state?",
+    "o": [
+      "Condensation",
+      "Sublimation",
+      "Evaporation",
+      "Deposition"
+    ],
+    "a": 1,
+    "e": "Sublimation is the direct transition of a substance from the solid to the gas phase. Examples include dry ice (solid carbon dioxide) and iodine crystals when heated."
+  },
+  {
+    "id": 8,
+    "t": "Particulate Nature of Matter",
+    "q": "In which state of matter do the particles have a regular arrangement, vibrate about fixed positions, and have strong forces of attraction between them?",
+    "o": [
+      "Solid",
+      "Liquid",
+      "Gas",
+      "Plasma"
+    ],
+    "a": 0,
+    "e": "Solids have a highly ordered lattice arrangement. The particles are held close together by strong intermolecular forces and can only vibrate about fixed positions."
+  },
+  {
+    "id": 9,
+    "t": "Experimental Techniques",
+    "q": "A mixture contains sand, salt (sodium chloride), and water. Which sequence of techniques should be used to obtain pure sand and pure water from this mixture?",
+    "o": [
+      "Filtration followed by crystallisation",
+      "Simple distillation followed by filtration",
+      "Filtration followed by simple distillation",
+      "Fractional distillation followed by evaporation"
+    ],
+    "a": 2,
+    "e": "Sand is insoluble in water, so it can be separated by filtration (sand remains as residue). Salt is soluble in water; to obtain pure water from the filtrate, simple distillation is used (water evaporates, condenses, and is collected as distillate)."
+  },
+  {
+    "id": 10,
+    "t": "Experimental Techniques",
+    "q": "In paper chromatography, a chromatogram is run with three dyes. Dye X moves 4.2 cm from the baseline, while the solvent front moves 6.0 cm. What is the R_f value of dye X?",
+    "o": [
+      "1.43",
+      "0.70",
+      "0.58",
+      "0.42"
+    ],
+    "a": 1,
+    "e": "R_f value = (distance moved by substance) / (distance moved by solvent front) = 4.2 cm / 6.0 cm = 0.70. R_f values are always between 0 and 1."
+  },
+  {
+    "id": 11,
+    "t": "Experimental Techniques",
+    "q": "Why is fractional distillation, rather than simple distillation, used to separate ethanol (boiling point 78 °C) from water (boiling point 100 °C)?",
+    "o": [
+      "Ethanol and water are immiscible liquids",
+      "The boiling points of ethanol and water are too close, and the fractionating column allows repeated condensation and evaporation cycles",
+      "Water is more volatile than ethanol",
+      "Fractional distillation uses less energy than simple distillation"
+    ],
+    "a": 1,
+    "e": "When boiling points are close (less than 25 °C difference), simple distillation fails to separate them cleanly. A fractionating column contains glass beads or trays that provide a large surface area for repeated condensation and vaporisation, allowing the more volatile liquid (ethanol) to exit the top first."
+  },
+  {
+    "id": 12,
+    "t": "Experimental Techniques",
+    "q": "A student wants to test the purity of a sample of aspirin. Which observation indicates that the sample is pure?",
+    "o": [
+      "It melts over a wide range of temperatures from 130 °C to 138 °C",
+      "It dissolves completely in water to form a clear solution",
+      "It melts sharply at exactly 135 °C",
+      "It reacts with sodium hydroxide solution to form a salt"
+    ],
+    "a": 2,
+    "e": "Pure substances have sharp, well-defined melting and boiling points. Impurities lower the melting point and cause the substance to melt over a broad range of temperatures."
+  },
+  {
+    "id": 13,
+    "t": "Experimental Techniques",
+    "q": "What is a 'locating agent' used for in paper chromatography?",
+    "o": [
+      "To help the solvent rise faster up the paper",
+      "To dissolve the dyes so they can travel up the paper",
+      "To react with colorless substances (like amino acids) on a chromatogram to produce colored spots",
+      "To mark the baseline where the sample spots are placed"
+    ],
+    "a": 2,
+    "e": "Locating agents, such as ninhydrin, are sprayed onto a dried chromatogram to react with colorless spots (e.g., amino acids or sugars) to make them visible as colored compounds."
+  },
+  {
+    "id": 14,
+    "t": "Experimental Techniques",
+    "q": "Which piece of apparatus should be used to measure exactly 25.0 cm³ of an acid for a titration?",
+    "o": [
+      "A 50 cm³ beaker",
+      "A 25 cm³ measuring cylinder",
+      "A 25.0 cm³ volumetric pipette",
+      "A 100 cm³ conical flask"
+    ],
+    "a": 2,
+    "e": "A volumetric pipette is designed to deliver a single, highly accurate volume of liquid (e.g., exactly 25.0 cm³). Measuring cylinders are less precise, and beakers/flasks are only approximate."
+  },
+  {
+    "id": 15,
+    "t": "Atoms, Elements & Compounds",
+    "q": "An ion X³⁺ has a nucleon number (mass number) of 56 and contains 23 electrons. How many protons and neutrons are in the nucleus of this ion?",
+    "o": [
+      "26 protons, 30 neutrons",
+      "23 protons, 33 neutrons",
+      "20 protons, 36 neutrons",
+      "26 protons, 33 neutrons"
+    ],
+    "a": 0,
+    "e": "A positive ion has lost electrons. X³⁺ has lost 3 electrons, so a neutral X atom has 23 + 3 = 26 electrons. Therefore, it has 26 protons. Neutrons = Nucleon number - Protons = 56 - 26 = 30."
+  },
+  {
+    "id": 16,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Which statement about isotopes of the same element is correct?",
+    "o": [
+      "They have different chemical properties because they have different numbers of neutrons",
+      "They have the same physical properties because they have the same mass number",
+      "They have the same chemical properties because they have the same number of outer-shell electrons",
+      "They have different electronic configurations"
+    ],
+    "a": 2,
+    "e": "Isotopes have the same number of protons and electrons, and thus the same electronic configuration. Chemical properties are determined by the number of valence (outer-shell) electrons, so isotopes behave identically in chemical reactions. They differ only in physical properties (like density and diffusion rate) due to different masses."
+  },
+  {
+    "id": 17,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Which statement correctly describes the structure of silicon(IV) oxide (SiO₂)?",
+    "o": [
+      "It is a simple molecular structure with weak intermolecular forces",
+      "Each silicon atom is covalently bonded to two oxygen atoms in a linear arrangement",
+      "It is a giant covalent structure where each silicon atom is bonded to four oxygen atoms, and each oxygen is bonded to two silicon atoms",
+      "It contains ionic bonds between Si⁴⁺ and O²⁻ ions"
+    ],
+    "a": 2,
+    "e": "Silicon(IV) oxide (silica) has a giant covalent macromolecular structure similar to diamond. Each silicon atom is tetrahedrally bonded to four oxygen atoms, and each oxygen atom bridges two silicon atoms, giving a formula ratio of 1:2 (SiO₂)."
+  },
+  {
+    "id": 18,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Why does graphite conduct electricity while diamond does not, even though both are made entirely of carbon atoms?",
+    "o": [
+      "Graphite contains ionic bonds that allow ions to migrate",
+      "Diamond has a giant structure, whereas graphite consists of small molecules",
+      "In graphite, each carbon atom is bonded to three others, leaving one delocalised electron per atom free to move along layers",
+      "Graphite contains impurities of metals that conduct electricity"
+    ],
+    "a": 2,
+    "e": "In graphite, carbon atoms are bonded in hexagonal sheets. Each carbon atom forms three covalent bonds. The fourth valence electron is delocalised and free to move throughout the structure to carry electrical charge. In diamond, all four valence electrons are locked in rigid tetrahedral covalent bonds."
+  },
+  {
+    "id": 19,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Which description of metallic bonding is correct?",
+    "o": [
+      "A lattice of negative ions held in a sea of positive electrons",
+      "A lattice of positive metal ions held together by electrostatic attraction to a sea of delocalised electrons",
+      "The sharing of electron pairs between metal atoms",
+      "Electrostatic attraction between oppositely charged metal cations and non-metal anions"
+    ],
+    "a": 1,
+    "e": "Metallic bonding is defined as a regular lattice of positive metal ions (cations) surrounded and held together by a 'sea' of mobile, delocalised valence electrons. The electrostatic attraction between the positive ions and negative electrons holds the structure together."
+  },
+  {
+    "id": 20,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Why are metals malleable (capable of being hammered into sheets)?",
+    "o": [
+      "The covalent bonds between metal atoms are flexible",
+      "The layers of positive ions in the metallic lattice can slide over each other without breaking the metallic bond",
+      "Metals contain low-melting-point elements that act as lubricants",
+      "Metallic bonds are easily broken and reformed by heat"
+    ],
+    "a": 1,
+    "e": "Metals are malleable and ductile because their positive ions are arranged in regular layers. When a force is applied, these layers can slide past each other. The sea of delocalised electrons shifts to maintain the metallic bond, preventing the structure from shattering."
+  },
+  {
+    "id": 21,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Which compound contains only covalent bonds?",
+    "o": [
+      "NaCl",
+      "NH₄Cl",
+      "CO₂",
+      "MgCl₂"
+    ],
+    "a": 2,
+    "e": "CO₂ consists of non-metal atoms (carbon and oxygen) sharing electrons in covalent bonds. NaCl and MgCl₂ are ionic. NH₄Cl contains both covalent bonds (within the NH₄⁺ ion) and ionic bonds (between NH₄⁺ and Cl⁻)."
+  },
+  {
+    "id": 22,
+    "t": "Atoms, Elements & Compounds",
+    "q": "What is the electronic configuration of a potassium ion, K⁺?",
+    "o": [
+      "2, 8, 8, 1",
+      "2, 8, 8",
+      "2, 8, 8, 2",
+      "2, 8"
+    ],
+    "a": 1,
+    "e": "Potassium (proton number 19) has the electron configuration 2, 8, 8, 1. To form a K⁺ ion, it loses its single valence electron, leaving a stable electronic configuration of 2, 8, 8 (identical to argon)."
+  },
+  {
+    "id": 23,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Which of the following substances has a giant ionic lattice structure?",
+    "o": [
+      "H₂O",
+      "Copper",
+      "Sodium chloride",
+      "Diamond"
+    ],
+    "a": 2,
+    "e": "Sodium chloride (NaCl) is composed of alternating positive sodium ions (Na⁺) and negative chloride ions (Cl⁻) arranged in a giant 3D ionic lattice, held by strong electrostatic attractions."
+  },
+  {
+    "id": 24,
+    "t": "Atoms, Elements & Compounds",
+    "q": "Which type of substance typically has a low melting point and does not conduct electricity in either solid or liquid states?",
+    "o": [
+      "Giant covalent macromolecule",
+      "Simple molecular covalent substance",
+      "Ionic compound",
+      "Metal"
+    ],
+    "a": 1,
+    "e": "Simple molecular substances (like H₂O, CO₂, or CH₄) have low melting/boiling points because only weak intermolecular forces (not strong covalent bonds) must be overcome. They contain no free ions or delocalised electrons, so they cannot conduct electricity."
+  },
+  {
+    "id": 25,
+    "t": "Stoichiometry",
+    "q": "What is the empirical formula of a compound containing 40.0% carbon, 6.7% hydrogen, and 53.3% oxygen by mass? [A_r: C = 12, H = 1, O = 16]",
+    "o": [
+      "CHO",
+      "CH₂O",
+      "C₂H₄O₂",
+      "CHO₂"
+    ],
+    "a": 1,
+    "e": "Moles of C = 40/12 = 3.33; Moles of H = 6.7/1 = 6.7; Moles of O = 53.3/16 = 3.33. Dividing by the smallest value (3.33) yields a ratio of C:H:O of 1:2:1. Thus, the empirical formula is CH₂O."
+  },
+  {
+    "id": 26,
+    "t": "Stoichiometry",
+    "q": "Calculate the volume of carbon dioxide gas (at r.t.p.) produced when 10.0 g of calcium carbonate (CaCO₃, M_r = 100) undergoes complete thermal decomposition: CaCO₃(s) → CaO(s) + CO₂(g). [Molar gas volume at r.t.p. = 24.0 dm³]",
+    "o": [
+      "24.0 dm³",
+      "2.4 dm³",
+      "1.2 dm³",
+      "0.24 dm³"
+    ],
+    "a": 1,
+    "e": "Moles of CaCO₃ = mass / M_r = 10.0 g / 100 g/mol = 0.10 mol. The molar ratio of CaCO₃ to CO₂ is 1:1, so 0.10 mol of CO₂ is produced. Volume of CO₂ = moles × molar volume = 0.10 mol × 24.0 dm³/mol = 2.4 dm³."
+  },
+  {
+    "id": 27,
+    "t": "Stoichiometry",
+    "q": "What is the concentration (in mol/dm³) of a solution prepared by dissolving 4.0 g of sodium hydroxide (NaOH) in water to make 250 cm³ of solution? [M_r of NaOH = 40]",
+    "o": [
+      "0.10 mol/dm³",
+      "0.40 mol/dm³",
+      "1.0 mol/dm³",
+      "1.6 mol/dm³"
+    ],
+    "a": 1,
+    "e": "Moles of NaOH = 4.0 g / 40 g/mol = 0.10 mol. Volume in dm³ = 250 cm³ / 1000 = 0.25 dm³. Concentration = moles / volume = 0.10 mol / 0.25 dm³ = 0.40 mol/dm³."
+  },
+  {
+    "id": 28,
+    "t": "Stoichiometry",
+    "q": "In a reaction, 12 g of carbon is burned in excess oxygen to produce carbon dioxide. If the actual yield of carbon dioxide collected is 33 g, what is the percentage yield of the reaction? [M_r: C = 12, O = 16, CO₂ = 44]",
+    "o": [
+      "100%",
+      "75%",
+      "50%",
+      "33%"
+    ],
+    "a": 1,
+    "e": "Equation: C + O₂ → CO₂. Moles of C = 12 g / 12 g/mol = 1.0 mol. Theoretical yield of CO₂ = 1.0 mol × 44 g/mol = 44 g. Percentage yield = (actual / theoretical) × 100% = (33 g / 44 g) × 100% = 75%."
+  },
+  {
+    "id": 29,
+    "t": "Stoichiometry",
+    "q": "What mass of copper(II) oxide is formed when 16 g of copper is completely oxidised in air? 2Cu + O₂ → 2CuO [A_r: Cu = 64, O = 16]",
+    "o": [
+      "16 g",
+      "20 g",
+      "32 g",
+      "40 g"
+    ],
+    "a": 1,
+    "e": "Moles of Cu = 16 g / 64 g/mol = 0.25 mol. The stoichiometry ratio shows 2 moles of Cu produce 2 moles of CuO (1:1 ratio), so 0.25 mol of CuO is formed. M_r of CuO = 64 + 16 = 80. Mass of CuO = 0.25 mol × 80 g/mol = 20 g."
+  },
+  {
+    "id": 30,
+    "t": "Stoichiometry",
+    "q": "Which gas contains the greatest number of molecules at r.t.p.?",
+    "o": [
+      "2 g of hydrogen gas (H₂, M_r = 2)",
+      "16 g of oxygen gas (O₂, M_r = 32)",
+      "14 g of nitrogen gas (N₂, M_r = 28)",
+      "22 g of carbon dioxide gas (CO₂, M_r = 44)"
+    ],
+    "a": 0,
+    "e": "Moles of gas = mass / M_r. A: 2g H₂ / 2 = 1.0 mol. B: 16g O₂ / 32 = 0.5 mol. C: 14g N₂ / 28 = 0.5 mol. D: 22g CO₂ / 44 = 0.5 mol. 1.0 mol of H₂ contains the most molecules (Avogadro's constant)."
+  },
+  {
+    "id": 31,
+    "t": "Stoichiometry",
+    "q": "What is the concentration of a solution containing 14.8 g of calcium hydroxide, Ca(OH)₂, dissolved in 2.0 dm³ of water? [M_r of Ca(OH)₂ = 74]",
+    "o": [
+      "0.10 mol/dm³",
+      "0.20 mol/dm³",
+      "0.40 mol/dm³",
+      "0.05 mol/dm³"
+    ],
+    "a": 0,
+    "e": "Moles of Ca(OH)₂ = 14.8 g / 74 g/mol = 0.20 mol. Volume = 2.0 dm³. Concentration = 0.20 mol / 2.0 dm³ = 0.10 mol/dm³."
+  },
+  {
+    "id": 32,
+    "t": "Stoichiometry",
+    "q": "What volume of 0.50 mol/dm³ hydrochloric acid is required to react completely with 2.5 g of calcium carbonate? CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂ [M_r of CaCO₃ = 100]",
+    "o": [
+      "100 cm³",
+      "50 cm³",
+      "25 cm³",
+      "10 cm³"
+    ],
+    "a": 0,
+    "e": "Moles of CaCO₃ = 2.5 g / 100 = 0.025 mol. According to the equation, 1 mole of CaCO₃ reacts with 2 moles of HCl, so we need 0.025 × 2 = 0.050 mol of HCl. Volume = moles / concentration = 0.050 mol / 0.50 mol/dm³ = 0.10 dm³ = 100 cm³."
+  },
+  {
+    "id": 33,
+    "t": "Stoichiometry",
+    "q": "What is the percentage by mass of nitrogen in ammonium nitrate, NH₄NO₃? [M_r: NH₄NO₃ = 80; A_r of N = 14]",
+    "o": [
+      "17.5%",
+      "35.0%",
+      "28.0%",
+      "42.5%"
+    ],
+    "a": 1,
+    "e": "Ammonium nitrate contains two nitrogen atoms per formula unit (N_2). Mass of nitrogen = 2 × 14 = 28. Percentage by mass = (28 / 80) × 100% = 35%."
+  },
+  {
+    "id": 34,
+    "t": "Stoichiometry",
+    "q": "A hydrocarbons has a relative molecular mass of 56 and contains 85.7% carbon by mass. What is its molecular formula? [A_r: C = 12, H = 1]",
+    "o": [
+      "CH₂",
+      "C₄H₈",
+      "C₃H₆",
+      "C₅H₁₀"
+    ],
+    "a": 1,
+    "e": "Moles of C = 85.7 / 12 = 7.14. Moles of H = 14.3 / 1 = 14.3. Ratio is 1:2, so empirical formula is CH₂ (formula mass 14). Since M_r is 56, the factor is 56/14 = 4. Molecular formula is C₄H₈."
+  },
+  {
+    "id": 35,
+    "t": "Electricity & Chemistry",
+    "q": "During the electrolysis of molten lead(II) bromide using inert carbon electrodes, what are the products formed at each electrode?",
+    "o": [
+      "Anode: hydrogen; Cathode: bromine",
+      "Anode: bromine; Cathode: lead",
+      "Anode: lead; Cathode: bromine",
+      "Anode: oxygen; Cathode: lead"
+    ],
+    "a": 1,
+    "e": "Molten lead(II) bromide (PbBr₂) contains only Pb²⁺ and Br⁻ ions. At the cathode (negative electrode), Pb²⁺ ions gain electrons (reduction) to form lead metal. At the anode (positive electrode), Br⁻ ions lose electrons (oxidation) to form bromine gas (red-brown vapor)."
+  },
+  {
+    "id": 36,
+    "t": "Electricity & Chemistry",
+    "q": "When concentrated aqueous sodium chloride is electrolysed using inert platinum electrodes, what is produced at the cathode and why?",
+    "o": [
+      "Sodium metal because Na⁺ ions are easier to reduce than H⁺ ions",
+      "Chlorine gas because Cl⁻ ions are in high concentration",
+      "Hydrogen gas because H⁺ ions are lower in the reactivity series than Na⁺ ions and are reduced preferentially",
+      "Oxygen gas because OH⁻ ions are discharged"
+    ],
+    "a": 2,
+    "e": "Aqueous NaCl contains Na⁺, Cl⁻, H⁺, and OH⁻. At the cathode, both Na⁺ and H⁺ compete. Because hydrogen is less reactive (lower in the reactivity series) than sodium, H⁺ is reduced preferentially to form hydrogen gas (2H⁺ + 2e⁻ → H₂)."
+  },
+  {
+    "id": 37,
+    "t": "Electricity & Chemistry",
+    "q": "A student wants to electroplate a steel spoon with copper. How should the apparatus be set up?",
+    "o": [
+      "Anode: steel spoon; Cathode: pure copper; Electrolyte: aqueous sodium chloride",
+      "Anode: pure copper; Cathode: steel spoon; Electrolyte: aqueous copper(II) sulfate",
+      "Anode: pure copper; Cathode: steel spoon; Electrolyte: dilute sulfuric acid",
+      "Anode: steel spoon; Cathode: pure copper; Electrolyte: aqueous copper(II) sulfate"
+    ],
+    "a": 1,
+    "e": "In electroplating, the object to be plated is always made the cathode (negative electrode). The plating metal is made the anode (positive electrode). The electrolyte must be a soluble salt containing the ions of the plating metal (copper(II) sulfate in this case)."
+  },
+  {
+    "id": 38,
+    "t": "Electricity & Chemistry",
+    "q": "In the electrolysis of dilute sulfuric acid using inert electrodes, what is the half-equation for the reaction taking place at the anode?",
+    "o": [
+      "2H⁺ + 2e⁻ → H₂",
+      "4OH⁻ → O₂ + 2H₂O + 4e⁻",
+      "SO₄²⁻ → SO₂ + O₂ + 2e⁻",
+      "2H₂O + 2e⁻ → H₂ + 2OH⁻"
+    ],
+    "a": 1,
+    "e": "Dilute sulfuric acid contains H⁺, OH⁻, and SO₄²⁻ ions. At the anode, OH⁻ from water is discharged preferentially over SO₄²⁻ because it is a stronger reducing agent. The half-equation is 4OH⁻(aq) → O₂(g) + 2H₂O(l) + 4e⁻, releasing oxygen gas."
+  },
+  {
+    "id": 39,
+    "t": "Electricity & Chemistry",
+    "q": "What are the chemical reactions occurring at the electrodes in a hydrogen-oxygen fuel cell?",
+    "o": [
+      "Cathode: oxidation of hydrogen; Anode: reduction of oxygen",
+      "Cathode: reduction of oxygen; Anode: oxidation of hydrogen",
+      "Both electrodes undergo reduction reactions",
+      "Both electrodes undergo oxidation of water"
+    ],
+    "a": 1,
+    "e": "In a fuel cell, hydrogen is fed to the anode, where it undergoes oxidation (H₂ → 2H⁺ + 2e⁻). Oxygen is fed to the cathode, where it undergoes reduction (O₂ + 4H⁺ + 4e⁻ → 2H₂O). The overall reaction is 2H₂ + O₂ → 2H₂O."
+  },
+  {
+    "id": 40,
+    "t": "Electricity & Chemistry",
+    "q": "During the electrolysis of aqueous copper(II) sulfate using copper electrodes, what happens to the mass of the anode?",
+    "o": [
+      "It increases because copper is deposited on it",
+      "It decreases because copper atoms lose electrons and dissolve into the solution as Cu²⁺ ions",
+      "It remains constant because copper is inert",
+      "It decreases because oxygen gas is evolved at the anode and corrodes it"
+    ],
+    "a": 1,
+    "e": "When copper electrodes are used, the anode is active. Copper atoms at the anode lose electrons (oxidation) and dissolve: Cu(s) → Cu²⁺(aq) + 2e⁻. Consequently, the mass of the anode decreases. Copper ions are deposited onto the cathode, whose mass increases."
+  },
+  {
+    "id": 41,
+    "t": "Electricity & Chemistry",
+    "q": "Which of the following is a key advantage of hydrogen-oxygen fuel cells over conventional petrol combustion engines?",
+    "o": [
+      "They are cheaper to manufacture and maintain",
+      "They produce only water as a byproduct, meaning zero carbon emissions during operation",
+      "Hydrogen is extremely easy to store and transport safely",
+      "They operate at much higher temperatures, which increases thermal efficiency"
+    ],
+    "a": 1,
+    "e": "Fuel cells are highly efficient and produce only water as a waste product (zero greenhouse gas or toxic pollutant emissions during operation). However, hydrogen storage and manufacture remain technological challenges."
+  },
+  {
+    "id": 42,
+    "t": "Electricity & Chemistry",
+    "q": "What is the product at the anode during the electrolysis of molten sodium chloride?",
+    "o": [
+      "Sodium metal",
+      "Chlorine gas",
+      "Hydrogen gas",
+      "Oxygen gas"
+    ],
+    "a": 1,
+    "e": "Molten NaCl contains only Na⁺ and Cl⁻ ions. Cl⁻ ions migrate to the anode (positive electrode), where they lose electrons (oxidation) to form chlorine gas (Cl₂)."
+  },
+  {
+    "id": 43,
+    "t": "Electricity & Chemistry",
+    "q": "In which process is electrolysis NOT used?",
+    "o": [
+      "Extraction of aluminium from alumina",
+      "Purification of copper",
+      "Manufacture of sulfuric acid",
+      "Electroplating steel with chromium"
+    ],
+    "a": 2,
+    "e": "Sulfuric acid is manufactured via the Contact Process, which is a catalytic chemical reaction, not an electrolytic process. Extraction of aluminium, copper refining, and electroplating all rely on electrolysis."
+  },
+  {
+    "id": 44,
+    "t": "Electricity & Chemistry",
+    "q": "During the electrolysis of dilute sodium chloride, what is the product collected at the cathode?",
+    "o": [
+      "Sodium metal",
+      "Chlorine gas",
+      "Hydrogen gas",
+      "Oxygen gas"
+    ],
+    "a": 2,
+    "e": "In dilute NaCl, H⁺ and OH⁻ ions from water are in much higher concentrations. At the cathode, H⁺ is reduced to hydrogen gas (H₂). Sodium ions remain in solution."
+  },
+  {
+    "id": 45,
+    "t": "Chemical Energetics",
+    "q": "For an endothermic reaction, which statement about the energy changes is correct?",
+    "o": [
+      "Energy released in bond making is greater than energy absorbed in bond breaking; ΔH is negative",
+      "Energy absorbed in bond breaking is greater than energy released in bond making; ΔH is positive",
+      "Energy released in bond making is greater than energy absorbed in bond breaking; ΔH is positive",
+      "Energy absorbed in bond breaking is greater than energy released in bond making; ΔH is negative"
+    ],
+    "a": 1,
+    "e": "Endothermic reactions absorb energy from the surroundings. Bond breaking is endothermic (requires energy) and bond making is exothermic (releases energy). Therefore, in an endothermic reaction, the energy absorbed to break bonds is greater than the energy released when making bonds, resulting in a positive enthalpy change (ΔH > 0)."
+  },
+  {
+    "id": 46,
+    "t": "Chemical Energetics",
+    "q": "Using the bond energy data provided, calculate the enthalpy change (ΔH) for the combustion of methane: CH₄ + 2O₂ → CO₂ + 2H₂O. [Bond energies in kJ/mol: C–H = 413, O=O = 496, C=O = 805, O–H = 463]",
+    "o": [
+      "+818 kJ/mol",
+      "-818 kJ/mol",
+      "-640 kJ/mol",
+      "+640 kJ/mol"
+    ],
+    "a": 1,
+    "e": "Bonds broken: 4(C–H) + 2(O=O) = 4(413) + 2(496) = 1652 + 992 = 2644 kJ. Bonds made: 2(C=O) + 4(O–H) = 2(805) + 4(463) = 1610 + 1852 = 3462 kJ. ΔH = Bonds broken - Bonds made = 2644 - 3462 = -818 kJ/mol. The reaction is exothermic."
+  },
+  {
+    "id": 47,
+    "t": "Chemical Energetics",
+    "q": "Which reaction is endothermic?",
+    "o": [
+      "The combustion of natural gas",
+      "The reaction of water with anhydrous copper(II) sulfate",
+      "The thermal decomposition of limestone (calcium carbonate)",
+      "The neutralisation of hydrochloric acid by sodium hydroxide"
+    ],
+    "a": 2,
+    "e": "Thermal decomposition reactions require continuous heating to break strong chemical bonds, making them endothermic. Combustion, neutralisation, and hydration of anhydrous salts are exothermic."
+  },
+  {
+    "id": 48,
+    "t": "Chemical Energetics",
+    "q": "On an energy profile diagram, what does the arrow pointing from the reactant level to the peak of the curve represent?",
+    "o": [
+      "Enthalpy change of reaction (ΔH)",
+      "Activation energy (E_a)",
+      "Total energy of the products",
+      "Energy released during bond formation"
+    ],
+    "a": 1,
+    "e": "The activation energy (E_a) is the minimum energy required to start a reaction, represented on an energy profile diagram as the energy difference between the reactants and the highest point of the curve (transition state)."
+  },
+  {
+    "id": 49,
+    "t": "Chemical Energetics",
+    "q": "When ammonium nitrate is dissolved in water, the temperature of the mixture drops from 22 °C to 15 °C. Which statement is correct?",
+    "o": [
+      "The process is exothermic, and energy is released",
+      "The process is endothermic, and energy is absorbed",
+      "The enthalpy change of solution is negative",
+      "The chemical potential energy of the products is lower than that of the reactants"
+    ],
+    "a": 1,
+    "e": "A temperature drop in the surroundings indicates that the process has absorbed heat from the water, which is the definition of an endothermic process. The enthalpy change (ΔH) for this process is positive."
+  },
+  {
+    "id": 50,
+    "t": "Chemical Energetics",
+    "q": "Why is the combustion of fuels considered highly exothermic?",
+    "o": [
+      "Because the reactants have less chemical energy than the products",
+      "Because the activation energy is extremely high",
+      "Because the energy released during the formation of C=O and O–H bonds is much greater than the energy required to break C–H and O=O bonds",
+      "Because bond breaking releases energy"
+    ],
+    "a": 2,
+    "e": "Exothermic reactions occur when the total energy released in forming new bonds (in the products CO₂ and H₂O) is greater than the total energy absorbed to break the initial bonds (in the fuel and O₂)."
+  },
+  {
+    "id": 51,
+    "t": "Chemical Energetics",
+    "q": "If a chemical reaction has a negative enthalpy change (ΔH = -150 kJ/mol), what can be deduced about the reaction?",
+    "o": [
+      "It is endothermic, and the container will feel cold",
+      "It is exothermic, and the container will feel hot",
+      "The activation energy of the reaction is negative",
+      "The reaction is extremely slow"
+    ],
+    "a": 1,
+    "e": "A negative enthalpy change (ΔH < 0) means the reaction is exothermic. Heat energy is released to the surroundings, raising the temperature of the container."
+  },
+  {
+    "id": 52,
+    "t": "Chemical Energetics",
+    "q": "Which statement about catalysts and reaction energetics is correct?",
+    "o": [
+      "A catalyst increases the enthalpy change (ΔH) of the reaction",
+      "A catalyst provides an alternative pathway with a lower activation energy, increasing rate",
+      "A catalyst raises the activation energy to make the reaction safer",
+      "A catalyst shifts the reactants to a higher energy level"
+    ],
+    "a": 1,
+    "e": "A catalyst increases the rate of reaction by providing an alternative reaction pathway with a lower activation energy. It has no effect on the enthalpy change (ΔH) or the position of equilibrium."
+  },
+  {
+    "id": 53,
+    "t": "Chemical Reactions",
+    "q": "Under what conditions of temperature and pressure is the Haber process operated to synthesise ammonia? N₂(g) + 3H₂(g) ⇌ 2NH₃(g) [ΔH = -92 kJ/mol]",
+    "o": [
+      "450 °C and 200 atmospheres",
+      "200 °C and 450 atmospheres",
+      "450 °C and 2 atmospheres",
+      "1000 °C and 200 atmospheres"
+    ],
+    "a": 0,
+    "e": "The Haber process uses a compromise temperature of 450 °C (high enough for a fast rate, but low enough to preserve yield since the forward reaction is exothermic) and a high pressure of 200 atm (favours the side with fewer gas moles to increase yield, but is safe and economically viable). An iron catalyst is also used."
+  },
+  {
+    "id": 54,
+    "t": "Chemical Reactions",
+    "q": "How does increasing the temperature increase the rate of a chemical reaction according to collision theory?",
+    "o": [
+      "It lowers the activation energy of the reaction",
+      "It increases the concentration of the reactants",
+      "It increases both the frequency of collisions and the proportion of particles with energy equal to or greater than the activation energy",
+      "It makes the reaction more exothermic"
+    ],
+    "a": 2,
+    "e": "Increasing temperature makes particles move faster (higher kinetic energy), increasing the collision frequency. Crucially, it dramatically increases the fraction of colliding particles that possess energy greater than the activation energy (E_a), resulting in a much higher proportion of successful collisions."
+  },
+  {
+    "id": 55,
+    "t": "Chemical Reactions",
+    "q": "For the reversible reaction: 2SO₂(g) + O₂(g) ⇌ 2SO₃(g) [ΔH is negative]. What changes would shift the position of equilibrium to the right to produce more SO₃?",
+    "o": [
+      "Increase temperature, increase pressure",
+      "Decrease temperature, decrease pressure",
+      "Decrease temperature, increase pressure",
+      "Increase temperature, decrease pressure"
+    ],
+    "a": 2,
+    "e": "The forward reaction is exothermic, so decreasing temperature shifts equilibrium to the right (exothermic direction) to release heat. The reactants have 3 moles of gas, and the products have 2. Increasing pressure shifts equilibrium to the side with fewer gas moles (the right)."
+  },
+  {
+    "id": 56,
+    "t": "Chemical Reactions",
+    "q": "Why does powdering a solid reactant increase the rate of its reaction with an acid?",
+    "o": [
+      "Powdered solids have a higher activation energy",
+      "Powdering increases the total surface area, allowing more collisions per second between acid particles and the solid",
+      "The particles in a powder have more kinetic energy",
+      "Powdered particles act as homogeneous catalysts"
+    ],
+    "a": 1,
+    "e": "Breaking a solid into powder increases the surface area exposed to the reactant solution. This increases the frequency of collisions per unit time, thereby increasing the rate of reaction."
+  },
+  {
+    "id": 57,
+    "t": "Chemical Reactions",
+    "q": "In the Contact process for manufacturing sulfuric acid, which catalyst is used in the conversion of sulfur dioxide to sulfur trioxide? 2SO₂ + O₂ ⇌ 2SO₃",
+    "o": [
+      "Finely divided iron",
+      "Nickel",
+      "Vanadium(V) oxide (V₂O₅)",
+      "Platinum"
+    ],
+    "a": 2,
+    "e": "Vanadium(V) oxide, V₂O₅, is the catalyst used in the Contact process to speed up the reversible oxidation of sulfur dioxide to sulfur trioxide at 450 °C."
+  },
+  {
+    "id": 58,
+    "t": "Chemical Reactions",
+    "q": "What is the function of a catalyst in a reversible reaction?",
+    "o": [
+      "It increases the yield of the products",
+      "It increases the rate of both the forward and reverse reactions equally, reaching equilibrium faster",
+      "It shifts the equilibrium position to the right",
+      "It makes the overall enthalpy change of the reaction more negative"
+    ],
+    "a": 1,
+    "e": "A catalyst increases the speed at which equilibrium is reached by lowering the activation energy of both the forward and backward reactions equally. It does NOT change the position of equilibrium or the yield of products."
+  },
+  {
+    "id": 59,
+    "t": "Chemical Reactions",
+    "q": "Which reaction is a redox reaction?",
+    "o": [
+      "HCl + NaOH → NaCl + H₂O",
+      "CaCO₃ → CaO + CO₂",
+      "Zn + CuSO₄ → ZnSO₄ + Cu",
+      "AgNO₃ + NaCl → AgCl + NaNO₃"
+    ],
+    "a": 2,
+    "e": "The displacement reaction of copper by zinc is a redox reaction. Zinc is oxidised (Zn → Zn²⁺ + 2e⁻) and copper ions are reduced (Cu²⁺ + 2e⁻ → Cu). Neutralisation (A), thermal decomposition (B), and precipitation (D) are not redox reactions."
+  },
+  {
+    "id": 60,
+    "t": "Chemical Reactions",
+    "q": "What is oxidation defined as in terms of electron transfer?",
+    "o": [
+      "Gain of electrons",
+      "Loss of electrons",
+      "Gain of hydrogen",
+      "Loss of oxygen"
+    ],
+    "a": 1,
+    "e": "Oxidation is the loss of electrons (OIL), while reduction is the gain of electrons (RIG). Oxidation can also be defined as the gain of oxygen or loss of hydrogen."
+  },
+  {
+    "id": 61,
+    "t": "Chemical Reactions",
+    "q": "Which statement about physical and chemical changes is correct?",
+    "o": [
+      "Boiling water is a chemical change because gas is produced",
+      "Chemical changes are easily reversed",
+      "Physical changes do not produce new chemical substances, whereas chemical changes do",
+      "Physical changes always release huge amounts of heat energy"
+    ],
+    "a": 2,
+    "e": "Physical changes (e.g. melting, boiling, dissolving) do not alter the chemical identity of a substance and are usually easy to reverse. Chemical changes involve rearranging atoms to form new substances, accompanied by energy changes."
+  },
+  {
+    "id": 62,
+    "t": "Chemical Reactions",
+    "q": "What happens to the oxidation state of sulfur in the following reaction? SO₂ + 2H₂S → 3S + 2H₂O",
+    "o": [
+      "It increases from +2 to +4",
+      "It decreases from +4 to 0",
+      "It remains unchanged at +4",
+      "It decreases from +6 to 0"
+    ],
+    "a": 1,
+    "e": "In SO₂, oxygen has an oxidation state of -2, so sulfur is +4. In elemental sulfur (S), the oxidation state is 0. Thus, the oxidation state of sulfur from SO₂ decreases from +4 to 0 (it is reduced)."
+  },
+  {
+    "id": 63,
+    "t": "Acids, Bases & Salts",
+    "q": "Which oxide is amphoteric and can react with both acids and bases to form salts?",
+    "o": [
+      "Calcium oxide, CaO",
+      "Carbon dioxide, CO₂",
+      "Aluminium oxide, Al₂O₃",
+      "Sulfur trioxide, SO₃"
+    ],
+    "a": 2,
+    "e": "Amphoteric oxides can react with both acids and bases. The two main amphoteric oxides in the IGCSE syllabus are aluminium oxide (Al₂O₃) and zinc oxide (ZnO). CaO is basic, while CO₂ and SO₃ are acidic."
+  },
+  {
+    "id": 64,
+    "t": "Acids, Bases & Salts",
+    "q": "A student wants to prepare a pure sample of the insoluble salt lead(II) sulfate. Which pair of reagents should be mixed?",
+    "o": [
+      "Lead metal and dilute sulfuric acid",
+      "Insoluble lead(II) oxide and dilute sulfuric acid",
+      "Aqueous lead(II) nitrate and aqueous sodium sulfate",
+      "Insoluble lead(II) carbonate and aqueous copper(II) sulfate"
+    ],
+    "a": 2,
+    "e": "Insoluble salts must be prepared by precipitation, which requires mixing two soluble salt solutions. Lead(II) nitrate and sodium sulfate are both soluble. Mixing them precipates insoluble lead(II) sulfate. Reactions of acids with insoluble metals/oxides/carbonates fail because the insoluble product forms a layer on the reactant, stopping the reaction."
+  },
+  {
+    "id": 65,
+    "t": "Acids, Bases & Salts",
+    "q": "Which indicator changes color from red in acidic solutions to yellow in alkaline solutions?",
+    "o": [
+      "Litmus",
+      "Methyl orange",
+      "Thymolphthalein",
+      "Phenolphthalein"
+    ],
+    "a": 1,
+    "e": "Methyl orange is red in acid and yellow in alkali. Litmus is red in acid and blue in alkali. Thymolphthalein is colorless in acid and blue in alkali."
+  },
+  {
+    "id": 66,
+    "t": "Acids, Bases & Salts",
+    "q": "What is the difference between a strong acid and a weak acid?",
+    "o": [
+      "A strong acid is more concentrated than a weak acid",
+      "A strong acid completely dissociates/ionises in aqueous solution, whereas a weak acid only partially dissociates",
+      "A strong acid reacts faster because it has a lower pH",
+      "A strong acid cannot be diluted with water"
+    ],
+    "a": 1,
+    "e": "Strength refers to the degree of dissociation of acid molecules into H⁺ ions in water. Strong acids (e.g. HCl, H₂SO₄, HNO₃) dissociate 100%. Weak acids (e.g. ethanoic acid) dissociate only partially (mostly remaining as molecules). Concentration refers to the amount of solute in a given volume."
+  },
+  {
+    "id": 67,
+    "t": "Acids, Bases & Salts",
+    "q": "What is formed when an ammonium salt is heated with a strong base like sodium hydroxide?",
+    "o": [
+      "Ammonia gas, a salt, and water",
+      "Nitrogen gas and water",
+      "Ammonium hydroxide only",
+      "Hydrogen gas, a salt, and water"
+    ],
+    "a": 0,
+    "e": "Ammonium salts react with bases when heated to undergo displacement, releasing ammonia gas (NH₃), a salt, and water. This reaction is used as a test for ammonium ions: NH₄⁺(aq) + OH⁻(aq) → NH₃(g) + H₂O(l)."
+  },
+  {
+    "id": 68,
+    "t": "Acids, Bases & Salts",
+    "q": "Which of the following pH values represents a weakly acidic solution?",
+    "o": [
+      "pH 1",
+      "pH 5",
+      "pH 7",
+      "pH 9"
+    ],
+    "a": 1,
+    "e": "pH 7 is neutral. Values below 7 are acidic, where pH 1-2 are strongly acidic and pH 5-6 are weakly acidic. pH 9 is weakly alkaline."
+  },
+  {
+    "id": 69,
+    "t": "Acids, Bases & Salts",
+    "q": "Which method is best suited to prepare a pure, dry sample of the soluble salt sodium chloride from sodium hydroxide solution?",
+    "o": [
+      "Add excess sodium hydroxide to hydrochloric acid, filter, and crystallise",
+      "Titrate sodium hydroxide with hydrochloric acid using an indicator to find the neutral point, repeat without indicator, evaporate water, and dry",
+      "Mix aqueous sodium carbonate with aqueous ammonium chloride",
+      "React sodium metal directly with dilute hydrochloric acid"
+    ],
+    "a": 1,
+    "e": "Since both reactants (NaOH and HCl) and the product (NaCl) are soluble, titration is required. An indicator is used to find the exact neutralisation point. The titration is then repeated using the same volumes without the indicator, and the solution is crystallised to obtain pure salt."
+  },
+  {
+    "id": 70,
+    "t": "Acids, Bases & Salts",
+    "q": "What gas is evolved when a carbonate reacts with a dilute acid?",
+    "o": [
+      "Hydrogen",
+      "Oxygen",
+      "Carbon dioxide",
+      "Chlorine"
+    ],
+    "a": 2,
+    "e": "Carbonates react with acids to form a salt, water, and carbon dioxide gas (which turns limewater cloudy): Carbonate + Acid → Salt + Water + CO₂."
+  },
+  {
+    "id": 71,
+    "t": "Acids, Bases & Salts",
+    "q": "Which oxide is classified as a neutral oxide?",
+    "o": [
+      "Carbon monoxide, CO",
+      "Sulfur dioxide, SO₂",
+      "Sodium oxide, Na₂O",
+      "Calcium oxide, CaO"
+    ],
+    "a": 0,
+    "e": "Neutral oxides do not react with either acids or bases. Common neutral oxides in the syllabus are carbon monoxide (CO), nitrous oxide (N₂O), and nitric oxide (NO)."
+  },
+  {
+    "id": 72,
+    "t": "Acids, Bases & Salts",
+    "q": "What is the ionic equation for a neutralisation reaction between a strong acid and a strong alkali?",
+    "o": [
+      "Na⁺ + Cl⁻ → NaCl",
+      "H⁺ + OH⁻ → H₂O",
+      "HCl + NaOH → NaCl + H₂O",
+      "H₂ + O₂ → H₂O"
+    ],
+    "a": 1,
+    "e": "In any aqueous neutralisation of a strong acid and alkali, the spectator ions (e.g. Na⁺, Cl⁻) do not change state. The actual reaction is the combination of hydrogen ions (H⁺) and hydroxide ions (OH⁻) to form water: H⁺(aq) + OH⁻(aq) → H₂O(l)."
+  },
+  {
+    "id": 73,
+    "t": "Acids, Bases & Salts",
+    "q": "Which of the following salts is insoluble in water?",
+    "o": [
+      "Sodium sulfate",
+      "Barium sulfate",
+      "Copper(II) sulfate",
+      "Ammonium sulfate"
+    ],
+    "a": 1,
+    "e": "All sodium, potassium, and ammonium salts are soluble. All nitrates are soluble. Most sulfates are soluble except barium sulfate (BaSO₄), lead sulfate, and calcium sulfate."
+  },
+  {
+    "id": 74,
+    "t": "Acids, Bases & Salts",
+    "q": "Why is soil acidity undesirable for plant growth, and how is it corrected?",
+    "o": [
+      "It kills all soil bacteria; corrected by adding sulfur",
+      "It affects nutrient uptake; corrected by adding limestone (calcium carbonate) or slaked lime (calcium hydroxide)",
+      "It increases water retention too much; corrected by adding sand",
+      "It bleaches the plant roots; corrected by adding sodium hydroxide"
+    ],
+    "a": 1,
+    "e": "Soil acidity limits plant growth by reducing nutrient availability. It is treated (neutralised) using basic calcium compounds such as limestone (calcium carbonate, CaCO₃), quicklime (calcium oxide, CaO), or slaked lime (calcium hydroxide, Ca(OH)₂)."
+  },
+  {
+    "id": 75,
+    "t": "The Periodic Table",
+    "q": "Which statement about Group I elements (alkali metals) is correct?",
+    "o": [
+      "Reactivity decreases down the group because the outer electron gets closer to the nucleus",
+      "Their melting points increase down the group",
+      "Reactivity increases down the group because the outer electron is further from the nucleus and more easily lost",
+      "They are hard metals with high densities"
+    ],
+    "a": 2,
+    "e": "Group I metals react by losing their single outer shell electron. Down the group, atoms get larger, so the outer electron is further from the nucleus and less strongly attracted, making it easier to lose. Thus, reactivity increases down the group. Melting point decreases and density generally increases."
+  },
+  {
+    "id": 76,
+    "t": "The Periodic Table",
+    "q": "Which statement correctly describes the trends in Group VII (halogens) down the group?",
+    "o": [
+      "The elements change from gas to liquid to solid, and their colors get lighter",
+      "The elements change from gas to liquid to solid, and their colors get darker",
+      "Reactivity increases down the group",
+      "They conduct electricity in the liquid state"
+    ],
+    "a": 1,
+    "e": "Down Group VII, melting/boiling points increase, so state changes from gas (F₂, Cl₂) to liquid (Br₂) to solid (I₂). Their colors get progressively darker (pale yellow fluorine, green-yellow chlorine, red-brown bromine, grey-black iodine). Reactivity decreases down the group."
+  },
+  {
+    "id": 77,
+    "t": "The Periodic Table",
+    "q": "If chlorine gas is bubbled into a solution of potassium iodide, what change is observed?",
+    "o": [
+      "No reaction occurs because chlorine is less reactive than iodine",
+      "The solution turns brown because iodine is displaced by the more reactive chlorine",
+      "A purple precipitate of iodine forms immediately",
+      "The solution becomes colorless as chlorine bleaches it"
+    ],
+    "a": 1,
+    "e": "Chlorine is more reactive than iodine (reactivity decreases down Group VII). Therefore, chlorine displaces iodide ions from solution: Cl₂ + 2KI → 2KCl + I₂. The displaced iodine dissolves to give a brown solution."
+  },
+  {
+    "id": 78,
+    "t": "The Periodic Table",
+    "q": "Which of the following is NOT a typical property of transition elements?",
+    "o": [
+      "They form colored compounds",
+      "They have variable oxidation states",
+      "They are excellent catalysts",
+      "They react violently with cold water to produce hydrogen gas"
+    ],
+    "a": 3,
+    "e": "Transition elements are relatively unreactive metals with high densities and high melting points. They do not react violently with cold water (a characteristic of Group I alkali metals)."
+  },
+  {
+    "id": 79,
+    "t": "The Periodic Table",
+    "q": "Why are noble gases (Group VIII) extremely unreactive?",
+    "o": [
+      "They exist as diatomic molecules with strong triple bonds",
+      "They have a stable, full outer shell of electrons",
+      "They are located in the middle of the Periodic Table",
+      "Their atoms are too large to form chemical bonds"
+    ],
+    "a": 1,
+    "e": "Noble gases have a complete outer shell of electrons (8 electrons, except Helium which has 2). This electronic configuration is exceptionally stable, so they have no tendency to gain, lose, or share electrons."
+  },
+  {
+    "id": 80,
+    "t": "The Periodic Table",
+    "q": "Which noble gas is commonly used to provide an inert atmosphere in tungsten light bulbs?",
+    "o": [
+      "Helium",
+      "Argon",
+      "Neon",
+      "Krypton"
+    ],
+    "a": 1,
+    "e": "Argon is used in light bulbs to prevent the hot tungsten filament from oxidising (burning) because argon is completely unreactive. Helium is used in balloons, and neon in advertising signs."
+  },
+  {
+    "id": 81,
+    "t": "The Periodic Table",
+    "q": "Elements in the same group of the Periodic Table have:",
+    "o": [
+      "The same number of protons",
+      "The same number of electron shells",
+      "The same number of valence (outer-shell) electrons",
+      "The same atomic mass"
+    ],
+    "a": 2,
+    "e": "Group number corresponds to the number of outer shell (valence) electrons. Because they have the same number of valence electrons, they share similar chemical properties."
+  },
+  {
+    "id": 82,
+    "t": "The Periodic Table",
+    "q": "Which element is a gas at room temperature and exists as diatomic molecules?",
+    "o": [
+      "Helium",
+      "Argon",
+      "Nitrogen",
+      "Carbon"
+    ],
+    "a": 2,
+    "e": "Nitrogen exists as diatomic molecules (N₂) with a triple covalent bond. Noble gases (Helium, Argon) exist as monatomic gases. Carbon is solid."
+  },
+  {
+    "id": 83,
+    "t": "The Periodic Table",
+    "q": "As you move from left to right across Period 3 of the Periodic Table, how do the properties of the elements change?",
+    "o": [
+      "From non-metallic to metallic",
+      "From metallic to non-metallic",
+      "Melting point decreases continuously",
+      "Reactivity with water increases"
+    ],
+    "a": 1,
+    "e": "Across any period, elements change from metallic (on the left: Na, Mg, Al) to metalloids (Si) to non-metallic (P, S, Cl, Ar) on the right."
+  },
+  {
+    "id": 84,
+    "t": "The Periodic Table",
+    "q": "Which halogen is a red-brown liquid at room temperature?",
+    "o": [
+      "Fluorine",
+      "Chlorine",
+      "Bromine",
+      "Iodine"
+    ],
+    "a": 2,
+    "e": "Bromine is the only non-metallic element that is liquid at room temperature. It is a dense, red-brown liquid that vaporises easily to form a red-brown gas."
+  },
+  {
+    "id": 85,
+    "t": "Metals",
+    "q": "In the extraction of iron in the Blast Furnace, what is the role of limestone (calcium carbonate)?",
+    "o": [
+      "To act as a fuel to heat the furnace",
+      "To reduce iron(III) oxide to iron",
+      "To react with and remove sandy impurities (silicon dioxide) by forming molten slag (calcium silicate)",
+      "To oxidise carbon monoxide to carbon dioxide"
+    ],
+    "a": 2,
+    "e": "Limestone decomposes in the heat of the furnace to form calcium oxide (CaO) and CO₂. The basic CaO reacts with acidic silicon dioxide (SiO₂ - sand impurity in iron ore) to form molten slag (calcium silicate, CaSiO₃), which floats on top of the molten iron and is tapped off."
+  },
+  {
+    "id": 86,
+    "t": "Metals",
+    "q": "Why is aluminium extracted by electrolysis rather than by reduction with carbon in a blast furnace?",
+    "o": [
+      "Aluminium is too reactive, and carbon is not a strong enough reducing agent to displace it from its oxide",
+      "Aluminium has a lower melting point than iron",
+      "Electrolysis is cheaper than using carbon",
+      "Aluminium oxide does not react with carbon"
+    ],
+    "a": 0,
+    "e": "Aluminium is high in the reactivity series (above carbon). Carbon is less reactive than aluminium and cannot reduce aluminium oxide. Therefore, a more powerful method—electrolysis of molten alumina dissolved in cryolite—is required."
+  },
+  {
+    "id": 87,
+    "t": "Metals",
+    "q": "In the electrolysis of aluminium oxide, why must cryolite be mixed with the alumina (aluminium oxide)?",
+    "o": [
+      "To act as a catalyst for the reaction",
+      "To dissolve the alumina and lower the operating melting point from 2000 °C to about 900 °C, saving energy",
+      "To prevent the anode from burning away",
+      "To react with iron impurities in the ore"
+    ],
+    "a": 1,
+    "e": "Pure aluminium oxide has an extremely high melting point of over 2000 °C, which would require massive energy costs. Dissolving it in molten cryolite lowers the melting temperature to around 900-950 °C, making the process commercially viable."
+  },
+  {
+    "id": 88,
+    "t": "Metals",
+    "q": "Which of the following represents sacrificial protection against the rusting of an iron ship hull?",
+    "o": [
+      "Painting the hull to keep out water and air",
+      "Coating the hull in grease",
+      "Attaching blocks of a more reactive metal, like zinc or magnesium, which corrode in preference to the iron",
+      "Alloying the iron with nickel and chromium"
+    ],
+    "a": 2,
+    "e": "Sacrificial protection works by attaching a more reactive metal (such as zinc or magnesium) to the iron. The more reactive metal loses electrons in preference to iron, preventing the iron from oxidising to rust: Zn → Zn²⁺ + 2e⁻."
+  },
+  {
+    "id": 89,
+    "t": "Metals",
+    "q": "An alloy is a mixture of a metal with other elements. Why are alloys generally harder and stronger than pure metals?",
+    "o": [
+      "The different-sized atoms of the added elements disrupt the regular lattice arrangement, making it harder for the layers to slide over each other",
+      "Alloys contain strong covalent bonds between the different elements",
+      "The added elements increase the number of delocalised electrons",
+      "Alloys are less dense than pure metals"
+    ],
+    "a": 0,
+    "e": "In pure metals, atoms are of the same size and arranged in regular layers that slide past each other easily. In an alloy, the presence of different-sized atoms disrupts this regular arrangement, locking the layers in place and making the structure much harder."
+  },
+  {
+    "id": 90,
+    "t": "Metals",
+    "q": "Which of the following displacement reactions will take place?",
+    "o": [
+      "Cu(s) + FeSO₄(aq) → CuSO₄(aq) + Fe(s)",
+      "Zn(s) + MgSO₄(aq) → ZnSO₄(aq) + Mg(s)",
+      "Fe(s) + CuSO₄(aq) → FeSO₄(aq) + Cu(s)",
+      "Ag(s) + CuSO₄(aq) → Ag₂SO₄(aq) + Cu(s)"
+    ],
+    "a": 2,
+    "e": "A metal can only displace another metal from its salt solution if it is MORE reactive. Reactivity series: Mg > Zn > Fe > Cu > Ag. Iron (Fe) is more reactive than copper (Cu), so it will displace copper from copper(II) sulfate solution, forming iron(II) sulfate and copper metal."
+  },
+  {
+    "id": 91,
+    "t": "Metals",
+    "q": "What gas is produced when zinc reacts with dilute sulfuric acid?",
+    "o": [
+      "Oxygen",
+      "Carbon dioxide",
+      "Hydrogen",
+      "Sulfur dioxide"
+    ],
+    "a": 2,
+    "e": "Active metals react with dilute acids to produce a salt and hydrogen gas: Metal + Acid → Salt + H₂ gas."
+  },
+  {
+    "id": 92,
+    "t": "Metals",
+    "q": "In the extraction of iron, what is the main reducing agent that reduces iron(III) oxide (Fe₂O₃) to iron?",
+    "o": [
+      "Coke (carbon, C)",
+      "Carbon monoxide (CO)",
+      "Carbon dioxide (CO₂)",
+      "Oxygen (O₂)"
+    ],
+    "a": 1,
+    "e": "Coke burns in air to produce CO₂, which reacts with more coke to form carbon monoxide (CO). The CO gas then acts as the main reducing agent, diffusing through the iron ore: Fe₂O₃(s) + 3CO(g) → 2Fe(l) + 3CO₂(g)."
+  },
+  {
+    "id": 93,
+    "t": "Metals",
+    "q": "Which metal is resistant to corrosion because it forms a tough, protective oxide layer on its surface?",
+    "o": [
+      "Iron",
+      "Sodium",
+      "Aluminium",
+      "Copper"
+    ],
+    "a": 2,
+    "e": "Aluminium is highly reactive but does not corrode easily because it reacts rapidly with oxygen in the air to form a thin, tough, impermeable layer of aluminium oxide (Al₂O₃) on its surface. This protective oxide barrier prevents further reaction."
+  },
+  {
+    "id": 94,
+    "t": "Metals",
+    "q": "Brass is an alloy consisting of which two metals?",
+    "o": [
+      "Copper and tin",
+      "Copper and zinc",
+      "Iron and carbon",
+      "Lead and tin"
+    ],
+    "a": 1,
+    "e": "Brass is an alloy of copper and zinc. Bronze is an alloy of copper and tin. Steel is an alloy of iron and carbon."
+  },
+  {
+    "id": 95,
+    "t": "Air & Water",
+    "q": "What is the approximate percentage composition of dry, unpolluted air?",
+    "o": [
+      "50% Nitrogen, 50% Oxygen",
+      "78% Nitrogen, 21% Oxygen, 0.9% Argon, 0.04% Carbon dioxide",
+      "78% Oxygen, 21% Nitrogen, 0.9% Carbon dioxide, 0.04% Argon",
+      "78% Nitrogen, 21% Carbon dioxide, 1% Oxygen"
+    ],
+    "a": 1,
+    "e": "Clean air is composed of approximately 78% nitrogen (N₂), 21% oxygen (O₂), 0.9% argon (Ar), and 0.04% carbon dioxide (CO₂), along with trace amounts of other noble gases."
+  },
+  {
+    "id": 96,
+    "t": "Air & Water",
+    "q": "Which gas is a primary air pollutant produced by incomplete combustion of carbon-containing fuels?",
+    "o": [
+      "Carbon dioxide, CO₂",
+      "Carbon monoxide, CO",
+      "Sulfur dioxide, SO₂",
+      "Methane, CH₄"
+    ],
+    "a": 1,
+    "e": "Incomplete combustion of hydrocarbon fuels (due to limited oxygen supply) produces carbon monoxide (CO), which is a highly toxic, colorless, and odorless gas that binds irreversibly to haemoglobin."
+  },
+  {
+    "id": 97,
+    "t": "Air & Water",
+    "q": "How do catalytic converters in car exhaust systems remove harmful gases?",
+    "o": [
+      "They absorb CO and nitrogen oxides into a filter",
+      "They catalyse the reaction between carbon monoxide and nitrogen oxides to form harmless carbon dioxide and nitrogen: 2CO + 2NO → 2CO₂ + N₂",
+      "They oxidise unburnt hydrocarbons to form soot",
+      "They decompose carbon dioxide into carbon and oxygen"
+    ],
+    "a": 1,
+    "e": "Catalytic converters contain transition metal catalysts (platinum, palladium, rhodium) that convert toxic carbon monoxide (CO) and nitrogen monoxide (NO) into harmless carbon dioxide (CO₂) and nitrogen gas (N₂) via redox reactions."
+  },
+  {
+    "id": 98,
+    "t": "Air & Water",
+    "q": "A student wants to chemically test for the presence of water. Which test and observation are correct?",
+    "o": [
+      "Water turns blue cobalt(II) chloride paper pink",
+      "Water turns anhydrous copper(II) sulfate from blue to white",
+      "Water turns limewater cloudy",
+      "Water turns damp red litmus paper blue"
+    ],
+    "a": 0,
+    "e": "Chemical tests for water: 1) Turns anhydrous cobalt(II) chloride paper from blue to pink. 2) Turns anhydrous copper(II) sulfate from white to blue. Note that these test for the presence of water, not its purity (purity is tested by checking if it boils at exactly 100 °C)."
+  },
+  {
+    "id": 99,
+    "t": "Air & Water",
+    "q": "What are the two main steps in the treatment of public water supplies to make it safe for drinking?",
+    "o": [
+      "Distillation and desalination",
+      "Filtration to remove insoluble particles and chlorination to kill microbes/bacteria",
+      "Neutralisation and precipitation",
+      "Aeration and fluoridation"
+    ],
+    "a": 1,
+    "e": "Water treatment involves: 1) Filtration through sand and gravel beds to remove suspended insoluble particles. 2) Chlorination (adding chlorine) to sterilise the water by killing bacteria and pathogens."
+  },
+  {
+    "id": 100,
+    "t": "Air & Water",
+    "q": "Which pollutant gas is formed by the reaction of nitrogen and oxygen inside car engines at very high temperatures?",
+    "o": [
+      "Nitrogen dioxide (NO₂)",
+      "Nitrogen monoxide (NO)",
+      "Ammonia (NH₃)",
+      "Nitrous oxide (N₂O)"
+    ],
+    "a": 1,
+    "e": "Under the high-temperature and high-pressure conditions inside car engines, the normally unreactive nitrogen and oxygen from the air combine to form nitrogen monoxide (NO): N₂ + O₂ → 2NO. This gas is later oxidised in air to form NO₂."
+  },
+  {
+    "id": 101,
+    "t": "Air & Water",
+    "q": "What is the environmental hazard associated with sulfur dioxide release into the atmosphere?",
+    "o": [
+      "Depletion of the ozone layer",
+      "Acid rain, which damages buildings and kills aquatic life in lakes",
+      "Enhanced greenhouse effect",
+      "Smog that causes visual impairment"
+    ],
+    "a": 1,
+    "e": "Sulfur dioxide (SO₂), produced by burning fossil fuels containing sulfur impurities, dissolves in rainwater to form sulfurous acid (which oxidises to sulfuric acid), causing acid rain. Acid rain lowers the pH of lakes, killing fish, and reacts with limestone buildings."
+  },
+  {
+    "id": 102,
+    "t": "Air & Water",
+    "q": "Which gases are greenhouse gases that contribute to global warming?",
+    "o": [
+      "Nitrogen and oxygen",
+      "Carbon dioxide and methane",
+      "Carbon monoxide and argon",
+      "Sulfur dioxide and helium"
+    ],
+    "a": 1,
+    "e": "Carbon dioxide (CO₂) and methane (CH₄) are greenhouse gases. They absorb infrared radiation reflected from the Earth's surface and re-radiate it, trapping heat in the atmosphere."
+  },
+  {
+    "id": 103,
+    "t": "Sulfur & Carbonates",
+    "q": "In the Contact process for the manufacture of sulfuric acid, sulfur dioxide is reacted with oxygen to form sulfur trioxide. Why is the sulfur trioxide dissolved in concentrated sulfuric acid (to form oleum) instead of directly in water?",
+    "o": [
+      "The reaction of sulfur trioxide with water is too slow",
+      "The reaction of sulfur trioxide with water is extremely exothermic and produces a highly corrosive, dangerous mist of sulfuric acid that is difficult to condense",
+      "Water does not dissolve sulfur trioxide",
+      "Dissolving in water produces sulfurous acid instead of sulfuric acid"
+    ],
+    "a": 1,
+    "e": "Direct addition of SO₃ to water is highly violent and exothermic, creating a fine mist of acid droplets that escapes into the air. To avoid this, SO₃ is dissolved in concentrated H₂SO₄ to form oleum (H₂S₂O₇), which is then safely diluted with water to make sulfuric acid."
+  },
+  {
+    "id": 104,
+    "t": "Sulfur & Carbonates",
+    "q": "What is the chemical name of the rock limestone, and what is formed when it is heated strongly?",
+    "o": [
+      "Calcium hydroxide; forms calcium oxide and water",
+      "Calcium carbonate; forms calcium oxide (lime) and carbon dioxide",
+      "Calcium sulfate; forms calcium sulfide and oxygen",
+      "Calcium carbonate; forms calcium metal and carbon dioxide"
+    ],
+    "a": 1,
+    "e": "Limestone is calcium carbonate (CaCO₃). When heated strongly (thermal decomposition), it breaks down into calcium oxide (quicklime, CaO) and carbon dioxide gas (CO₂): CaCO₃(s) → CaO(s) + CO₂(g)."
+  },
+  {
+    "id": 105,
+    "t": "Sulfur & Carbonates",
+    "q": "Which is a major industrial use of sulfur dioxide?",
+    "o": [
+      "As a fuel in rocket engines",
+      "As a bleaching agent in the manufacture of wood pulp for paper, and as a food preservative",
+      "As an inert gas for filling balloons",
+      "As a catalyst in the Haber process"
+    ],
+    "a": 1,
+    "e": "Sulfur dioxide (SO₂) is widely used as a bleaching agent in making paper and as a preservative for dried fruits and wine because it kills bacteria and inhibits oxidation."
+  },
+  {
+    "id": 106,
+    "t": "Sulfur & Carbonates",
+    "q": "Which statement about the Contact process is correct?",
+    "o": [
+      "It operates at 1000 atmospheres of pressure",
+      "The conversion of SO₂ to SO₃ is endothermic",
+      "It uses a vanadium(V) oxide catalyst, a temperature of 450 °C, and a pressure of 1-2 atmospheres",
+      "The catalyst is iron"
+    ],
+    "a": 2,
+    "e": "The Contact process conditions are: 450 °C, 1-2 atmospheres pressure (high pressure is not needed because the yield is already over 98% at 1-2 atm), and a vanadium(V) oxide (V₂O₅) catalyst."
+  },
+  {
+    "id": 107,
+    "t": "Sulfur & Carbonates",
+    "q": "What is 'slaked lime', and how is it prepared from quicklime?",
+    "o": [
+      "Calcium carbonate; prepared by reacting calcium oxide with carbon dioxide",
+      "Calcium hydroxide; prepared by adding water to calcium oxide (quicklime)",
+      "Calcium chloride; prepared by reacting calcium oxide with hydrochloric acid",
+      "Calcium oxide; prepared by heating limestone"
+    ],
+    "a": 1,
+    "e": "Quicklime is calcium oxide (CaO). Adding water to it is a highly exothermic reaction that forms calcium hydroxide, Ca(OH)₂, which is commonly known as slaked lime."
+  },
+  {
+    "id": 108,
+    "t": "Sulfur & Carbonates",
+    "q": "Which compound is used in factories to remove sulfur dioxide from waste flue gases (flue gas desulfurisation)?",
+    "o": [
+      "Ammonium nitrate",
+      "Calcium carbonate (limestone) or calcium oxide",
+      "Concentrated sulfuric acid",
+      "Sodium chloride"
+    ],
+    "a": 1,
+    "e": "Flue gas desulfurisation uses basic calcium compounds, such as calcium carbonate (limestone) or calcium oxide (quicklime), to react with acidic sulfur dioxide gas to form calcium sulfite (CaSO₃), preventing its release into the atmosphere."
+  },
+  {
+    "id": 109,
+    "t": "Organic Chemistry",
+    "q": "An organic compound has the molecular formula C₄H₈. Which homologous series does it belong to, and does it decolourise bromine water?",
+    "o": [
+      "Alkane; does not decolourise bromine water",
+      "Alkene; decolourises bromine water from orange to colorless",
+      "Alkane; decolourises bromine water from orange to colorless",
+      "Alkene; does not decolourise bromine water"
+    ],
+    "a": 1,
+    "e": "C₄H₈ fits the general formula C_nH_{2n}, making it an alkene (butene). Alkenes are unsaturated hydrocarbons containing a C=C double bond. They undergo addition reactions with bromine water, changing it from orange to colorless. Alkanes (C_nH_{2n+2}) are saturated and do not react with bromine water in the dark."
+  },
+  {
+    "id": 110,
+    "t": "Organic Chemistry",
+    "q": "What are the essential conditions required for the substitution reaction between methane and chlorine?",
+    "o": [
+      "High pressure and a nickel catalyst",
+      "Ultraviolet (UV) light",
+      "Concentrated sulfuric acid",
+      "A temperature of 450 °C and iron catalyst"
+    ],
+    "a": 1,
+    "e": "Alkanes undergo substitution reactions with halogens (like chlorine) only in the presence of ultraviolet (UV) light (e.g. sunlight). The UV light provides the activation energy to break the Cl–Cl bond to start the reaction."
+  },
+  {
+    "id": 111,
+    "t": "Organic Chemistry",
+    "q": "Ethanol can be manufactured by the fermentation of glucose. Which of the following conditions is NOT required for fermentation?",
+    "o": [
+      "Yeast to act as a catalyst",
+      "Anaerobic conditions (absence of oxygen)",
+      "A high temperature of 300 °C and high pressure",
+      "A warm temperature of about 30-35 °C"
+    ],
+    "a": 2,
+    "e": "Fermentation requires: 1) Glucose solution. 2) Yeast. 3) Warm temperature (30-37 °C; enzymes denature at high temperatures). 4) Absence of oxygen (anaerobic; oxygen would oxidise ethanol to ethanoic acid). High temperature (300 °C) and pressure are used in the catalytic hydration of ethene, not fermentation."
+  },
+  {
+    "id": 112,
+    "t": "Organic Chemistry",
+    "q": "What type of polymerisation reaction forms nylon and Terylene (polyesters), and what is a characteristic feature of this reaction?",
+    "o": [
+      "Addition polymerisation; a small molecule like water is released",
+      "Condensation polymerisation; monomer double bonds are broken",
+      "Condensation polymerisation; monomers link together with the elimination of a small molecule, such as water or hydrogen chloride",
+      "Addition polymerisation; only one type of monomer can be used"
+    ],
+    "a": 2,
+    "e": "Nylon and Terylene are condensation polymers. In condensation polymerisation, bifunctional monomers react together, linking to form a polymer chain, and eliminating a small molecule (usually H₂O or HCl) at each link. Addition polymerisation (e.g., poly(ethene)) involves breaking C=C double bonds with no by-products."
+  },
+  {
+    "id": 113,
+    "t": "Organic Chemistry",
+    "q": "What is the structural formula of ethyl ethanoate, and which class of organic compounds does it belong to?",
+    "o": [
+      "CH₃COOCH₂CH₃; ester",
+      "CH₃CH₂COOCH₃; ester",
+      "CH₃COOH; carboxylic acid",
+      "CH₃CH₂OH; alcohol"
+    ],
+    "a": 0,
+    "e": "Ethyl ethanoate is an ester formed by reacting ethanol and ethanoic acid in the presence of an acid catalyst. Its formula is CH₃COOCH₂CH₃ (ethanoate part CH₃COO-, ethyl part -CH₂CH₃)."
+  },
+  {
+    "id": 114,
+    "t": "Organic Chemistry",
+    "q": "What is 'cracking' in organic chemistry, and why is it industrially important?",
+    "o": [
+      "Combining small molecules to form plastics",
+      "The thermal decomposition of long-chain alkanes into shorter-chain alkanes and alkenes, which are in higher demand",
+      "The reaction of alkenes with hydrogen to make margarine",
+      "Separating crude oil into different boiling fractions"
+    ],
+    "a": 1,
+    "e": "Cracking breaks down large, less useful hydrocarbon molecules from crude oil into smaller, more valuable ones (short-chain alkanes for fuels and alkenes for making plastics). It requires heat and a catalyst (silica/alumina)."
+  },
+  {
+    "id": 115,
+    "t": "Organic Chemistry",
+    "q": "What are structural isomers?",
+    "o": [
+      "Compounds with the same empirical formula but different molecular formulas",
+      "Compounds with the same molecular formula but different structural arrangements of atoms",
+      "Substances containing the same functional group but different physical states",
+      "Elements with the same atomic number but different mass numbers"
+    ],
+    "a": 1,
+    "e": "Structural isomers are molecules that share the same molecular formula (same count of each atom) but differ in their structural formula (how the atoms are connected)."
+  },
+  {
+    "id": 116,
+    "t": "Organic Chemistry",
+    "q": "Which reagent is used to oxidise ethanol to ethanoic acid?",
+    "o": [
+      "Bromine water",
+      "Acidified potassium manganate(VII)",
+      "Concentrated sulfuric acid",
+      "Sodium hydroxide solution"
+    ],
+    "a": 1,
+    "e": "Acidified potassium manganate(VII) is a strong oxidising agent. When warmed with ethanol, it oxidises it to ethanoic acid, changing color from purple to colorless."
+  },
+  {
+    "id": 117,
+    "t": "Organic Chemistry",
+    "q": "Which homologous series is characterised by the general formula C_nH_{2n+1}OH?",
+    "o": [
+      "Alkanes",
+      "Alcohols",
+      "Carboxylic acids",
+      "Esters"
+    ],
+    "a": 1,
+    "e": "Alcohols contain the hydroxyl (–OH) functional group. Their general formula is C_nH_{2n+1}OH (e.g. methanol CH₃OH, ethanol C₂H₅OH)."
+  },
+  {
+    "id": 118,
+    "t": "Organic Chemistry",
+    "q": "What is the name of the polymer formed from the monomer ethene (CH₂=CH₂)?",
+    "o": [
+      "Polyester",
+      "Poly(ethene)",
+      "Nylon",
+      "Polystyrene"
+    ],
+    "a": 1,
+    "e": "Ethene undergoes addition polymerisation to form poly(ethene) (commonly known as polythene), where the double bonds break to link carbon atoms in a long single-bonded chain."
+  },
+  {
+    "id": 119,
+    "t": "Organic Chemistry",
+    "q": "What is the functional group of carboxylic acids?",
+    "o": [
+      "–OH",
+      "–COOH",
+      "–COO–",
+      "C=C"
+    ],
+    "a": 1,
+    "e": "The functional group of carboxylic acids is the carboxyl group, –COOH. The –OH group belongs to alcohols, –COO– to esters, and C=C to alkenes."
+  },
+  {
+    "id": 120,
+    "t": "Organic Chemistry",
+    "q": "Which statement about alkanes is correct?",
+    "o": [
+      "They are unsaturated hydrocarbons",
+      "They decolourise bromine water rapidly",
+      "They burn in excess oxygen to produce carbon dioxide and water",
+      "They contain C=C double bonds"
+    ],
+    "a": 2,
+    "e": "Alkanes are saturated hydrocarbons containing only single covalent bonds. They are relatively unreactive but burn cleanly in excess oxygen (combustion) to produce carbon dioxide and water vapor."
+  },
+  {
+    "id": 121,
+    "t": "Chemical Analysis",
+    "q": "A student performs a flame test on a solid salt and observes a lilac flame. Which cation is present in the salt?",
+    "o": [
+      "Sodium, Na⁺",
+      "Lithium, Li⁺",
+      "Potassium, K⁺",
+      "Copper(II), Cu²⁺"
+    ],
+    "a": 2,
+    "e": "Potassium ions (K⁺) produce a characteristic lilac color in a flame test. Lithium produces red, sodium produces yellow, and copper(II) produces blue-green."
+  },
+  {
+    "id": 122,
+    "t": "Chemical Analysis",
+    "q": "An aqueous solution of a salt gives a white precipitate when reacted with aqueous sodium hydroxide. This precipitate dissolves in excess sodium hydroxide to form a colorless solution. Which cation could be present?",
+    "o": [
+      "Calcium, Ca²⁺",
+      "Iron(II), Fe²⁺",
+      "Zinc, Zn²⁺",
+      "Copper(II), Cu²⁺"
+    ],
+    "a": 2,
+    "e": "Zinc (Zn²⁺) and aluminium (Al³⁺) ions form white precipitates of their hydroxides with NaOH that dissolve in excess NaOH. Calcium (Ca²⁺) forms a white precipitate that does NOT dissolve in excess NaOH. Fe²⁺ (green) and Cu²⁺ (blue) form colored precipitates."
+  },
+  {
+    "id": 123,
+    "t": "Chemical Analysis",
+    "q": "Which test and observation confirm the presence of chloride ions (Cl⁻) in an aqueous solution?",
+    "o": [
+      "Add dilute nitric acid followed by aqueous silver nitrate; a white precipitate of silver chloride forms",
+      "Add dilute hydrochloric acid followed by aqueous barium chloride; a white precipitate forms",
+      "Add sodium hydroxide and warm; a gas that turns red litmus blue is evolved",
+      "Add dilute sulfuric acid; effervescence of carbon dioxide is observed"
+    ],
+    "a": 0,
+    "e": "The test for halide ions involves adding dilute nitric acid (to remove carbonate impurities) followed by aqueous silver nitrate. Chloride ions form a white precipitate of silver chloride (AgCl), which is insoluble in nitric acid."
+  },
+  {
+    "id": 124,
+    "t": "Chemical Analysis",
+    "q": "A gas is tested by exposing it to a glowing splint, which immediately relights. What is the identity of this gas?",
+    "o": [
+      "Hydrogen, H₂",
+      "Oxygen, O₂",
+      "Carbon dioxide, CO₂",
+      "Chlorine, Cl₂"
+    ],
+    "a": 1,
+    "e": "Oxygen gas relights a glowing splint. Hydrogen gas burns with a squeaky 'pop' when exposed to a lighted splint. Carbon dioxide extinguishes a flame and turns limewater cloudy."
+  },
+  {
+    "id": 125,
+    "t": "Chemical Analysis",
+    "q": "Which test is used to detect the presence of sulfate ions (SO₄²⁻) in solution?",
+    "o": [
+      "Add nitric acid and silver nitrate solution",
+      "Add hydrochloric acid and barium chloride (or barium nitrate) solution; a white precipitate of barium sulfate forms",
+      "Add sodium hydroxide and aluminium foil and warm",
+      "Perform a flame test"
+    ],
+    "a": 1,
+    "e": "Sulfate ions (SO₄²⁻) are tested by adding dilute hydrochloric acid followed by barium chloride (or barium nitrate) solution. A dense white precipitate of insoluble barium sulfate (BaSO₄) forms."
+  },
+  {
+    "id": 126,
+    "t": "Chemical Analysis",
+    "q": "Which gas turns damp red litmus paper blue?",
+    "o": [
+      "Carbon dioxide",
+      "Chlorine",
+      "Ammonia",
+      "Oxygen"
+    ],
+    "a": 2,
+    "e": "Ammonia (NH₃) is the only common alkaline gas. It dissolves in the moisture on red litmus paper to form hydroxide ions, which turn the paper blue."
+  },
+  {
+    "id": 127,
+    "t": "Chemical Analysis",
+    "q": "What observation is made when aqueous sodium hydroxide is added to a solution containing iron(III) ions (Fe³⁺)?",
+    "o": [
+      "A pale green precipitate forms",
+      "A red-brown precipitate forms",
+      "A light blue precipitate forms",
+      "A white precipitate forms which dissolves in excess"
+    ],
+    "a": 1,
+    "e": "Iron(III) ions (Fe³⁺) react with hydroxide ions to form a red-brown precipitate of iron(III) hydroxide, Fe(OH)₃, which is insoluble in excess NaOH. Fe²⁺ forms a green precipitate, and Cu²⁺ forms a blue precipitate."
+  },
+  {
+    "id": 128,
+    "t": "Chemical Analysis",
+    "q": "What is the test for carbon dioxide gas?",
+    "o": [
+      "It bleaches damp litmus paper",
+      "It turns acidified potassium manganate(VII) colorless",
+      "It turns limewater (calcium hydroxide solution) cloudy/milky",
+      "It burns with a pop"
+    ],
+    "a": 2,
+    "e": "Carbon dioxide gas is bubbled through limewater (calcium hydroxide solution). It reacts to form insoluble calcium carbonate (CaCO₃), which precipitates as a white suspension, turning the limewater cloudy."
+  },
+  {
+    "id": 129,
+    "t": "Chemical Analysis",
+    "q": "Which metal cation gives a blue-green color in a flame test?",
+    "o": [
+      "Lithium, Li⁺",
+      "Sodium, Na⁺",
+      "Calcium, Ca²⁺",
+      "Copper(II), Cu²⁺"
+    ],
+    "a": 3,
+    "e": "Copper(II) ions (Cu²⁺) produce a beautiful blue-green color in a Bunsen burner flame test."
+  },
+  {
+    "id": 130,
+    "t": "Chemical Analysis",
+    "q": "A gas is green-yellow in color, has a pungent choking smell, and turns damp blue litmus paper red before bleaching it white. What is the gas?",
+    "o": [
+      "Ammonia, NH₃",
+      "Chlorine, Cl₂",
+      "Sulfur dioxide, SO₂",
+      "Hydrogen chloride, HCl"
+    ],
+    "a": 1,
+    "e": "Chlorine (Cl₂) is a green-yellow, acidic, bleaching gas. It dissolves in the moisture of litmus paper to form acids (turning it red) and then acts as a bleach (turning it white)."
+  }
 ];
 
-const traps=[
-  {t:"Excretion ≠ Egestion",d:"Excretion = metabolic waste (urea, CO₂). Egestion = undigested food (faeces). Faeces were never part of the body's metabolism!",i:"💩"},
-  {t:"Arteries ≠ Always Oxygenated",d:"Arteries carry blood AWAY from heart. The pulmonary ARTERY carries DEoxygenated blood. A = Away.",i:"🫀"},
-  {t:"Active Transport ≠ Diffusion",d:"Active transport = AGAINST gradient, needs ENERGY. Diffusion = DOWN gradient, NO energy. Cambridge loves testing this!",i:"⚡"},
-  {t:"Enzymes: 'Denatured' not 'Killed'",d:"Enzymes are proteins, not living things. Say 'denatured' (active site permanently changes shape). Never say 'killed' or 'die'.",i:"🔥"},
-  {t:"Bile is NOT an Enzyme",d:"Bile EMULSIFIES fats (breaks into droplets) but doesn't chemically digest them. Lipase does the digestion.",i:"💚"},
-  {t:"Photosynthesis vs Respiration",d:"Photosynthesis: CO₂ + H₂O → Glucose + O₂ (needs light). Respiration: Glucose + O₂ → CO₂ + H₂O + Energy. They're reverses!",i:"🔄"},
-  {t:"Pollination ≠ Fertilisation",d:"Pollination = pollen transfer (anther → stigma). Fertilisation = gamete fusion. Different steps!",i:"🌸"},
-  {t:"Osmosis = WATER Only",d:"Osmosis = net movement of WATER through a partially permeable membrane from high to low water potential.",i:"💧"},
-  {t:"Heart: Left = Oxygenated",d:"Diagrams show the heart as if looking at the patient. Left side = oxygenated blood. Right side = deoxygenated.",i:"❤️"},
-  {t:"Gametes are Haploid",d:"Gametes (sperm/egg) = HALF chromosomes (haploid, n). Body cells = diploid (2n). Meiosis → gametes. Mitosis → body cells.",i:"🧬"}
+const traps = [
+  {
+    "t": "Oxidation vs Reduction (OIL RIG)",
+    "d": "Oxidation Is Loss of electrons, Reduction Is Gain. In electrolysis, oxidation happens at the ANODE (positive). Remember: AN OX = Anode Oxidation.",
+    "i": "🔋"
+  },
+  {
+    "t": "Exothermic: Negative ΔH",
+    "d": "Exothermic reactions release energy → temperature rises → ΔH is NEGATIVE. Endothermic absorb energy → ΔH is POSITIVE. Don't mix up the signs!",
+    "i": "🔥"
+  },
+  {
+    "t": "Rate vs Amount of Product",
+    "d": "A catalyst increases RATE but not the AMOUNT of product. More frequent collisions, same yield. Temperature increases rate AND shifts equilibrium.",
+    "i": "⏱️"
+  },
+  {
+    "t": "Strong ≠ Concentrated",
+    "d": "Strong acid = fully dissociates (HCl, H₂SO₄, HNO₃). Concentrated = lots of solute. You can have dilute strong acid or concentrated weak acid!",
+    "i": "🧪"
+  },
+  {
+    "t": "Empirical ≠ Molecular Formula",
+    "d": "Empirical = simplest whole number ratio (CH₂O). Molecular = actual atoms in one molecule (C₆H₁₂O₆). Molecular = n × Empirical.",
+    "i": "🔢"
+  },
+  {
+    "t": "Electrolysis: Aqueous vs Molten",
+    "d": "Molten = only ions of the compound. Aqueous = H⁺ and OH⁻ from water compete. Less reactive metal deposits; if metal is MORE reactive, H₂ forms instead.",
+    "i": "⚡"
+  },
+  {
+    "t": "Covalent Bonds: Shared Pairs",
+    "d": "Covalent = SHARED electrons. Ionic = TRANSFERRED electrons. Don't say atoms 'share' in ionic bonding. Diamond has covalent bonds but is a GIANT structure.",
+    "i": "🔗"
+  },
+  {
+    "t": "Crude Oil: Fraction ≠ Compound",
+    "d": "Crude oil fractions are MIXTURES of hydrocarbons with similar boiling points, not pure compounds. Separated by fractional distillation.",
+    "i": "🛢️"
+  },
+  {
+    "t": "Reactivity Series Order",
+    "d": "K Na Ca Mg Al Zn Fe Cu Ag Au — 'King Naughty Camels Make All Zoo Friends Come See Gold'. A more reactive metal displaces a less reactive one.",
+    "i": "⚔️"
+  },
+  {
+    "t": "Le Chatelier's Equilibrium",
+    "d": "Increasing pressure favours the side with FEWER gas moles. Increasing temperature favours the ENDOTHERMIC direction. Catalyst = no shift, just faster.",
+    "i": "⚖️"
+  }
 ];
 
-const topicEmojis={"Cell Biology":"🔬","Classification":"🦎","Movement In & Out of Cells":"🔄","Biological Molecules":"⚗️","Enzymes":"🧪","Plant Nutrition":"🌿","Human Nutrition":"🍎","Transport in Plants":"🌱","Transport in Animals":"🫀","Diseases & Immunity":"🦠","Gas Exchange":"🫁","Respiration":"💨","Excretion":"🧹","Coordination & Response":"🧠","Drugs":"💊","Reproduction":"🧬","Inheritance":"🧩","Variation & Selection":"🌍","Ecology":"🌳","Human Influences":"🏭"};
+const topicEmojis = {
+  "Particulate Nature of Matter": "🔬",
+  "Experimental Techniques": "🧪",
+  "Atoms, Elements & Compounds": "⚛️",
+  "Stoichiometry": "🔢",
+  "Electricity & Chemistry": "⚡",
+  "Chemical Energetics": "🔥",
+  "Chemical Reactions": "⚗️",
+  "Acids, Bases & Salts": "🧫",
+  "The Periodic Table": "📊",
+  "Metals": "🔧",
+  "Air & Water": "🌍",
+  "Sulfur & Carbonates": "💎",
+  "Organic Chemistry": "🛢️",
+  "Chemical Analysis": "🔍"
+};
+
 
 // ============= STATE =============
-let S=JSON.parse(localStorage.getItem('bio2')||'null')||{ans:{},streak:0,best:0,mocks:[]};
-const save=()=>localStorage.setItem('bio2',JSON.stringify(S));
+let S=JSON.parse(localStorage.getItem('chem2')||'null')||{ans:{},streak:0,best:0,mocks:[]};
+const save=()=>localStorage.setItem('chem2',JSON.stringify(S));
 const topics=[...new Set(Q.map(q=>q.t))];
 
 // ============= PARTICLES =============
@@ -727,7 +2056,6 @@ const topics=[...new Set(Q.map(q=>q.t))];
     ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
     ctx.fillStyle=`rgba(0,232,157,${p.a})`;ctx.fill();
   });
-  // Draw connections
   for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
     const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);
     if(d<120){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
@@ -755,8 +2083,8 @@ function showPanel(n){
 }
 
 // ============= TOPICS =============
-function renderTopics(){
-  const g=document.getElementById('topicsGrid');g.innerHTML='';
+function renderTopicsFixed(gridElement){
+  gridElement.innerHTML='';
   topics.forEach((tn,i)=>{
     const qs=Q.filter(q=>q.t===tn),done=qs.filter(q=>S.ans[q.id]).length,
           cor=qs.filter(q=>S.ans[q.id]?.c).length,pct=qs.length?Math.round(done/qs.length*100):0;
@@ -765,8 +2093,11 @@ function renderTopics(){
       <div class="tc-num">Topic ${i+1}</div><div class="tc-name">${tn}</div>
       <div class="tc-bar"><span class="tc-count">${done}/${qs.length}${cor?' · '+cor+' ✓':''}</span>
       <div class="tc-prog"><div class="tc-prog-fill" style="width:${pct}%"></div></div></div>`;
-    g.appendChild(d);
+    gridElement.appendChild(d);
   });
+}
+function renderTopics(){
+  renderTopicsFixed(document.getElementById('topicsGrid'));
 }
 
 function openTopic(tn){
@@ -827,20 +2158,23 @@ function renderAll(){
 }
 
 // ============= WEAK AREAS =============
-function renderWeak(){
-  const c=document.getElementById('weakList');c.innerHTML='';
+function renderWeakFixed(listElement){
+  listElement.innerHTML='';
   const stats=topics.map(t=>{
     const qs=Q.filter(q=>q.t===t),a=qs.filter(q=>S.ans[q.id]),
           cor=a.filter(q=>S.ans[q.id].c).length,p=a.length?Math.round(cor/a.length*100):null;
     return{t,total:qs.length,done:a.length,cor,p};
   }).filter(s=>s.done>0).sort((a,b)=>(a.p??100)-(b.p??100));
-  if(!stats.length){c.innerHTML='<div class="w-empty"><div class="icon">📊</div><p style="font-size:1.05rem">Answer some questions first!</p></div>';return;}
+  if(!stats.length){listElement.innerHTML='<div class="w-empty"><div class="icon">📊</div><p style="font-size:1.05rem">Answer some questions first!</p></div>';return;}
   stats.forEach(s=>{
     const d=document.createElement('div');d.className='w-item';d.onclick=()=>openTopic(s.t);
     const cls=s.p>=70?'good':s.p>=50?'ok':'bad';
     d.innerHTML=`<div><h4>${s.t}</h4><p>${s.cor}/${s.done} correct (${s.total} total)</p></div><div class="w-pct ${cls}">${s.p}%</div>`;
-    c.appendChild(d);
+    listElement.appendChild(d);
   });
+}
+function renderWeak(){
+  renderWeakFixed(document.getElementById('weakList'));
 }
 
 // ============= MOCK TEST =============
@@ -958,6 +2292,14 @@ function renderReview(){
 }
 
 // ============= TRAPS =============
+function renderTrapsFixed(listElement){
+  listElement.innerHTML='';
+  traps.forEach(t=>{
+    const d=document.createElement('div');d.className='trap-card';
+    d.innerHTML=`<div class="trap-head"><span class="trap-icon">${t.i}</span><span class="trap-title">${t.t}</span></div><p class="trap-body">${t.d}</p>`;
+    c.appendChild(d);
+  });
+}
 function renderTraps(){
   const c=document.getElementById('trapsList');c.innerHTML='';
   traps.forEach(t=>{
