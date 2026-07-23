@@ -1,6 +1,6 @@
 # 🎯 AU-CBT Master — Air University CS Group Entry Test App
 
-**200 High-Yield MCQs** aligned 100% with the **Official Air University CBT Pattern** for Candidates in the Computer Science Group (BS CS / BS AI).
+**300 High-Yield MCQs** across 3 full practice sets, aligned 100% with the **Official Air University CBT Pattern** for Candidates in the Computer Science Group (BS CS / BS AI).
 
 ---
 
@@ -18,10 +18,11 @@
 
 ---
 
-## 🚀 App Structure
+## 🚀 App Structure (300 Total MCQs)
 
-- 📄 `index.html` — **Official 100-Question CBT Mock Simulator (Set 1)**
-- 📄 `mcqs-part2.html` — **Official 100-Question CBT Mock Simulator (Set 2)**
+- 📄 `index.html` — **Official CBT Full Mock Set 1 (100 MCQs)**
+- 📄 `mcqs-part2.html` — **Official CBT Full Mock Set 2 (100 MCQs)**
+- 📄 `mcqs-part3.html` — **Official CBT Full Mock Set 3 (100 MCQs)**
 
 ---
 
