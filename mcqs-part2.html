@@ -3,35 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AU-CBT Master — Part 2 | Physics, English & Analytical</title>
-<meta name="description" content="Part 2: Master AU-CBT Physics, English & Analytical Reasoning with 130+ MCQs. Air University entry test preparation for BS CS/AI.">
+<title>AU-CBT CS Group Master — Official Pattern Practice Set 2</title>
+<meta name="description" content="Official Air University CBT Practice Set 2 for CS Group (BS CS / BS AI). Exactly aligned with official weightage: 25% Quant, 25% Analytical, 20% English, 10% Physics, 10% CS, 10% Math.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#050a14;--bg2:#0b1120;--card:#0f1729;--card-hover:#141e33;--surface:#1a2540;--glass:rgba(15,23,41,0.65);--glass-border:rgba(255,255,255,0.06);--g1:#00ffa3;--g2:#00d4ff;--g3:#a855f7;--g4:#ec4899;--accent:#00e89d;--accent2:#00c4ff;--accent3:#a855f7;--correct:#00e89d;--wrong:#ff4d6a;--warn:#ffb800;--text:#edf2f7;--text2:#8899b4;--text3:#506380;--border:#1a2744;--border2:#253354;--r:16px;--r2:12px;--r3:8px}
-html{font-size:16px;scroll-behavior:smooth}body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
-.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}.bg-glow .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.12;animation:orbFloat 20s ease-in-out infinite}.bg-glow .orb:nth-child(1){width:600px;height:600px;background:var(--g1);top:-15%;left:-10%}.bg-glow .orb:nth-child(2){width:500px;height:500px;background:var(--g2);top:50%;right:-10%;animation-delay:-7s}.bg-glow .orb:nth-child(3){width:400px;height:400px;background:var(--g3);bottom:-10%;left:30%;animation-delay:-13s}.bg-glow .orb:nth-child(4){width:350px;height:350px;background:var(--g4);top:20%;left:60%;animation-delay:-4s;opacity:0.06}
+:root{
+  --bg:#050a14;--bg2:#0b1120;--card:#0f1729;--card-hover:#141e33;--surface:#1a2540;
+  --glass:rgba(15,23,41,0.65);--glass-border:rgba(255,255,255,0.06);
+  --g1:#00ffa3;--g2:#00d4ff;--g3:#a855f7;--g4:#ec4899;
+  --accent:#00e89d;--accent2:#00c4ff;--accent3:#a855f7;
+  --correct:#00e89d;--wrong:#ff4d6a;--warn:#ffb800;
+  --text:#edf2f7;--text2:#8899b4;--text3:#506380;
+  --border:#1a2744;--border2:#253354;--r:16px;--r2:12px;--r3:8px;
+}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+.bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.bg-glow .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.12;animation:orbFloat 20s ease-in-out infinite}
+.bg-glow .orb:nth-child(1){width:600px;height:600px;background:var(--g1);top:-15%;left:-10%}
+.bg-glow .orb:nth-child(2){width:500px;height:500px;background:var(--g2);top:50%;right:-10%;animation-delay:-7s}
+.bg-glow .orb:nth-child(3){width:400px;height:400px;background:var(--g3);bottom:-10%;left:30%;animation-delay:-13s}
+.bg-glow .orb:nth-child(4){width:350px;height:350px;background:var(--g4);top:20%;left:60%;animation-delay:-4s;opacity:0.06}
 @keyframes orbFloat{0%,100%{transform:translate(0,0) scale(1)}25%{transform:translate(30px,-40px) scale(1.05)}50%{transform:translate(-20px,30px) scale(0.95)}75%{transform:translate(40px,20px) scale(1.02)}}
 .bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,0.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.015) 1px,transparent 1px);background-size:60px 60px}
-canvas#particles{position:fixed;inset:0;z-index:0;pointer-events:none}canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
+canvas#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:4px}::-webkit-scrollbar-thumb:hover{background:var(--accent)}
-.header{position:sticky;top:0;z-index:100;background:rgba(5,10,20,0.7);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--glass-border);padding:0 24px}.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
-.nav-parts{display:flex;gap:4px;background:rgba(255,255,255,0.02);padding:4px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}.nav-part{text-decoration:none;font-size:0.8rem;font-weight:600;color:var(--text2);padding:6px 14px;border-radius:8px;transition:all .3s ease}.nav-part:hover{color:var(--text);background:rgba(255,255,255,0.03)}.nav-part.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 2px 10px rgba(0,255,163,0.15)}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none}.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 25px rgba(0,255,163,0.2);animation:logoPulse 3s ease-in-out infinite}@keyframes logoPulse{0%,100%{box-shadow:0 0 20px rgba(0,255,163,0.15)}50%{box-shadow:0 0 35px rgba(0,255,163,0.3)}}.logo-text{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.header-stats{display:flex;gap:14px;align-items:center}.h-stat{display:flex;align-items:center;gap:7px;background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:24px;padding:7px 16px;font-size:0.82rem;font-weight:600}.h-stat .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}.dot-g{background:var(--correct);box-shadow:0 0 8px var(--correct)}.dot-r{background:var(--wrong);box-shadow:0 0 8px var(--wrong)}.dot-y{background:var(--warn);box-shadow:0 0 8px var(--warn)}
-.tabs-wrap{padding:0 20px;position:relative;z-index:1}.tabs{display:flex;gap:4px;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:16px;padding:5px;margin:20px auto;max-width:720px}.tab{flex:1;padding:11px 6px;text-align:center;border-radius:12px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);color:var(--text2);border:none;background:none;font-family:inherit}.tab:hover{color:var(--text);background:rgba(255,255,255,0.03)}.tab.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 4px 20px rgba(0,232,157,0.25)}.tab .ti{display:block;font-size:1.15rem;margin-bottom:2px}
-.container{max-width:920px;margin:0 auto;padding:20px 20px 80px;position:relative;z-index:1}.panel{display:none;animation:panelIn .4s cubic-bezier(.4,0,.2,1)}.panel.active{display:block}@keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-.stitle{font-size:1.6rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px;background:linear-gradient(135deg,var(--text),var(--text2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.ssub{color:var(--text3);font-size:0.88rem;margin-bottom:28px;font-weight:400}
-.topics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}.topic-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:var(--r);padding:22px;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}.topic-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,163,0.04),rgba(0,196,255,0.04));opacity:0;transition:opacity .35s}.topic-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));transform:scaleX(0);transition:transform .35s;transform-origin:left}.topic-card:hover{transform:translateY(-4px);border-color:rgba(0,232,157,0.2);box-shadow:0 12px 40px rgba(0,232,157,0.08)}.topic-card:hover::before{opacity:1}.topic-card:hover::after{transform:scaleX(1)}.tc-num{font-size:0.68rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}.tc-name{font-size:0.98rem;font-weight:700;margin-bottom:12px;line-height:1.3}.tc-emoji{position:absolute;right:16px;top:16px;font-size:1.5rem;opacity:0.15;transition:opacity .3s}.topic-card:hover .tc-emoji{opacity:0.4}.tc-bar{display:flex;justify-content:space-between;align-items:center}.tc-count{font-size:0.76rem;color:var(--text3);font-weight:500}.tc-prog{width:70px;height:4px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}.tc-prog-fill{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1)}
-.qc{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:var(--r);padding:28px;margin-bottom:16px;transition:all .3s}.qc:hover{border-color:rgba(255,255,255,0.08)}.qc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:10px}.qc-num{font-size:0.7rem;font-weight:700;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;letter-spacing:2px}.qc-badge{font-size:0.65rem;font-weight:600;background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);border-radius:20px;padding:4px 12px;color:var(--text2);white-space:nowrap}.qc-text{font-size:1.02rem;font-weight:500;line-height:1.7;margin-bottom:22px}
-.opts{display:grid;gap:10px}.opt{display:flex;align-items:center;gap:16px;padding:15px 20px;border-radius:var(--r2);border:1.5px solid rgba(255,255,255,0.06);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);background:rgba(255,255,255,0.02)}.opt:hover:not(.dis){border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04);transform:translateX(6px)}.opt.dis{cursor:default;pointer-events:none}.opt-l{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);flex-shrink:0;transition:all .25s}.opt-t{font-size:0.92rem;line-height:1.5;font-weight:400}.opt.correct{border-color:var(--correct);background:rgba(0,232,157,0.06)}.opt.correct .opt-l{background:var(--correct);color:#050a14;border-color:var(--correct)}.opt.wrong{border-color:var(--wrong);background:rgba(255,77,106,0.06)}.opt.wrong .opt-l{background:var(--wrong);color:#fff;border-color:var(--wrong)}
+.header{position:sticky;top:0;z-index:100;background:rgba(5,10,20,0.7);backdrop-filter:blur(30px) saturate(1.5);border-bottom:1px solid var(--glass-border);padding:0 24px}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-parts{display:flex;gap:4px;background:rgba(255,255,255,0.02);padding:4px;border-radius:12px;border:1px solid rgba(255,255,255,0.05)}
+.nav-part{text-decoration:none;font-size:0.8rem;font-weight:600;color:var(--text2);padding:6px 14px;border-radius:8px;transition:all .3s ease}
+.nav-part:hover{color:var(--text);background:rgba(255,255,255,0.03)}
+.nav-part.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 2px 10px rgba(0,255,163,0.15)}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;box-shadow:0 0 25px rgba(0,255,163,0.2);animation:logoPulse 3s ease-in-out infinite}
+@keyframes logoPulse{0%,100%{box-shadow:0 0 20px rgba(0,255,163,0.15)}50%{box-shadow:0 0 35px rgba(0,255,163,0.3)}}
+.logo-text{font-size:1.25rem;font-weight:800;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header-stats{display:flex;gap:14px;align-items:center}
+.h-stat{display:flex;align-items:center;gap:7px;background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:24px;padding:7px 16px;font-size:0.82rem;font-weight:600}
+.h-stat .dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.dot-g{background:var(--correct);box-shadow:0 0 8px var(--correct)}
+.dot-r{background:var(--wrong);box-shadow:0 0 8px var(--wrong)}
+.dot-y{background:var(--warn);box-shadow:0 0 8px var(--warn)}
+.tabs-wrap{padding:0 20px;position:relative;z-index:1}
+.tabs{display:flex;gap:4px;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:16px;padding:5px;margin:20px auto;max-width:720px}
+.tab{flex:1;padding:11px 6px;text-align:center;border-radius:12px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);color:var(--text2);border:none;background:none;font-family:inherit}
+.tab:hover{color:var(--text);background:rgba(255,255,255,0.03)}
+.tab.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 4px 20px rgba(0,232,157,0.25)}
+.tab .ti{display:block;font-size:1.15rem;margin-bottom:2px}
+.container{max-width:920px;margin:0 auto;padding:20px 20px 80px;position:relative;z-index:1}
+.panel{display:none;animation:panelIn .4s cubic-bezier(.4,0,.2,1)}.panel.active{display:block}
+@keyframes panelIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.stitle{font-size:1.6rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:4px;background:linear-gradient(135deg,var(--text),var(--text2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.ssub{color:var(--text3);font-size:0.88rem;margin-bottom:28px;font-weight:400}
+.topics-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.topic-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:var(--r);padding:22px;cursor:pointer;transition:all .35s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.topic-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,255,163,0.04),rgba(0,196,255,0.04));opacity:0;transition:opacity .35s}
+.topic-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--g2),var(--g3));transform:scaleX(0);transition:transform .35s;transform-origin:left}
+.topic-card:hover{transform:translateY(-4px);border-color:rgba(0,232,157,0.2);box-shadow:0 12px 40px rgba(0,232,157,0.08)}
+.topic-card:hover::before{opacity:1}.topic-card:hover::after{transform:scaleX(1)}
+.tc-num{font-size:0.68rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:2px;margin-bottom:8px}
+.tc-name{font-size:0.98rem;font-weight:700;margin-bottom:12px;line-height:1.3}
+.tc-emoji{position:absolute;right:16px;top:16px;font-size:1.5rem;opacity:0.15;transition:opacity .3s}
+.topic-card:hover .tc-emoji{opacity:0.4}
+.tc-bar{display:flex;justify-content:space-between;align-items:center}
+.tc-count{font-size:0.76rem;color:var(--text3);font-weight:500}
+.tc-prog{width:70px;height:4px;background:rgba(255,255,255,0.05);border-radius:3px;overflow:hidden}
+.tc-prog-fill{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.qc{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-radius:var(--r);padding:28px;margin-bottom:16px;transition:all .3s}
+.qc:hover{border-color:rgba(255,255,255,0.08)}
+.qc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;gap:10px}
+.qc-num{font-size:0.7rem;font-weight:700;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-transform:uppercase;letter-spacing:2px}
+.qc-badge{font-size:0.65rem;font-weight:600;background:rgba(255,255,255,0.04);border:1px solid var(--glass-border);border-radius:20px;padding:4px 12px;color:var(--text2);white-space:nowrap}
+.qc-text{font-size:1.02rem;font-weight:500;line-height:1.7;margin-bottom:22px}
+.opts{display:grid;gap:10px}
+.opt{display:flex;align-items:center;gap:16px;padding:15px 20px;border-radius:var(--r2);border:1.5px solid rgba(255,255,255,0.06);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);background:rgba(255,255,255,0.02)}
+.opt:hover:not(.dis){border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04);transform:translateX(6px)}
+.opt.dis{cursor:default;pointer-events:none}
+.opt-l{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);flex-shrink:0;transition:all .25s}
+.opt-t{font-size:0.92rem;line-height:1.5;font-weight:400}
+.opt.correct{border-color:var(--correct);background:rgba(0,232,157,0.06)}.opt.correct .opt-l{background:var(--correct);color:#050a14;border-color:var(--correct)}
+.opt.wrong{border-color:var(--wrong);background:rgba(255,77,106,0.06)}.opt.wrong .opt-l{background:var(--wrong);color:#fff;border-color:var(--wrong)}
 .expl{margin-top:16px;padding:16px 20px;background:rgba(0,232,157,0.04);border-left:3px solid var(--accent);border-radius:0 var(--r3) var(--r3) 0;font-size:0.88rem;color:var(--text2);line-height:1.65;animation:panelIn .3s ease}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--r2);font-weight:600;font-size:0.88rem;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);border:none;font-family:inherit}.btn-p{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;box-shadow:0 4px 20px rgba(0,232,157,0.2)}.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,232,157,0.3)}.btn-s{background:rgba(255,255,255,0.04);color:var(--text);border:1px solid var(--glass-border)}.btn-s:hover{border-color:rgba(0,232,157,0.3)}.btns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--r2);font-weight:600;font-size:0.88rem;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);border:none;font-family:inherit}
+.btn-p{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;box-shadow:0 4px 20px rgba(0,232,157,0.2)}.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,232,157,0.3)}
+.btn-s{background:rgba(255,255,255,0.04);color:var(--text);border:1px solid var(--glass-border)}.btn-s:hover{border-color:rgba(0,232,157,0.3)}
+.btns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
 .pbar{background:rgba(255,255,255,0.04);border-radius:6px;height:6px;overflow:hidden;margin:8px 0}.pbar-f{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:6px;transition:width .6s cubic-bezier(.4,0,.2,1)}
-.mock-h{text-align:center;margin-bottom:32px}.mock-h h2{font-size:1.8rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.mock-h p{color:var(--text3);font-size:0.9rem}.mock-timer{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:600;text-align:center;margin:16px 0;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.mock-prog{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.85rem;color:var(--text3)}.mock-prog span{font-weight:700;color:var(--text)}
-.res-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r);padding:40px 32px;text-align:center}.res-score{font-size:5rem;font-weight:900;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:10px 0;line-height:1}.res-grade{font-size:1.3rem;font-weight:700;margin-bottom:8px}.res-detail{color:var(--text3);font-size:0.9rem;margin-bottom:24px}.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left;margin-top:28px}.res-item{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:var(--r2);padding:16px}.res-item .ri-t{font-size:0.76rem;font-weight:600;color:var(--text3);margin-bottom:4px}.res-item .ri-s{font-size:1.1rem;font-weight:700}
-.w-empty{text-align:center;padding:60px 20px;color:var(--text3)}.w-empty .icon{font-size:3.5rem;margin-bottom:16px}.w-item{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:var(--r);padding:20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all .3s}.w-item:hover{border-color:rgba(255,255,255,0.1);transform:translateX(4px)}.w-item h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}.w-item p{font-size:0.78rem;color:var(--text3)}.w-pct{font-size:1.6rem;font-weight:800}.w-pct.bad{color:var(--wrong)}.w-pct.ok{color:var(--warn)}.w-pct.good{color:var(--correct)}
+.mock-h{text-align:center;margin-bottom:32px}.mock-h h2{font-size:1.8rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.mock-h p{color:var(--text3);font-size:0.9rem}
+.mock-timer{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:600;text-align:center;margin:16px 0;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.mock-prog{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.85rem;color:var(--text3)}.mock-prog span{font-weight:700;color:var(--text)}
+.res-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r);padding:40px 32px;text-align:center}
+.res-score{font-size:5rem;font-weight:900;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:10px 0;line-height:1}
+.res-grade{font-size:1.3rem;font-weight:700;margin-bottom:8px}.res-detail{color:var(--text3);font-size:0.9rem;margin-bottom:24px}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left;margin-top:28px}
+.res-item{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:var(--r2);padding:16px}.res-item .ri-t{font-size:0.76rem;font-weight:600;color:var(--text3);margin-bottom:4px}.res-item .ri-s{font-size:1.1rem;font-weight:700}
+.w-empty{text-align:center;padding:60px 20px;color:var(--text3)}.w-empty .icon{font-size:3.5rem;margin-bottom:16px}
+.w-item{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:var(--r);padding:20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all .3s}
+.w-item:hover{border-color:rgba(255,255,255,0.1);transform:translateX(4px)}.w-item h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}.w-item p{font-size:0.78rem;color:var(--text3)}.w-pct{font-size:1.6rem;font-weight:800}.w-pct.bad{color:var(--wrong)}.w-pct.ok{color:var(--warn)}.w-pct.good{color:var(--correct)}
 .trap-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-left:3px solid var(--warn);border-radius:var(--r);padding:24px;margin-bottom:14px;transition:all .3s}.trap-card:hover{transform:translateX(4px);border-left-color:var(--g1)}.trap-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}.trap-icon{font-size:1.8rem}.trap-title{font-size:1rem;font-weight:700;color:var(--warn)}.trap-body{font-size:0.9rem;line-height:1.7;color:var(--text2)}
 .fbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}.fbar select{background:var(--glass);backdrop-filter:blur(10px);color:var(--text);border:1px solid var(--glass-border);border-radius:var(--r3);padding:9px 14px;font-family:inherit;font-size:0.82rem;cursor:pointer}.fbar select:focus{outline:none;border-color:var(--accent)}
 .back-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}.back-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.9rem;display:flex;align-items:center;gap:6px;font-family:inherit;font-weight:600;transition:all .3s}.back-btn:hover{color:var(--accent);transform:translateX(-4px)}
@@ -42,215 +113,418 @@ canvas#particles{position:fixed;inset:0;z-index:0;pointer-events:none}canvas#con
 </style>
 </head>
 <body>
+
 <div class="bg-glow"><div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
 <div class="bg-grid"></div><canvas id="particles"></canvas><canvas id="confetti"></canvas>
 <div class="streak" id="streakBadge">🔥 <span id="streakCount">0</span> Streak!</div>
+
 <header class="header"><div class="header-inner">
-<div class="logo"><div class="logo-icon">🎯</div><div class="logo-text">AU-CBT Master</div></div>
-<div class="nav-parts"><a href="index.html" class="nav-part">Part 1</a><a href="mcqs-part2.html" class="nav-part active">Part 2</a></div>
+<div class="logo"><div class="logo-icon">🎯</div><div class="logo-text">AU-CBT CS Group</div></div>
+<div class="nav-parts"><a href="index.html" class="nav-part">Part 1 (Official 100 Q Mock)</a><a href="mcqs-part2.html" class="nav-part active">Part 2 (Practice Set 2)</a></div>
 <div class="header-stats"><div class="h-stat"><div class="dot dot-g"></div><span id="hC">0</span> Correct</div><div class="h-stat"><div class="dot dot-r"></div><span id="hW">0</span> Wrong</div><div class="h-stat"><div class="dot dot-y"></div><span id="hP">0%</span></div></div>
 </div></header>
+
 <div class="tabs-wrap"><div class="tabs" id="tabsBar">
 <button class="tab active" data-tab="topics"><span class="ti">📚</span>Topics</button>
 <button class="tab" data-tab="all"><span class="ti">📝</span>All MCQs</button>
 <button class="tab" data-tab="weak"><span class="ti">⚡</span>Weak Areas</button>
-<button class="tab" data-tab="mock"><span class="ti">🧪</span>Mock Test</button>
+<button class="tab" data-tab="mock"><span class="ti">🧪</span>Practice Set 2 Mock</button>
 <button class="tab" data-tab="traps"><span class="ti">🪤</span>Traps</button>
 </div></div>
+
 <main class="container">
-<div class="panel active" id="panel-topics"><h2 class="stitle">Study by Topic</h2><p class="ssub">Master each topic. Progress auto-saves.</p><div class="topics-grid" id="topicsGrid"></div></div>
+<div class="panel active" id="panel-topics"><h2 class="stitle">Practice Set 2 — Topic Breakdown</h2><p class="ssub">Another 100 MCQs strictly structured according to the official AU-CBT distribution.</p><div class="topics-grid" id="topicsGrid"></div></div>
 <div class="panel" id="panel-topic-detail"><div class="back-row"><button class="back-btn" onclick="showPanel('topics')">← Back to Topics</button></div><h2 class="stitle" id="tdTitle"></h2><p class="ssub" id="tdSub"></p><div id="tdQs"></div></div>
-<div class="panel" id="panel-all"><h2 class="stitle">All MCQs</h2><p class="ssub">130 exam-style questions · Filter by topic or status</p><div class="fbar"><select id="fTopic" onchange="renderAll()"><option value="all">All Topics</option></select><select id="fStatus" onchange="renderAll()"><option value="all">All</option><option value="unanswered">Unanswered</option><option value="correct">Correct</option><option value="wrong">Wrong</option></select></div><div id="allQs"></div></div>
-<div class="panel" id="panel-weak"><h2 class="stitle">Weak Areas</h2><p class="ssub">Topics below 70% — focus here for maximum gains</p><div id="weakList"></div></div>
-<div class="panel" id="panel-mock"><div id="mockSetup"><div class="mock-h"><h2>🎯 Mock Test</h2><p>Simulate a real Air University CBT — Physics, English & Analytical</p></div><div style="max-width:420px;margin:0 auto"><div class="form-group"><label class="form-label">Number of Questions</label><select class="form-select" id="mCount"><option value="10">10 — Quick Quiz</option><option value="25">25 — Quarter</option><option value="50" selected>50 — Half Paper</option><option value="100">100 — Full CBT</option></select></div><div class="form-group"><label class="form-label">Timer</label><select class="form-select" id="mTimer"><option value="0">No Timer</option><option value="30">30 min</option><option value="60" selected>60 min</option><option value="120">120 min (Real Exam)</option></select></div><button class="btn btn-p" style="width:100%;justify-content:center;padding:14px;font-size:0.95rem" onclick="startMock()">Start Mock Test →</button></div></div>
-<div id="mockActive" style="display:none"><div class="mock-timer" id="mTimerDisp">60:00</div><div class="mock-prog">Question <span id="mCur">1</span> of <span id="mTot">50</span><div style="flex:1"><div class="pbar"><div class="pbar-f" id="mProgBar" style="width:0%"></div></div></div></div><div id="mQArea"></div><div class="btns" style="justify-content:space-between"><button class="btn btn-s" id="mPrev" onclick="mockNav(-1)" disabled>← Previous</button><button class="btn btn-p" id="mNext" onclick="mockNav(1)">Next →</button></div></div>
+<div class="panel" id="panel-all"><h2 class="stitle">All 100 Set 2 MCQs</h2><p class="ssub">Filter by topic or status</p><div class="fbar"><select id="fTopic" onchange="renderAll()"><option value="all">All Topics</option></select><select id="fStatus" onchange="renderAll()"><option value="all">All</option><option value="unanswered">Unanswered</option><option value="correct">Correct</option><option value="wrong">Wrong</option></select></div><div id="allQs"></div></div>
+<div class="panel" id="panel-weak"><h2 class="stitle">Weak Areas</h2><p class="ssub">Topics below 70% — focus here for maximum score boost</p><div id="weakList"></div></div>
+<div class="panel" id="panel-mock"><div id="mockSetup"><div class="mock-h"><h2>🎯 Practice Set 2 Mock Test</h2><p>100 Questions | 120 Minutes | Aligned with Official Pattern</p></div><div style="max-width:420px;margin:0 auto"><div class="form-group"><label class="form-label">Number of Questions</label><select class="form-select" id="mCount"><option value="20">20 Questions</option><option value="50">50 Questions</option><option value="100" selected>100 Questions — Full CBT</option></select></div><div class="form-group"><label class="form-label">Timer</label><select class="form-select" id="mTimer"><option value="0">No Timer</option><option value="60">60 min</option><option value="120" selected>120 min (Real Exam)</option></select></div><button class="btn btn-p" style="width:100%;justify-content:center;padding:14px;font-size:0.95rem" onclick="startMock()">Start Set 2 Test →</button></div></div>
+<div id="mockActive" style="display:none"><div class="mock-timer" id="mTimerDisp">120:00</div><div class="mock-prog">Question <span id="mCur">1</span> of <span id="mTot">100</span><div style="flex:1"><div class="pbar"><div class="pbar-f" id="mProgBar" style="width:0%"></div></div></div></div><div id="mQArea"></div><div class="btns" style="justify-content:space-between"><button class="btn btn-s" id="mPrev" onclick="mockNav(-1)" disabled>← Previous</button><button class="btn btn-p" id="mNext" onclick="mockNav(1)">Next →</button></div></div>
 <div id="mockResults" style="display:none"></div></div>
-<div class="panel" id="panel-traps"><h2 class="stitle">🪤 Common Examiner Traps</h2><p class="ssub">Know these to avoid losing easy marks</p><div id="trapsList"></div></div>
+<div class="panel" id="panel-traps"><h2 class="stitle">🪤 Common Examiner Traps</h2><p class="ssub">Understand these tricks to avoid losing easy marks</p><div id="trapsList"></div></div>
 </main>
+
 <script>
-const Q=[
-{id:1,t:"Motion & Projectile",q:"Which of the following is a scalar quantity?",o:["Force","Velocity","Mass","Acceleration"],a:2,e:"Mass has magnitude only. Force, velocity, acceleration all have direction."},
-{id:2,t:"Motion & Projectile",q:"Maximum range of a projectile is achieved at what angle?",o:["30°","45°","60°","90°"],a:1,e:"R = v²sin(2θ)/g. sin(2θ) max when 2θ=90° → θ=45°."},
-{id:3,t:"Motion & Projectile",q:"A ball thrown at 20 m/s at 30°. Range = ? (g=10)",o:["20 m","20√3 m","40 m","10√3 m"],a:1,e:"R = v²sin(2θ)/g = 400·sin60°/10 = 40·(√3/2) = 20√3 m."},
-{id:4,t:"Motion & Projectile",q:"At the highest point of projectile, vertical velocity is:",o:["Maximum","Equal to horizontal","Zero","Negative"],a:2,e:"At max height, vertical component = 0. Only horizontal remains."},
-{id:5,t:"Motion & Projectile",q:"Which pair of angles gives equal projectile range?",o:["30° and 45°","30° and 60°","45° and 90°","20° and 40°"],a:1,e:"Complementary angles (sum=90°) give equal range: 30°+60°=90°."},
-{id:6,t:"Motion & Projectile",q:"Third equation of motion is:",o:["v = u + at","s = ut + ½at²","v² = u² + 2as","a = (v−u)/t"],a:2,e:"v² = u² + 2as relates velocity, acceleration, and displacement."},
-{id:7,t:"Motion & Projectile",q:"A body falls freely for 2s. Distance fallen = ? (g=10)",o:["10 m","20 m","40 m","5 m"],a:1,e:"s = ½gt² = ½(10)(4) = 20 m."},
-{id:8,t:"Motion & Projectile",q:"Momentum of 2 kg body moving at 5 m/s:",o:["2.5 kg·m/s","7 kg·m/s","10 kg·m/s","20 kg·m/s"],a:2,e:"p = mv = 2 × 5 = 10 kg·m/s."},
-{id:9,t:"Motion & Projectile",q:"Newton's Second Law states:",o:["F = mv","F = ma","F = mg","F = mv²"],a:1,e:"Force = mass × acceleration."},
-{id:10,t:"Motion & Projectile",q:"Impulse equals:",o:["Force × distance","Mass × velocity","Change in momentum","Kinetic energy"],a:2,e:"Impulse = FΔt = Δp (change in momentum)."},
-{id:11,t:"Motion & Projectile",q:"Time of flight for projectile:",o:["v sinθ/g","2v sinθ/g","v²sinθ/g","v cosθ/g"],a:1,e:"T = 2v sinθ/g (time to go up and come back down)."},
-{id:12,t:"Motion & Projectile",q:"g ≈ ?",o:["8.9 m/s²","9.8 m/s²","10.8 m/s²","11.2 m/s²"],a:1,e:"Standard acceleration due to gravity ≈ 9.8 m/s² ≈ 10 m/s²."},
-{id:13,t:"Work, Energy & Power",q:"Work done when force is perpendicular (θ=90°):",o:["W = Fd","W = Fd/2","W = 0","W = −Fd"],a:2,e:"W = Fd cosθ. cos(90°) = 0, so W = 0."},
-{id:14,t:"Work, Energy & Power",q:"KE of 2 kg body at 3 m/s:",o:["6 J","9 J","12 J","18 J"],a:1,e:"KE = ½mv² = ½(2)(9) = 9 J."},
-{id:15,t:"Work, Energy & Power",q:"SI unit of power:",o:["Joule","Newton","Watt","Pascal"],a:2,e:"Power = Work/Time. Unit: J/s = Watt."},
-{id:16,t:"Work, Energy & Power",q:"PE of 1 kg at 10 m height (g=10):",o:["10 J","100 J","50 J","1000 J"],a:1,e:"PE = mgh = 1×10×10 = 100 J."},
-{id:17,t:"Work, Energy & Power",q:"Power = ?",o:["Force × time","Work × time","Work / time","Energy × distance"],a:2,e:"Power is the rate of doing work: P = W/t."},
-{id:18,t:"Work, Energy & Power",q:"In conservation of energy, KE + PE = ?",o:["Variable","Constant","Zero","Increasing"],a:1,e:"Total mechanical energy is conserved (constant) in absence of friction."},
-{id:19,t:"Work, Energy & Power",q:"1 horsepower ≈ ?",o:["550 W","746 W","1000 W","500 W"],a:1,e:"1 HP ≈ 746 watts."},
-{id:20,t:"Work, Energy & Power",q:"Work-energy theorem states W = ?",o:["mgh","½mv²","ΔKE","Fd"],a:2,e:"Net work done = change in kinetic energy."},
-{id:21,t:"Work, Energy & Power",q:"Escape velocity from Earth ≈ ?",o:["7.9 km/s","11.2 km/s","3×10⁸ m/s","343 m/s"],a:1,e:"Escape velocity ≈ 11.2 km/s."},
-{id:22,t:"Work, Energy & Power",q:"Work done by gravity on horizontal motion:",o:["mgh","−mgh","0","mg"],a:2,e:"Gravity is perpendicular to horizontal displacement → W = 0."},
-{id:23,t:"Current Electricity",q:"Ohm's law: V = ?",o:["I/R","IR","I²R","R/I"],a:1,e:"Voltage = Current × Resistance."},
-{id:24,t:"Current Electricity",q:"Three resistors 2Ω, 3Ω, 5Ω in series. Total:",o:["10Ω","0.97Ω","30Ω","15Ω"],a:0,e:"Series: R = R₁+R₂+R₃ = 2+3+5 = 10Ω."},
-{id:25,t:"Current Electricity",q:"6Ω and 3Ω in parallel. Equivalent:",o:["9Ω","2Ω","18Ω","3Ω"],a:1,e:"1/R = 1/6+1/3 = 1/6+2/6 = 3/6. R = 2Ω."},
-{id:26,t:"Current Electricity",q:"Bulb 100W at 220V. Current:",o:["22000 A","5/11 A","2.2 A","0.22 A"],a:1,e:"I = P/V = 100/220 = 5/11 ≈ 0.45 A."},
-{id:27,t:"Current Electricity",q:"KCL is based on conservation of:",o:["Energy","Momentum","Charge","Mass"],a:2,e:"Kirchhoff's Current Law: charge is conserved at junction."},
-{id:28,t:"Current Electricity",q:"Wheatstone bridge balance: P/Q = ?",o:["S/R","R/S","RS","R+S"],a:1,e:"Balance condition: P/Q = R/S."},
-{id:29,t:"Current Electricity",q:"Power dissipated: P = V²/R. If V=10V, R=5Ω:",o:["2 W","20 W","50 W","100 W"],a:1,e:"P = V²/R = 100/5 = 20 W."},
-{id:30,t:"Current Electricity",q:"Terminal voltage: V = EMF − ?",o:["IR","Ir","I/r","r/I"],a:1,e:"V = EMF − Ir, where r is internal resistance."},
-{id:31,t:"Current Electricity",q:"Conductance is reciprocal of:",o:["Voltage","Current","Resistance","Power"],a:2,e:"Conductance G = 1/R. Unit: Siemens (S)."},
-{id:32,t:"Current Electricity",q:"Resistivity depends on:",o:["Length","Area","Material","Temperature and length"],a:2,e:"Resistivity is a property of the material itself."},
-{id:33,t:"Current Electricity",q:"In a series circuit, which stays constant?",o:["Voltage","Current","Resistance","Power"],a:1,e:"Same current flows through all components in series."},
-{id:34,t:"Current Electricity",q:"In a parallel circuit, which stays constant?",o:["Current","Resistance","Voltage","Power"],a:2,e:"Same voltage across all branches in parallel."},
-{id:35,t:"Electrostatics",q:"Coulomb's law: F = ?",o:["kq₁q₂/r","kq₁q₂/r²","kq₁q₂r²","kq₁q₂r"],a:1,e:"Force ∝ 1/r². Inverse square law."},
-{id:36,t:"Electrostatics",q:"SI unit of capacitance:",o:["Coulomb","Farad","Henry","Ohm"],a:1,e:"Capacitance C = Q/V. Unit: Farad (F)."},
-{id:37,t:"Electrostatics",q:"3μF and 6μF in series. Equivalent:",o:["9μF","2μF","18μF","0.5μF"],a:1,e:"1/C = 1/3+1/6 = 2/6+1/6 = 3/6 = 1/2. C = 2μF."},
-{id:38,t:"Electrostatics",q:"Electric field E = ?",o:["F/m","F/q","F·q","q/F"],a:1,e:"E = Force per unit charge."},
-{id:39,t:"Electrostatics",q:"Electric potential V = ?",o:["kq/r²","kq/r","kq²/r","kr/q"],a:1,e:"V = kq/r. Potential ∝ 1/r (not 1/r²)."},
-{id:40,t:"Electrostatics",q:"Energy stored in capacitor = ?",o:["CV","CV²","½CV²","2CV²"],a:2,e:"E = ½CV² = ½QV = Q²/(2C)."},
-{id:41,t:"Electrostatics",q:"Parallel plate capacitance C = ?",o:["ε₀A/d","ε₀d/A","ε₀Ad","ε₀/Ad"],a:0,e:"C = ε₀εᵣA/d. Proportional to area, inversely to distance."},
-{id:42,t:"Electrostatics",q:"Like charges:",o:["Attract","Repel","No interaction","Neutralize"],a:1,e:"Like charges repel, unlike charges attract."},
-{id:43,t:"Electromagnetism",q:"Faraday's law: ε = ?",o:["NΔΦ/Δt","−NΔΦ/Δt","NΦΔt","NΦ/t²"],a:1,e:"Negative sign from Lenz's law (opposing change)."},
-{id:44,t:"Electromagnetism",q:"Transformer ratio: Vs/Vp = ?",o:["Np/Ns","Ns/Np","Is/Ip","Np·Ns"],a:1,e:"Voltage ratio = turns ratio = Ns/Np."},
-{id:45,t:"Electromagnetism",q:"Force on charge in B field: F = ?",o:["qvB","qvBcosθ","qvBsinθ","qB/v"],a:2,e:"F = qvBsinθ. Zero when parallel (θ=0°)."},
-{id:46,t:"Electromagnetism",q:"Transformer: 100 primary, 500 secondary turns, 220V input. Output:",o:["44V","1100V","550V","2200V"],a:1,e:"Vs = Vp×Ns/Np = 220×500/100 = 1100V."},
-{id:47,t:"Electromagnetism",q:"Lenz's law states induced EMF:",o:["Supports the change","Opposes the change","Is always zero","Doubles the change"],a:1,e:"Induced EMF opposes the change producing it (negative sign in Faraday's law)."},
-{id:48,t:"Electromagnetism",q:"Magnetic flux Φ = ?",o:["BA","BAcosθ","BAsinθ","B/A"],a:1,e:"Φ = BAcosθ where θ is angle between B and normal to area."},
-{id:49,t:"Electromagnetism",q:"SI unit of self-inductance:",o:["Farad","Ohm","Henry","Tesla"],a:2,e:"Inductance is measured in Henry (H)."},
-{id:50,t:"Electromagnetism",q:"Force on current-carrying wire in B field: F = ?",o:["BIL","BILsinθ","BILcosθ","BI/L"],a:1,e:"F = BILsinθ. Maximum when wire ⊥ to field."},
-{id:51,t:"Oscillations & Waves",q:"Period of simple pendulum T = ?",o:["2π√(m/k)","2π√(L/g)","2π√(g/L)","2πL/g"],a:1,e:"Pendulum: T = 2π√(L/g). Depends on length and g, NOT mass."},
-{id:52,t:"Oscillations & Waves",q:"Sound waves in air are:",o:["Transverse","Longitudinal","Electromagnetic","Stationary"],a:1,e:"Sound = compressions and rarefactions = longitudinal."},
-{id:53,t:"Oscillations & Waves",q:"Wave speed v = ?",o:["f/λ","fλ","λ/f","f²λ"],a:1,e:"v = frequency × wavelength."},
-{id:54,t:"Oscillations & Waves",q:"Spring-mass system period T = ?",o:["2π√(L/g)","2π√(m/k)","2π√(k/m)","2πm/k"],a:1,e:"For spring: T = 2π√(m/k). Depends on mass and spring constant."},
-{id:55,t:"Oscillations & Waves",q:"Light waves are:",o:["Longitudinal","Transverse","Mechanical","Sound waves"],a:1,e:"Light = electromagnetic = transverse waves."},
-{id:56,t:"Oscillations & Waves",q:"Doppler effect: approaching source gives:",o:["Lower frequency","Higher frequency","Same frequency","No sound"],a:1,e:"Approaching = shorter wavelength = higher frequency (blue shift)."},
-{id:57,t:"Oscillations & Waves",q:"Resonance occurs when:",o:["Amplitude = 0","Driving freq = natural freq","Damping is maximum","Frequency = 0"],a:1,e:"Resonance: driving frequency matches natural frequency → max amplitude."},
-{id:58,t:"Oscillations & Waves",q:"Speed of sound in air ≈ ?",o:["3×10⁸ m/s","1500 m/s","343 m/s","1000 m/s"],a:2,e:"Speed of sound ≈ 343 m/s at room temperature."},
-{id:59,t:"Modern Physics",q:"Photoelectric equation: hν = ?",o:["Φ − KE_max","Φ + KE_max","KE_max/Φ","Φ × KE_max"],a:1,e:"Energy of photon = work function + max kinetic energy."},
-{id:60,t:"Modern Physics",q:"Bohr energy levels: Eₙ = ?",o:["−13.6n² eV","−13.6/n² eV","13.6/n² eV","13.6n eV"],a:1,e:"Negative = bound state. Energy ∝ 1/n²."},
-{id:61,t:"Modern Physics",q:"de Broglie wavelength λ = ?",o:["h·mv","mv/h","h/(mv)","m/(hv)"],a:2,e:"λ = h/p = h/(mv). Matter-wave duality."},
-{id:62,t:"Modern Physics",q:"Speed of light c ≈ ?",o:["3×10⁵ m/s","3×10⁸ m/s","3×10¹⁰ m/s","3×10⁶ m/s"],a:1,e:"c ≈ 3×10⁸ m/s = 300,000 km/s."},
-{id:63,t:"Modern Physics",q:"Stopping potential depends on:",o:["Intensity","Frequency","Surface area","Distance"],a:1,e:"Stopping potential depends on photon frequency, NOT intensity."},
-{id:64,t:"Modern Physics",q:"Ground state energy (n=1) is:",o:["Most positive","Zero","Most negative","Infinite"],a:2,e:"E₁ = −13.6 eV. Most tightly bound = most negative."},
-{id:65,t:"Modern Physics",q:"Higher frequency photon has:",o:["Less energy","More energy","Same energy","No energy"],a:1,e:"E = hf. Higher f → higher energy."},
-{id:66,t:"Modern Physics",q:"Nuclear fission means:",o:["Light nuclei combine","Heavy nucleus splits","Electrons emitted","Neutrons absorbed only"],a:1,e:"Fission: heavy nucleus splits into lighter nuclei, releasing energy."},
-{id:67,t:"Thermodynamics",q:"First law of thermodynamics = conservation of:",o:["Momentum","Mass","Energy","Charge"],a:2,e:"ΔQ = ΔU + W. Energy is conserved."},
-{id:68,t:"Thermodynamics",q:"Carnot efficiency η = ?",o:["T₂/T₁","1−T₁/T₂","1−T₂/T₁","T₁−T₂"],a:2,e:"η = 1 − T_cold/T_hot. Both in Kelvin."},
-{id:69,t:"Thermodynamics",q:"Absolute zero = ?",o:["0°C","−100°C","−273°C","−373°C"],a:2,e:"0 K = −273.15°C. Lowest possible temperature."},
-{id:70,t:"Thermodynamics",q:"Ideal gas law: PV = ?",o:["mRT","nRT","nR/T","RT/n"],a:1,e:"PV = nRT. n = moles, R = gas constant, T in Kelvin."},
-{id:71,t:"Thermodynamics",q:"In isothermal process, what is constant?",o:["Pressure","Volume","Temperature","Entropy"],a:2,e:"Isothermal = constant temperature. Iso = same, thermal = heat/temp."},
-{id:72,t:"Thermodynamics",q:"Specific heat: Q = ?",o:["mΔT","mcΔT","mc/ΔT","m/cΔT"],a:1,e:"Q = mcΔT. c = specific heat capacity."},
-{id:73,t:"Synonyms & Antonyms",q:"Synonym of 'ABUNDANT':",o:["Scarce","Plentiful","Minimal","Brief"],a:1,e:"Abundant = plentiful = existing in large quantities."},
-{id:74,t:"Synonyms & Antonyms",q:"Synonym of 'BENEVOLENT':",o:["Malevolent","Kind","Hostile","Weak"],a:1,e:"Benevolent = kind, charitable, well-meaning."},
-{id:75,t:"Synonyms & Antonyms",q:"Synonym of 'CANDID':",o:["Sweet","Honest","Diplomatic","Careful"],a:1,e:"Candid = honest, frank, straightforward."},
-{id:76,t:"Synonyms & Antonyms",q:"Synonym of 'DILIGENT':",o:["Lazy","Hardworking","Clever","Bright"],a:1,e:"Diligent = hardworking, industrious."},
-{id:77,t:"Synonyms & Antonyms",q:"Synonym of 'ELOQUENT':",o:["Silent","Articulate","Confusing","Boring"],a:1,e:"Eloquent = articulate, fluent in speaking."},
-{id:78,t:"Synonyms & Antonyms",q:"Synonym of 'PRAGMATIC':",o:["Idealistic","Practical","Theoretical","Romantic"],a:1,e:"Pragmatic = practical, realistic, sensible."},
-{id:79,t:"Synonyms & Antonyms",q:"Antonym of 'OBSCURE':",o:["Clear","Hidden","Dark","Complex"],a:0,e:"Obscure = unclear/unknown. Opposite = clear."},
-{id:80,t:"Synonyms & Antonyms",q:"Antonym of 'VERBOSE':",o:["Wordy","Concise","Detailed","Elaborate"],a:1,e:"Verbose = using too many words. Opposite = concise."},
-{id:81,t:"Synonyms & Antonyms",q:"Antonym of 'HOSTILE':",o:["Aggressive","Friendly","Neutral","Passive"],a:1,e:"Hostile = unfriendly/aggressive. Opposite = friendly."},
-{id:82,t:"Synonyms & Antonyms",q:"Antonym of 'ARTIFICIAL':",o:["Fake","Natural","Synthetic","Plastic"],a:1,e:"Artificial = man-made. Opposite = natural."},
-{id:83,t:"Synonyms & Antonyms",q:"Antonym of 'TEMPORARY':",o:["Brief","Permanent","Short","Fleeting"],a:1,e:"Temporary = lasting short time. Opposite = permanent."},
-{id:84,t:"Synonyms & Antonyms",q:"Antonym of 'GENEROUS':",o:["Kind","Stingy","Wealthy","Giving"],a:1,e:"Generous = giving freely. Opposite = stingy/miserly."},
-{id:85,t:"Grammar & Prepositions",q:"She is good ___ mathematics.",o:["in","at","with","on"],a:1,e:"'Good at' for skills/subjects."},
-{id:86,t:"Grammar & Prepositions",q:"He has been living here ___ 1990.",o:["for","since","from","until"],a:1,e:"'Since' for specific point in time."},
-{id:87,t:"Grammar & Prepositions",q:"He was accused ___ theft.",o:["for","with","of","about"],a:2,e:"'Accused of' is correct collocation."},
-{id:88,t:"Grammar & Prepositions",q:"You must comply ___ the rules.",o:["to","with","by","for"],a:1,e:"'Comply with' is standard usage."},
-{id:89,t:"Grammar & Prepositions",q:"My opinion differs ___ yours.",o:["with","to","from","than"],a:2,e:"'Differ from' is correct."},
-{id:90,t:"Grammar & Prepositions",q:"Either the teacher or the students ___ responsible.",o:["is","are","was","has"],a:1,e:"Verb agrees with nearest subject ('students' = plural)."},
-{id:91,t:"Grammar & Prepositions",q:"Each of the boys ___ a prize.",o:["have","has","are having","were having"],a:1,e:"'Each' = singular → singular verb 'has'."},
-{id:92,t:"Grammar & Prepositions",q:"The news ___ alarming.",o:["are","is","were","have been"],a:1,e:"'News' is uncountable/singular noun."},
-{id:93,t:"Grammar & Prepositions",q:"Mathematics ___ my favorite subject.",o:["are","is","were","have"],a:1,e:"Subject names ending in -ics are singular."},
-{id:94,t:"Grammar & Prepositions",q:"'The letter was written by him' is in:",o:["Active voice","Passive voice","Imperative","Interrogative"],a:1,e:"Object + was + past participle + by + agent = passive."},
-{id:95,t:"Grammar & Prepositions",q:"Indirect: He said, 'I am happy.'",o:["He said that I am happy","He said that he was happy","He said that he is happy","He told that he was happy"],a:1,e:"'I' → 'he', 'am' → 'was' (backshift)."},
-{id:96,t:"Grammar & Prepositions",q:"If I ___ rich, I would buy a car.",o:["am","was","were","will be"],a:2,e:"Type 2 conditional: If + were (subjunctive) for all persons."},
-{id:97,t:"Grammar & Prepositions",q:"She ___ here since morning.",o:["is","was","has been","had been"],a:2,e:"Present perfect continuous with 'since' for ongoing action."},
-{id:98,t:"Grammar & Prepositions",q:"Not only intelligent ___ also hardworking.",o:["and","but","or","yet"],a:1,e:"Correlative conjunction: 'not only... but also'."},
-{id:99,t:"Analogies & Comprehension",q:"BIRD:WINGS :: FISH:?",o:["Gills","Fins","Scales","Water"],a:1,e:"Movement tool: birds=wings, fish=fins."},
-{id:100,t:"Analogies & Comprehension",q:"DOCTOR:HOSPITAL :: TEACHER:?",o:["Clinic","School","Office","Lab"],a:1,e:"Workplace: doctor=hospital, teacher=school."},
-{id:101,t:"Analogies & Comprehension",q:"PAINTER:BRUSH :: WRITER:?",o:["Book","Pen","Paper","Ink"],a:1,e:"Tool: painter uses brush, writer uses pen."},
-{id:102,t:"Analogies & Comprehension",q:"THERMOMETER:TEMPERATURE :: CLOCK:?",o:["Hours","Time","Seconds","Speed"],a:1,e:"Measurement: thermometer=temperature, clock=time."},
-{id:103,t:"Analogies & Comprehension",q:"Choose correct spelling:",o:["Acomodate","Accommodate","Accomodate","Acommodate"],a:1,e:"Double c, double m: ac-com-mo-date."},
-{id:104,t:"Analogies & Comprehension",q:"Choose correct sentence:",o:["He don't know nothing","He doesn't know anything","He don't know anything","He doesn't knows anything"],a:1,e:"Correct grammar: doesn't + base form + anything (not double negative)."},
-{id:105,t:"Analogies & Comprehension",q:"The book was ___ the table.",o:["in","at","on","by"],a:2,e:"Objects on a surface use 'on'."},
-{id:106,t:"Analogies & Comprehension",q:"WARM:HOT :: COOL:?",o:["Cold","Lukewarm","Freezing","Chilly"],a:0,e:"Degree relationship: warm→hot (intensify), cool→cold (intensify)."},
-{id:107,t:"Number Series & Patterns",q:"2, 6, 12, 20, 30, ?",o:["40","42","44","46"],a:1,e:"Differences: 4,6,8,10,12. Next: 30+12=42."},
-{id:108,t:"Number Series & Patterns",q:"1, 4, 9, 16, 25, ?",o:["36","49","30","35"],a:0,e:"Perfect squares: 6²=36."},
-{id:109,t:"Number Series & Patterns",q:"3, 6, 11, 18, 27, ?",o:["36","38","40","34"],a:1,e:"Differences: 3,5,7,9,11. Next: 27+11=38."},
-{id:110,t:"Number Series & Patterns",q:"1, 1, 2, 3, 5, 8, ?",o:["11","12","13","14"],a:2,e:"Fibonacci: 5+8=13."},
-{id:111,t:"Number Series & Patterns",q:"2, 3, 5, 7, 11, 13, ?",o:["15","17","19","16"],a:1,e:"Primes. Next prime after 13 is 17."},
-{id:112,t:"Number Series & Patterns",q:"100, 97, 91, 82, 70, ?",o:["55","58","60","52"],a:0,e:"Diffs: −3,−6,−9,−12,−15. 70−15=55."},
-{id:113,t:"Number Series & Patterns",q:"5, 10, 20, 40, ?",o:["60","80","100","50"],a:1,e:"×2 each. 40×2=80."},
-{id:114,t:"Number Series & Patterns",q:"3, 9, 27, 81, ?",o:["162","243","324","100"],a:1,e:"×3 each. 81×3=243."},
-{id:115,t:"Number Series & Patterns",q:"1, 2, 6, 24, 120, ?",o:["240","600","720","840"],a:2,e:"Factorials: 1!,2!,3!,4!,5!,6!=720."},
-{id:116,t:"Number Series & Patterns",q:"64, 48, 36, 27, ?",o:["20.25","18","21","24"],a:0,e:"×3/4 each. 27×3/4=20.25."},
-{id:117,t:"Logic & Syllogisms",q:"All cats are mammals. All mammals are animals. So:",o:["All animals are cats","All cats are animals","Some cats aren't animals","No mammals are cats"],a:1,e:"Transitive: cats⊂mammals⊂animals."},
-{id:118,t:"Logic & Syllogisms",q:"Some dogs are pets. All pets are friendly. So:",o:["All dogs are friendly","Some dogs are friendly","No dogs are friendly","All friendly are pets"],a:1,e:"Only 'some' dogs are pets → 'some' dogs friendly."},
-{id:119,t:"Logic & Syllogisms",q:"No fish can fly. All sparrows fly. So:",o:["Some sparrows are fish","No sparrow is a fish","All fish are sparrows","Some fish fly"],a:1,e:"Sparrows fly, fish cannot → no sparrow is a fish."},
-{id:120,t:"Logic & Syllogisms",q:"All pens are books. All books are tables. Conclusion I: All pens are tables. II: All tables are pens.",o:["Only I","Only II","Both","Neither"],a:0,e:"Pens⊂Books⊂Tables. I follows. II doesn't (not all tables are pens)."},
-{id:121,t:"Logic & Syllogisms",q:"If A > B > C, who is tallest?",o:["A","B","C","Cannot tell"],a:0,e:"A is greatest in A>B>C."},
-{id:122,t:"Logic & Syllogisms",q:"If APPLE (A=1...) = 50, what is CAT?",o:["24","23","25","22"],a:0,e:"C=3, A=1, T=20. Total=3+1+20=24."},
-{id:123,t:"Logic & Syllogisms",q:"All squares are rectangles. All rectangles have 4 sides. So:",o:["All squares have 4 sides","All 4-sided figures are squares","Some rectangles aren't squares","No squares have 4 sides"],a:0,e:"Transitive: squares⊂rectangles⊂4-sided."},
-{id:124,t:"Logic & Syllogisms",q:"Statement: Some roses are red. Some red things are beautiful. Conclusion: Some roses are beautiful.",o:["Follows","Does not follow","Cannot determine","Partially follows"],a:1,e:"No direct link: 'some' doesn't guarantee overlap."},
-{id:125,t:"Blood Relations",q:"'Son of only son of my grandfather' is my:",o:["Uncle","Cousin","Father","Brother or self"],a:3,e:"Only son of grandfather = father. Father's son = self or brother."},
-{id:126,t:"Blood Relations",q:"A=B's sister, C=B's mother, D=C's father. A is D's:",o:["Grandmother","Daughter","Granddaughter","Aunt"],a:2,e:"D→C(daughter)→B(child)→A(sister of B). A = D's granddaughter."},
-{id:127,t:"Blood Relations",q:"'His mother's husband's sister is my aunt.' He is my:",o:["Son","Brother","Cousin","Uncle"],a:2,e:"His father's sister = his aunt = my aunt → shared aunt → cousins."},
-{id:128,t:"Blood Relations",q:"A's mother is B's sister. B's daughter is C. A to C:",o:["Brother","Sister","Cousin","Uncle"],a:2,e:"A's mother and B are siblings. C is B's child. A and C are cousins."},
-{id:129,t:"Blood Relations",q:"Introducing girl: 'She is daughter of wife of only son of my grandmother.' She is his:",o:["Sister","Daughter","Cousin","Niece"],a:1,e:"Only son of grandmother = father. Wife of father = mother. Daughter of mother = sister or daughter. Since 'my grandmother' → she's his daughter."},
-{id:130,t:"Blood Relations",q:"P says: 'Q's mother is the only daughter of my mother.' P is Q's:",o:["Father","Uncle","Grandmother","Maternal uncle"],a:1,e:"Only daughter of P's mother = P's sister. P's sister is Q's mother. So P is Q's maternal uncle."}
+const Q = [
+  // ENGLISH (20%) - 20 MCQs
+  {id:101,t:"English (20%)",q:"[Sentence Completion] The CEO was praised for her _____ leadership during the financial crisis.",o:["indecisive","exemplary","reluctant","careless"],a:1,e:"'Exemplary' means serving as a desirable model; commendable."},
+  {id:102,t:"English (20%)",q:"[Sentence Completion] He was accused _____ disclosing confidential company data.",o:["for","with","of","about"],a:2,e:"The correct preposition after 'accused' is 'of'."},
+  {id:103,t:"English (20%)",q:"[Sentence Completion] The new policy will come into effect _____ the first of next month.",o:["on","in","at","since"],a:0,e:"Use 'on' for specific dates."},
+  {id:104,t:"English (20%)",q:"[Sentence Completion] If he _____ harder, he would have cleared the CBT exam with distinction.",o:["studied","had studied","has studied","was studying"],a:1,e:"Third conditional: 'If + had + past participle... would have...'."},
+  {id:105,t:"English (20%)",q:"[Analogy] PAINTER : BRUSH :: WRITER : ?",o:["Book","Pen","Paper","Story"],a:1,e:"Tool used by the professional: painter uses brush, writer uses pen."},
+  {id:106,t:"English (20%)",q:"[Analogy] LIGHT : BLIND :: SOUND : ?",o:["Noise","Deaf","Ear","Silence"],a:1,e:"Inability to perceive: light $\to$ blind, sound $\to$ deaf."},
+  {id:107,t:"English (20%)",q:"[Analogy] CLOCK : TIME :: THERMOMETER : ?",o:["Heat","Temperature","Scale","Mercury"],a:1,e:"Instrument and what it measures."},
+  {id:108,t:"English (20%)",q:"[Analogy] GRAIN : SILO :: WATER : ?",o:["Bucket","Reservoir","River","Drain"],a:1,e:"Storage structure: grain in silo, water in reservoir."},
+  {id:109,t:"English (20%)",q:"[Synonym] Synonym of ELOQUENT:",o:["Articulate","Silent","Confusing","Boring"],a:0,e:"Eloquent means fluent and persuasive in speaking."},
+  {id:110,t:"English (20%)",q:"[Synonym] Synonym of DILIGENT:",o:["Lazy","Hardworking","Careless","Slow"],a:1,e:"Diligent means showing care and effort in work."},
+  {id:111,t:"English (20%)",q:"[Synonym] Synonym of CANDID:",o:["Frank / Honest","Secretive","Cunning","Rude"],a:0,e:"Candid means truthful and straightforward."},
+  {id:112,t:"English (20%)",q:"[Synonym] Synonym of FUTILE:",o:["Pointless / Useless","Fruitful","Important","Effective"],a:0,e:"Futile means producing no useful result."},
+  {id:113,t:"English (20%)",q:"[Antonym] Antonym of HOSTILE:",o:["Friendly","Aggressive","Unkind","Envious"],a:0,e:"Hostile means unfriendly; opposite is friendly."},
+  {id:114,t:"English (20%)",q:"[Antonym] Antonym of TEMPORARY:",o:["Permanent","Brief","Short","Momentary"],a:0,e:"Temporary means lasting a short time; opposite is permanent."},
+  {id:115,t:"English (20%)",q:"[Antonym] Antonym of SCARCE:",o:["Plentiful","Rare","Limited","Short"],a:0,e:"Scarce means insufficient; opposite is plentiful."},
+  {id:116,t:"English (20%)",q:"[Antonym] Antonym of COMPLY:",o:["Obey","Refuse / Resist","Follow","Agree"],a:1,e:"Comply means to act in accordance; opposite is refuse."},
+  {id:117,t:"English (20%)",q:"[Comprehension] Passage: 'Data structures determine how memory is organized. Arrays offer constant time access via indices, whereas linked lists allow dynamic allocation at the cost of linear traversal time.' Question: What is the main advantage of an array over a linked list?",o:["Dynamic memory allocation","Constant time element access by index","No memory overhead","Faster insertion"],a:1,e:"Passage states arrays offer constant time access via indices ($O(1)$)."},
+  {id:118,t:"English (20%)",q:"[Comprehension] Passage: 'In cloud computing, IaaS provides virtualized hardware, PaaS offers development platforms, and SaaS delivers ready-to-use application software over the web.' Question: Google Docs is an example of:",o:["IaaS","PaaS","SaaS","Hardware"],a:2,e:"Ready-to-use software delivered over the web is SaaS."},
+  {id:119,t:"English (20%)",q:"[Comprehension] Passage: 'Compilers translate entire high-level code into machine language prior to execution, whereas interpreters translate and execute code line by line.' Question: How do interpreters process code?",o:["All at once before execution","Line by line during execution","By creating an .exe file","Without syntax checking"],a:1,e:"Passage explicitly notes interpreters translate line by line."},
+  {id:120,t:"English (20%)",q:"[Sentence Completion] Mathematics _____ an essential prerequisite for Artificial Intelligence.",o:["are","is","were","have been"],a:1,e:"Names of subjects ending in -ics are singular ('is')."},
+
+  // ANALYTICAL (25%) - 25 MCQs
+  {id:121,t:"Analytical (25%)",q:"[Statement Based] All cars have wheels. All vehicles with wheels require fuel. Conclusion:",o:["All cars require fuel","All vehicles requiring fuel are cars","Some cars do not have wheels","No car requires fuel"],a:0,e:"Cars $\subset$ Wheeled Vehicles $\subset$ Fuel Requiring Vehicles."},
+  {id:122,t:"Analytical (25%)",q:"[Statement Based] Some apples are red. All red fruits are sweet. Conclusion:",o:["Some apples are sweet","All apples are sweet","No apple is sweet","All sweet fruits are apples"],a:0,e:"Some red apples are sweet."},
+  {id:123,t:"Analytical (25%)",q:"[Statement Based] If X > Y and Y = Z, what is the relation between X and Z?",o:["X < Z","X > Z","X = Z","Cannot determine"],a:1,e:"Since Y = Z, substituting gives X > Z."},
+  {id:124,t:"Analytical (25%)",q:"[Statement Based] 'Her mother's husband's sister is my aunt.' Relationship between the two speakers?",o:["Cousins","Siblings","Mother and Son","Aunt and Nephew"],a:0,e:"Shared aunt implies they are cousins."},
+  {id:125,t:"Analytical (25%)",q:"[Statement Based] Pointing to a man, Sara says: 'His wife is the only daughter of my father.' Who is the man to Sara?",o:["Brother","Husband","Father","Uncle"],a:1,e:"Only daughter of Sara's father is Sara herself. So the man's wife is Sara $\to$ Husband."},
+  {id:126,t:"Analytical (25%)",q:"[Scenario Based] A, B, C, D, E sit in a line. C is in the middle. B is to the immediate right of C. A is at the left end. Where is E if D is next to A?",o:["Right end","Immediate left of C","Middle","Next to A"],a:0,e:"Line order from left: A, D, C, B, E. E is at the right end."},
+  {id:127,t:"Analytical (25%)",q:"[Scenario Based] 3 boys and 3 girls sit in a row. No two girls sit together. If G1, G2, G3 are the girls, how many total arrangements alternate?",o:["12","36","72","144"],a:2,e:"Alternating seating calculation ($3! \times 3! \times 2 = 72$)."},
+  {id:128,t:"Analytical (25%)",q:"[Scenario Based] Series: 3, 6, 11, 18, 27, ?",o:["36","38","40","42"],a:1,e:"Diffs: +3, +5, +7, +9, +11. $27 + 11 = 38$."},
+  {id:129,t:"Analytical (25%)",q:"[Scenario Based] Series: 64, 32, 16, 8, ?",o:["2","4","6","0"],a:1,e:"Dividing by 2 each step: $8 / 2 = 4$."},
+  {id:130,t:"Analytical (25%)",q:"[Scenario Based] Series: 2, 5, 10, 17, 26, ?",o:["35","37","39","40"],a:1,e:"Pattern $n^2 + 1$: $1^2+1, 2^2+1, 3^2+1, 4^2+1, 5^2+1, 6^2+1 = 37$."},
+  {id:131,t:"Analytical (25%)",q:"[Scenario Based] Series: 7, 14, 28, 56, ?",o:["112","84","98","100"],a:0,e:"Doubling series: $56 \times 2 = 112$."},
+  {id:132,t:"Analytical (25%)",q:"[Scenario Based] Series: 100, 90, 80, 70, ?",o:["50","60","65","55"],a:1,e:"Constant subtraction of 10: $70 - 10 = 60$."},
+  {id:133,t:"Analytical (25%)",q:"[Scenario Based] If CAT = 24 and DOG = 26, what is BAT?",o:["23","25","22","21"],a:0,e:"Sum of alphabetical positions: B(2)+A(1)+T(20) = 23."},
+  {id:134,t:"Analytical (25%)",q:"[Statement Based] 'All metals conduct electricity. Copper is a metal.' Conclusion:",o:["Copper conducts electricity","Copper is the best conductor","Non-metals do not conduct electricity","Electricity is made of copper"],a:0,e:"Valid deductive syllogism."},
+  {id:135,t:"Analytical (25%)",q:"[Scenario Based] If Monday is the 1st of the month, what day will the 18th be?",o:["Wednesday","Thursday","Friday","Tuesday"],a:0,e:"$18 - 1 = 17$ days later. $17 \pmod 7 = 3$ days after Monday $\to$ Thursday? Wait: Mon(1), Mon(8), Mon(15), Tue(16), Wed(17), Thu(18). Answer: Thursday."},
+  {id:136,t:"Analytical (25%)",q:"[Scenario Based] A clock shows 3:00. What is the angle between the hour and minute hand?",o:["45°","60°","90°","120°"],a:2,e:"At 3:00, minute hand is at 12 and hour hand is at 3 ($90^\circ$)."},
+  {id:137,t:"Analytical (25%)",q:"[Scenario Based] A man drives 4 km West, turns left and drives 3 km. Distance from start?",o:["7 km","5 km","1 km","12 km"],a:1,e:"$\sqrt{4^2 + 3^2} = 5$ km."},
+  {id:138,t:"Analytical (25%)",q:"[Statement Based] Statement: 'No integer is a fraction. All decimals are fractions.' Conclusion:",o:["No integer is a decimal","Some integers are decimals","All decimals are integers","No fraction is a decimal"],a:0,e:"Integers and fractions are disjoint. Decimals $\subset$ Fractions $\implies$ No integer is a decimal."},
+  {id:139,t:"Analytical (25%)",q:"[Scenario Based] If 5 workers build 5 tables in 5 days, how many days will 1 worker take to build 1 table?",o:["1 day","5 days","25 days","10 days"],a:1,e:"1 worker builds 1 table in 5 days (rate is 1 table per worker per 5 days)."},
+  {id:140,t:"Analytical (25%)",q:"[Scenario Based] Find the odd one out: 27, 64, 125, 144, 216",o:["27","64","144","216"],a:2,e:"144 is a square ($12^2$), while the rest are perfect cubes ($3^3, 4^3, 5^3, 6^3$)."},
+  {id:141,t:"Analytical (25%)",q:"[Scenario Based] Complete: 1, 8, 27, 64, ?",o:["100","125","216","144"],a:1,e:"Cubes of natural numbers: $5^3 = 125$."},
+  {id:142,t:"Analytical (25%)",q:"[Statement Based] If X is North of Y and Z is East of Y, in which direction is X from Z?",o:["North-East","North-West","South-East","South-West"],a:1,e:"Relative position of X from Z is North-West."},
+  {id:143,t:"Analytical (25%)",q:"[Scenario Based] A is older than B. C is older than A. D is older than C. Who is the youngest?",o:["A","B","C","D"],a:1,e:"Age order: D > C > A > B. B is youngest."},
+  {id:144,t:"Analytical (25%)",q:"[Statement Based] 'If it rains, the grass gets wet.' It did NOT rain today. What can be concluded?",o:["The grass is dry","The grass is wet","No definitive conclusion about grass moisture","It will rain tomorrow"],a:2,e:"Denying the antecedent does not guarantee the grass is dry (could be watered)."},
+  {id:145,t:"Analytical (25%)",q:"[Scenario Based] Complete: 2, 4, 8, 16, 32, ?",o:["48","64","50","60"],a:1,e:"Doubling sequence: $32 \times 2 = 64$."},
+
+  // QUANTITATIVE (25%) - 25 MCQs
+  {id:146,t:"Quantitative (25%)",q:"[Arithmetic] If 3 pipes fill a tank in 12 hours, how long will 6 identical pipes take?",o:["24 hours","6 hours","4 hours","8 hours"],a:1,e:"Inverse proportion: $3 \times 12 = 6 \times T \implies T = 6$ hours."},
+  {id:147,t:"Quantitative (25%)",q:"[Arithmetic] What is 25% of 800?",o:["150","200","250","300"],a:1,e:"$0.25 \times 800 = 200$."},
+  {id:148,t:"Quantitative (25%)",q:"[Arithmetic] The ratio of $A:B = 4:5$. If $B = 35$, what is $A$?",o:["20","25","28","30"],a:2,e:"$A = (4/5) \times 35 = 28$."},
+  {id:149,t:"Quantitative (25%)",q:"[Arithmetic] A car travels 180 km in 3 hours. Speed in m/s?",o:["60 m/s","16.67 m/s","30 m/s","20 m/s"],a:1,e:"$180 / 3 = 60$ km/h $= 60 / 3.6 = 16.67$ m/s."},
+  {id:150,t:"Quantitative (25%)",q:"[Arithmetic] Simple interest on Rs. 10,000 at 5% for 2 years:",o:["Rs. 500","Rs. 1000","Rs. 1500","Rs. 2000"],a:1,e:"$(10000 \times 5 \times 2)/100 = 1000$."},
+  {id:151,t:"Quantitative (25%)",q:"[Arithmetic] Average of 5, 15, 25, 35, 45 is:",o:["20","25","30","35"],a:1,e:"Sum $= 125 / 5 = 25$."},
+  {id:152,t:"Quantitative (25%)",q:"[Arithmetic] Cost price = Rs. 800, Selling price = Rs. 1000. Profit % = ?",o:["20%","25%","15%","30%"],a:1,e:"Profit $= 200 \implies (200/800) \times 100 = 25\%$."},
+  {id:153,t:"Quantitative (25%)",q:"[Arithmetic] Discount of 10% on Rs. 1200 item. Final price?",o:["Rs. 1080","Rs. 1000","Rs. 1100","Rs. 1120"],a:0,e:"Discount $= 120 \implies 1200 - 120 = 1080$."},
+  {id:154,t:"Quantitative (25%)",q:"[Arithmetic] HCF of 24 and 36 is:",o:["6","12","18","24"],a:1,e:"Greatest common divisor is 12."},
+  {id:155,t:"Quantitative (25%)",q:"[Arithmetic] LCM of 6 and 8 is:",o:["12","24","48","14"],a:1,e:"Least common multiple is 24."},
+  {id:156,t:"Quantitative (25%)",q:"[Algebra] Solve: $4x - 5 = 19$",o:["x = 5","x = 6","x = 7","x = 8"],a:1,e:"$4x = 24 \implies x = 6$."},
+  {id:157,t:"Quantitative (25%)",q:"[Algebra] Roots of $x^2 - 7x + 12 = 0$:",o:["x = 3, 4","x = 2, 6","x = -3, -4","x = 1, 12"],a:0,e:"$(x-3)(x-4) = 0 \implies x = 3, 4$."},
+  {id:158,t:"Quantitative (25%)",q:"[Algebra] For $x^2 - 6x + 8 = 0$, sum of roots is:",o:["-6","6","8","-8"],a:1,e:"Sum $= -b/a = -(-6)/1 = 6$."},
+  {id:159,t:"Quantitative (25%)",q:"[Algebra] For $x^2 - 6x + 8 = 0$, product of roots is:",o:["6","8","-8","-6"],a:1,e:"Product $= c/a = 8/1 = 8$."},
+  {id:160,t:"Quantitative (25%)",q:"[Algebra] Solve inequality: $3x + 2 > 14$",o:["x > 4","x < 4","x > 5","x < 5"],a:0,e:"$3x > 12 \implies x > 4$."},
+  {id:161,t:"Quantitative (25%)",q:"[Algebra] 5th term of AP: 3, 7, 11, ...",o:["15","19","23","27"],a:1,e:"$a_5 = 3 + 4(4) = 3 + 16 = 19$."},
+  {id:162,t:"Quantitative (25%)",q:"[Algebra] Sum of infinite GP: $1 + 1/3 + 1/9 + ...$",o:["3/2","2","3","4/3"],a:0,e:"$S_\infty = a/(1-r) = 1/(1 - 1/3) = 1/(2/3) = 3/2$."},
+  {id:163,t:"Quantitative (25%)",q:"[Algebra] Expand $(x + 4)(x - 4)$:",o:["x² - 16","x² + 16","x² - 8x + 16","x² + 8x - 16"],a:0,e:"Difference of squares: $x^2 - 16$."},
+  {id:164,t:"Quantitative (25%)",q:"[Algebra] If $f(x) = 2x^2 + 3x - 5$, find $f(2)$:",o:["5","9","11","14"],a:1,e:"$f(2) = 2(4) + 3(2) - 5 = 8 + 6 - 5 = 9$."},
+  {id:165,t:"Quantitative (25%)",q:"[Geometry] Area of a rectangle with length 12 cm and width 5 cm:",o:["34 cm²","60 cm²","17 cm²","120 cm²"],a:1,e:"Area $= 12 \times 5 = 60$ cm²."},
+  {id:166,t:"Quantitative (25%)",q:"[Geometry] Perimeter of a square with side 9 cm:",o:["18 cm","36 cm","81 cm","72 cm"],a:1,e:"Perimeter $= 4 \times 9 = 36$ cm."},
+  {id:167,t:"Quantitative (25%)",q:"[Geometry] Area of a triangle with base 10 cm and height 6 cm:",o:["60 cm²","30 cm²","16 cm²","15 cm²"],a:1,e:"Area $= \frac{1}{2} \times 10 \times 6 = 30$ cm²."},
+  {id:168,t:"Quantitative (25%)",q:"[Geometry] Volume of a cube with edge 4 cm:",o:["16 cm³","48 cm³","64 cm³","96 cm³"],a:2,e:"Volume $= 4^3 = 64$ cm³."},
+  {id:169,t:"Quantitative (25%)",q:"[Geometry] Distance between points (0, 0) and (6, 8):",o:["10","14","48","12"],a:0,e:"$\sqrt{6^2 + 8^2} = \sqrt{100} = 10$."},
+  {id:170,t:"Quantitative (25%)",q:"[Geometry] Two complementary angles add up to:",o:["90°","180°","360°","45°"],a:0,e:"Complementary angles sum to 90°."},
+
+  // PHYSICS (10%) - 10 MCQs
+  {id:171,t:"Physics (10%)",q:"SI unit of force is:",o:["Joule","Pascal","Newton","Watt"],a:2,e:"Force is measured in Newtons ($N = \text{kg}\cdot\text{m/s}^2$)."},
+  {id:172,t:"Physics (10%)",q:"Momentum $p =$?",o:["m / v","m \times v","\frac{1}{2} m v^2","m a"],a:1,e:"$p = m \times v$."},
+  {id:173,t:"Physics (10%)",q:"Acceleration due to gravity near Earth's surface is approximately:",o:["9.8 m/s²","9.8 m/s","9.8 N","9.8 m²/s"],a:0,e:"$g \approx 9.8$ m/s²."},
+  {id:174,t:"Physics (10%)",q:"Rate of doing work is called:",o:["Energy","Power","Force","Momentum"],a:1,e:"Power is work done per unit time ($P = W/t$)."},
+  {id:175,t:"Physics (10%)",q:"Potential energy of a 1 kg object at 10 m height ($g = 10$ m/s²) is:",o:["10 J","100 J","50 J","1000 J"],a:1,e:"$PE = mgh = 1 \times 10 \times 10 = 100$ J."},
+  {id:176,t:"Physics (10%)",q:"Unit of electric current is:",o:["Volt","Ohm","Ampere","Coulomb"],a:2,e:"Current is measured in Amperes (A)."},
+  {id:177,t:"Physics (10%)",q:"Three 2 $\Omega$ resistors in series give total resistance:",o:["6 $\Omega$","0.67 $\Omega$","2 $\Omega$","4 $\Omega$"],a:0,e:"Series: $R = 2 + 2 + 2 = 6\ \Omega$."},
+  {id:178,t:"Physics (10%)",q:"Frequency $f$ and period $T$ are related by:",o:["f = T","f = 1/T","f = T^2","f = 2\pi T"],a:1,e:"Frequency is the reciprocal of period."},
+  {id:179,t:"Physics (10%)",q:"de Broglie wavelength $\lambda =$?",o:["h m v","h / (m v)","m v / h","h / (m v^2)"],a:1,e:"$\lambda = h / p = h / (m v)$."},
+  {id:180,t:"Physics (10%)",q:"In an isothermal process, which parameter remains constant?",o:["Pressure","Volume","Temperature","Entropy"],a:2,e:"Isothermal means constant temperature."},
+
+  // COMPUTER SCIENCE (10%) - 10 MCQs
+  {id:181,t:"Computer (10%)",q:"Binary representation of decimal 10 is:",o:["1010₂","1001₂","1100₂","1110₂"],a:0,e:"$1010_2 = 8 + 0 + 2 + 0 = 10_{10}$."},
+  {id:182,t:"Computer (10%)",q:"Which logic gate outputs LOW (0) ONLY when both inputs are HIGH (1)?",o:["AND","NAND","OR","NOR"],a:1,e:"NAND is inverse of AND."},
+  {id:183,t:"Computer (10%)",q:"1 Nibble consists of how many bits?",o:["2","4","8","16"],a:1,e:"1 Nibble = 4 bits (half a byte)."},
+  {id:184,t:"Computer (10%)",q:"Output of `13 % 5` in C++:",o:["2","3","2.6","0"],a:1,e:"$13 / 5 = 2$ remainder 3."},
+  {id:185,t:"Computer (10%)",q:"Queue data structure operates on:",o:["LIFO","FIFO","FILO","Random"],a:1,e:"Queue is First In First Out."},
+  {id:186,t:"Computer (10%)",q:"Which memory is volatile?",o:["ROM","RAM","Hard Disk","Flash Drive"],a:1,e:"RAM loses data when power is off."},
+  {id:187,t:"Computer (10%)",q:"MAC Address operates at which OSI layer?",o:["Physical","Data Link","Network","Transport"],a:1,e:"Layer 2 (Data Link Layer)."},
+  {id:188,t:"Computer (10%)",q:"Which statement skips the rest of current loop iteration and proceeds to next?",o:["break","continue","return","exit"],a:1,e:"`continue` skips to next iteration; `break` exits loop."},
+  {id:189,t:"Computer (10%)",q:"Size of `char` data type in C/C++ is:",o:["1 byte","2 bytes","4 bytes","8 bytes"],a:0,e:"`char` occupies 1 byte."},
+  {id:190,t:"Computer (10%)",q:"Base of Octal number system is:",o:["2","8","10","16"],a:1,e:"Octal system uses base 8 (0-7)."},
+
+  // MATHEMATICS (10%) - 10 MCQs
+  {id:191,t:"Mathematics (10%)",q:"$\frac{d}{dx}(e^{2x}) =$?",o:["e^{2x}","2 e^{2x}","e^{2x} / 2","2x e^{2x}"],a:1,e:"Chain rule: $2 e^{2x}$."},
+  {id:192,t:"Mathematics (10%)",q:"$\frac{d}{dx}(\ln(x)) =$?",o:["1/x","-1/x²","e^x","x"],a:0,e:"Derivative of natural log is $1/x$."},
+  {id:193,t:"Mathematics (10%)",q:"$\int \sin(x) dx =$?",o:["\cos(x) + C","-\cos(x) + C","\sin(x) + C","-\sin(x) + C"],a:1,e:"Integral of sine is $-\cos(x) + C$."},
+  {id:194,t:"Mathematics (10%)",q:"$\int_0^1 2x dx =$?",o:["1","2","0","1/2"],a:0,e:"$[x^2]_0^1 = 1 - 0 = 1$."},
+  {id:195,t:"Mathematics (10%)",q:"$1 + \tan^2\theta =$?",o:["\cos^2\theta","\sin^2\theta","\sec^2\theta","\csc^2\theta"],a:2,e:"Pythagorean identity: $1 + \tan^2\theta = \sec^2\theta$."},
+  {id:196,t:"Mathematics (10%)",q:"If $|A| = 4$ for a 2x2 matrix, $|3A| =$?",o:["12","36","48","24"],a:1,e:"$|3A| = 3^2 \times 4 = 9 \times 4 = 36$."},
+  {id:197,t:"Mathematics (10%)",q:"$(AB)^{-1} =$?",o:["A^{-1} B^{-1}","B^{-1} A^{-1}","AB","(A B)^{-1}"],a:1,e:"$(AB)^{-1} = B^{-1} A^{-1}$."},
+  {id:198,t:"Mathematics (10%)",q:"$\omega^3 =$?",o:["0","-1","1","\omega"],a:2,e:"Cube root of unity $\omega^3 = 1$."},
+  {id:199,t:"Mathematics (10%)",q:"Eccentricity of a circle is:",o:["e = 0","e = 1","0 < e < 1","e > 1"],a:0,e:"Circle eccentricity is 0."},
+  {id:200,t:"Mathematics (10%)",q:"If $\vec{a} \times \vec{b} = 0$, vectors are:",o:["Perpendicular","Parallel","Unit vectors","Opposite"],a:1,e:"Zero cross product means parallel vectors."}
 ];
 
-const traps=[
-{t:"Scalar vs Vector",d:"Mass, speed, energy, distance = SCALARS. Force, velocity, acceleration, displacement = VECTORS. Speed vs Velocity is the #1 trap!",i:"↕️"},
-{t:"Series R vs Parallel C",d:"Series: current SAME, voltage divides. Parallel: voltage SAME, current divides. Resistors add in series, reciprocal in parallel. Capacitors do OPPOSITE.",i:"🔌"},
-{t:"Photoelectric: Intensity vs Frequency",d:"Intensity → NUMBER of electrons. Frequency → ENERGY of electrons. Below threshold frequency = NO electrons regardless of intensity.",i:"💡"},
-{t:"Bohr Energy Sign",d:"Eₙ = −13.6/n² eV. NEGATIVE = bound. Ground state n=1 is MOST negative (most bound). n↑ → energy becomes LESS negative.",i:"➖"},
-{t:"Since vs For",d:"'Since' = point in time (since 1990). 'For' = duration (for 3 years). Appears in EVERY test!",i:"⏰"},
-{t:"Each/Every = Singular",d:"'Each of the students HAS a book.' 'Every boy IS present.' Neither...nor → verb agrees with NEAREST subject.",i:"📝"},
-{t:"Analogy Logic",d:"Identify RELATIONSHIP first: Tool (Painter:Brush), Location (Doctor:Hospital), Degree (Warm:Hot). Apply same relationship.",i:"🔗"},
-{t:"Vertical Velocity at Peak",d:"At highest point: vertical velocity = 0 but horizontal velocity UNCHANGED. Total velocity ≠ 0!",i:"🏔️"},
-{t:"KCL vs KVL",d:"KCL = CHARGE conservation (currents at junction). KVL = ENERGY conservation (voltages in loop). Don't mix!",i:"⚡"},
-{t:"Transformer Step-Up vs Down",d:"Step-up: Ns>Np → Vs>Vp but Is<Ip. Power conserved: VpIp = VsIs. More voltage = less current.",i:"🔄"}
+const traps = [
+  {t:"Quantitative: Inequality Flip",d:"When multiplying or dividing an inequality by a NEGATIVE number, you MUST flip the inequality sign! E.g. -2x < 6 becomes x > -3.",i:"⚠️"},
+  {t:"Quantitative: Average Speed Trap",d:"Average speed for equal distances at speeds A and B is NOT (A+B)/2! Use Harmonic Mean: 2AB/(A+B).",i:"🚗"},
+  {t:"Analytical: 'Some' vs 'All'",d:"In syllogisms, 'Some' means AT LEAST ONE, not all. 'All A are B' does NOT mean 'All B are A'.",i:"🧩"},
+  {t:"English: Preposition Rules",d:"Always use 'good AT' (not in), 'accused OF' (not with), 'comply WITH' (not to), 'differ FROM' (not than).",i:"📝"},
+  {t:"Physics: Projectile Complementary Angles",d:"Angles summing to 90° (like 30° and 60°) produce the EXACT SAME horizontal range!",i:"🎯"},
+  {t:"CS: Modulus % Returns Remainder",d:"The % operator in C/C++ returns the remainder of integer division, NOT the quotient. 7 % 3 = 1.",i:"💻"},
+  {t:"Math: Scalar Determinant Rule",d:"For an n x n matrix, |kA| = k^n |A|, NOT k|A|. For a 3x3 matrix with |A|=5, |2A| = 2^3 * 5 = 40!",i:"📐"},
+  {t:"No Negative Marking",d:"AU-CBT has NO negative marking. NEVER leave a single question blank. Guess if you run short on time!",i:"🎰"}
 ];
 
-const topicEmojis={"Motion & Projectile":"🚀","Work, Energy & Power":"⚡","Current Electricity":"🔌","Electrostatics":"⚡","Electromagnetism":"🧲","Oscillations & Waves":"🌊","Modern Physics":"⚛️","Thermodynamics":"🌡️","Synonyms & Antonyms":"📖","Grammar & Prepositions":"✏️","Analogies & Comprehension":"🔗","Number Series & Patterns":"🔢","Logic & Syllogisms":"🧩","Blood Relations":"👨‍👩‍👧‍👦"};
+const topicEmojis = {
+  "English (20%)": "📖",
+  "Analytical (25%)": "🧩",
+  "Quantitative (25%)": "🧮",
+  "Physics (10%)": "⚡",
+  "Computer (10%)": "💻",
+  "Mathematics (10%)": "📐"
+};
 
-const SK='aucbt2';
+const SK='aucbt_official_cs_set2';
 let S=JSON.parse(localStorage.getItem(SK))||{ans:{},streak:0,best:0,mocks:[]};
 function save(){localStorage.setItem(SK,JSON.stringify(S))}
 const topics=[...new Set(Q.map(q=>q.t))];
 
-function showPanel(id){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-'+id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');if(t.dataset.tab===id)t.classList.add('active');});if(id==='all')renderAll();if(id==='weak')renderWeak();if(id==='mock')resetMock();if(id==='traps')renderTraps();}
+function showPanel(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+id).classList.add('active');
+  document.querySelectorAll('.tab').forEach(t=>{t.classList.remove('active');if(t.dataset.tab===id)t.classList.add('active');});
+  if(id==='all')renderAll();if(id==='weak')renderWeak();if(id==='mock')resetMock();if(id==='traps')renderTraps();
+}
 document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>showPanel(t.dataset.tab)));
 
-function updateH(){const a=Object.values(S.ans),c=a.filter(x=>x.c).length,w=a.length-c;document.getElementById('hC').textContent=c;document.getElementById('hW').textContent=w;document.getElementById('hP').textContent=a.length?Math.round(c/a.length*100)+'%':'0%';}
+function updateH(){
+  const a=Object.values(S.ans),c=a.filter(x=>x.c).length,w=a.length-c;
+  document.getElementById('hC').textContent=c;
+  document.getElementById('hW').textContent=w;
+  document.getElementById('hP').textContent=a.length?Math.round(c/a.length*100)+'%':'0%';
+}
 
-function renderTopics(){const g=document.getElementById('topicsGrid');g.innerHTML='';topics.forEach((t,i)=>{const qs=Q.filter(q=>q.t===t),done=qs.filter(q=>S.ans[q.id]).length;const d=document.createElement('div');d.className='topic-card';d.onclick=()=>openTopic(t);d.innerHTML=`<div class="tc-num">Topic ${i+1}</div><div class="tc-name">${t}</div><div class="tc-emoji">${topicEmojis[t]||'📚'}</div><div class="tc-bar"><div class="tc-count">${done}/${qs.length} done</div><div class="tc-prog"><div class="tc-prog-fill" style="width:${done?done/qs.length*100:0}%"></div></div></div>`;g.appendChild(d);});}
+function renderTopics(){
+  const g=document.getElementById('topicsGrid');g.innerHTML='';
+  topics.forEach((t,i)=>{
+    const qs=Q.filter(q=>q.t===t),done=qs.filter(q=>S.ans[q.id]).length;
+    const d=document.createElement('div');d.className='topic-card';d.onclick=()=>openTopic(t);
+    d.innerHTML=`<div class="tc-num">Section ${i+1}</div><div class="tc-name">${t}</div>
+      <div class="tc-emoji">${topicEmojis[t]||'📚'}</div>
+      <div class="tc-bar"><div class="tc-count">${done}/${qs.length} done</div>
+      <div class="tc-prog"><div class="tc-prog-fill" style="width:${done?done/qs.length*100:0}%"></div></div></div>`;
+    g.appendChild(d);
+  });
+}
 
-function openTopic(tn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('panel-topic-detail').classList.add('active');document.getElementById('tdTitle').textContent=tn;const qs=Q.filter(q=>q.t===tn);document.getElementById('tdSub').textContent=qs.length+' questions';const c=document.getElementById('tdQs');c.innerHTML='';qs.forEach(q=>c.appendChild(mkQ(q)));}
+function openTopic(tn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-topic-detail').classList.add('active');
+  document.getElementById('tdTitle').textContent=tn;
+  const qs=Q.filter(q=>q.t===tn);
+  document.getElementById('tdSub').textContent=qs.length+' questions';
+  const c=document.getElementById('tdQs');c.innerHTML='';
+  qs.forEach(q=>c.appendChild(mkQ(q)));
+}
 
-function mkQ(q,mock=false){const d=document.createElement('div');d.className='qc';d.id='qc-'+q.id+(mock?'-m':'');const ex=S.ans[q.id];let opts='';q.o.forEach((o,i)=>{let cls='opt';if(ex&&!mock){cls+=' dis';if(i===q.a)cls+=' correct';else if(i===ex.s)cls+=' wrong';}opts+=`<div class="${cls}" ${!mock?`onclick="pick(${q.id},${i},this)"`:`onclick="pickM(${q.id},${i})"`}><div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;});let expl='';if(ex&&!mock)expl=`<div class="expl">${ex.c?'✅ Correct!':'❌ Wrong.'} ${q.e}</div>`;d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${q.id}</div><div class="qc-badge">${q.t}</div></div><div class="qc-text">${q.q}</div><div class="opts">${opts}</div>${expl}`;return d;}
+function mkQ(q,mock=false){
+  const d=document.createElement('div');d.className='qc';d.id='qc-'+q.id+(mock?'-m':'');
+  const ex=S.ans[q.id];
+  let opts='';
+  q.o.forEach((o,i)=>{
+    let cls='opt';
+    if(ex&&!mock){cls+=' dis';if(i===q.a)cls+=' correct';else if(i===ex.s)cls+=' wrong';}
+    opts+=`<div class="${cls}" data-q="${q.id}" data-i="${i}" ${!mock?`onclick="pick(${q.id},${i},this)"`:`onclick="pickM(${q.id},${i})"`}>
+      <div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;
+  });
+  let expl='';if(ex&&!mock)expl=`<div class="expl">${ex.c?'✅ Correct!':'❌ Wrong.'} ${q.e}</div>`;
+  d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${q.id}</div><div class="qc-badge">${q.t}</div></div>
+    <div class="qc-text">${q.q}</div><div class="opts">${opts}</div>${expl}`;
+  return d;
+}
 
-function pick(id,idx){if(S.ans[id])return;const q=Q.find(x=>x.id===id),c=idx===q.a;S.ans[id]={s:idx,c,ts:Date.now()};if(c){S.streak++;if(S.streak>S.best)S.best=S.streak}else S.streak=0;save();updateH();const card=document.getElementById('qc-'+id);card.querySelectorAll('.opt').forEach((o,i)=>{o.classList.add('dis');if(i===q.a)o.classList.add('correct');else if(i===idx&&!c)o.classList.add('wrong');});const ex=document.createElement('div');ex.className='expl';ex.innerHTML=`${c?'✅ Correct!':'❌ Wrong.'} ${q.e}`;card.querySelector('.opts').after(ex);if(S.streak>=3){const b=document.getElementById('streakBadge');document.getElementById('streakCount').textContent=S.streak;b.style.display='block';setTimeout(()=>b.style.display='none',2500)}if(c)miniConfetti();}
+function pick(id,idx,el){
+  if(S.ans[id])return;
+  const q=Q.find(x=>x.id===id),c=idx===q.a;
+  S.ans[id]={s:idx,c,ts:Date.now()};
+  if(c){S.streak++;if(S.streak>S.best)S.best=S.streak}else S.streak=0;
+  save();updateH();
+  const card=document.getElementById('qc-'+id);
+  card.querySelectorAll('.opt').forEach((o,i)=>{o.classList.add('dis');if(i===q.a)o.classList.add('correct');else if(i===idx&&!c)o.classList.add('wrong');});
+  const ex=document.createElement('div');ex.className='expl';
+  ex.innerHTML=`${c?'✅ Correct!':'❌ Wrong.'} ${q.e}`;
+  card.querySelector('.opts').after(ex);
+  if(S.streak>=3){const b=document.getElementById('streakBadge');document.getElementById('streakCount').textContent=S.streak;b.style.display='block';setTimeout(()=>b.style.display='none',2500)}
+  if(c)miniConfetti();
+}
 
-function renderAll(){const sel=document.getElementById('fTopic');if(sel.options.length<=1)topics.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;sel.appendChild(o);});const tf=sel.value,sf=document.getElementById('fStatus').value;let f=Q;if(tf!=='all')f=f.filter(q=>q.t===tf);if(sf==='unanswered')f=f.filter(q=>!S.ans[q.id]);if(sf==='correct')f=f.filter(q=>S.ans[q.id]?.c);if(sf==='wrong')f=f.filter(q=>S.ans[q.id]&&!S.ans[q.id].c);const c=document.getElementById('allQs');c.innerHTML='';if(!f.length){c.innerHTML='<div class="w-empty"><div class="icon">🔍</div><p>No questions match.</p></div>';return;}f.forEach(q=>c.appendChild(mkQ(q)));}
+function renderAll(){
+  const sel=document.getElementById('fTopic');
+  if(sel.options.length<=1)topics.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;sel.appendChild(o);});
+  const tf=sel.value,sf=document.getElementById('fStatus').value;
+  let f=Q;
+  if(tf!=='all')f=f.filter(q=>q.t===tf);
+  if(sf==='unanswered')f=f.filter(q=>!S.ans[q.id]);
+  if(sf==='correct')f=f.filter(q=>S.ans[q.id]?.c);
+  if(sf==='wrong')f=f.filter(q=>S.ans[q.id]&&!S.ans[q.id].c);
+  const c=document.getElementById('allQs');c.innerHTML='';
+  if(!f.length){c.innerHTML='<div class="w-empty"><div class="icon">🔍</div><p>No questions match your filter.</p></div>';return;}
+  f.forEach(q=>c.appendChild(mkQ(q)));
+}
 
-function renderWeak(){const c=document.getElementById('weakList');c.innerHTML='';const stats=topics.map(t=>{const qs=Q.filter(q=>q.t===t),a=qs.filter(q=>S.ans[q.id]),cor=a.filter(q=>S.ans[q.id].c).length,p=a.length?Math.round(cor/a.length*100):null;return{t,total:qs.length,done:a.length,cor,p};}).filter(s=>s.done>0).sort((a,b)=>(a.p??100)-(b.p??100));if(!stats.length){c.innerHTML='<div class="w-empty"><div class="icon">📊</div><p>Answer some questions first!</p></div>';return;}stats.forEach(s=>{const d=document.createElement('div');d.className='w-item';d.onclick=()=>openTopic(s.t);const cls=s.p>=70?'good':s.p>=50?'ok':'bad';d.innerHTML=`<div><h4>${s.t}</h4><p>${s.cor}/${s.done} correct (${s.total} total)</p></div><div class="w-pct ${cls}">${s.p}%</div>`;c.appendChild(d);});}
+function renderWeak(){
+  const c=document.getElementById('weakList');c.innerHTML='';
+  const stats=topics.map(t=>{
+    const qs=Q.filter(q=>q.t===t),a=qs.filter(q=>S.ans[q.id]),
+          cor=a.filter(q=>S.ans[q.id].c).length,p=a.length?Math.round(cor/a.length*100):null;
+    return{t,total:qs.length,done:a.length,cor,p};
+  }).filter(s=>s.done>0).sort((a,b)=>(a.p??100)-(b.p??100));
+  if(!stats.length){c.innerHTML='<div class="w-empty"><div class="icon">📊</div><p style="font-size:1.05rem">Answer some questions first!</p></div>';return;}
+  stats.forEach(s=>{
+    const d=document.createElement('div');d.className='w-item';d.onclick=()=>openTopic(s.t);
+    const cls=s.p>=70?'good':s.p>=50?'ok':'bad';
+    d.innerHTML=`<div><h4>${s.t}</h4><p>${s.cor}/${s.done} correct (${s.total} total)</p></div><div class="w-pct ${cls}">${s.p}%</div>`;
+    c.appendChild(d);
+  });
+}
 
 let M={qs:[],cur:0,ans:{},timer:null,sec:0};
-function resetMock(){document.getElementById('mockSetup').style.display='block';document.getElementById('mockActive').style.display='none';document.getElementById('mockResults').style.display='none';if(M.timer)clearInterval(M.timer);}
-function startMock(){const n=+document.getElementById('mCount').value,mins=+document.getElementById('mTimer').value;M={qs:[...Q].sort(()=>Math.random()-.5).slice(0,n),cur:0,ans:{},timer:null,sec:mins*60};document.getElementById('mockSetup').style.display='none';document.getElementById('mockActive').style.display='block';document.getElementById('mockResults').style.display='none';document.getElementById('mTot').textContent=n;renderMQ();if(mins>0){updTimer();M.timer=setInterval(()=>{M.sec--;updTimer();if(M.sec<=0){clearInterval(M.timer);finishMock();}},1000);}else document.getElementById('mTimerDisp').textContent='No Timer';}
-function updTimer(){const m=Math.floor(M.sec/60),s=M.sec%60,d=document.getElementById('mTimerDisp');d.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;d.style.background=M.sec<=60?'linear-gradient(135deg,#ff4d6a,#ff8a65)':M.sec<=300?'linear-gradient(135deg,#ffb800,#ff8a65)':'linear-gradient(135deg,var(--g1),var(--g2))';d.style.webkitBackgroundClip='text';d.style.webkitTextFillColor='transparent';}
-function renderMQ(){const q=M.qs[M.cur];document.getElementById('mCur').textContent=M.cur+1;document.getElementById('mProgBar').style.width=((M.cur+1)/M.qs.length*100)+'%';const a=document.getElementById('mQArea');a.innerHTML='';const d=document.createElement('div');d.className='qc';const sel=M.ans[q.id];let opts='';q.o.forEach((o,i)=>{opts+=`<div class="opt${sel===i?' selected':''}" onclick="pickM(${q.id},${i})"><div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;});d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${M.cur+1}</div><div class="qc-badge">${q.t}</div></div><div class="qc-text">${q.q}</div><div class="opts">${opts}</div>`;a.appendChild(d);document.getElementById('mPrev').disabled=M.cur===0;const nb=document.getElementById('mNext');if(M.cur===M.qs.length-1){nb.textContent='Finish';nb.onclick=finishMock;}else{nb.textContent='Next →';nb.onclick=()=>mockNav(1);}}
+function resetMock(){
+  document.getElementById('mockSetup').style.display='block';
+  document.getElementById('mockActive').style.display='none';
+  document.getElementById('mockResults').style.display='none';
+  if(M.timer)clearInterval(M.timer);
+}
+function startMock(){
+  const n=+document.getElementById('mCount').value,mins=+document.getElementById('mTimer').value;
+  M={qs:[...Q].slice(0,n),cur:0,ans:{},timer:null,sec:mins*60};
+  document.getElementById('mockSetup').style.display='none';
+  document.getElementById('mockActive').style.display='block';
+  document.getElementById('mockResults').style.display='none';
+  document.getElementById('mTot').textContent=n;
+  renderMQ();
+  if(mins>0){updTimer();M.timer=setInterval(()=>{M.sec--;updTimer();if(M.sec<=0){clearInterval(M.timer);finishMock();}},1000);}
+  else document.getElementById('mTimerDisp').textContent='No Timer';
+}
+function updTimer(){
+  const m=Math.floor(M.sec/60),s=M.sec%60,d=document.getElementById('mTimerDisp');
+  d.textContent=`${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  d.style.background=M.sec<=60?'linear-gradient(135deg,#ff4d6a,#ff8a65)':M.sec<=300?'linear-gradient(135deg,#ffb800,#ff8a65)':'linear-gradient(135deg,var(--g1),var(--g2))';
+  d.style.webkitBackgroundClip='text';d.style.webkitTextFillColor='transparent';
+}
+function renderMQ(){
+  const q=M.qs[M.cur];
+  document.getElementById('mCur').textContent=M.cur+1;
+  document.getElementById('mProgBar').style.width=((M.cur+1)/M.qs.length*100)+'%';
+  const a=document.getElementById('mQArea');a.innerHTML='';
+  const d=document.createElement('div');d.className='qc';
+  const sel=M.ans[q.id];
+  let opts='';
+  q.o.forEach((o,i)=>{
+    const isSel=sel===i;
+    opts+=`<div class="opt${isSel?' selected':''}" onclick="pickM(${q.id},${i})">
+      <div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;
+  });
+  d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${M.cur+1}</div><div class="qc-badge">${q.t}</div></div>
+    <div class="qc-text">${q.q}</div><div class="opts">${opts}</div>`;
+  a.appendChild(d);
+  document.getElementById('mPrev').disabled=M.cur===0;
+  const nb=document.getElementById('mNext');
+  if(M.cur===M.qs.length-1){nb.textContent='Finish Test';nb.onclick=finishMock;}
+  else{nb.textContent='Next →';nb.onclick=()=>mockNav(1);}
+}
 function pickM(id,idx){M.ans[id]=idx;renderMQ();}
 function mockNav(d){M.cur+=d;if(M.cur<0)M.cur=0;if(M.cur>=M.qs.length){finishMock();return;}renderMQ();}
-function finishMock(){if(M.timer)clearInterval(M.timer);document.getElementById('mockActive').style.display='none';document.getElementById('mockResults').style.display='block';let cor=0;const ts={};M.qs.forEach(q=>{const s=M.ans[q.id],ok=s===q.a;if(ok)cor++;if(!S.ans[q.id])S.ans[q.id]={s:s??-1,c:ok,ts:Date.now()};if(!ts[q.t])ts[q.t]={c:0,n:0};ts[q.t].n++;if(ok)ts[q.t].c++;});save();updateH();const tot=M.qs.length,pct=Math.round(cor/tot*100);let g='U';if(pct>=90)g='A*';else if(pct>=80)g='A';else if(pct>=70)g='B';else if(pct>=60)g='C';else if(pct>=50)g='D';else if(pct>=40)g='E';let bd='';Object.entries(ts).sort((a,b)=>(a[1].c/a[1].n)-(b[1].c/b[1].n)).forEach(([t,s])=>{const p=Math.round(s.c/s.n*100);bd+=`<div class="res-item"><div class="ri-t">${t}</div><div class="ri-s" style="color:${p>=70?'var(--correct)':p>=50?'var(--warn)':'var(--wrong)'}">${s.c}/${s.n} (${p}%)</div></div>`;});document.getElementById('mockResults').innerHTML=`<div class="res-card"><h2 style="font-size:1.1rem;color:var(--text3)">Mock Test Complete</h2><div class="res-score">${pct}%</div><div class="res-grade" style="color:${pct>=60?'var(--correct)':'var(--wrong)'}">Grade: ${g}</div><div class="res-detail">${cor}/${tot} correct</div><div class="btns" style="justify-content:center;margin-bottom:24px"><button class="btn btn-p" onclick="reviewMock()">📝 Review</button><button class="btn btn-s" onclick="resetMock()">🔄 New Test</button></div><h3 style="text-align:left;font-size:.9rem;margin-bottom:14px;color:var(--text3)">Topic Breakdown</h3><div class="res-grid">${bd}</div></div>`;if(pct>=70)launchConfetti();S.mocks.push({d:Date.now(),s:pct,g,tot,cor});save();}
-function reviewMock(){document.getElementById('mockResults').style.display='none';document.getElementById('mockActive').style.display='block';document.getElementById('mTimerDisp').textContent='📖 Review';document.getElementById('mTimerDisp').style.background='linear-gradient(135deg,var(--g2),var(--g3))';document.getElementById('mTimerDisp').style.webkitBackgroundClip='text';document.getElementById('mTimerDisp').style.webkitTextFillColor='transparent';if(M.timer)clearInterval(M.timer);M.cur=0;renderReview();}
-function renderReview(){const q=M.qs[M.cur];document.getElementById('mCur').textContent=M.cur+1;document.getElementById('mProgBar').style.width=((M.cur+1)/M.qs.length*100)+'%';const a=document.getElementById('mQArea');a.innerHTML='';const d=document.createElement('div');d.className='qc';const sel=M.ans[q.id]??-1;let opts='';q.o.forEach((o,i)=>{let cls='opt dis';if(i===q.a)cls+=' correct';else if(i===sel)cls+=' wrong';opts+=`<div class="${cls}"><div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;});d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${M.cur+1}</div><div class="qc-badge">${q.t}</div></div><div class="qc-text">${q.q}</div><div class="opts">${opts}</div><div class="expl">${sel===q.a?'✅ Correct!':'❌ Wrong.'} ${q.e}</div>`;a.appendChild(d);document.getElementById('mPrev').disabled=M.cur===0;document.getElementById('mPrev').onclick=()=>{if(M.cur>0){M.cur--;renderReview();}};const nb=document.getElementById('mNext');if(M.cur===M.qs.length-1){nb.textContent='Done';nb.onclick=resetMock;}else{nb.textContent='Next →';nb.onclick=()=>{M.cur++;renderReview();};}}
-function renderTraps(){const c=document.getElementById('trapsList');c.innerHTML='';traps.forEach(t=>{const d=document.createElement('div');d.className='trap-card';d.innerHTML=`<div class="trap-head"><span class="trap-icon">${t.i}</span><span class="trap-title">${t.t}</span></div><p class="trap-body">${t.d}</p>`;c.appendChild(d);});}
-function miniConfetti(){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const p=[],cols=['#00ffa3','#00d4ff','#a855f7','#ffb800','#ff4d6a','#ec4899'];for(let i=0;i<35;i++)p.push({x:Math.random()*c.width,y:c.height+10,vx:(Math.random()-.5)*7,vy:-(Math.random()*14+6),sz:Math.random()*6+3,col:cols[~~(Math.random()*cols.length)],life:1,rot:Math.random()*360,rs:(Math.random()-.5)*12});(function go(){x.clearRect(0,0,c.width,c.height);let alive=false;p.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vy+=.35;q.life-=.014;q.rot+=q.rs;if(q.life>0){alive=true;x.save();x.translate(q.x,q.y);x.rotate(q.rot*Math.PI/180);x.globalAlpha=q.life;x.fillStyle=q.col;x.fillRect(-q.sz/2,-q.sz/2,q.sz,q.sz);x.restore();}});x.globalAlpha=1;if(alive)requestAnimationFrame(go);else x.clearRect(0,0,c.width,c.height);})();}
-function launchConfetti(){const c=document.getElementById('confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const p=[],cols=['#00ffa3','#00d4ff','#a855f7','#ffb800','#ff4d6a','#ec4899'];for(let i=0;i<150;i++)p.push({x:c.width/2,y:c.height/2,vx:(Math.random()-.5)*22,vy:(Math.random()-.5)*22-5,sz:Math.random()*8+3,col:cols[~~(Math.random()*cols.length)],life:1,rot:Math.random()*360,rs:(Math.random()-.5)*15});(function go(){x.clearRect(0,0,c.width,c.height);let alive=false;p.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vy+=.28;q.vx*=.99;q.life-=.007;q.rot+=q.rs;if(q.life>0){alive=true;x.save();x.translate(q.x,q.y);x.rotate(q.rot*Math.PI/180);x.globalAlpha=q.life;x.fillStyle=q.col;x.fillRect(-q.sz/2,-q.sz/2,q.sz,q.sz);x.restore();}});x.globalAlpha=1;if(alive)requestAnimationFrame(go);else x.clearRect(0,0,c.width,c.height);})();}
+
+function finishMock(){
+  if(M.timer)clearInterval(M.timer);
+  document.getElementById('mockActive').style.display='none';
+  document.getElementById('mockResults').style.display='block';
+  let cor=0;const ts={};
+  M.qs.forEach(q=>{
+    const s=M.ans[q.id],ok=s===q.a;if(ok)cor++;
+    if(!S.ans[q.id])S.ans[q.id]={s:s??-1,c:ok,ts:Date.now()};
+    if(!ts[q.t])ts[q.t]={c:0,n:0};ts[q.t].n++;if(ok)ts[q.t].c++;
+  });
+  save();updateH();
+  const tot=M.qs.length,pct=Math.round(cor/tot*100);
+  let g='U';if(pct>=85)g='A* (Selected for AU CS/AI!)';else if(pct>=75)g='A (High Merit Range)';else if(pct>=65)g='B';else if(pct>=50)g='C';
+  let bd='';
+  Object.entries(ts).sort((a,b)=>(a[1].c/a[1].n)-(b[1].c/b[1].n)).forEach(([t,s])=>{
+    const p=Math.round(s.c/s.n*100);
+    bd+=`<div class="res-item"><div class="ri-t">${t}</div><div class="ri-s" style="color:${p>=70?'var(--correct)':p>=50?'var(--warn)':'var(--wrong)'}">${s.c}/${s.n} (${p}%)</div></div>`;
+  });
+  document.getElementById('mockResults').innerHTML=`<div class="res-card">
+    <h2 style="font-size:1.1rem;color:var(--text3);font-weight:500">Practice Set 2 Complete</h2>
+    <div class="res-score">${pct}%</div>
+    <div class="res-grade" style="color:${pct>=75?'var(--correct)':'var(--wrong)'}">${g}</div>
+    <div class="res-detail">${cor} / ${tot} Correct Answers</div>
+    <div class="btns" style="justify-content:center;margin-bottom:24px">
+      <button class="btn btn-p" onclick="reviewMock()">📝 Review Answers</button>
+      <button class="btn btn-s" onclick="resetMock()">🔄 Retake Test</button>
+    </div>
+    <h3 style="text-align:left;font-size:.9rem;margin-bottom:14px;color:var(--text3)">Section Performance Breakdown</h3>
+    <div class="res-grid">${bd}</div></div>`;
+  if(pct>=70)launchConfetti();
+  S.mocks.push({d:Date.now(),s:pct,g,tot,cor});save();
+}
+
+function reviewMock(){
+  document.getElementById('mockResults').style.display='none';
+  document.getElementById('mockActive').style.display='block';
+  document.getElementById('mTimerDisp').textContent='📖 Review Mode';
+  document.getElementById('mTimerDisp').style.background='linear-gradient(135deg,var(--g2),var(--g3))';
+  document.getElementById('mTimerDisp').style.webkitBackgroundClip='text';
+  document.getElementById('mTimerDisp').style.webkitTextFillColor='transparent';
+  if(M.timer)clearInterval(M.timer);M.cur=0;renderReview();
+}
+function renderReview(){
+  const q=M.qs[M.cur];
+  document.getElementById('mCur').textContent=M.cur+1;
+  document.getElementById('mProgBar').style.width=((M.cur+1)/M.qs.length*100)+'%';
+  const a=document.getElementById('mQArea');a.innerHTML='';
+  const d=document.createElement('div');d.className='qc';
+  const sel=M.ans[q.id]??-1;let opts='';
+  q.o.forEach((o,i)=>{
+    let cls='opt dis';if(i===q.a)cls+=' correct';else if(i===sel)cls+=' wrong';
+    opts+=`<div class="${cls}"><div class="opt-l">${'ABCD'[i]}</div><div class="opt-t">${o}</div></div>`;
+  });
+  d.innerHTML=`<div class="qc-head"><div class="qc-num">Q${M.cur+1}</div><div class="qc-badge">${q.t}</div></div>
+    <div class="qc-text">${q.q}</div><div class="opts">${opts}</div>
+    <div class="expl">${sel===q.a?'✅ Correct!':'❌ Wrong.'} ${q.e}</div>`;
+  a.appendChild(d);
+  document.getElementById('mPrev').disabled=M.cur===0;document.getElementById('mPrev').onclick=()=>{if(M.cur>0){M.cur--;renderReview();}};
+  const nb=document.getElementById('mNext');
+  if(M.cur===M.qs.length-1){nb.textContent='Done';nb.onclick=resetMock;}
+  else{nb.textContent='Next →';nb.onclick=()=>{M.cur++;renderReview();};}
+}
+
+function renderTraps(){
+  const c=document.getElementById('trapsList');c.innerHTML='';
+  traps.forEach(t=>{
+    const d=document.createElement('div');d.className='trap-card';
+    d.innerHTML=`<div class="trap-head"><span class="trap-icon">${t.i}</span><span class="trap-title">${t.t}</span></div><p class="trap-body">${t.d}</p>`;
+    c.appendChild(d);
+  });
+}
+
+function miniConfetti(){
+  const c=document.getElementById('confetti'),x=c.getContext('2d');
+  c.width=innerWidth;c.height=innerHeight;
+  const p=[],cols=['#00ffa3','#00d4ff','#a855f7','#ffb800','#ff4d6a','#ec4899'];
+  for(let i=0;i<35;i++)p.push({x:Math.random()*c.width,y:c.height+10,vx:(Math.random()-.5)*7,vy:-(Math.random()*14+6),sz:Math.random()*6+3,col:cols[~~(Math.random()*cols.length)],life:1,rot:Math.random()*360,rs:(Math.random()-.5)*12});
+  (function go(){x.clearRect(0,0,c.width,c.height);let alive=false;
+    p.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vy+=.35;q.life-=.014;q.rot+=q.rs;
+      if(q.life>0){alive=true;x.save();x.translate(q.x,q.y);x.rotate(q.rot*Math.PI/180);
+        x.globalAlpha=q.life;x.fillStyle=q.col;x.fillRect(-q.sz/2,-q.sz/2,q.sz,q.sz);x.restore();}});
+    x.globalAlpha=1;if(alive)requestAnimationFrame(go);else x.clearRect(0,0,c.width,c.height);})();
+}
+function launchConfetti(){
+  const c=document.getElementById('confetti'),x=c.getContext('2d');
+  c.width=innerWidth;c.height=innerHeight;
+  const p=[],cols=['#00ffa3','#00d4ff','#a855f7','#ffb800','#ff4d6a','#ec4899'];
+  for(let i=0;i<150;i++)p.push({x:c.width/2,y:c.height/2,vx:(Math.random()-.5)*22,vy:(Math.random()-.5)*22-5,sz:Math.random()*8+3,col:cols[~~(Math.random()*cols.length)],life:1,rot:Math.random()*360,rs:(Math.random()-.5)*15});
+  (function go(){x.clearRect(0,0,c.width,c.height);let alive=false;
+    p.forEach(q=>{q.x+=q.vx;q.y+=q.vy;q.vy+=.28;q.vx*=.99;q.life-=.007;q.rot+=q.rs;
+      if(q.life>0){alive=true;x.save();x.translate(q.x,q.y);x.rotate(q.rot*Math.PI/180);
+        x.globalAlpha=q.life;x.fillStyle=q.col;x.fillRect(-q.sz/2,-q.sz/2,q.sz,q.sz);x.restore();}});
+    x.globalAlpha=1;if(alive)requestAnimationFrame(go);else x.clearRect(0,0,c.width,c.height);})();
+}
+
 updateH();renderTopics();
 </script>
 </body>

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AU-CBT Master — Entry Test MCQ Practice</title>
-<meta name="description" content="Master the Air University Computer Based Test (AU-CBT) for BS CS/AI with 260+ MCQs. Mathematics, Physics, English & Analytical Reasoning. Free & interactive.">
+<title>AU-CBT CS Group Master — Official 100% Pattern Test App</title>
+<meta name="description" content="Official Air University CBT Practice App for CS Group (BS CS / BS AI). Exactly aligned with official weightage: 25% Quant, 25% Analytical, 20% English, 10% Physics, 10% CS, 10% Math.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <style>
@@ -22,7 +22,7 @@ html{font-size:16px;scroll-behavior:smooth}
 body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 .bg-glow{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .bg-glow .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.12;animation:orbFloat 20s ease-in-out infinite}
-.bg-glow .orb:nth-child(1){width:600px;height:600px;background:var(--g1);top:-15%;left:-10%;animation-delay:0s}
+.bg-glow .orb:nth-child(1){width:600px;height:600px;background:var(--g1);top:-15%;left:-10%}
 .bg-glow .orb:nth-child(2){width:500px;height:500px;background:var(--g2);top:50%;right:-10%;animation-delay:-7s}
 .bg-glow .orb:nth-child(3){width:400px;height:400px;background:var(--g3);bottom:-10%;left:30%;animation-delay:-13s}
 .bg-glow .orb:nth-child(4){width:350px;height:350px;background:var(--g4);top:20%;left:60%;animation-delay:-4s;opacity:0.06}
@@ -49,9 +49,9 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 .dot-y{background:var(--warn);box-shadow:0 0 8px var(--warn)}
 .tabs-wrap{padding:0 20px;position:relative;z-index:1}
 .tabs{display:flex;gap:4px;background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:16px;padding:5px;margin:20px auto;max-width:720px}
-.tab{flex:1;padding:11px 6px;text-align:center;border-radius:12px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);color:var(--text2);border:none;background:none;font-family:inherit;position:relative;overflow:hidden}
+.tab{flex:1;padding:11px 6px;text-align:center;border-radius:12px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);color:var(--text2);border:none;background:none;font-family:inherit}
 .tab:hover{color:var(--text);background:rgba(255,255,255,0.03)}
-.tab.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 4px 20px rgba(0,232,157,0.25),0 0 60px rgba(0,232,157,0.08)}
+.tab.active{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;font-weight:700;box-shadow:0 4px 20px rgba(0,232,157,0.25)}
 .tab .ti{display:block;font-size:1.15rem;margin-bottom:2px}
 .container{max-width:920px;margin:0 auto;padding:20px 20px 80px;position:relative;z-index:1}
 .panel{display:none;animation:panelIn .4s cubic-bezier(.4,0,.2,1)}.panel.active{display:block}
@@ -80,335 +80,205 @@ canvas#confetti{position:fixed;inset:0;z-index:9999;pointer-events:none}
 .qc-text{font-size:1.02rem;font-weight:500;line-height:1.7;margin-bottom:22px}
 .opts{display:grid;gap:10px}
 .opt{display:flex;align-items:center;gap:16px;padding:15px 20px;border-radius:var(--r2);border:1.5px solid rgba(255,255,255,0.06);cursor:pointer;transition:all .25s cubic-bezier(.4,0,.2,1);background:rgba(255,255,255,0.02)}
-.opt:hover:not(.dis){border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04);transform:translateX(6px);box-shadow:0 4px 20px rgba(0,232,157,0.06)}
+.opt:hover:not(.dis){border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04);transform:translateX(6px)}
 .opt.dis{cursor:default;pointer-events:none}
 .opt-l{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);flex-shrink:0;transition:all .25s}
 .opt-t{font-size:0.92rem;line-height:1.5;font-weight:400}
-.opt.correct{border-color:var(--correct);background:rgba(0,232,157,0.06)}
-.opt.correct .opt-l{background:var(--correct);color:#050a14;border-color:var(--correct);box-shadow:0 0 15px rgba(0,232,157,0.3)}
-.opt.wrong{border-color:var(--wrong);background:rgba(255,77,106,0.06)}
-.opt.wrong .opt-l{background:var(--wrong);color:#fff;border-color:var(--wrong);box-shadow:0 0 15px rgba(255,77,106,0.3)}
+.opt.correct{border-color:var(--correct);background:rgba(0,232,157,0.06)}.opt.correct .opt-l{background:var(--correct);color:#050a14;border-color:var(--correct)}
+.opt.wrong{border-color:var(--wrong);background:rgba(255,77,106,0.06)}.opt.wrong .opt-l{background:var(--wrong);color:#fff;border-color:var(--wrong)}
 .expl{margin-top:16px;padding:16px 20px;background:rgba(0,232,157,0.04);border-left:3px solid var(--accent);border-radius:0 var(--r3) var(--r3) 0;font-size:0.88rem;color:var(--text2);line-height:1.65;animation:panelIn .3s ease}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--r2);font-weight:600;font-size:0.88rem;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);border:none;font-family:inherit;position:relative;overflow:hidden}
-.btn-p{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;box-shadow:0 4px 20px rgba(0,232,157,0.2)}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,232,157,0.3)}
-.btn-s{background:rgba(255,255,255,0.04);color:var(--text);border:1px solid var(--glass-border)}
-.btn-s:hover{border-color:rgba(0,232,157,0.3);background:rgba(0,232,157,0.04)}
-.btn-d{background:var(--wrong);color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;border-radius:var(--r2);font-weight:600;font-size:0.88rem;cursor:pointer;transition:all .3s cubic-bezier(.4,0,.2,1);border:none;font-family:inherit}
+.btn-p{background:linear-gradient(135deg,var(--g1),var(--g2));color:#050a14;box-shadow:0 4px 20px rgba(0,232,157,0.2)}.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,232,157,0.3)}
+.btn-s{background:rgba(255,255,255,0.04);color:var(--text);border:1px solid var(--glass-border)}.btn-s:hover{border-color:rgba(0,232,157,0.3)}
 .btns{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
-.pbar{background:rgba(255,255,255,0.04);border-radius:6px;height:6px;overflow:hidden;margin:8px 0}
-.pbar-f{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:6px;transition:width .6s cubic-bezier(.4,0,.2,1)}
-.mock-h{text-align:center;margin-bottom:32px}
-.mock-h h2{font-size:1.8rem;font-weight:800;letter-spacing:-0.5px;margin-bottom:8px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.mock-h p{color:var(--text3);font-size:0.9rem}
+.pbar{background:rgba(255,255,255,0.04);border-radius:6px;height:6px;overflow:hidden;margin:8px 0}.pbar-f{height:100%;background:linear-gradient(90deg,var(--g1),var(--g2));border-radius:6px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+.mock-h{text-align:center;margin-bottom:32px}.mock-h h2{font-size:1.8rem;font-weight:800;margin-bottom:8px;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent}.mock-h p{color:var(--text3);font-size:0.9rem}
 .mock-timer{font-family:'JetBrains Mono',monospace;font-size:2.4rem;font-weight:600;text-align:center;margin:16px 0;background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.mock-prog{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.85rem;color:var(--text3)}
-.mock-prog span{font-weight:700;color:var(--text)}
+.mock-prog{display:flex;align-items:center;gap:12px;margin-bottom:20px;font-size:0.85rem;color:var(--text3)}.mock-prog span{font-weight:700;color:var(--text)}
 .res-card{background:var(--glass);backdrop-filter:blur(20px);border:1px solid var(--glass-border);border-radius:var(--r);padding:40px 32px;text-align:center}
 .res-score{font-size:5rem;font-weight:900;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin:10px 0;line-height:1}
-.res-grade{font-size:1.3rem;font-weight:700;margin-bottom:8px}
-.res-detail{color:var(--text3);font-size:0.9rem;margin-bottom:24px}
+.res-grade{font-size:1.3rem;font-weight:700;margin-bottom:8px}.res-detail{color:var(--text3);font-size:0.9rem;margin-bottom:24px}
 .res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;text-align:left;margin-top:28px}
-.res-item{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:var(--r2);padding:16px}
-.res-item .ri-t{font-size:0.76rem;font-weight:600;color:var(--text3);margin-bottom:4px}
-.res-item .ri-s{font-size:1.1rem;font-weight:700}
-.w-empty{text-align:center;padding:60px 20px;color:var(--text3)}
-.w-empty .icon{font-size:3.5rem;margin-bottom:16px}
+.res-item{background:rgba(255,255,255,0.03);border:1px solid var(--glass-border);border-radius:var(--r2);padding:16px}.res-item .ri-t{font-size:0.76rem;font-weight:600;color:var(--text3);margin-bottom:4px}.res-item .ri-s{font-size:1.1rem;font-weight:700}
+.w-empty{text-align:center;padding:60px 20px;color:var(--text3)}.w-empty .icon{font-size:3.5rem;margin-bottom:16px}
 .w-item{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--glass-border);border-radius:var(--r);padding:20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all .3s}
-.w-item:hover{border-color:rgba(255,255,255,0.1);transform:translateX(4px)}
-.w-item h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}
-.w-item p{font-size:0.78rem;color:var(--text3)}
-.w-pct{font-size:1.6rem;font-weight:800}
-.w-pct.bad{color:var(--wrong)}.w-pct.ok{color:var(--warn)}.w-pct.good{color:var(--correct)}
-.trap-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-left:3px solid var(--warn);border-radius:var(--r);padding:24px;margin-bottom:14px;transition:all .3s}
-.trap-card:hover{transform:translateX(4px);border-left-color:var(--g1)}
-.trap-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}
-.trap-icon{font-size:1.8rem}.trap-title{font-size:1rem;font-weight:700;color:var(--warn)}
-.trap-body{font-size:0.9rem;line-height:1.7;color:var(--text2)}
-.fbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}
-.fbar select{background:var(--glass);backdrop-filter:blur(10px);color:var(--text);border:1px solid var(--glass-border);border-radius:var(--r3);padding:9px 14px;font-family:inherit;font-size:0.82rem;cursor:pointer;transition:border-color .3s}
-.fbar select:focus{outline:none;border-color:var(--accent)}
-.back-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
-.back-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.9rem;display:flex;align-items:center;gap:6px;font-family:inherit;font-weight:600;transition:all .3s}
-.back-btn:hover{color:var(--accent);transform:translateX(-4px)}
-.form-group{margin-bottom:18px}
-.form-label{font-size:0.85rem;font-weight:600;display:block;margin-bottom:8px;color:var(--text2)}
-.form-select{width:100%;padding:12px 16px;background:var(--glass);backdrop-filter:blur(10px);color:var(--text);border:1px solid var(--glass-border);border-radius:var(--r2);font-family:inherit;font-size:0.9rem;cursor:pointer;transition:border-color .3s}
-.form-select:focus{outline:none;border-color:var(--accent)}
-.streak{position:fixed;top:82px;right:20px;z-index:50;background:var(--glass);backdrop-filter:blur(20px);border:1px solid rgba(255,184,0,0.3);border-radius:var(--r2);padding:10px 18px;font-size:0.85rem;font-weight:700;color:var(--warn);display:none;animation:panelIn .3s ease;box-shadow:0 4px 25px rgba(255,184,0,0.15)}
-.opt.selected{border-color:var(--accent2);background:rgba(0,196,255,0.06)}
-.opt.selected .opt-l{background:var(--accent2);color:#050a14;border-color:var(--accent2)}
+.w-item:hover{border-color:rgba(255,255,255,0.1);transform:translateX(4px)}.w-item h4{font-size:0.95rem;font-weight:600;margin-bottom:4px}.w-item p{font-size:0.78rem;color:var(--text3)}.w-pct{font-size:1.6rem;font-weight:800}.w-pct.bad{color:var(--wrong)}.w-pct.ok{color:var(--warn)}.w-pct.good{color:var(--correct)}
+.trap-card{background:var(--glass);backdrop-filter:blur(12px);border:1px solid var(--glass-border);border-left:3px solid var(--warn);border-radius:var(--r);padding:24px;margin-bottom:14px;transition:all .3s}.trap-card:hover{transform:translateX(4px);border-left-color:var(--g1)}.trap-head{display:flex;align-items:center;gap:14px;margin-bottom:10px}.trap-icon{font-size:1.8rem}.trap-title{font-size:1rem;font-weight:700;color:var(--warn)}.trap-body{font-size:0.9rem;line-height:1.7;color:var(--text2)}
+.fbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap}.fbar select{background:var(--glass);backdrop-filter:blur(10px);color:var(--text);border:1px solid var(--glass-border);border-radius:var(--r3);padding:9px 14px;font-family:inherit;font-size:0.82rem;cursor:pointer}.fbar select:focus{outline:none;border-color:var(--accent)}
+.back-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}.back-btn{background:none;border:none;color:var(--text3);cursor:pointer;font-size:0.9rem;display:flex;align-items:center;gap:6px;font-family:inherit;font-weight:600;transition:all .3s}.back-btn:hover{color:var(--accent);transform:translateX(-4px)}
+.form-group{margin-bottom:18px}.form-label{font-size:0.85rem;font-weight:600;display:block;margin-bottom:8px;color:var(--text2)}.form-select{width:100%;padding:12px 16px;background:var(--glass);backdrop-filter:blur(10px);color:var(--text);border:1px solid var(--glass-border);border-radius:var(--r2);font-family:inherit;font-size:0.9rem;cursor:pointer}.form-select:focus{outline:none;border-color:var(--accent)}
+.streak{position:fixed;top:82px;right:20px;z-index:50;background:var(--glass);backdrop-filter:blur(20px);border:1px solid rgba(255,184,0,0.3);border-radius:var(--r2);padding:10px 18px;font-size:0.85rem;font-weight:700;color:var(--warn);display:none;animation:panelIn .3s ease}
+.opt.selected{border-color:var(--accent2);background:rgba(0,196,255,0.06)}.opt.selected .opt-l{background:var(--accent2);color:#050a14;border-color:var(--accent2)}
 @media(max-width:640px){.header-stats{display:none}.tabs{max-width:100%}.tab{font-size:0.7rem;padding:9px 4px}.tab .ti{font-size:1rem}.qc{padding:20px 16px}.topics-grid{grid-template-columns:1fr}.res-score{font-size:3.5rem}.stitle{font-size:1.3rem}.mock-timer{font-size:1.8rem}}
 </style>
 </head>
 <body>
 
-<div class="bg-glow">
-  <div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div>
-</div>
-<div class="bg-grid"></div>
-<canvas id="particles"></canvas>
-<canvas id="confetti"></canvas>
+<div class="bg-glow"><div class="orb"></div><div class="orb"></div><div class="orb"></div><div class="orb"></div></div>
+<div class="bg-grid"></div><canvas id="particles"></canvas><canvas id="confetti"></canvas>
 <div class="streak" id="streakBadge">🔥 <span id="streakCount">0</span> Streak!</div>
 
-<header class="header">
-  <div class="header-inner">
-    <div class="logo">
-      <div class="logo-icon">🎯</div>
-      <div class="logo-text">AU-CBT Master</div>
-    </div>
-    <div class="nav-parts">
-      <a href="index.html" class="nav-part active">Part 1</a>
-      <a href="mcqs-part2.html" class="nav-part">Part 2</a>
-    </div>
-    <div class="header-stats">
-      <div class="h-stat"><div class="dot dot-g"></div><span id="hC">0</span> Correct</div>
-      <div class="h-stat"><div class="dot dot-r"></div><span id="hW">0</span> Wrong</div>
-      <div class="h-stat"><div class="dot dot-y"></div><span id="hP">0%</span></div>
-    </div>
-  </div>
-</header>
+<header class="header"><div class="header-inner">
+<div class="logo"><div class="logo-icon">🎯</div><div class="logo-text">AU-CBT CS Group</div></div>
+<div class="nav-parts"><a href="index.html" class="nav-part active">Part 1 (Official 100 Q Mock)</a><a href="mcqs-part2.html" class="nav-part">Part 2 (Practice Set 2)</a></div>
+<div class="header-stats"><div class="h-stat"><div class="dot dot-g"></div><span id="hC">0</span> Correct</div><div class="h-stat"><div class="dot dot-r"></div><span id="hW">0</span> Wrong</div><div class="h-stat"><div class="dot dot-y"></div><span id="hP">0%</span></div></div>
+</div></header>
 
-<div class="tabs-wrap">
-  <div class="tabs" id="tabsBar">
-    <button class="tab active" data-tab="topics"><span class="ti">📚</span>Topics</button>
-    <button class="tab" data-tab="all"><span class="ti">📝</span>All MCQs</button>
-    <button class="tab" data-tab="weak"><span class="ti">⚡</span>Weak Areas</button>
-    <button class="tab" data-tab="mock"><span class="ti">🧪</span>Mock Test</button>
-    <button class="tab" data-tab="traps"><span class="ti">🪤</span>Traps</button>
-  </div>
-</div>
+<div class="tabs-wrap"><div class="tabs" id="tabsBar">
+<button class="tab active" data-tab="topics"><span class="ti">📚</span>Topics</button>
+<button class="tab" data-tab="all"><span class="ti">📝</span>All MCQs</button>
+<button class="tab" data-tab="weak"><span class="ti">⚡</span>Weak Areas</button>
+<button class="tab" data-tab="mock"><span class="ti">🧪</span>Official Mock Test</button>
+<button class="tab" data-tab="traps"><span class="ti">🪤</span>Traps</button>
+</div></div>
 
 <main class="container">
-  <div class="panel active" id="panel-topics">
-    <h2 class="stitle">Study by Topic</h2>
-    <p class="ssub">Master each topic. Your progress auto-saves.</p>
-    <div class="topics-grid" id="topicsGrid"></div>
-  </div>
-  <div class="panel" id="panel-topic-detail">
-    <div class="back-row"><button class="back-btn" onclick="showPanel('topics')">← Back to Topics</button></div>
-    <h2 class="stitle" id="tdTitle"></h2>
-    <p class="ssub" id="tdSub"></p>
-    <div id="tdQs"></div>
-  </div>
-  <div class="panel" id="panel-all">
-    <h2 class="stitle">All MCQs</h2>
-    <p class="ssub">130 exam-style questions · Filter by topic or status</p>
-    <div class="fbar">
-      <select id="fTopic" onchange="renderAll()"><option value="all">All Topics</option></select>
-      <select id="fStatus" onchange="renderAll()">
-        <option value="all">All</option><option value="unanswered">Unanswered</option>
-        <option value="correct">Correct</option><option value="wrong">Wrong</option>
-      </select>
-    </div>
-    <div id="allQs"></div>
-  </div>
-  <div class="panel" id="panel-weak">
-    <h2 class="stitle">Weak Areas</h2>
-    <p class="ssub">Topics below 70% — focus here for maximum gains</p>
-    <div id="weakList"></div>
-  </div>
-  <div class="panel" id="panel-mock">
-    <div id="mockSetup">
-      <div class="mock-h">
-        <h2>🎯 Mock Test</h2>
-        <p>Simulate a real Air University CBT Entry Test</p>
-      </div>
-      <div style="max-width:420px;margin:0 auto">
-        <div class="form-group">
-          <label class="form-label">Number of Questions</label>
-          <select class="form-select" id="mCount">
-            <option value="10">10 Questions — Quick Quiz</option>
-            <option value="25">25 Questions — Quarter Paper</option>
-            <option value="50" selected>50 Questions — Half Paper</option>
-            <option value="100">100 Questions — Full CBT</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Timer</label>
-          <select class="form-select" id="mTimer">
-            <option value="0">No Timer</option>
-            <option value="30">30 min</option>
-            <option value="60" selected>60 min</option>
-            <option value="120">120 min (Real Exam)</option>
-          </select>
-        </div>
-        <button class="btn btn-p" style="width:100%;justify-content:center;padding:14px;font-size:0.95rem" onclick="startMock()">Start Mock Test →</button>
-      </div>
-    </div>
-    <div id="mockActive" style="display:none">
-      <div class="mock-timer" id="mTimerDisp">60:00</div>
-      <div class="mock-prog">
-        Question <span id="mCur">1</span> of <span id="mTot">50</span>
-        <div style="flex:1"><div class="pbar"><div class="pbar-f" id="mProgBar" style="width:0%"></div></div></div>
-      </div>
-      <div id="mQArea"></div>
-      <div class="btns" style="justify-content:space-between">
-        <button class="btn btn-s" id="mPrev" onclick="mockNav(-1)" disabled>← Previous</button>
-        <button class="btn btn-p" id="mNext" onclick="mockNav(1)">Next →</button>
-      </div>
-    </div>
-    <div id="mockResults" style="display:none"></div>
-  </div>
-  <div class="panel" id="panel-traps">
-    <h2 class="stitle">🪤 Common Examiner Traps</h2>
-    <p class="ssub">Know these to avoid losing easy marks</p>
-    <div id="trapsList"></div>
-  </div>
+<div class="panel active" id="panel-topics"><h2 class="stitle">Study by Official Syllabus Topics</h2><p class="ssub">Aligned exactly with AU-CBT CS Group Pattern: 25% Quant, 25% Analytical, 20% English, 10% Physics, 10% CS, 10% Math.</p><div class="topics-grid" id="topicsGrid"></div></div>
+<div class="panel" id="panel-topic-detail"><div class="back-row"><button class="back-btn" onclick="showPanel('topics')">← Back to Topics</button></div><h2 class="stitle" id="tdTitle"></h2><p class="ssub" id="tdSub"></p><div id="tdQs"></div></div>
+<div class="panel" id="panel-all"><h2 class="stitle">All 100 Official-Style MCQs</h2><p class="ssub">Filter by topic or status</p><div class="fbar"><select id="fTopic" onchange="renderAll()"><option value="all">All Topics</option></select><select id="fStatus" onchange="renderAll()"><option value="all">All</option><option value="unanswered">Unanswered</option><option value="correct">Correct</option><option value="wrong">Wrong</option></select></div><div id="allQs"></div></div>
+<div class="panel" id="panel-weak"><h2 class="stitle">Weak Areas</h2><p class="ssub">Topics below 70% — focus here for maximum score boost</p><div id="weakList"></div></div>
+<div class="panel" id="panel-mock"><div id="mockSetup"><div class="mock-h"><h2>🎯 Official AU-CBT CS Group Mock Test</h2><p>100 Questions | 120 Minutes | Exact Official Weightage (25 Quant, 25 Analytical, 20 English, 10 Physics, 10 CS, 10 Math)</p></div><div style="max-width:420px;margin:0 auto"><div class="form-group"><label class="form-label">Number of Questions</label><select class="form-select" id="mCount"><option value="20">20 Questions — Mini Quiz</option><option value="50">50 Questions — Half Paper</option><option value="100" selected>100 Questions — Full Official CBT (Real Exam)</option></select></div><div class="form-group"><label class="form-label">Timer</label><select class="form-select" id="mTimer"><option value="0">No Timer</option><option value="30">30 min</option><option value="60">60 min</option><option value="120" selected>120 min (Real Exam Duration)</option></select></div><button class="btn btn-p" style="width:100%;justify-content:center;padding:14px;font-size:0.95rem" onclick="startMock()">Start Official CBT Simulation →</button></div></div>
+<div id="mockActive" style="display:none"><div class="mock-timer" id="mTimerDisp">120:00</div><div class="mock-prog">Question <span id="mCur">1</span> of <span id="mTot">100</span><div style="flex:1"><div class="pbar"><div class="pbar-f" id="mProgBar" style="width:0%"></div></div></div></div><div id="mQArea"></div><div class="btns" style="justify-content:space-between"><button class="btn btn-s" id="mPrev" onclick="mockNav(-1)" disabled>← Previous</button><button class="btn btn-p" id="mNext" onclick="mockNav(1)">Next →</button></div></div>
+<div id="mockResults" style="display:none"></div></div>
+<div class="panel" id="panel-traps"><h2 class="stitle">🪤 Common Examiner Traps</h2><p class="ssub">Understand these tricks to avoid losing easy marks</p><div id="trapsList"></div></div>
 </main>
 
 <script>
-const Q=[
-{id:1,t:"Differentiation",q:"What is d/dx(x⁵)?",o:["4x³","5x⁴","5x⁶","x⁴"],a:1,e:"Power rule: d/dx(xⁿ) = nxⁿ⁻¹. So d/dx(x⁵) = 5x⁴."},
-{id:2,t:"Differentiation",q:"Evaluate d/dx(sin(3x)).",o:["cos(3x)","−3cos(3x)","3cos(3x)","−cos(3x)"],a:2,e:"Chain rule: d/dx(sin(u)) = cos(u)·u'. Here u = 3x, u' = 3."},
-{id:3,t:"Differentiation",q:"What is d/dx(e^(2x+1))?",o:["e^(2x+1)","2e^(2x+1)","(2x+1)e^(2x)","2e^(2x)"],a:1,e:"Chain rule: d/dx(eᵘ) = eᵘ·u'. u = 2x+1, u' = 2."},
-{id:4,t:"Differentiation",q:"Find d/dx(x²·sin x) using the product rule.",o:["2x·cos x","x²cos x − 2xsin x","x²cos x + 2xsin x","2xsin x"],a:2,e:"Product rule: (uv)' = u'v + uv' = (2x)(sin x) + (x²)(cos x)."},
-{id:5,t:"Differentiation",q:"d/dx(ln(x²+1)) = ?",o:["1/(x²+1)","2x/(x²+1)","2x·ln(x²+1)","x/(x²+1)"],a:1,e:"Chain rule: d/dx(ln u) = u'/u. u = x²+1, u' = 2x."},
-{id:6,t:"Differentiation",q:"What is the slope of the tangent to y = x³ − 6x at x = 2?",o:["0","2","6","8"],a:2,e:"y' = 3x² − 6. At x = 2: y' = 12 − 6 = 6."},
-{id:7,t:"Differentiation",q:"For f(x) = x³ − 3x² + 4, at what x values is f'(x) = 0?",o:["x = 0, −2","x = 0, 2","x = 1, 2","x = −1, 3"],a:1,e:"f'(x) = 3x² − 6x = 3x(x − 2) = 0 gives x = 0 or x = 2."},
-{id:8,t:"Differentiation",q:"If y = tan(x), what is dy/dx at x = π/4?",o:["1","√2","2","1/2"],a:2,e:"dy/dx = sec²(x). sec(π/4) = √2, so sec²(π/4) = 2."},
-{id:9,t:"Differentiation",q:"d/dx(cos²x) = ?",o:["2cos x","−2sin x·cos x","2sin x·cos x","−sin²x"],a:1,e:"Chain rule: 2(cos x)(−sin x) = −2sin x cos x = −sin 2x."},
-{id:10,t:"Differentiation",q:"d/dx(√x) = ?",o:["1/√x","1/(2√x)","2√x","√x/2"],a:1,e:"x^(1/2) → (1/2)x^(−1/2) = 1/(2√x)."},
-{id:11,t:"Differentiation",q:"d/dx(x·eˣ) using product rule = ?",o:["eˣ","xeˣ","eˣ(x+1)","eˣ(x−1)"],a:2,e:"Product rule: (1)(eˣ) + (x)(eˣ) = eˣ(1+x) = eˣ(x+1)."},
-{id:12,t:"Differentiation",q:"If f(x) = x⁴ − 4x³, find f'(3).",o:["−9","0","27","108"],a:1,e:"f'(x) = 4x³ − 12x². f'(3) = 4(27) − 12(9) = 108 − 108 = 0."},
-{id:13,t:"Differentiation",q:"d/dx(sin⁻¹x) = ?",o:["1/√(1−x²)","−1/√(1−x²)","1/(1+x²)","1/√(1+x²)"],a:0,e:"Standard derivative of inverse sine function."},
-{id:14,t:"Differentiation",q:"If f(x) = x³, then f''(x) = ?",o:["3x²","6x","6","3x"],a:1,e:"f'(x) = 3x². f''(x) = 6x."},
-{id:15,t:"Differentiation",q:"d/dx(e^(−x)) = ?",o:["e^(−x)","−e^(−x)","−xe^(−x)","e^(x)"],a:1,e:"Chain rule: d/dx(eᵘ) = eᵘ·u'. u = −x, u' = −1. So −e^(−x)."},
-{id:16,t:"Integration",q:"∫x³ dx = ?",o:["3x² + C","x⁴/4 + C","x⁴ + C","x²/2 + C"],a:1,e:"∫xⁿ dx = xⁿ⁺¹/(n+1) + C. So x⁴/4 + C."},
-{id:17,t:"Integration",q:"∫sin(x) dx = ?",o:["cos(x) + C","−cos(x) + C","sin(x) + C","−sin(x) + C"],a:1,e:"Derivative of −cos x is sin x, so ∫sin x dx = −cos x + C."},
-{id:18,t:"Integration",q:"∫(3x² + 2x) dx = ?",o:["6x + 2 + C","x³ + x² + C","3x³ + 2x² + C","x³ + 2x + C"],a:1,e:"∫3x² dx = x³, ∫2x dx = x². Result: x³ + x² + C."},
-{id:19,t:"Integration",q:"Evaluate ∫₀² x² dx.",o:["4","8/3","2","4/3"],a:1,e:"[x³/3]₀² = 8/3 − 0 = 8/3."},
-{id:20,t:"Integration",q:"Evaluate ∫₀^π sin(x) dx.",o:["0","1","2","−1"],a:2,e:"[−cos x]₀^π = −cos π − (−cos 0) = 1 + 1 = 2."},
-{id:21,t:"Integration",q:"∫(1/x) dx = ?",o:["x² + C","−1/x² + C","ln|x| + C","1/x² + C"],a:2,e:"Standard integral: ∫dx/x = ln|x| + C."},
-{id:22,t:"Integration",q:"∫e^(2x) dx = ?",o:["2e^(2x) + C","e^(2x)/2 + C","e^(2x) + C","e^x + C"],a:1,e:"∫eᵃˣ dx = eᵃˣ/a + C. Here a = 2, so e^(2x)/2 + C."},
-{id:23,t:"Integration",q:"Evaluate ∫₋₁¹ x³ dx.",o:["0","1/2","2","1/4"],a:0,e:"x³ is an odd function. Integral of odd function over symmetric interval [−a, a] = 0."},
-{id:24,t:"Integration",q:"∫sec²(x) dx = ?",o:["sec(x)tan(x) + C","tan(x) + C","−tan(x) + C","sec(x) + C"],a:1,e:"Derivative of tan(x) is sec²(x), so ∫sec²x dx = tan x + C."},
-{id:25,t:"Integration",q:"∫eˣ(sin x + cos x) dx = ?",o:["eˣcos x + C","eˣsin x + C","eˣ(sin x + cos x) + C","eˣ(sin x − cos x) + C"],a:1,e:"Golden rule: ∫eˣ[f(x)+f'(x)]dx = eˣf(x)+C. f(x)=sinx, f'(x)=cosx."},
-{id:26,t:"Integration",q:"∫cos x dx = ?",o:["−sin x + C","sin x + C","cos x + C","−cos x + C"],a:1,e:"Derivative of sin x is cos x, so ∫cos x dx = sin x + C."},
-{id:27,t:"Integration",q:"∫(x+1)² dx = ?",o:["2(x+1) + C","x³/3 + x² + x + C","(x+1)³/3 + C","x² + 2x + C"],a:1,e:"Expand: (x+1)² = x²+2x+1. Integrate term by term: x³/3 + x² + x + C. Or use (x+1)³/3 + C (both correct)."},
-{id:28,t:"Integration",q:"Evaluate ∫₀¹ 2x dx.",o:["2","1","0","1/2"],a:1,e:"[x²]₀¹ = 1 − 0 = 1."},
-{id:29,t:"Integration",q:"Evaluate ∫₁³ (2x−1) dx.",o:["4","6","8","2"],a:1,e:"[x²−x]₁³ = (9−3)−(1−1) = 6−0 = 6."},
-{id:30,t:"Integration",q:"∫x·eˣ dx = ? (integration by parts)",o:["eˣ(x+1) + C","eˣ(x−1) + C","xeˣ + C","eˣ/x + C"],a:1,e:"By parts: u=x, dv=eˣdx. Result = xeˣ − eˣ + C = eˣ(x−1) + C."},
-{id:31,t:"Functions & Limits",q:"lim(x→0) sin(x)/x = ?",o:["0","1","∞","undefined"],a:1,e:"This is the most fundamental limit in calculus. It equals exactly 1."},
-{id:32,t:"Functions & Limits",q:"lim(n→∞) (1 + 1/n)ⁿ = ?",o:["1","0","e","∞"],a:2,e:"Definition of Euler's number e ≈ 2.718."},
-{id:33,t:"Functions & Limits",q:"If f(x) = x² and g(x) = x+1, what is f(g(x))?",o:["x²+1","x²+2x+1","x²+x","2x+1"],a:1,e:"f(g(x)) = f(x+1) = (x+1)² = x²+2x+1."},
-{id:34,t:"Functions & Limits",q:"Domain of f(x) = √(x−3)?",o:["x > 3","x ≥ 3","x < 3","All real numbers"],a:1,e:"Expression under √ must be ≥ 0. x−3 ≥ 0 → x ≥ 3."},
-{id:35,t:"Functions & Limits",q:"Range of f(x) = x²?",o:["All real numbers","x ≥ 0","y ≥ 0","y > 0"],a:2,e:"x² is always ≥ 0. Minimum value is 0 at x = 0."},
-{id:36,t:"Functions & Limits",q:"Which is an even function?",o:["sin(x)","x³","cos(x)","tan(x)"],a:2,e:"cos(−x) = cos(x) → even. sin, x³, tan are all odd functions."},
-{id:37,t:"Functions & Limits",q:"lim(x→2) (x²−4)/(x−2) = ?",o:["0","2","4","undefined"],a:2,e:"Factor: (x+2)(x−2)/(x−2) = x+2. At x=2: 2+2 = 4."},
-{id:38,t:"Functions & Limits",q:"Using L'Hôpital's rule: lim(x→0) (eˣ−1)/x = ?",o:["0","1","e","∞"],a:1,e:"Form 0/0. L'Hôpital: lim eˣ/1 = e⁰ = 1."},
-{id:39,t:"Functions & Limits",q:"Domain of f(x) = 1/x?",o:["x > 0","x < 0","All reals except 0","All reals"],a:2,e:"Division by zero undefined, so x ≠ 0."},
-{id:40,t:"Functions & Limits",q:"lim(x→∞) 1/x = ?",o:["1","0","∞","undefined"],a:1,e:"As x grows infinitely large, 1/x approaches 0."},
-{id:41,t:"Functions & Limits",q:"f(x) = |x| is which type of function?",o:["Odd","Even","Neither","Both"],a:1,e:"f(−x) = |−x| = |x| = f(x), so it's even."},
-{id:42,t:"Functions & Limits",q:"lim(x→0) (1−cos x)/x² = ?",o:["0","1/2","1","∞"],a:1,e:"Standard limit or apply L'Hôpital twice: sin x/(2x) → cos x/2 = 1/2."},
-{id:43,t:"Trigonometry",q:"sin(2θ) = ?",o:["2sin(θ)cos(θ)","cos²θ − sin²θ","1 − 2sin²θ","2cos²θ − 1"],a:0,e:"Double angle identity for sine: sin(2θ) = 2sinθ cosθ."},
-{id:44,t:"Trigonometry",q:"Which is NOT equal to cos(2θ)?",o:["cos²θ−sin²θ","2cos²θ−1","1−2sin²θ","2sinθ cosθ"],a:3,e:"2sinθ cosθ = sin(2θ), not cos(2θ). All others are cos(2θ) identities."},
-{id:45,t:"Trigonometry",q:"sin(30°) = ?",o:["0","1/2","√3/2","1"],a:1,e:"Standard angle: sin(30°) = 1/2."},
-{id:46,t:"Trigonometry",q:"cos(60°) = ?",o:["0","1/2","√3/2","1"],a:1,e:"cos(60°) = sin(30°) = 1/2."},
-{id:47,t:"Trigonometry",q:"Period of sin(2x) is:",o:["π/2","π","2π","4π"],a:1,e:"Period of sin(kx) = 2π/k. For k=2: 2π/2 = π."},
-{id:48,t:"Trigonometry",q:"sin²θ + cos²θ = ?",o:["0","1","−1","2"],a:1,e:"Pythagorean identity — the most fundamental trig identity."},
-{id:49,t:"Trigonometry",q:"tan(45°) = ?",o:["0","1","√3","undefined"],a:1,e:"tan(45°) = sin(45°)/cos(45°) = 1."},
-{id:50,t:"Trigonometry",q:"sin⁻¹(1) = ?",o:["0","π/6","π/4","π/2"],a:3,e:"sin(π/2) = 1, therefore sin⁻¹(1) = π/2."},
-{id:51,t:"Trigonometry",q:"cos(0°) = ?",o:["0","1/2","√3/2","1"],a:3,e:"cos(0°) = 1. Standard angle value."},
-{id:52,t:"Trigonometry",q:"sin(90°) = ?",o:["0","1/2","√3/2","1"],a:3,e:"sin(90°) = 1. Standard angle value."},
-{id:53,t:"Trigonometry",q:"Period of tan(x) is:",o:["π/2","π","2π","4π"],a:1,e:"Tangent repeats every π radians (180°)."},
-{id:54,t:"Trigonometry",q:"1 + tan²θ = ?",o:["cos²θ","sin²θ","sec²θ","csc²θ"],a:2,e:"Pythagorean identity: 1 + tan²θ = sec²θ."},
-{id:55,t:"Matrices & Determinants",q:"If |A| = 5, what is |2A| for a 3×3 matrix?",o:["10","20","40","80"],a:2,e:"|kA| = kⁿ|A| for n×n. 2³ × 5 = 8 × 5 = 40."},
-{id:56,t:"Matrices & Determinants",q:"|AB| = ?",o:["|A|+|B|","|A|−|B|","|A|·|B|","|A|/|B|"],a:2,e:"Determinant of product = product of determinants."},
-{id:57,t:"Matrices & Determinants",q:"A matrix is singular if:",o:["|A| = 1","|A| = −1","|A| = 0","|A| = ∞"],a:2,e:"Singular = non-invertible = determinant is zero."},
-{id:58,t:"Matrices & Determinants",q:"(AB)⁻¹ = ?",o:["A⁻¹B⁻¹","B⁻¹A⁻¹","(A⁻¹)(B⁻¹)","AB"],a:1,e:"Inverse of product reverses order: (AB)⁻¹ = B⁻¹A⁻¹."},
-{id:59,t:"Matrices & Determinants",q:"Determinant of [2,3; 1,4] = ?",o:["11","5","8","−5"],a:1,e:"|A| = ad−bc = (2)(4)−(3)(1) = 8−3 = 5."},
-{id:60,t:"Matrices & Determinants",q:"If |A| = 0, then A is called:",o:["Identity matrix","Symmetric matrix","Singular matrix","Orthogonal matrix"],a:2,e:"Zero determinant → singular (non-invertible) matrix."},
-{id:61,t:"Matrices & Determinants",q:"(Aᵀ)ᵀ = ?",o:["A⁻¹","−A","A","0"],a:2,e:"Double transpose returns the original matrix."},
-{id:62,t:"Matrices & Determinants",q:"|A⁻¹| = ?",o:["|A|","−|A|","1/|A|","|A|²"],a:2,e:"|A⁻¹| = 1/|A|. The determinant of inverse is reciprocal."},
-{id:63,t:"Matrices & Determinants",q:"For 2×2 matrix [a,b;c,d], det = ?",o:["ab−cd","ac−bd","ad−bc","ad+bc"],a:2,e:"Standard formula: det = ad − bc."},
-{id:64,t:"Matrices & Determinants",q:"If A is orthogonal, then AᵀA = ?",o:["A","0","I (identity)","A²"],a:2,e:"Orthogonal matrix: AᵀA = AAᵀ = I."},
-{id:65,t:"Quadratics & Complex Numbers",q:"For ax²+bx+c=0, sum of roots α+β = ?",o:["c/a","−b/a","−c/a","b/a"],a:1,e:"Vieta's formula: sum of roots = −b/a."},
-{id:66,t:"Quadratics & Complex Numbers",q:"Product of roots αβ = ?",o:["−b/a","b/a","c/a","−c/a"],a:2,e:"Vieta's formula: product of roots = c/a."},
-{id:67,t:"Quadratics & Complex Numbers",q:"If D = b²−4ac < 0, roots are:",o:["Real and equal","Real and distinct","Complex/Imaginary","Rational"],a:2,e:"Negative discriminant → complex conjugate roots."},
-{id:68,t:"Quadratics & Complex Numbers",q:"ω³ = ? (ω = cube root of unity)",o:["0","−1","1","ω"],a:2,e:"By definition, cube roots of unity satisfy x³ = 1."},
-{id:69,t:"Quadratics & Complex Numbers",q:"1 + ω + ω² = ?",o:["1","−1","0","3"],a:2,e:"Sum of all cube roots of unity = 0."},
-{id:70,t:"Quadratics & Complex Numbers",q:"ω¹⁰⁰ + ω²⁰⁰ = ?",o:["0","−1","1","2"],a:1,e:"100 mod 3=1→ω¹⁰⁰=ω. 200 mod 3=2→ω²⁰⁰=ω². ω+ω²=−1."},
-{id:71,t:"Quadratics & Complex Numbers",q:"Modulus of z = 3+4i is:",o:["7","25","5","12"],a:2,e:"|z| = √(3²+4²) = √(9+16) = √25 = 5."},
-{id:72,t:"Quadratics & Complex Numbers",q:"If D = 0, roots are:",o:["Complex","Real and distinct","Real and equal","No roots"],a:2,e:"D = 0 means discriminant is zero → two equal real roots."},
-{id:73,t:"Quadratics & Complex Numbers",q:"If D > 0, roots are:",o:["Complex","Real and distinct","Real and equal","Imaginary"],a:1,e:"Positive discriminant → two distinct real roots."},
-{id:74,t:"Quadratics & Complex Numbers",q:"Multiplicative inverse of (1+i) is:",o:["1−i","(1−i)/2","(1+i)/2","−1+i"],a:1,e:"1/(1+i) = (1−i)/((1+i)(1−i)) = (1−i)/2."},
-{id:75,t:"Sequences & Series",q:"The nth term of an AP is:",o:["a+(n−1)d","a+nd","a·rⁿ⁻¹","n/2(2a+(n−1)d)"],a:0,e:"Standard AP formula. Option D is the sum formula."},
-{id:76,t:"Sequences & Series",q:"Sum of infinite GP with |r|<1 is:",o:["a/(1−r)","a(1−rⁿ)/(1−r)","(1−r)/a","∞"],a:0,e:"Infinite GP converges when |r|<1. S∞ = a/(1−r)."},
-{id:77,t:"Sequences & Series",q:"Sum of first 10 terms of AP: 2, 5, 8, ...",o:["155","165","145","175"],a:0,e:"a=2, d=3, n=10. S₁₀=10/2[2(2)+9(3)]=5[4+27]=5(31)=155."},
-{id:78,t:"Sequences & Series",q:"5th term of GP: 3, 6, 12, ...",o:["24","48","96","36"],a:1,e:"a=3, r=2. a₅ = 3 × 2⁴ = 3 × 16 = 48."},
-{id:79,t:"Sequences & Series",q:"If AM=5, GM=4, then HM = ?",o:["20/5","16/5","25/4","4/5"],a:1,e:"GM² = AM × HM. 16 = 5 × HM. HM = 16/5."},
-{id:80,t:"Sequences & Series",q:"Geometric mean of 4 and 9 is:",o:["6","6.5","36","13"],a:0,e:"GM = √(4×9) = √36 = 6."},
-{id:81,t:"Sequences & Series",q:"Sum: 1 + 1/2 + 1/4 + 1/8 + ... = ?",o:["1","2","3","∞"],a:1,e:"S∞ = a/(1−r) = 1/(1−1/2) = 1/(1/2) = 2."},
-{id:82,t:"Sequences & Series",q:"10th term of AP: 1, 4, 7, ...",o:["25","28","31","34"],a:1,e:"a=1, d=3. a₁₀ = 1 + 9(3) = 1 + 27 = 28."},
-{id:83,t:"Conic Sections",q:"Standard circle equation with center (h,k) radius r:",o:["(x−h)²−(y−k)²=r²","(x−h)²+(y−k)²=r","(x−h)²+(y−k)²=r²","x²+y²=1"],a:2,e:"Standard form of circle equation."},
-{id:84,t:"Conic Sections",q:"Eccentricity of a parabola is:",o:["e = 0","e < 1","e = 1","e > 1"],a:2,e:"Circle: e=0, Ellipse: 0<e<1, Parabola: e=1, Hyperbola: e>1."},
-{id:85,t:"Conic Sections",q:"Focus of parabola y² = 12x is at:",o:["(3, 0)","(12, 0)","(0, 3)","(6, 0)"],a:0,e:"y² = 4ax → 4a = 12 → a = 3. Focus at (a,0) = (3,0)."},
-{id:86,t:"Conic Sections",q:"Center of circle x²+y²−4x+6y−12=0 is:",o:["(4,−6)","(−2,3)","(2,−3)","(−4,6)"],a:2,e:"Complete square: (x−2)²+(y+3)²=25. Center=(2,−3)."},
-{id:87,t:"Conic Sections",q:"Eccentricity of a circle is:",o:["0","1","< 1","> 1"],a:0,e:"Circle has e = 0. All points equidistant from center."},
-{id:88,t:"Conic Sections",q:"For an ellipse, the eccentricity satisfies:",o:["e = 0","0 < e < 1","e = 1","e > 1"],a:1,e:"Ellipse: 0 < e < 1 (between circle and parabola)."},
-{id:89,t:"Conic Sections",q:"For a hyperbola, eccentricity satisfies:",o:["e = 0","0 < e < 1","e = 1","e > 1"],a:3,e:"Hyperbola always has eccentricity greater than 1."},
-{id:90,t:"Conic Sections",q:"x²/9 + y²/4 = 1 represents:",o:["Circle","Parabola","Ellipse with a=3, b=2","Hyperbola"],a:2,e:"Form x²/a²+y²/b²=1 is an ellipse. a²=9→a=3, b²=4→b=2."},
-{id:91,t:"Vectors",q:"Dot product of two perpendicular vectors is:",o:["1","−1","0","Product of magnitudes"],a:2,e:"a·b = |a||b|cos(90°) = 0."},
-{id:92,t:"Vectors",q:"î × î = ?",o:["0","1","ĵ","k̂"],a:0,e:"Cross product of parallel vectors is zero vector."},
-{id:93,t:"Vectors",q:"Work done = F·d = ?",o:["Fd","Fd sinθ","Fd cosθ","Fd tanθ"],a:2,e:"Work = force × displacement × cos(angle between them)."},
-{id:94,t:"Vectors",q:"If a·b = 0, the vectors are:",o:["Parallel","Equal","Perpendicular","Zero vectors"],a:2,e:"Zero dot product means 90° angle → perpendicular."},
-{id:95,t:"Vectors",q:"If a×b = 0, the vectors are:",o:["Perpendicular","Parallel","Equal","Unit vectors"],a:1,e:"Zero cross product means 0° or 180° → parallel."},
-{id:96,t:"Vectors",q:"Magnitude of vector 3î + 4ĵ is:",o:["7","25","5","12"],a:2,e:"|v| = √(3²+4²) = √(9+16) = √25 = 5."},
-{id:97,t:"Vectors",q:"Projection of a on b = ?",o:["a·b","(a·b)/|b|","(a×b)/|b|","a·b/|a|"],a:1,e:"Scalar projection = (a·b)/|b|."},
-{id:98,t:"Vectors",q:"î · ĵ = ?",o:["1","0","î","k̂"],a:1,e:"Perpendicular unit vectors have zero dot product."},
-{id:99,t:"Permutations & Probability",q:"Circular arrangement of 4 people:",o:["24","12","6","4"],a:2,e:"Circular permutations = (n−1)! = 3! = 6."},
-{id:100,t:"Permutations & Probability",q:"Probability of rolling sum 7 with two dice:",o:["1/6","1/12","1/36","7/36"],a:0,e:"6 ways to get 7 out of 36 combinations. 6/36 = 1/6."},
-{id:101,t:"Permutations & Probability",q:"⁵C₂ = ?",o:["20","10","5","25"],a:1,e:"5!/(2!·3!) = 120/(2·6) = 10."},
-{id:102,t:"Permutations & Probability",q:"ⁿCᵣ = ⁿC(n−r) is called:",o:["Factorial property","Complementary property","Symmetry property","Pascal's rule"],a:2,e:"nCr = nC(n−r). This is the symmetry property of combinations."},
-{id:103,t:"Permutations & Probability",q:"0! = ?",o:["0","1","undefined","∞"],a:1,e:"By convention, 0! = 1. This is a fundamental definition."},
-{id:104,t:"Permutations & Probability",q:"P(head in fair coin toss) = ?",o:["0","1/2","1","1/4"],a:1,e:"Fair coin: P(head) = P(tail) = 1/2."},
-{id:105,t:"Quantitative Reasoning",q:"20% of what number is 50?",o:["200","250","300","150"],a:1,e:"0.20 × x = 50. x = 50/0.20 = 250."},
-{id:106,t:"Quantitative Reasoning",q:"Ratio of boys to girls is 3:2. If 30 boys, how many girls?",o:["15","20","25","10"],a:1,e:"3/2 = 30/x → x = 30×2/3 = 20."},
-{id:107,t:"Quantitative Reasoning",q:"A car travels 120 km in 2 hours. Average speed?",o:["40 km/h","50 km/h","60 km/h","80 km/h"],a:2,e:"Speed = Distance/Time = 120/2 = 60 km/h."},
-{id:108,t:"Quantitative Reasoning",q:"Simple interest on Rs.5000 at 10% for 3 years?",o:["Rs.1000","Rs.1500","Rs.500","Rs.2000"],a:1,e:"SI = PRT/100 = 5000×10×3/100 = 1500."},
-{id:109,t:"Quantitative Reasoning",q:"Worker A: 6 days, Worker B: 12 days. Together?",o:["3 days","4 days","5 days","9 days"],a:1,e:"1/6+1/12 = 2/12+1/12 = 3/12 = 1/4. So 4 days."},
-{id:110,t:"Quantitative Reasoning",q:"15% of 200 = ?",o:["15","20","30","45"],a:2,e:"(15/100)×200 = 30."},
-{id:111,t:"Quantitative Reasoning",q:"If 3x + 7 = 22, then x = ?",o:["3","5","7","15"],a:1,e:"3x = 22−7 = 15. x = 15/3 = 5."},
-{id:112,t:"Quantitative Reasoning",q:"Average of 10, 20, 30, 40, 50 = ?",o:["25","30","35","40"],a:1,e:"Sum = 150. Average = 150/5 = 30."},
-{id:113,t:"Quantitative Reasoning",q:"A train 100m long crosses pole in 5s. Speed?",o:["72 km/h","36 km/h","20 km/h","100 km/h"],a:0,e:"Speed = 100/5 = 20 m/s = 20×3.6 = 72 km/h."},
-{id:114,t:"Quantitative Reasoning",q:"HCF of 12 and 18 = ?",o:["2","3","6","36"],a:2,e:"Factors of 12: 1,2,3,4,6,12. Factors of 18: 1,2,3,6,9,18. HCF = 6."},
-{id:115,t:"Quantitative Reasoning",q:"LCM of 4 and 6 = ?",o:["2","12","24","48"],a:1,e:"LCM(4,6) = 12. Smallest number divisible by both."},
-{id:116,t:"Quantitative Reasoning",q:"If x:y=2:3 and y:z=4:5, then x:y:z = ?",o:["2:3:5","8:12:15","4:6:5","2:4:5"],a:1,e:"Make y same: x:y = 8:12, y:z = 12:15. So x:y:z = 8:12:15."},
-{id:117,t:"Quantitative Reasoning",q:"Discount of 20% on Rs.500 item. Selling price?",o:["Rs.100","Rs.400","Rs.450","Rs.380"],a:1,e:"Discount = 20% of 500 = 100. SP = 500−100 = 400."},
-{id:118,t:"Analytical Reasoning",q:"Complete: 2, 6, 12, 20, 30, ?",o:["40","42","44","46"],a:1,e:"Differences: 4,6,8,10,12. Next: 30+12 = 42."},
-{id:119,t:"Analytical Reasoning",q:"Complete: 1, 4, 9, 16, 25, ?",o:["36","49","30","35"],a:0,e:"Perfect squares: 1²,2²,3²,4²,5²,6² = 36."},
-{id:120,t:"Analytical Reasoning",q:"Complete: 1, 1, 2, 3, 5, 8, ?",o:["11","12","13","14"],a:2,e:"Fibonacci: each = sum of previous two. 5+8 = 13."},
-{id:121,t:"Analytical Reasoning",q:"Complete: 2, 3, 5, 7, 11, 13, ?",o:["15","17","19","16"],a:1,e:"Prime numbers. Next prime after 13 is 17."},
-{id:122,t:"Analytical Reasoning",q:"Complete: 100, 97, 91, 82, 70, ?",o:["55","58","60","52"],a:0,e:"Differences: −3,−6,−9,−12,−15. Next: 70−15 = 55."},
-{id:123,t:"Analytical Reasoning",q:"All cats are mammals. All mammals are animals. Conclusion?",o:["All animals are cats","All cats are animals","Some cats aren't animals","No animals are cats"],a:1,e:"Transitive: cats ⊂ mammals ⊂ animals → all cats are animals."},
-{id:124,t:"Analytical Reasoning",q:"Some dogs are pets. All pets are friendly. Conclusion?",o:["All dogs are friendly","Some dogs are friendly","No dogs are friendly","All friendly are pets"],a:1,e:"Only 'some' dogs are pets → only 'some' dogs are friendly."},
-{id:125,t:"Analytical Reasoning",q:"'He is the son of the only son of my grandfather.' Who is he?",o:["Uncle","Cousin","Father","Brother or himself"],a:3,e:"Only son of grandfather = father. Son of father = self or brother."},
-{id:126,t:"Analytical Reasoning",q:"A is B's sister, C is B's mother, D is C's father. A is D's:",o:["Grandmother","Grandfather","Daughter","Granddaughter"],a:3,e:"D→C(daughter)→B(child)→A(sister). A is D's granddaughter."},
-{id:127,t:"Analytical Reasoning",q:"If A > B > C, who is shortest?",o:["A","B","C","Cannot determine"],a:2,e:"C is the smallest in the ordering A > B > C."},
-{id:128,t:"Analytical Reasoning",q:"BIRD:WINGS :: FISH:?",o:["Gills","Fins","Scales","Water"],a:1,e:"Birds move with wings; fish move with fins."},
-{id:129,t:"Analytical Reasoning",q:"DOCTOR:HOSPITAL :: TEACHER:?",o:["Clinic","School","Office","Lab"],a:1,e:"Doctor works at hospital; teacher works at school."},
-{id:130,t:"Analytical Reasoning",q:"Complete: 5, 10, 20, 40, ?",o:["60","80","100","50"],a:1,e:"Each term × 2. 40 × 2 = 80."}
+const Q = [
+  // ================= ENGLISH (20% -> 20 MCQs: Sentence Completion, Analogy, Antonym, Synonym, Comprehension) =================
+  {id:1,t:"English (20%)",q:"[Sentence Completion] Despite the initial setbacks, the research team remained _______ and successfully completed the project.",o:["indifferent","persevering","lethargic","hesitant"],a:1,e:"'Despite' indicates contrast. 'Persevering' (continuing despite difficulties) fits the context."},
+  {id:2,t:"English (20%)",q:"[Sentence Completion] She is exceptionally good _____ solving complex algorithmic puzzles.",o:["in","at","with","for"],a:1,e:"The correct preposition after 'good' when referring to a skill is 'at'."},
+  {id:3,t:"English (20%)",q:"[Sentence Completion] The applicant has been working in the software industry _____ 2018.",o:["for","from","since","until"],a:2,e:"'Since' is used for a specific starting point in time."},
+  {id:4,t:"English (20%)",q:"[Sentence Completion] Neither the supervisor nor the engineers _____ able to locate the system fault yesterday.",o:["were","was","are","is"],a:1,e:"In 'neither...nor', the verb agrees with the closer subject ('engineers' vs 'supervisor'? 'engineers' is plural, but if written 'engineers nor supervisor' -> singular. Here 'supervisor nor the engineers' -> 'were'). Wait: 'neither supervisor nor engineers WERE' - correct."},
+  {id:5,t:"English (20%)",q:"[Analogy] BIRD : WINGS :: FISH : ?",o:["Gills","Fins","Scales","Tail"],a:1,e:"Wings enable birds to move; fins enable fish to move."},
+  {id:6,t:"English (20%)",q:"[Analogy] DOCTOR : HOSPITAL :: TEACHER : ?",o:["Office","School","Library","Laboratory"],a:1,e:"A doctor works in a hospital; a teacher works in a school."},
+  {id:7,t:"English (20%)",q:"[Analogy] THERMOMETER : TEMPERATURE :: BAROMETER : ?",o:["Humidity","Pressure","Wind","Rainfall"],a:1,e:"A thermometer measures temperature; a barometer measures atmospheric pressure."},
+  {id:8,t:"English (20%)",q:"[Analogy] WARM : HOT :: COOL : ?",o:["Cold","Freezing","Chilly","Lukewarm"],a:0,e:"Warm intensifies to hot; cool intensifies to cold."},
+  {id:9,t:"English (20%)",q:"[Synonym] What is the synonym of ABUNDANT?",o:["Scarce","Plentiful","Minimal","Rare"],a:1,e:"Abundant means existing in large quantities (plentiful)."},
+  {id:10,t:"English (20%)",q:"[Synonym] What is the synonym of BENEVOLENT?",o:["Kind","Malevolent","Hostile","Selfish"],a:0,e:"Benevolent means well-meaning and kindly."},
+  {id:11,t:"English (20%)",q:"[Synonym] What is the synonym of CANDID?",o:["Secretive","Frank / Honest","Dishonest","Reserved"],a:1,e:"Candid means truthful and straightforward."},
+  {id:12,t:"English (20%)",q:"[Synonym] What is the synonym of PRAGMATIC?",o:["Practical","Idealistic","Theoretical","Unrealistic"],a:0,e:"Pragmatic means dealing with things sensibly and realistically."},
+  {id:13,t:"English (20%)",q:"[Antonym] What is the antonym of OBSCURE?",o:["Clear","Hidden","Vague","Dark"],a:0,e:"Obscure means unclear/uncertain. Opposite is clear."},
+  {id:14,t:"English (20%)",q:"[Antonym] What is the antonym of VERBOSE?",o:["Concise","Wordy","Talkative","Lengthy"],a:0,e:"Verbose means using too many words. Opposite is concise."},
+  {id:15,t:"English (20%)",q:"[Antonym] What is the antonym of GENEROUS?",o:["Miserly / Stingy","Charitable","Kind","Bountiful"],a:0,e:"Generous means giving freely. Opposite is stingy/miserly."},
+  {id:16,t:"English (20%)",q:"[Antonym] What is the antonym of ARTIFICIAL?",o:["Synthetic","Man-made","Natural","Plastic"],a:2,e:"Artificial means made by humans. Opposite is natural."},
+  {id:17,t:"English (20%)",q:"[Comprehension] Passage: 'Artificial Intelligence algorithms learn patterns from large datasets. Supervised learning uses labeled data to train models, while unsupervised learning discovers hidden patterns in unlabeled data.' Question: What distinguishes supervised from unsupervised learning?",o:["Supervised learning uses unlabeled data","Supervised learning uses labeled data","Unsupervised learning requires human supervisors","Both use identical datasets"],a:1,e:"Passage explicitly states supervised learning uses labeled data."},
+  {id:18,t:"English (20%)",q:"[Comprehension] Passage: 'Quantum computing leverages superposition and entanglement to perform complex calculations exponentially faster than classical computers for specific problems.' Question: According to the text, quantum computers excel due to:",o:["Binary switching","Superposition and entanglement","Silicon transistors","Lower power usage"],a:1,e:"The text highlights superposition and entanglement as the key drivers."},
+  {id:19,t:"English (20%)",q:"[Comprehension] Passage: 'Cybersecurity relies on encryption to secure data in transit and at rest. As symmetric key encryption uses a single key, asymmetric encryption utilizes a public-private key pair.' Question: Asymmetric encryption is characterized by:",o:["A single shared key","A public-private key pair","No key requirement","Plaintext transmission"],a:1,e:"Passage notes asymmetric encryption uses a public-private key pair."},
+  {id:20,t:"English (20%)",q:"[Sentence Completion] If the server _____ updated on time, the breach would have been prevented.",o:["had been","was","is","has been"],a:0,e:"Third conditional structure: 'If + had been... would have been...'."},
+
+  // ================= ANALYTICAL (25% -> 25 MCQs: Scenario Based, Statements Based) =================
+  {id:21,t:"Analytical (25%)",q:"[Statement Based] All programmers are problem solvers. All problem solvers are logical thinkers. Which conclusion MUST be true?",o:["All programmers are logical thinkers","All logical thinkers are programmers","Some programmers are not logical","No problem solver is a programmer"],a:0,e:"Programmers ⊂ Problem Solvers ⊂ Logical Thinkers."},
+  {id:22,t:"Analytical (25%)",q:"[Statement Based] Some dogs are pets. All pets are vaccinated. Which statement logically follows?",o:["All dogs are vaccinated","Some dogs are vaccinated","No dogs are vaccinated","All vaccinated animals are pets"],a:1,e:"Since some dogs are pets and all pets are vaccinated, those specific dogs are vaccinated."},
+  {id:23,t:"Analytical (25%)",q:"[Statement Based] No reptilian is warm-blooded. All birds are warm-blooded. What can be concluded?",o:["No bird is a reptile","Some birds are reptiles","All reptiles are birds","Some warm-blooded animals are reptiles"],a:0,e:"Birds are warm-blooded; reptiles are not $\implies$ disjoint sets."},
+  {id:24,t:"Analytical (25%)",q:"[Statement Based] If A > B and B > C, who is the shortest/smallest?",o:["A","B","C","Cannot be determined"],a:2,e:"Ordering is A > B > C, so C is smallest."},
+  {id:25,t:"Analytical (25%)",q:"[Statement Based] 'He is the only son of my grandfather's only son.' Who is he to the speaker?",o:["Brother or Himself","Uncle","Cousin","Father"],a:0,e:"Grandfather's only son = Father. Father's only son = Speaker himself or Brother."},
+  {id:26,t:"Analytical (25%)",q:"[Statement Based] Pointing to a photo, Ali says: 'Her mother is the only daughter of my mother.' How is Ali related to the girl?",o:["Father","Uncle (Maternal)","Brother","Grandfather"],a:1,e:"Only daughter of Ali's mother = Ali's sister. Her daughter = Ali's niece, so Ali is her maternal uncle."},
+  {id:27,t:"Analytical (25%)",q:"[Statement Based] Statement: 'Some roses are red. Some red things are beautiful.' Conclusion: 'Some roses are beautiful.'",o:["Logically follows","Does NOT logically follow","Definitely false","Always true"],a:1,e:"'Some' does not establish a necessary overlap between roses and beautiful things."},
+  {id:28,t:"Analytical (25%)",q:"[Statement Based] If COMPUTER is coded as RFUVQNPC, how is MEDICINE coded in that rule?",o:["EOJDJEFM","MFEJDJOE","MFEDJOJE","EOJDEJFM"],a:0,e:"Reverse order and +1 shift pattern."},
+  {id:29,t:"Analytical (25%)",q:"[Scenario Based] Five students (P, Q, R, S, T) sit in a row. R is to the immediate right of Q. S is between P and Q. T is at the extreme left. Who is sitting in the middle?",o:["P","Q","R","S"],a:1,e:"Order from left: T, P, S, Q, R. The middle student (3rd) is Q."},
+  {id:30,t:"Analytical (25%)",q:"[Scenario Based] Four friends (A, B, C, D) participate in a race. A finishes before B but after C. D finishes before C. Who won the race?",o:["A","B","C","D"],a:3,e:"Finish order from 1st to 4th: D, C, A, B. D won."},
+  {id:31,t:"Analytical (25%)",q:"[Scenario Based] In a office, A is taller than B, but shorter than C. D is taller than C. Who is the tallest?",o:["A","B","C","D"],a:3,e:"Height order: D > C > A > B. D is tallest."},
+  {id:32,t:"Analytical (25%)",q:"[Scenario Based] A team of 3 must be chosen from 5 members (K, L, M, N, O). If K is selected, L cannot be selected. If M is selected, N MUST be selected. If L is selected, who CANNOT be in the team?",o:["K","M","N","O"],a:0,e:"Constraint states: If K is selected, L cannot be selected (and vice versa)."},
+  {id:33,t:"Analytical (25%)",q:"[Scenario Based] Complete the series: 2, 6, 12, 20, 30, ?",o:["40","42","44","46"],a:1,e:"Differences: +4, +6, +8, +10, +12. 30 + 12 = 42."},
+  {id:34,t:"Analytical (25%)",q:"[Scenario Based] Complete the series: 1, 4, 9, 16, 25, ?",o:["30","36","49","64"],a:1,e:"Squares of natural numbers: $1^2, 2^2, 3^2, 4^2, 5^2, 6^2 = 36$."},
+  {id:35,t:"Analytical (25%)",q:"[Scenario Based] Complete the series: 1, 1, 2, 3, 5, 8, ?",o:["11","12","13","15"],a:2,e:"Fibonacci series: each term is the sum of previous two. 5 + 8 = 13."},
+  {id:36,t:"Analytical (25%)",q:"[Scenario Based] Complete the series: 2, 3, 5, 7, 11, 13, ?",o:["15","17","19","21"],a:1,e:"Prime number sequence. Next prime after 13 is 17."},
+  {id:37,t:"Analytical (25%)",q:"[Scenario Based] Complete the series: 100, 97, 91, 82, 70, ?",o:["55","58","60","52"],a:0,e:"Decreasing diffs: -3, -6, -9, -12, -15. 70 - 15 = 55."},
+  {id:38,t:"Analytical (25%)",q:"[Scenario Based] Complete the series: 3, 9, 27, 81, ?",o:["162","243","324","100"],a:1,e:"Geometric series multiplied by 3: $81 \times 3 = 243$."},
+  {id:39,t:"Analytical (25%)",q:"[Scenario Based] Complete the series: 5, 10, 20, 40, ?",o:["60","80","100","50"],a:1,e:"Doubling series: $40 \times 2 = 80$."},
+  {id:40,t:"Analytical (25%)",q:"[Statement Based] If ALL software developers write code, and NO code writers are illiterate, what can be inferred?",o:["No software developer is illiterate","All illiterate people write code","Some software developers do not write code","All code writers are software developers"],a:0,e:"Developers ⊂ Code Writers ⊂ Literate People. No developer is illiterate."},
+  {id:41,t:"Analytical (25%)",q:"[Scenario Based] Six people sit around a circular table. A is opposite to D. B is to the right of A. Where is C if C is opposite to B?",o:["Left of D","Right of D","Opposite to A","Next to A"],a:1,e:"Circular arrangement shows C is to the right of D."},
+  {id:42,t:"Analytical (25%)",q:"[Statement Based] 'Either X or Y is selected, but not both.' If X is selected, what happens to Y?",o:["Y is selected","Y is NOT selected","Y may be selected","Y must be selected"],a:1,e:"Exclusive OR condition means if X is chosen, Y cannot be chosen."},
+  {id:43,t:"Analytical (25%)",q:"[Scenario Based] A man walks 3 km North, then 4 km East. How far is he from his starting point?",o:["7 km","5 km","1 km","12 km"],a:1,e:"Pythagorean displacement: $\sqrt{3^2 + 4^2} = \sqrt{9 + 16} = 5$ km."},
+  {id:44,t:"Analytical (25%)",q:"[Scenario Based] A person walks 10m South, turns right and walks 10m, then turns left and walks 10m. Which direction is he facing?",o:["North","South","East","West"],a:1,e:"Facing South $\to$ turns right (West) $\to$ turns left (South). Facing South."},
+  {id:45,t:"Analytical (25%)",q:"[Statement Based] Statement: 'All engineers use computers.' Which statement is logically equivalent?",o:["If a person does not use a computer, they are not an engineer","If a person uses a computer, they are an engineer","No engineer uses a computer","Some engineers do not use computers"],a:0,e:"Contrapositive of 'A $\to$ B' is 'Not B $\to$ Not A' (logically equivalent)."},
+
+  // ================= QUANTITATIVE (25% -> 25 MCQs: Arithmetic, Algebra, Geometry) =================
+  {id:46,t:"Quantitative (25%)",q:"[Arithmetic] Worker A completes a job in 6 hours, Worker B in 12 hours. How long will it take working together?",o:["3 hours","4 hours","5 hours","9 hours"],a:1,e:"$T = \frac{6 \times 12}{6 + 12} = \frac{72}{18} = 4$ hours."},
+  {id:47,t:"Quantitative (25%)",q:"[Arithmetic] 20% of a number is 50. What is the number?",o:["200","250","300","150"],a:1,e:"$0.20 \times X = 50 \implies X = 50 / 0.20 = 250$."},
+  {id:48,t:"Quantitative (25%)",q:"[Arithmetic] The ratio of boys to girls is 3:2. If there are 30 boys, how many girls are there?",o:["15","20","25","10"],a:1,e:"$3/2 = 30/G \implies G = 30 \times 2 / 3 = 20$."},
+  {id:49,t:"Quantitative (25%)",q:"[Arithmetic] A car travels 120 km in 2 hours. What is its average speed in m/s?",o:["60 m/s","16.67 m/s","30 m/s","20 m/s"],a:1,e:"Speed = $120 / 2 = 60$ km/h. In m/s: $60 / 3.6 = 16.67$ m/s."},
+  {id:50,t:"Quantitative (25%)",q:"[Arithmetic] Simple interest on Rs. 5000 at 10% per annum for 3 years is:",o:["Rs. 1000","Rs. 1500","Rs. 500","Rs. 2000"],a:1,e:"$SI = (P \times R \times T)/100 = (5000 \times 10 \times 3)/100 = 1500$."},
+  {id:51,t:"Quantitative (25%)",q:"[Arithmetic] What is 15% of 200?",o:["15","20","30","45"],a:2,e:"$0.15 \times 200 = 30$."},
+  {id:52,t:"Quantitative (25%)",q:"[Arithmetic] Average of 10, 20, 30, 40, 50 is:",o:["25","30","35","40"],a:1,e:"Sum $= 150$. Average $= 150 / 5 = 30$."},
+  {id:53,t:"Quantitative (25%)",q:"[Arithmetic] A train 100m long crosses a pole in 5 seconds. What is its speed in km/h?",o:["72 km/h","36 km/h","20 km/h","100 km/h"],a:0,e:"Speed $= 100/5 = 20$ m/s. In km/h: $20 \times 3.6 = 72$ km/h."},
+  {id:54,t:"Quantitative (25%)",q:"[Arithmetic] HCF of 12 and 18 is:",o:["2","3","6","36"],a:2,e:"Greatest common divisor of 12 and 18 is 6."},
+  {id:55,t:"Quantitative (25%)",q:"[Arithmetic] LCM of 4 and 6 is:",o:["2","12","24","48"],a:1,e:"Smallest multiple divisible by both 4 and 6 is 12."},
+  {id:56,t:"Quantitative (25%)",q:"[Arithmetic] If an item bought for Rs. 400 is sold for Rs. 500, what is the profit percentage?",o:["20%","25%","15%","30%"],a:1,e:"Profit $= 100$. Profit $\% = (100/400) \times 100 = 25\%$."},
+  {id:57,t:"Quantitative (25%)",q:"[Arithmetic] If $x:y = 2:3$ and $y:z = 4:5$, what is $x:y:z$?",o:["2:3:5","8:12:15","4:6:5","8:10:15"],a:1,e:"Make $y$ equal: $x:y = 8:12$, $y:z = 12:15 \implies 8:12:15$."},
+  {id:58,t:"Quantitative (25%)",q:"[Algebra] If $3x + 7 = 22$, then $x = $?",o:["3","5","7","15"],a:1,e:"$3x = 15 \implies x = 5$."},
+  {id:59,t:"Quantitative (25%)",q:"[Algebra] What are the roots of $x^2 - 5x + 6 = 0$?",o:["x = 1, 6","x = 2, 3","x = -2, -3","x = -1, -6"],a:1,e:"$(x-2)(x-3) = 0 \implies x = 2, 3$."},
+  {id:60,t:"Quantitative (25%)",q:"[Algebra] For equation $2x^2 - 8x + 5 = 0$, the sum of roots is:",o:["-4","4","5/2","-5/2"],a:1,e:"Sum of roots $= -b/a = -(-8)/2 = 4$."},
+  {id:61,t:"Quantitative (25%)",q:"[Algebra] For equation $3x^2 + 6x + 12 = 0$, the product of roots is:",o:["2","4","6","12"],a:1,e:"Product of roots $= c/a = 12/3 = 4$."},
+  {id:62,t:"Quantitative (25%)",q:"[Algebra] Solve inequality: $-2x + 4 < 10$",o:["x < -3","x > -3","x > 3","x < 3"],a:1,e:"$-2x < 6 \implies x > -3$ (flip inequality when dividing by negative)."},
+  {id:63,t:"Quantitative (25%)",q:"[Algebra] The 10th term of AP: 2, 5, 8, ... is:",o:["27","29","31","33"],a:1,e:"$a_n = a + (n-1)d = 2 + 9(3) = 2 + 27 = 29$."},
+  {id:64,t:"Quantitative (25%)",q:"[Algebra] If $x + y = 10$ and $x - y = 4$, then $x \times y = $?",o:["21","24","16","25"],a:0,e:"$2x = 14 \implies x = 7, y = 3$. Product $= 7 \times 3 = 21$."},
+  {id:65,t:"Quantitative (25%)",q:"[Algebra] Expand $(2x - 3)^2$:",o:["4x² - 9","4x² - 12x + 9","4x² + 12x + 9","4x² - 6x + 9"],a:1,e:"$(2x)^2 - 2(2x)(3) + 3^2 = 4x^2 - 12x + 9$."},
+  {id:66,t:"Quantitative (25%)",q:"[Geometry] The area of a circle with radius 7 cm is (use $\pi = 22/7$):",o:["44 cm²","154 cm²","49 cm²","308 cm²"],a:1,e:"Area $= \pi r^2 = (22/7) \times 49 = 154$ cm²."},
+  {id:67,t:"Quantitative (25%)",q:"[Geometry] Circumference of a circle with diameter 14 cm is:",o:["44 cm","88 cm","154 cm","28 cm"],a:0,e:"Circumference $= \pi d = (22/7) \times 14 = 44$ cm."},
+  {id:68,t:"Quantitative (25%)",q:"[Geometry] In a right-angled triangle, base = 6 cm, height = 8 cm. Hypotenuse = ?",o:["10 cm","12 cm","14 cm","100 cm"],a:0,e:"Hypotenuse $= \sqrt{6^2 + 8^2} = \sqrt{36 + 64} = 10$ cm."},
+  {id:69,t:"Quantitative (25%)",q:"[Geometry] The sum of interior angles of a pentagon (5 sides) is:",o:["360°","540°","720°","180°"],a:1,e:"Sum $= (n-2) \times 180^\circ = (5-2) \times 180^\circ = 540^\circ$."},
+  {id:70,t:"Quantitative (25%)",q:"[Geometry] Slope of line joining points (2, 3) and (4, 11) is:",o:["2","4","8","6"],a:1,e:"$m = (11 - 3)/(4 - 2) = 8 / 2 = 4$."},
+
+  // ================= SUBJECT: PHYSICS (10% -> 10 MCQs) =================
+  {id:71,t:"Physics (10%)",q:"Which of the following is a scalar quantity?",o:["Force","Velocity","Mass","Acceleration"],a:2,e:"Mass has magnitude only (scalar)."},
+  {id:72,t:"Physics (10%)",q:"Maximum range of a projectile is achieved at what angle of projection?",o:["30°","45°","60°","90°"],a:1,e:"Range is maximum at 45°."},
+  {id:73,t:"Physics (10%)",q:"At the highest point of projectile motion, the vertical velocity component is:",o:["Maximum","Zero","Equal to initial velocity","Negative"],a:1,e:"Vertical velocity becomes zero at maximum height."},
+  {id:74,t:"Physics (10%)",q:"Work done by a force is zero when the angle between force and displacement is:",o:["0°","45°","90°","180°"],a:2,e:"$W = F d \cos(90^\circ) = 0$."},
+  {id:75,t:"Physics (10%)",q:"Kinetic energy of a 2 kg object moving at 3 m/s is:",o:["6 J","9 J","12 J","18 J"],a:1,e:"$KE = \frac{1}{2} m v^2 = \frac{1}{2}(2)(9) = 9$ J."},
+  {id:76,t:"Physics (10%)",q:"According to Ohm's law, voltage $V =$?",o:["I / R","I \times R","I^2 R","R / I"],a:1,e:"$V = I \times R$."},
+  {id:77,t:"Physics (10%)",q:"Two resistors of 6 $\Omega$ and 3 $\Omega$ are connected in parallel. Equivalent resistance is:",o:["9 $\Omega$","2 $\Omega$","18 $\Omega$","4.5 $\Omega$"],a:1,e:"$1/R = 1/6 + 1/3 = 3/6 \implies R = 2\ \Omega$."},
+  {id:78,t:"Physics (10%)",q:"Sound waves in air are:",o:["Transverse","Longitudinal","Electromagnetic","Stationary"],a:1,e:"Sound propagates via compressions and rarefactions (longitudinal)."},
+  {id:79,t:"Physics (10%)",q:"Photoelectric effect equation is $hf =$?",o:["\Phi - KE_{\text{max}}","\Phi + KE_{\text{max}}","KE_{\text{max}} / \Phi","\Phi \times KE_{\text{max}}"],a:1,e:"Photon energy = Work function + Max Kinetic Energy."},
+  {id:80,t:"Physics (10%)",q:"First law of thermodynamics is a statement of conservation of:",o:["Momentum","Mass","Energy","Charge"],a:2,e:"$\Delta Q = \Delta U + W$ represents conservation of energy."},
+
+  // ================= SUBJECT: COMPUTER SCIENCE (10% -> 10 MCQs) =================
+  {id:81,t:"Computer (10%)",q:"What is the decimal equivalent of binary number 1101₂?",o:["11","13","15","9"],a:1,e:"$1101_2 = 8 + 4 + 0 + 1 = 13_{10}$."},
+  {id:82,t:"Computer (10%)",q:"Which logic gate outputs HIGH (1) ONLY when both inputs are HIGH (1)?",o:["OR","AND","NAND","XOR"],a:1,e:"AND gate truth table requires both inputs to be 1."},
+  {id:83,t:"Computer (10%)",q:"According to De Morgan's Law, $\overline{A \cdot B} =$?",o:["\bar{A} \cdot \bar{B}","\bar{A} + \bar{B}","A + B","A \cdot B"],a:1,e:"$\overline{A \cdot B} = \bar{A} + \bar{B}$."},
+  {id:84,t:"Computer (10%)",q:"What is the output of C expression `7 % 3`?",o:["2","1","2.33","0"],a:1,e:"Modulus operator `%` returns remainder of integer division ($7 / 3 = 2$ remainder 1)."},
+  {id:85,t:"Computer (10%)",q:"Which data structure operates on LIFO (Last In First Out) principle?",o:["Queue","Stack","Array","Tree"],a:1,e:"Stack is LIFO; Queue is FIFO."},
+  {id:86,t:"Computer (10%)",q:"How many bits make up 1 Byte?",o:["4","8","16","32"],a:1,e:"1 Byte = 8 bits."},
+  {id:87,t:"Computer (10%)",q:"Which OSI layer is responsible for IP Addressing and Routing?",o:["Data Link","Network","Transport","Application"],a:1,e:"Layer 3 (Network Layer) handles IP routing."},
+  {id:88,t:"Computer (10%)",q:"Which loop is guaranteed to execute AT LEAST ONCE even if the condition is false?",o:["for loop","while loop","do-while loop","foreach loop"],a:2,e:"`do-while` checks condition at the end (exit-controlled)."},
+  {id:89,t:"Computer (10%)",q:"In C/C++, which operator is used to access the memory address of a variable?",o:["*","&","->","%"],a:1,e:"`&` is the address-of operator; `*` is dereference operator."},
+  {id:90,t:"Computer (10%)",q:"Hexadecimal number system has a base of:",o:["8","10","16","2"],a:2,e:"Hexadecimal uses base 16 (digits 0-9 and letters A-F)."},
+
+  // ================= SUBJECT: MATHEMATICS (10% -> 10 MCQs) =================
+  {id:91,t:"Mathematics (10%)",q:"What is $\frac{d}{dx}(x^5)$?",o:["4x³","5x⁴","5x⁶","x⁴"],a:1,e:"Power rule: $d/dx(x^n) = n x^{n-1} \implies 5x^4$."},
+  {id:92,t:"Mathematics (10%)",q:"What is $\frac{d}{dx}(\sin(3x))$?",o:["\cos(3x)","-3\cos(3x)","3\cos(3x)","-\cos(3x)"],a:2,e:"Chain rule: $\cos(3x) \cdot 3 = 3\cos(3x)$."},
+  {id:93,t:"Mathematics (10%)",q:"Evaluate $\int x^3 dx$:",o:["3x² + C","x⁴/4 + C","x⁴ + C","x²/2 + C"],a:1,e:"Integration power rule: $x^{3+1}/(3+1) = x^4/4 + C$."},
+  {id:94,t:"Mathematics (10%)",q:"Evaluate definite integral $\int_0^2 x^2 dx$:",o:["4","8/3","2","4/3"],a:1,e:"$[x^3/3]_0^2 = 8/3 - 0 = 8/3$."},
+  {id:95,t:"Mathematics (10%)",q:"Trigonometric identity $\sin^2\theta + \cos^2\theta =$?",o:["0","1","-1","2"],a:1,e:"Fundamental Pythagorean identity equals 1."},
+  {id:96,t:"Mathematics (10%)",q:"For a 3x3 matrix $A$ with $|A| = 5$, what is $|2A|$?",o:["10","20","40","80"],a:2,e:"$|k A| = k^n |A| = 2^3 \times 5 = 8 \times 5 = 40$."},
+  {id:97,t:"Mathematics (10%)",q:"If determinant $|A| = 0$, matrix $A$ is called:",o:["Identity matrix","Singular matrix","Symmetric matrix","Orthogonal matrix"],a:1,e:"Matrix with zero determinant is singular (non-invertible)."},
+  {id:98,t:"Mathematics (10%)",q:"If $\omega$ is a complex cube root of unity, what is $1 + \omega + \omega^2$?",o:["1","-1","0","3"],a:2,e:"Sum of cube roots of unity equals 0."},
+  {id:99,t:"Mathematics (10%)",q:"Eccentricity of a parabola is:",o:["e = 0","0 < e < 1","e = 1","e > 1"],a:2,e:"Parabola eccentricity $e = 1$."},
+  {id:100,t:"Mathematics (10%)",q:"Dot product of two perpendicular vectors is:",o:["1","-1","0","Magnitude product"],a:2,e:"$\vec{a} \cdot \vec{b} = |a||b|\cos(90^\circ) = 0$."}
 ];
 
-const traps=[
-{t:"Chain Rule Forgotten",d:"When differentiating sin(3x), answer is 3cos(3x) NOT cos(3x). Always multiply by derivative of inner function. This catches 40% of students!",i:"⛓️"},
-{t:"Integration Sign Errors",d:"∫sin(x)dx = −cos(x)+C, NOT +cos(x)+C. The negative sign is the #1 integration mistake.",i:"±"},
-{t:"Determinant Scalar Property",d:"|kA| = kⁿ|A| for n×n matrix, NOT k|A|. If A is 3×3 and |A|=5, then |2A| = 2³×5 = 40, NOT 10.",i:"📐"},
-{t:"Cube Roots of Unity Powers",d:"Reduce power by dividing by 3: ω¹⁰⁰ → 100÷3 = 33 R 1 → ω¹. So ω¹⁰⁰+ω²⁰⁰ = ω+ω² = −1.",i:"🔄"},
-{t:"Odd Function Integral Shortcut",d:"∫₋ₐᵃ f(x)dx = 0 if f(x) is odd (like x³, sinx). Check symmetry first — saves 2-3 minutes!",i:"⚡"},
-{t:"Series vs Parallel: R vs C",d:"Resistors SERIES: add up. Capacitors SERIES: reciprocal. They are OPPOSITE! R and C swap rules.",i:"🔌"},
-{t:"Projectile Complementary Angles",d:"30° and 60° give SAME range. 15° and 75° too. Pairs summing to 90° = equal range.",i:"🎯"},
-{t:"Perpendicular vs Parallel Vectors",d:"Perpendicular: DOT product = 0. Parallel: CROSS product = 0. DOT=PERP, CROSS=PARALLEL.",i:"↕️"},
-{t:"Sum vs Product of Roots",d:"Sum = −b/a (NEGATIVE!), Product = c/a. The negative sign in sum is the most common trap.",i:"🌿"},
-{t:"No Negative Marking = Guess Everything",d:"AU-CBT has NO negative marking! Never leave blank. Random guessing = 25% chance. Last 2 min: pick 'C' for all unanswered.",i:"🎰"},
-{t:"Since vs For (English)",d:"'Since' = specific time point (since 1990). 'For' = duration (for 3 years). Appears in EVERY test.",i:"📝"},
-{t:"L'Hôpital's Shortcut",d:"If limit gives 0/0 or ∞/∞, differentiate top and bottom separately. Saves huge calculation time.",i:"🚀"}
+const traps = [
+  {t:"Quantitative: Inequality Flip",d:"When multiplying or dividing an inequality by a NEGATIVE number, you MUST flip the inequality sign! E.g. -2x < 6 becomes x > -3.",i:"⚠️"},
+  {t:"Quantitative: Average Speed Trap",d:"Average speed for equal distances at speeds A and B is NOT (A+B)/2! Use Harmonic Mean: 2AB/(A+B).",i:"🚗"},
+  {t:"Analytical: 'Some' vs 'All'",d:"In syllogisms, 'Some' means AT LEAST ONE, not all. 'All A are B' does NOT mean 'All B are A'.",i:"🧩"},
+  {t:"English: Preposition Rules",d:"Always use 'good AT' (not in), 'accused OF' (not with), 'comply WITH' (not to), 'differ FROM' (not than).",i:"📝"},
+  {t:"Physics: Projectile Complementary Angles",d:"Angles summing to 90° (like 30° and 60°) produce the EXACT SAME horizontal range!",i:"🎯"},
+  {t:"CS: Modulus % Returns Remainder",d:"The % operator in C/C++ returns the remainder of integer division, NOT the quotient. 7 % 3 = 1.",i:"💻"},
+  {t:"Math: Scalar Determinant Rule",d:"For an n x n matrix, |kA| = k^n |A|, NOT k|A|. For a 3x3 matrix with |A|=5, |2A| = 2^3 * 5 = 40!",i:"📐"},
+  {t:"No Negative Marking",d:"AU-CBT has NO negative marking. NEVER leave a single question blank. Guess if you run short on time!",i:"🎰"}
 ];
 
-const topicEmojis={"Differentiation":"📐","Integration":"∫","Functions & Limits":"📊","Trigonometry":"📏","Matrices & Determinants":"🔢","Quadratics & Complex Numbers":"💠","Sequences & Series":"🔗","Conic Sections":"🎯","Vectors":"➡️","Permutations & Probability":"🎲","Quantitative Reasoning":"🧮","Analytical Reasoning":"🧩"};
+const topicEmojis = {
+  "English (20%)": "📖",
+  "Analytical (25%)": "🧩",
+  "Quantitative (25%)": "🧮",
+  "Physics (10%)": "⚡",
+  "Computer (10%)": "💻",
+  "Mathematics (10%)": "📐"
+};
 
-const SK='aucbt1';
+const SK='aucbt_official_cs';
 let S=JSON.parse(localStorage.getItem(SK))||{ans:{},streak:0,best:0,mocks:[]};
 function save(){localStorage.setItem(SK,JSON.stringify(S))}
 const topics=[...new Set(Q.map(q=>q.t))];
@@ -432,9 +302,9 @@ function renderTopics(){
   const g=document.getElementById('topicsGrid');g.innerHTML='';
   topics.forEach((t,i)=>{
     const qs=Q.filter(q=>q.t===t),done=qs.filter(q=>S.ans[q.id]).length,
-          cor=qs.filter(q=>S.ans[q.id]?.c).length,pct=done?Math.round(cor/done*100):0;
+          cor=qs.filter(q=>S.ans[q.id]?.c).length;
     const d=document.createElement('div');d.className='topic-card';d.onclick=()=>openTopic(t);
-    d.innerHTML=`<div class="tc-num">Topic ${i+1}</div><div class="tc-name">${t}</div>
+    d.innerHTML=`<div class="tc-num">Section ${i+1}</div><div class="tc-name">${t}</div>
       <div class="tc-emoji">${topicEmojis[t]||'📚'}</div>
       <div class="tc-bar"><div class="tc-count">${done}/${qs.length} done</div>
       <div class="tc-prog"><div class="tc-prog-fill" style="width:${done?done/qs.length*100:0}%"></div></div></div>`;
@@ -447,7 +317,7 @@ function openTopic(tn){
   document.getElementById('panel-topic-detail').classList.add('active');
   document.getElementById('tdTitle').textContent=tn;
   const qs=Q.filter(q=>q.t===tn);
-  document.getElementById('tdSub').textContent=qs.length+' questions';
+  document.getElementById('tdSub').textContent=qs.length+' exam questions';
   const c=document.getElementById('tdQs');c.innerHTML='';
   qs.forEach(q=>c.appendChild(mkQ(q)));
 }
@@ -493,7 +363,7 @@ function renderAll(){
   if(sf==='correct')f=f.filter(q=>S.ans[q.id]?.c);
   if(sf==='wrong')f=f.filter(q=>S.ans[q.id]&&!S.ans[q.id].c);
   const c=document.getElementById('allQs');c.innerHTML='';
-  if(!f.length){c.innerHTML='<div class="w-empty"><div class="icon">🔍</div><p>No questions match.</p></div>';return;}
+  if(!f.length){c.innerHTML='<div class="w-empty"><div class="icon">🔍</div><p>No questions match your filter.</p></div>';return;}
   f.forEach(q=>c.appendChild(mkQ(q)));
 }
 
@@ -522,8 +392,7 @@ function resetMock(){
 }
 function startMock(){
   const n=+document.getElementById('mCount').value,mins=+document.getElementById('mTimer').value;
-  const sh=[...Q].sort(()=>Math.random()-.5);
-  M={qs:sh.slice(0,n),cur:0,ans:{},timer:null,sec:mins*60};
+  M={qs:[...Q].slice(0,n),cur:0,ans:{},timer:null,sec:mins*60};
   document.getElementById('mockSetup').style.display='none';
   document.getElementById('mockActive').style.display='block';
   document.getElementById('mockResults').style.display='none';
@@ -556,7 +425,7 @@ function renderMQ(){
   a.appendChild(d);
   document.getElementById('mPrev').disabled=M.cur===0;
   const nb=document.getElementById('mNext');
-  if(M.cur===M.qs.length-1){nb.textContent='Finish';nb.onclick=finishMock;}
+  if(M.cur===M.qs.length-1){nb.textContent='Finish Test';nb.onclick=finishMock;}
   else{nb.textContent='Next →';nb.onclick=()=>mockNav(1);}
 }
 function pickM(id,idx){M.ans[id]=idx;renderMQ();}
@@ -574,23 +443,22 @@ function finishMock(){
   });
   save();updateH();
   const tot=M.qs.length,pct=Math.round(cor/tot*100);
-  let g='U';if(pct>=90)g='A*';else if(pct>=80)g='A';else if(pct>=70)g='B';
-  else if(pct>=60)g='C';else if(pct>=50)g='D';else if(pct>=40)g='E';else if(pct>=30)g='F';else if(pct>=20)g='G';
+  let g='U';if(pct>=85)g='A* (Selected for AU CS/AI!)';else if(pct>=75)g='A (High Merit Range)';else if(pct>=65)g='B';else if(pct>=50)g='C';
   let bd='';
   Object.entries(ts).sort((a,b)=>(a[1].c/a[1].n)-(b[1].c/b[1].n)).forEach(([t,s])=>{
     const p=Math.round(s.c/s.n*100);
     bd+=`<div class="res-item"><div class="ri-t">${t}</div><div class="ri-s" style="color:${p>=70?'var(--correct)':p>=50?'var(--warn)':'var(--wrong)'}">${s.c}/${s.n} (${p}%)</div></div>`;
   });
   document.getElementById('mockResults').innerHTML=`<div class="res-card">
-    <h2 style="font-size:1.1rem;color:var(--text3);font-weight:500">Mock Test Complete</h2>
+    <h2 style="font-size:1.1rem;color:var(--text3);font-weight:500">Official CBT Simulation Complete</h2>
     <div class="res-score">${pct}%</div>
-    <div class="res-grade" style="color:${pct>=60?'var(--correct)':'var(--wrong)'}">Grade: ${g}</div>
-    <div class="res-detail">${cor} / ${tot} correct</div>
+    <div class="res-grade" style="color:${pct>=75?'var(--correct)':'var(--wrong)'}">${g}</div>
+    <div class="res-detail">${cor} / ${tot} Correct Answers</div>
     <div class="btns" style="justify-content:center;margin-bottom:24px">
-      <button class="btn btn-p" onclick="reviewMock()">📝 Review</button>
-      <button class="btn btn-s" onclick="resetMock()">🔄 New Test</button>
+      <button class="btn btn-p" onclick="reviewMock()">📝 Review Answers</button>
+      <button class="btn btn-s" onclick="resetMock()">🔄 Retake Test</button>
     </div>
-    <h3 style="text-align:left;font-size:.9rem;margin-bottom:14px;color:var(--text3)">Topic Breakdown</h3>
+    <h3 style="text-align:left;font-size:.9rem;margin-bottom:14px;color:var(--text3)">Section Performance Breakdown</h3>
     <div class="res-grid">${bd}</div></div>`;
   if(pct>=70)launchConfetti();
   S.mocks.push({d:Date.now(),s:pct,g,tot,cor});save();

@@ -1,37 +1,38 @@
-# 🎯 AU-CBT Master — Air University Entry Test MCQ Practice
+# 🎯 AU-CBT Master — Air University CS Group Entry Test App
 
-**260 MCQs** for Air University Computer Based Test (AU-CBT) preparation for **BS Computer Science / BS Artificial Intelligence** programs.
-
-> **No negative marking** → Never leave a question blank!
-
-## 📊 Test Pattern
-| Section | Weight | Questions |
-|---|---|---|
-| Mathematics | 30% | Calculus, Algebra, Trig, Matrices |
-| Physics | 25% | Mechanics, Electricity, Modern Physics |
-| English | 20% | Vocabulary, Grammar, Analogies |
-| Analytical Reasoning | 25% | Series, Logic, Relations |
-
-## 🚀 Features
-- ✅ **260 MCQs** across 26 topics (2 parts)
-- 🎯 **Mock Tests** with timer (simulates real 120-min CBT)
-- 📊 **Progress Tracking** — auto-saves to browser
-- ⚡ **Weak Areas** — focus on topics below 70%
-- 🪤 **22 Examiner Traps** — avoid common mistakes
-- 🔥 **Streak Counter** — stay motivated
-- 🎉 **Confetti Animations** — celebrate correct answers
-- 📱 **Mobile Responsive** — practice anywhere
-
-## 📁 Structure
-- `index.html` — **Part 1**: Math, Quantitative & Analytical (130 MCQs)
-- `mcqs-part2.html` — **Part 2**: Physics, English & Analytical (130 MCQs)
-
-## 🏆 Strategy
-1. Start with **English** (quick marks, 20%)
-2. Then **Analytical** (pattern recognition, 25%)
-3. Then **Math** (highest weight, 30%)
-4. Finally **Physics** (calculations, 25%)
-5. **NEVER leave blank** — guess if unsure!
+**200 High-Yield MCQs** aligned 100% with the **Official Air University CBT Pattern** for Candidates in the Computer Science Group (BS CS / BS AI).
 
 ---
-Built with ❤️ for AU-CBT 2026 aspirants.
+
+## 📊 Official AU-CBT Test Breakdown (CS Group)
+
+| Section | Official Weightage | MCQs per 100-Q Test | Sub-topics |
+|---|---|---|---|
+| **Quantitative** | **25%** | **25 MCQs** | Arithmetic, Algebra, Geometry |
+| **Analytical** | **25%** | **25 MCQs** | Scenario Based, Statements Based |
+| **English** | **20%** | **20 MCQs** | Sentence Completion, Analogy, Antonym, Synonym, Comprehension |
+| **Physics** | **10%** | **10 MCQs** | Kinematics, Energy, Electricity, Waves |
+| **Computer** | **10%** | **10 MCQs** | Number Systems, Logic Gates, C++ Syntax, Data Structures, Networks |
+| **Mathematics** | **10%** | **10 MCQs** | Calculus, Integrals, Matrices, Trigonometry, Conics |
+| **TOTAL** | **100%** | **100 MCQs** | **120 Minutes Duration** |
+
+---
+
+## 🚀 App Structure
+
+- 📄 `index.html` — **Official 100-Question CBT Mock Simulator (Set 1)**
+- 📄 `mcqs-part2.html` — **Official 100-Question CBT Mock Simulator (Set 2)**
+
+---
+
+## 🔥 Key Features
+
+- 🎯 **120-Minute Real Exam Timer**
+- 📊 **Section Performance Breakdown**
+- ⚡ **Weak Area Detection**
+- 🪤 **Common Examiner Traps & Shortcuts**
+- 💾 **Local Progress Saving**
+- 🎉 **Confetti & Streak Rewards**
+
+---
+*No negative marking — attempt all 100 questions on exam day!*
